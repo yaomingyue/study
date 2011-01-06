@@ -1,36 +1,69 @@
 #include <unistd.h>
+
 #include <stdlib.h>
+
 #include <stdio.h>
+
 #include <string.h>
+
 #include <time.h>
+
 #include <sys/time.h>
+
 #include <curses.h>
+
 #include <pthread.h>
+
 #include <semaphore.h>
+
 #include <signal.h>
+
 void *checkkey (void *arg);
+
 void *changekey (void *arg);
+
 void *isover (void *arg);
+
 WINDOW *a_win,*b_win,*c_win;
+
 pthread_t main_tid;
+
 sem_t sem_one,sem_two;
+
 int location,hit=0,n=400000,FLAG=1,hited_num=0,typed_num=0;
+
 void contin ()
+
 {
+
         touchwin(a_win);wrefresh(a_win);
+
 }
+
 void paus ()
+
 {
+
         touchwin(b_win);wrefresh(b_win);
+
         pause();
+
 }
+
 void game_over ()
+
 {
+
         touchwin(c_win);wrefresh(c_win);
+
         pause();
+
         FLAG=0;
+
         return;
+
 }
+
 void stop (int usec)
 
 {
