@@ -50,10 +50,91 @@ int main(int argc, const char *argv[])
    p = mmap(NULL,1024*768*4,PROT_WRITE,MAP_SHARED,fd,0);
 
 
+   
+   for (j = 0; j < 768; j++) 
+       for (i = 0; i < 1024; i++) 
+            dis_px(i,j,p,k2);
 
+   for (j = 0; j < 384; j++) 
+       for (i = 0; i < 512; i++) 
+       for (k = 0; k < 4; k++) 
+       {
+        p[j*1024*4+i*4+k] = k2[j*1024*4*2+i*4*2+k];
+       }
+       sleep(5);
+
+    k = 0;
+   //show as circle
+    while(k<640)
+    {
+         for (j = 0; j < 768; j++) 
+                for (i = 0; i < 1024; i++) 
+                    if(((i-512)*(i-512)+(j-384)*(j-384)>=k*k)&&((i-512)*(i-512)+(j-384)*(j-384)<(k+1)*(k+1)))
+                    dis_px(i,j,p,kkkk);
+         k++;
+    }
+   
+       k = 0; 
+   //show as circle
+    while(k<640)
+    {
+         for (j = 0; j < 768; j++) 
+                for (i = 0; i < 1024; i++) 
+                    if(((i-512)*(i-512)+(j-384)*(j-384)<k*k))
+                    dis_px(i,j,p,k2);
+         k++;
+    }
+    
+   //show as spuar 
+   for (k = 0; k < 383; k++) 
+   {
+       for (j = 384-k; j <= 384+k; j++) 
+       {
+            dis_px(512+k,j,p,kkkk);
+            dis_px(512-k,j,p,kkkk);
+       }
+       for (i = 512-k; i <= 512+k; i++) 
+       {
+            dis_px(i,384+k,p,kkkk);
+            dis_px(i,384-k,p,kkkk);
+       }
+       usleep(3000);
+   }
+   for (i = 383; i < 511; i++) 
+   {
        for (j = 0; j < 768; j++) 
-            for (i = 0; i < 1024; i++) 
-                dis_px(i,j,p,kkkk);
+       {
+            dis_px(i+512,j,p,kkkk);
+            dis_px(512-i,j,p,kkkk);
+       }
+       usleep(3000);
+   }
+
+
+
+    //up and down
+   for (j = 0; j < 383; j++) 
+   {
+       for (i = 0; i < 1024; i++) 
+       {
+            dis_px(i,383+j,p,k2);
+            dis_px(i,383-j,p,k2);
+       }
+       usleep(3000);
+   }
+   //left and right
+   for (i = 0; i < 511; i++) 
+   {
+       for (j = 0; j < 768; j++) 
+       {
+            dis_px(i+512,j,p,kkkk);
+            dis_px(512-i,j,p,kkkk);
+       }
+       usleep(3000);
+   }
+
+       //down
+
        for (j = 0; j < 768; j++) 
        {
             for (i = 0; i < 1024; i++) 
@@ -61,34 +142,20 @@ int main(int argc, const char *argv[])
             usleep(3000);
        }
 
-
-
-
-       for (j = 0; j < 768; j++) 
-            for (i = 0; i < 1024; i++) 
-                dis_px(i,j,p,kkkk);
-       
+      //ringt 
        for (i = 0; i < 1024; i++) 
        {
             for (j = 0; j < 768; j++) 
-                dis_px(i,j,p,k2);
+                dis_px(i,j,p,kkkk);
             usleep(3000);
        }
-
-      memset(p,0,1024*768*4);
-     
-
-       for (j = 0; j < 768; j++) 
-            for (i = 0; i < 1024; i++) 
-                if(((i-512)*(i-512)+(j-384)*(j-384)>10000)&&((i-512)*(i-512)+(j-384)*(j-384)<40000))
-                dis_px(i,j,p,kkkk);
-    
 
 
 
    sleep(10);
    memset(p,0,1024*768*4);
-    
+   
+   close(fd); 
     return 0;
 }
 
