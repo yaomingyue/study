@@ -1,0 +1,85 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BORD	mouse.c	11;"	d	file:
+BUFFER_SIZE	server.c	16;"	d	file:
+CHESS_COLOR	main.h	13;"	d
+CHESS_SIZE	main.h	12;"	d
+C_HEIGH	mouse.c	14;"	d	file:
+C_WIDTH	mouse.c	13;"	d	file:
+P_NUM	main.h	6;"	d
+SERVER_PORT	server.c	15;"	d	file:
+SPACE	main.h	4;"	d
+START_X	main.h	7;"	d
+START_Y	main.h	8;"	d
+T_	mouse.c	10;"	d	file:
+V_NUM	main.h	5;"	d
+X_	mouse.c	9;"	d	file:
+_MAIN_H_	main.h	2;"	d
+board	chess.c	/^char board[P_NUM*V_NUM];$/;"	v
+bpp	main.h	/^    int bpp;$/;"	m	struct:__anon1
+buffer	server.c	/^unsigned char buffer[BUFFER_SIZE];$/;"	v
+button	main.h	/^    int button; $/;"	m	struct:__anon2
+c	server.c	/^char c;$/;"	v
+check_won	chess.c	/^void check_won(int x0, int y0)$/;"	f
+chess_print	chess.c	/^int chess_print(int x, int y)$/;"	f
+choose_color	chess.c	/^int choose_color(int x, int y)$/;"	f
+client	server.c	/^struct sockaddr_in server,client;$/;"	v	typeref:struct:
+client_len	server.c	/^socklen_t client_len;$/;"	v
+color_choice	chess.c	/^u32_t color_choice = 0xffffffff;;$/;"	v
+create_scr_fb	main.c	/^void create_scr_fb( void)$/;"	f
+cursor_pixel	mouse.c	/^static u32_t cursor_pixel[C_WIDTH*C_HEIGH]={$/;"	v	file:
+cx	server.c	/^int cx, cy;$/;"	v
+cy	server.c	/^int cx, cy;$/;"	v
+dest	server.c	/^char dest;$/;"	m	struct:__anon3	file:
+draw_cursor	mouse.c	/^int draw_cursor(int x, int y)$/;"	f
+dx	main.h	/^    int dx;$/;"	m	struct:__anon2
+dy	main.h	/^    int dy;$/;"	m	struct:__anon2
+dz	main.h	/^    int dz;$/;"	m	struct:__anon2
+fb_circle	chess.c	/^int fb_circle(int x0, int y0, int r, u32_t color)$/;"	f
+fb_line	base_shap.c	/^void fb_line(int x1, int y1, int x2, int y2, u32_t color)$/;"	f
+fb_v	main.c	/^v_info_t fb_v;$/;"	v
+fbmem	main.h	/^    void *fbmem;$/;"	m	struct:__anon1
+get	main.c	/^int get(int *x, int *y)$/;"	f
+get_m_info	mouse.c	/^int get_m_info(int fd, m_event *event)$/;"	f
+h	main.h	/^    int h;$/;"	m	struct:__anon1
+i	server.c	/^int i,len;$/;"	v
+in	server.c	/^struct in_addr in;$/;"	v	typeref:struct:in_addr
+k2	k2.c	/^const unsigned char k2[3145736] = { 0X10,0X20,0X04,0X00,0X03,0X00,0X00,0XE4,$/;"	v
+k2	kk.c	/^const unsigned char k2[3145728] = { \/* 0X00,0X20,0X00,0X04,0X00,0X03,0X00,0X1B, *\/$/;"	v
+len	server.c	/^char len;$/;"	m	struct:__anon3	file:
+len	server.c	/^int i,len;$/;"	v
+m_event	main.h	/^}m_event;$/;"	t	typeref:struct:__anon2
+main	main.c	/^int main(void)$/;"	f
+mouse_doing	mouse.c	/^int mouse_doing(void)$/;"	f
+msg	server.c	/^}msg;$/;"	t	typeref:struct:__anon3	file:
+one_pixel	main.c	/^void one_pixel(int x, int y, u32_t color)$/;"	f
+p	server.c	/^msg *p = (msg *)buffer;$/;"	v
+para	makefile	/^para = -Wall$/;"	m
+print_board	board.c	/^void print_board(int h_num, int v_num, v_info_t fb_v)$/;"	f
+print_choice	mouse.c	/^int print_choice(void)$/;"	f
+receive_msg	server.c	/^void receive_msg(void)$/;"	f
+restore_shape	mouse.c	/^int restore_shape(int x, int y)$/;"	f
+save_shape	mouse.c	/^int save_shape(int x, int y)$/;"	f
+scr	makefile	/^scr = main.c base_shap.c board.c chess.c mouse.c server.c$/;"	m
+send_msg	server.c	/^void send_msg(int x, int y)$/;"	f
+serv	server.c	/^int serv(void)$/;"	f
+server	server.c	/^struct sockaddr_in server,client;$/;"	v	typeref:struct:sockaddr_in
+server_sock	server.c	/^int server_sock;$/;"	v
+shape_save	mouse.c	/^static u32_t shape_save[C_HEIGH*C_WIDTH];$/;"	v	file:
+source	server.c	/^char source;$/;"	m	struct:__anon3	file:
+swap	base_shap.c	/^void swap(int *a, int *b)$/;"	f
+tranform	chess.c	/^void tranform(int *a, int *b)$/;"	f
+type	server.c	/^char type;$/;"	m	struct:__anon3	file:
+u32_t	main.h	/^typedef unsigned int u32_t;$/;"	t
+u8_t	main.h	/^typedef unsigned char u8_t;$/;"	t
+v_info_t	main.h	/^}v_info_t;$/;"	t	typeref:struct:__anon1
+w	main.h	/^    int w;$/;"	m	struct:__anon1
+who	chess.c	/^char who = 1;$/;"	v
+x	server.c	/^int x = 3, y = 2;$/;"	v
+x	server.c	/^int x;$/;"	m	struct:__anon3	file:
+y	server.c	/^int x = 3, y = 2;$/;"	v
+y	server.c	/^int y;$/;"	m	struct:__anon3	file:
