@@ -6,9 +6,6 @@
 #define P_NUM 24
 #define START_X 100
 #define START_Y 40
-
-
-
 #define CHESS_SIZE 10 
 #define CHESS_COLOR 0x000000ff 
 
@@ -43,7 +40,8 @@ int check_all(void);
 void check_won(int x, int y);
 int choose_color(int x, int y);
 int chess_print(int x, int y);
-int client_init(void);
+/*int client_init(void);*/
+    int client_init(char *argv);
 int recv_msg(void);
 int send_msg(int x, int y);
 

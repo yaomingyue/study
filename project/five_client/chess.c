@@ -4,7 +4,7 @@
 
 #include "main.h"
 
-char board[P_NUM*V_NUM];
+char board[P_NUM*V_NUM] = {0};
 u32_t color_choice = 0xffffffff;;
 char who = 1;
 
@@ -23,18 +23,31 @@ int choose_color(int x, int y)
     return 0;
 }
 
-int chess_print(int x, int y)
+int chess_print(int mx, int my)
 {
-      if(x < START_X||x > (START_X+SPACE*(V_NUM-1))||y < START_Y||y >(START_Y+SPACE*(P_NUM-1)))
-      {
-           choose_color(x,y);  
-           return 0;
-      }
-      else
-      {
-            fb_circle(x, y,10, color_choice);
+    int x = mx;
+    int y = my;
+    int k;
+    
+    x = (x-START_X)/SPACE;
+    y = (y-START_Y)/SPACE;
+    if(((mx-START_X)%SPACE) > (SPACE/2))
+        x++;
+    if(((my-START_Y)%SPACE) > (SPACE/2))
+        y++;
+    if(board[x+y*V_NUM] == 0)
+    {
+        //if(x < START_X||x > (START_X+SPACE*(V_NUM-1))||y < START_Y||y >(START_Y+SPACE*(P_NUM-1)))
+        //{
+        //choose_color(mx,my);  
+        //return 0;
+        //}
+        //else
+        //{
+            fb_circle(mx, my,10, color_choice);
             return 1;
-      }
+            //}
+    }
 }
 
 int fb_circle(int x0, int y0, int r, u32_t color)

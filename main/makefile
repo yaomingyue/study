@@ -1,5 +1,4 @@
 all:
-	gcc main.c
-	./a.out
+	gcc main.c main.h
 clean:
 	rm a.out

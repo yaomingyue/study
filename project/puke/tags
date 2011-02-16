@@ -1,0 +1,14 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+_MAIN_H_	main.h	2;"	d
+_MAIN_H_	puke.h	2;"	d
+deal_puke	puke.c	/^void deal_puke(void)$/;"	f
+main	main.c	/^int main(void)$/;"	f
+player	puke.c	/^static int player[4][15] = {0};$/;"	v	file:
+print_puke	puke.c	/^void print_puke(void)$/;"	f
+sum	puke.c	/^int sum[55];$/;"	v
+type	puke.c	/^static char type[4][5] = {"黑","红","梅","方"};$/;"	v	file:

@@ -25,9 +25,10 @@ int client_sock;
 socklen_t server_len;
 struct sockaddr_in server;
 
-int client_init(void)
+
+int client_init(char *argv)
 {
-/*
+#if 0
     if(argc<2)
     {
     
@@ -36,7 +37,7 @@ int client_init(void)
          printf("usage: %s x.x.x.x(server ip)\n",argv[0]);
          exit(EXIT_FAILURE);
     }
-*/
+#endif
     if((client_sock = socket(AF_INET, SOCK_DGRAM, 0))< 0)
     {
        fprintf(stderr,"%s\n",strerror(errno)) ;
@@ -49,12 +50,11 @@ int client_init(void)
     }
 
 
-
     bzero(&server, sizeof(server));
 
     server.sin_family = AF_INET;
     server.sin_port = htons(SERVER_PORD);
-    server.sin_addr.s_addr = inet_addr("10.1.14.76");
+    server.sin_addr.s_addr = inet_addr(argv);
 
     server_len = sizeof(server);
     send_msg(0,0);

@@ -1,4 +1,4 @@
-scr = main.c base_shap.c board.c chess.c mouse.c server.c
+scr = main.c base_shap.c board.c chess.c mouse.c server.c k2.c
 para = -Wall
 
 main:$(scr)

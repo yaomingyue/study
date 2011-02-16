@@ -1,0 +1,28 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+P_NUM	main.h	8;"	d
+SPANCE	main.h	5;"	d
+START_X	main.h	3;"	d
+START_Y	main.h	4;"	d
+V_NUM	main.h	7;"	d
+arg	makefile	/^arg = -Wall$/;"	m
+bpp	main.c	/^int bpp;$/;"	m	struct:__anon1	file:
+fb_info	main.c	/^}fb_info;$/;"	t	typeref:struct:__anon1	file:
+fb_infor	main.c	/^fb_info fb_infor;$/;"	v
+fbmem	main.c	/^u32_t *fbmem;$/;"	m	struct:__anon1	file:
+file	makefile	/^file = main.c prin_line.c board.c$/;"	m
+frambuff_init	main.c	/^void frambuff_init(fb_info *infor)$/;"	f
+h	main.c	/^int h;$/;"	m	struct:__anon1	file:
+main	main.c	/^int main(int argc, const char *argv[])$/;"	f
+pr_one_pixel	main.c	/^void pr_one_pixel(int x, int y,int color)$/;"	f
+prin_board	board.c	/^void prin_board(void)$/;"	f
+prin_circle	pr_one_chess.c	/^int prin_circle(int x0, int y0, int r, u32_t color)$/;"	f
+prin_line	prin_line.c	/^void prin_line(int x1, int y1, int x2, int y2, u32_t color)$/;"	f
+prin_one_chess	pr_one_chess.c	/^void prin_one_chess(int x, int y)$/;"	f
+swap	prin_line.c	/^void swap(int *a, int *b)$/;"	f
+u32_t	main.h	/^typedef unsigned int u32_t;$/;"	t
+w	main.c	/^int w;$/;"	m	struct:__anon1	file:

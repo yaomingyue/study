@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <pthread.h>
-
 #include <unistd.h>
 #include <fcntl.h>
 #include "main.h"
@@ -10,14 +9,12 @@
 #define X_ 0xffff
 #define T_ 0xff000000
 #define BORD 0x000000ff
-
 #define C_WIDTH 10
 #define C_HEIGH 17
-extern v_info_t fb_v;
 
+extern v_info_t fb_v;
 extern u32_t color_choice;
 extern char who;
-
 static u32_t cursor_pixel[C_WIDTH*C_HEIGH]={
 BORD,T_,T_,T_,T_,T_,T_,T_,T_,T_,
 BORD,BORD,T_,T_,T_,T_,T_,T_,T_,T_,
@@ -36,8 +33,6 @@ BORD,BORD,T_,T_,BORD,X_,X_,BORD,T_,T_,
 T_,T_,T_,T_,T_,BORD,X_,X_,BORD,T_,
 T_,T_,T_,T_,T_,BORD,X_,X_,BORD,T_,
 T_,T_,T_,T_,T_,T_,BORD,BORD,T_,T_
-
-
 }; 
 static u32_t shape_save[C_HEIGH*C_WIDTH];
 
@@ -55,7 +50,6 @@ int save_shape(int x, int y)
     }
     return 0;
 }
-
 int restore_shape(int x, int y)
 {
     int i = 0;    
@@ -70,8 +64,6 @@ int restore_shape(int x, int y)
     }
     return 0;
 }
-
-
 int draw_cursor(int x, int y)
 {
    int i = 0;
@@ -104,21 +96,16 @@ int get_m_info(int fd, m_event *event)
     event->dz = buf[3];
     return n;
 }
-
-
 int print_choice(void)
 {
     fb_circle(40,60,20,0xffffffff);
     fb_circle(40,140,20,0x01000000);
 }
-
 int mouse_doing(void)
 {
-    int *k;
-    k = fb_v.fbmem;
+    int *k = fb_v.fbmem;
     m_event mevent;
     int fd;
-
     int mx = 512;
     int my = 384;
 
@@ -129,15 +116,14 @@ int mouse_doing(void)
         exit(1);
     }
     draw_cursor(mx,my);
-
     while(1)
     {
         if(get_m_info(fd, &mevent) > 0)
         {
             restore_shape(mx,my);
+
             mx += mevent.dx;
             my += mevent.dy;
-
             mx = mx>0?mx:0;
             my = my>0?my:0;
             
@@ -146,7 +132,6 @@ int mouse_doing(void)
 
             switch(mevent.button)
             {
-
                 case 1 :
                         color_choice =0xffffffff; 
                         who = 1;
@@ -156,7 +141,6 @@ int mouse_doing(void)
                             check_won(mx, my);
                         }
                          save_shape(mx, my);
-                            
                         break;
                 case 2 : 
                         memset(k,0,1024*768*4);
@@ -169,6 +153,5 @@ int mouse_doing(void)
         }
         usleep(10000);
     }
-    
 }
 

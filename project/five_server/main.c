@@ -15,6 +15,7 @@
 
 v_info_t fb_v;
 extern int cx, cy;
+extern unsigned char k2[3145736];
 
 void create_scr_fb( void)
 {
@@ -60,7 +61,7 @@ int get(int *x, int *y)
 int main(void)
 {
     int i = 0;
-    u32_t *k; 
+    char *k; 
     pthread_t id;
     int ret;
     create_scr_fb(); 
@@ -68,11 +69,22 @@ int main(void)
 
 
      memset(k,0,1024*768*4);
-     while(i<1024*768)
+
+#if 0
+    while(i<1024*768)
      {
         k[i] = 0x00db9a4a;  
         i++;
      }
+    
+     k = fb_v.fbmem;
+
+     memset(k,0,1024*768*4);
+#endif
+    for (i = 0; i < fb_v.w*fb_v.h*fb_v.bpp/8; i++) 
+    {
+        k[i] = k2[i];
+    }
 
     print_board(24,30,fb_v);
     server_init();
@@ -84,7 +96,9 @@ int main(void)
         exit(1);
     }
     while(1) 
+    {
        receive_msg();
+    }
 
      return 0;
 }

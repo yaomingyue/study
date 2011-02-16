@@ -47,23 +47,20 @@ void receive_msg(void)
     {
        cx = p->x;
        cy = p->y;
-       //printf("%d\n",cx);
-       //printf("%d\n",cy);
-        cx = (cx)*SPACE + START_X;    
-        cy = (cy)*SPACE + START_Y;    
+       cx = (cx)*SPACE + START_X;    
+       cy = (cy)*SPACE + START_Y;    
 
-        color_choice = 0x01000000;  
-        who = 2;
+       color_choice = 0x01000000;  
+       who = 2;
 
        chess_print(cx,cy);
-        check_won(cx, cy);
-        //chess_count(cx, cy);
+       check_won(cx, cy);
     }
     
 }
 void send_msg(int x, int y)
 {
-    len = 13;
+   len = 13;
    int dx = (x-START_X)%30;
    int dy = (y-START_Y)%30;
    x = (dx - 15 < 0)?x-dx:x+30-dx; 
@@ -71,10 +68,9 @@ void send_msg(int x, int y)
    x = (x - START_X)/SPACE;
    y = (y - START_Y)/SPACE;
    
-    p->x = x;
-    p->y = y;
-    //printf("%d %d\n",x,y);
-    sendto(server_sock, buffer, len, 0, (struct sockaddr *)&client, client_len);
+   p->x = x;
+   p->y = y;
+   sendto(server_sock, buffer, len, 0, (struct sockaddr *)&client, client_len);
 }
 
 int server_init(void)
