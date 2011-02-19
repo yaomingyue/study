@@ -1,4 +1,3 @@
-
 /***************************************************************************
 * Module Name   : client.c                                                   
 * Identification:                                                  
@@ -13,31 +12,37 @@
 * #.##   Name         Date          Description                        
 * ----   ------------ ------------- ----------------------------------- 
 *                                                                         
-* Description   : network client demo program in TCP mode.
+* Description   : network client demo program in UDP mode.
 *
 ***************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <errno.h>
 #include <time.h>
+#include <errno.h>
+#include <unistd.h>
+#include <sys/select.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-#define SERVER_PORT		20000
+#define SERVER_PORT		20001
 #define BUFFER_SIZE		256
 
-char buffer[BUFFER_SIZE];
+char buffer[BUFFER_SIZE+2];
+
+#define REGISTER_MSG	0x10
+#define INFORMATION_MSG	0x20
 
 //
 //
 int main(int argc, char *argv[])
 {
-	int n,len;
+	fd_set input_fd;
+	int local_id,remote_id;
+	int i,n,len;
 	int client_sock;
 	socklen_t server_len;
 	struct sockaddr_in server;
@@ -51,9 +56,14 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	// 1. create socket - create an endpoint for communication 
-	// int socket(int domain, int type, int protocol) 
-	if ((client_sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+	printf("input local user id: ");
+	n = scanf("%d", &local_id);
+	printf("input remote user id: ");
+	n = scanf("%d", &remote_id);
+
+	// 1. create socket - create an endpoint for communication
+	// int socket(int domain, int type, int protocol);
+	if ((client_sock = socket(AF_INET, SOCK_DGRAM, 0)) < 0)
 	{
 		fprintf(stderr, "%s\n", strerror(errno));
 		exit(EXIT_FAILURE);
@@ -63,8 +73,7 @@ int main(int argc, char *argv[])
 		printf("create socket ok!\n");
 	}
 
-	// 2. connect - initiate a connection on a socket 
-	// int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen)
+	// make server address information
 	bzero(&server, sizeof(server));
 //	memset(&server, 0, sizeof(server));
 	server.sin_family = AF_INET;
@@ -72,45 +81,59 @@ int main(int argc, char *argv[])
 	server.sin_addr.s_addr = inet_addr(argv[1]);
 //	inet_aton(argv[1], &server.sin_addr);
 
+	buffer[0] = REGISTER_MSG;
+	buffer[1] = local_id;
 	server_len = sizeof(server);
-	if(connect(client_sock, (struct sockaddr *)&server, server_len) < 0)
-	{
-		fprintf(stderr, "%s\n", strerror(errno));
-		exit(EXIT_FAILURE);
-	}
-	else
-	{
-		printf("connect server ok!\n");
-	}
+	n = sendto(client_sock, buffer, 2, 0, (struct sockaddr *)&server, server_len);
 
 	// communication with server
 	while(1)
 	{
+		FD_ZERO(&input_fd);
+		FD_SET(STDIN_FILENO, &input_fd);
+		FD_SET(client_sock, &input_fd);
+
 		// write to screen
-		n = write(STDOUT_FILENO, ">  ", 3);
-//		n = write(fileno(stdout), ">  ", 3);
-	
-		// read from keyboard	
-		if((len = read(STDIN_FILENO, buffer, BUFFER_SIZE)) > 0)
-//		if((len = read(fileno(stdin), buffer, BUFFER_SIZE)) > 0)
+		i = write(STDOUT_FILENO, ">  ", 3);
+//		i = write(fileno(stdout), ">  ", 3);
+		
+		if((select(client_sock+1, &input_fd, NULL, NULL, NULL)) < 0)
 		{
-			// send to server
-			n = send(client_sock, buffer, len, 0);
-//			n = write(client_sock, buf, len);
+			fprintf(stderr, "%s\n", strerror(errno));
+			continue;
+		}
+
+		if(FD_ISSET(STDIN_FILENO, &input_fd))
+		{
+			// read from keyboard	
+			if((len = read(STDIN_FILENO, (char *)&buffer[2], BUFFER_SIZE)) > 0)
+//			if((len = read(fileno(stdin), buffer, BUFFER_SIZE)) > 0)
+			{
+				// send to server
+				server_len = sizeof(server);
+				buffer[0] = INFORMATION_MSG;
+				buffer[1] = remote_id;
+				n = sendto(client_sock, buffer, len+2, 0, (struct sockaddr *)&server, server_len);
+			}
 		}
 
 		// Quit flag	
-	 	if(buffer[0] == '.') break;
-
-		// receive message from server	
-		if((len = recv(client_sock, buffer, len, 0)) > 0)
-//		if((len = read(client_sock, buffer, len)) > 0)
+//	 	if(buffer[0] == '.') break;
+	
+		if(FD_ISSET(client_sock, &input_fd))
 		{
-			// write to screen
-			n =	write(STDOUT_FILENO, buffer, len);
-//			n =	write(fileno(stdout), buffer, len);
+			// receive message from server	
+			server_len = sizeof(server);
+			n = recvfrom(client_sock, buffer, BUFFER_SIZE, 0, (struct sockaddr *)&server, &server_len);
+			if(n > 0)
+			{
+				// write to screen
+				i = write(STDOUT_FILENO, "\n", 1);
+				i = write(STDOUT_FILENO, buffer, n);
+//				i = write(fileno(stdout), buffer, n);
+			}
 		}
-	} 
+	}
 
 	close(client_sock);
 
