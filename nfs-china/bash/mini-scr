@@ -1,0 +1,8 @@
+expect {
+    
+}
+send "yao"
+print " yaomoon "
+
+exit
+

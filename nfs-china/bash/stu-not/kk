@@ -1,0 +1,20 @@
+kk=9
+
+printf "this is %d \n" $kk
+
+
+moon:
+    echo helloworld
+
+exit
+
+
+
+
+
+
+
+
+
+
+exit

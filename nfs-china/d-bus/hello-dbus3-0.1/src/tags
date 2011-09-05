@@ -1,0 +1,192 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACLOCAL	Makefile	/^ACLOCAL = ${SHELL} \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1\/missing --run aclocal-1.11$/;"	m
+ACLOCAL_M4	Makefile	/^ACLOCAL_M4 = $(top_srcdir)\/aclocal.m4$/;"	m
+AMTAR	Makefile	/^AMTAR = ${SHELL} \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1\/missing --run tar$/;"	m
+AUTOCONF	Makefile	/^AUTOCONF = ${SHELL} \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1\/missing --run autoconf$/;"	m
+AUTOHEADER	Makefile	/^AUTOHEADER = ${SHELL} \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1\/missing --run autoheader$/;"	m
+AUTOMAKE	Makefile	/^AUTOMAKE = ${SHELL} \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1\/missing --run automake-1.11$/;"	m
+AWK	Makefile	/^AWK = gawk$/;"	m
+BUILT_SOURCES	Makefile	/^BUILT_SOURCES = example-service-glue.h$/;"	m
+CC	Makefile	/^CC = gcc$/;"	m
+CCDEPMODE	Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
+CCLD	Makefile	/^CCLD = $(CC)$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -g -O2$/;"	m
+CLEANFILES	Makefile	/^CLEANFILES = $(BUILT_SOURCES)$/;"	m
+COMPILE	Makefile	/^COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \\$/;"	m
+CONFIG_CLEAN_FILES	Makefile	/^CONFIG_CLEAN_FILES =$/;"	m
+CONFIG_CLEAN_VPATH_FILES	Makefile	/^CONFIG_CLEAN_VPATH_FILES =$/;"	m
+CONFIG_HEADER	Makefile	/^CONFIG_HEADER = $(top_builddir)\/config.h$/;"	m
+CPPFLAGS	Makefile	/^CPPFLAGS = $/;"	m
+CTAGS	Makefile	/^CTAGS = ctags$/;"	m
+CYGPATH_W	Makefile	/^CYGPATH_W = echo$/;"	m
+DBUS_CFLAGS	Makefile	/^DBUS_CFLAGS = -I\/usr\/include\/dbus-1.0 -I\/usr\/lib\/dbus-1.0\/include  $/;"	m
+DBUS_GLIB_CFLAGS	Makefile	/^DBUS_GLIB_CFLAGS = -pthread -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include  $/;"	m
+DBUS_GLIB_LIBS	Makefile	/^DBUS_GLIB_LIBS = -pthread -lgobject-2.0 -lgthread-2.0 -lrt -lglib-2.0  $/;"	m
+DBUS_LIBS	Makefile	/^DBUS_LIBS = -L\/lib -ldbus-1 -lpthread -lrt  $/;"	m
+DEFAULT_INCLUDES	Makefile	/^DEFAULT_INCLUDES = -I. -I$(top_builddir)$/;"	m
+DEFS	Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
+DEPDIR	Makefile	/^DEPDIR = .deps$/;"	m
+DISTFILES	Makefile	/^DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)$/;"	m
+DIST_COMMON	Makefile	/^DIST_COMMON = $(srcdir)\/Makefile.am $(srcdir)\/Makefile.in$/;"	m
+DIST_SOURCES	Makefile	/^DIST_SOURCES = $(example_client_SOURCES) $(example_service_SOURCES)$/;"	m
+ECHO_C	Makefile	/^ECHO_C = $/;"	m
+ECHO_N	Makefile	/^ECHO_N = -n$/;"	m
+ECHO_T	Makefile	/^ECHO_T = $/;"	m
+ETAGS	Makefile	/^ETAGS = etags$/;"	m
+EXEEXT	Makefile	/^EXEEXT = $/;"	m
+EXTRA_DIST	Makefile	/^EXTRA_DIST = example-service.xml $/;"	m
+INCLUDES	Makefile	/^INCLUDES = \\$/;"	m
+INSTALL	Makefile	/^INSTALL = \/usr\/bin\/install -c$/;"	m
+INSTALL_DATA	Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/;"	m
+INSTALL_HEADER	Makefile	/^INSTALL_HEADER = $(INSTALL_DATA)$/;"	m
+INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM = ${INSTALL}$/;"	m
+INSTALL_SCRIPT	Makefile	/^INSTALL_SCRIPT = ${INSTALL}$/;"	m
+INSTALL_STRIP_PROGRAM	Makefile	/^INSTALL_STRIP_PROGRAM = $(install_sh) -c -s$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS = $/;"	m
+LIBOBJS	Makefile	/^LIBOBJS = $/;"	m
+LIBS	Makefile	/^LIBS = \\$/;"	m
+LINK	Makefile	/^LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@$/;"	m
+LTLIBOBJS	Makefile	/^LTLIBOBJS = $/;"	m
+MAKEINFO	Makefile	/^MAKEINFO = ${SHELL} \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1\/missing --run makeinfo$/;"	m
+MKDIR_P	Makefile	/^MKDIR_P = \/bin\/mkdir -p$/;"	m
+NORMAL_INSTALL	Makefile	/^NORMAL_INSTALL = :$/;"	m
+NORMAL_UNINSTALL	Makefile	/^NORMAL_UNINSTALL = :$/;"	m
+OBJEXT	Makefile	/^OBJEXT = o$/;"	m
+PACKAGE	Makefile	/^PACKAGE = hello-dbus3$/;"	m
+PACKAGE_BUGREPORT	Makefile	/^PACKAGE_BUGREPORT = $/;"	m
+PACKAGE_NAME	Makefile	/^PACKAGE_NAME = $/;"	m
+PACKAGE_STRING	Makefile	/^PACKAGE_STRING = $/;"	m
+PACKAGE_TARNAME	Makefile	/^PACKAGE_TARNAME = $/;"	m
+PACKAGE_URL	Makefile	/^PACKAGE_URL = $/;"	m
+PACKAGE_VERSION	Makefile	/^PACKAGE_VERSION = $/;"	m
+PATH_SEPARATOR	Makefile	/^PATH_SEPARATOR = :$/;"	m
+PKG_CONFIG	Makefile	/^PKG_CONFIG = \/usr\/bin\/pkg-config$/;"	m
+PKG_CONFIG_LIBDIR	Makefile	/^PKG_CONFIG_LIBDIR = $/;"	m
+PKG_CONFIG_PATH	Makefile	/^PKG_CONFIG_PATH = $/;"	m
+POST_INSTALL	Makefile	/^POST_INSTALL = :$/;"	m
+POST_UNINSTALL	Makefile	/^POST_UNINSTALL = :$/;"	m
+PRE_INSTALL	Makefile	/^PRE_INSTALL = :$/;"	m
+PRE_UNINSTALL	Makefile	/^PRE_UNINSTALL = :$/;"	m
+PROGRAMS	Makefile	/^PROGRAMS = $(noinst_PROGRAMS)$/;"	m
+SET_MAKE	Makefile	/^SET_MAKE = $/;"	m
+SHELL	Makefile	/^SHELL = \/bin\/sh$/;"	m
+SOURCES	Makefile	/^SOURCES = $(example_client_SOURCES) $(example_service_SOURCES)$/;"	m
+STRIP	Makefile	/^STRIP = $/;"	m
+TEST_IS_OBJECT	example-service.c	47;"	d	file:
+TEST_IS_OBJECT_CLASS	example-service.c	48;"	d	file:
+TEST_OBJECT	example-service.c	45;"	d	file:
+TEST_OBJECT_CLASS	example-service.c	46;"	d	file:
+TEST_OBJECT_GET_CLASS	example-service.c	49;"	d	file:
+TEST_TYPE_OBJECT	example-service.c	44;"	d	file:
+TestObj	example-service.c	/^struct TestObj$/;"	s	file:
+TestObj	example-service.c	/^typedef struct TestObj TestObj;$/;"	t	typeref:struct:TestObj	file:
+TestObjClass	example-service.c	/^struct TestObjClass$/;"	s	file:
+TestObjClass	example-service.c	/^typedef struct TestObjClass TestObjClass;$/;"	t	typeref:struct:TestObjClass	file:
+VERSION	Makefile	/^VERSION = 0.1$/;"	m
+__dbus_glib_marshal_test_obj_MARSHAL_H__	example-service-glue.h	5;"	d
+abs_builddir	Makefile	/^abs_builddir = \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1\/src$/;"	m
+abs_srcdir	Makefile	/^abs_srcdir = \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1\/src$/;"	m
+abs_top_builddir	Makefile	/^abs_top_builddir = \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1$/;"	m
+abs_top_srcdir	Makefile	/^abs_top_srcdir = \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1$/;"	m
+ac_ct_CC	Makefile	/^ac_ct_CC = gcc$/;"	m
+am__aclocal_m4_deps	Makefile	/^am__aclocal_m4_deps = $(top_srcdir)\/configure.ac$/;"	m
+am__cd	Makefile	/^am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd$/;"	m
+am__configure_deps	Makefile	/^am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \\$/;"	m
+am__depfiles_maybe	Makefile	/^am__depfiles_maybe = depfiles$/;"	m
+am__include	Makefile	/^am__include = include$/;"	m
+am__leading_dot	Makefile	/^am__leading_dot = .$/;"	m
+am__mv	Makefile	/^am__mv = mv -f$/;"	m
+am__quote	Makefile	/^am__quote = $/;"	m
+am__tar	Makefile	/^am__tar = ${AMTAR} chof - "$$tardir"$/;"	m
+am__untar	Makefile	/^am__untar = ${AMTAR} xf -$/;"	m
+am_example_client_OBJECTS	Makefile	/^am_example_client_OBJECTS = example-client.$(OBJEXT)$/;"	m
+am_example_service_OBJECTS	Makefile	/^am_example_service_OBJECTS = example-service.$(OBJEXT)$/;"	m
+bindir	Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
+build_alias	Makefile	/^build_alias = $/;"	m
+builddir	Makefile	/^builddir = .$/;"	m
+datadir	Makefile	/^datadir = ${datarootdir}$/;"	m
+datarootdir	Makefile	/^datarootdir = ${prefix}\/share$/;"	m
+dbus_glib_marshal_test_obj_BOOLEAN__INT_INT_POINTER_POINTER	example-service-glue.h	/^dbus_glib_marshal_test_obj_BOOLEAN__INT_INT_POINTER_POINTER (GClosure     *closure,$/;"	f
+dbus_glib_test_obj_methods	example-service-glue.h	/^static const DBusGMethodInfo dbus_glib_test_obj_methods[] = {$/;"	v
+dbus_glib_test_obj_object_info	example-service-glue.h	/^const DBusGObjectInfo dbus_glib_test_obj_object_info = {$/;"	v
+depcomp	Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/depcomp$/;"	m
+docdir	Makefile	/^docdir = ${datarootdir}\/doc\/${PACKAGE}$/;"	m
+dvidir	Makefile	/^dvidir = ${docdir}$/;"	m
+example_client_LDADD	Makefile	/^example_client_LDADD = $(LDADD)$/;"	m
+example_client_OBJECTS	Makefile	/^example_client_OBJECTS = $(am_example_client_OBJECTS)$/;"	m
+example_client_SOURCES	Makefile	/^example_client_SOURCES = example-client.c$/;"	m
+example_service_LDADD	Makefile	/^example_service_LDADD = $(LDADD)$/;"	m
+example_service_OBJECTS	Makefile	/^example_service_OBJECTS = $(am_example_service_OBJECTS)$/;"	m
+example_service_SOURCES	Makefile	/^example_service_SOURCES = example-service.c$/;"	m
+exec_prefix	Makefile	/^exec_prefix = ${prefix}$/;"	m
+g_marshal_value_peek_boolean	example-service-glue.h	12;"	d
+g_marshal_value_peek_boxed	example-service-glue.h	27;"	d
+g_marshal_value_peek_char	example-service-glue.h	13;"	d
+g_marshal_value_peek_double	example-service-glue.h	24;"	d
+g_marshal_value_peek_enum	example-service-glue.h	21;"	d
+g_marshal_value_peek_flags	example-service-glue.h	22;"	d
+g_marshal_value_peek_float	example-service-glue.h	23;"	d
+g_marshal_value_peek_int	example-service-glue.h	15;"	d
+g_marshal_value_peek_int64	example-service-glue.h	19;"	d
+g_marshal_value_peek_long	example-service-glue.h	17;"	d
+g_marshal_value_peek_object	example-service-glue.h	29;"	d
+g_marshal_value_peek_param	example-service-glue.h	26;"	d
+g_marshal_value_peek_pointer	example-service-glue.h	28;"	d
+g_marshal_value_peek_string	example-service-glue.h	25;"	d
+g_marshal_value_peek_uchar	example-service-glue.h	14;"	d
+g_marshal_value_peek_uint	example-service-glue.h	16;"	d
+g_marshal_value_peek_uint64	example-service-glue.h	20;"	d
+g_marshal_value_peek_ulong	example-service-glue.h	18;"	d
+g_marshal_value_peek_variant	example-service-glue.h	30;"	d
+host_alias	Makefile	/^host_alias = $/;"	m
+htmldir	Makefile	/^htmldir = ${docdir}$/;"	m
+includedir	Makefile	/^includedir = ${prefix}\/include$/;"	m
+infodir	Makefile	/^infodir = ${datarootdir}\/info$/;"	m
+install_sh	Makefile	/^install_sh = ${SHELL} \/home\/yaomoon\/study\/d-bus\/hello-dbus3-0.1\/install-sh$/;"	m
+install_sh_DATA	Makefile	/^install_sh_DATA = $(install_sh) -c -m 644$/;"	m
+install_sh_PROGRAM	Makefile	/^install_sh_PROGRAM = $(install_sh) -c$/;"	m
+install_sh_SCRIPT	Makefile	/^install_sh_SCRIPT = $(install_sh) -c$/;"	m
+libdir	Makefile	/^libdir = ${exec_prefix}\/lib$/;"	m
+libexecdir	Makefile	/^libexecdir = ${exec_prefix}\/libexec$/;"	m
+localedir	Makefile	/^localedir = ${datarootdir}\/locale$/;"	m
+localstatedir	Makefile	/^localstatedir = ${prefix}\/var$/;"	m
+lose	example-client.c	/^lose (const char *str, ...)$/;"	f	file:
+lose	example-service.c	/^lose (const char *str, ...)$/;"	f	file:
+lose_gerror	example-client.c	/^lose_gerror (const char *prefix, GError *error) $/;"	f	file:
+lose_gerror	example-service.c	/^lose_gerror (const char *prefix, GError *error) $/;"	f	file:
+main	example-client.c	/^main (int argc, char **argv)$/;"	f
+main	example-service.c	/^int main (int argc, char **argv)$/;"	f
+mandir	Makefile	/^mandir = ${datarootdir}\/man$/;"	m
+mkdir_p	Makefile	/^mkdir_p = \/bin\/mkdir -p$/;"	m
+mkinstalldirs	Makefile	/^mkinstalldirs = $(install_sh) -d$/;"	m
+noinst_PROGRAMS	Makefile	/^noinst_PROGRAMS = example-service$(EXEEXT) example-client$(EXEEXT)$/;"	m
+oldincludedir	Makefile	/^oldincludedir = \/usr\/include$/;"	m
+parent	example-service.c	/^  GObject parent;$/;"	m	struct:TestObj	file:
+parent	example-service.c	/^  GObjectClass parent;$/;"	m	struct:TestObjClass	file:
+pdfdir	Makefile	/^pdfdir = ${docdir}$/;"	m
+pkgdatadir	Makefile	/^pkgdatadir = $(datadir)\/hello-dbus3$/;"	m
+pkgincludedir	Makefile	/^pkgincludedir = $(includedir)\/hello-dbus3$/;"	m
+pkglibdir	Makefile	/^pkglibdir = $(libdir)\/hello-dbus3$/;"	m
+pkglibexecdir	Makefile	/^pkglibexecdir = $(libexecdir)\/hello-dbus3$/;"	m
+prefix	Makefile	/^prefix = \/usr\/local$/;"	m
+print_hash_value	example-client.c	/^print_hash_value (gpointer key, gpointer val, gpointer data)$/;"	f	file:
+program_transform_name	Makefile	/^program_transform_name = s,x,x,$/;"	m
+psdir	Makefile	/^psdir = ${docdir}$/;"	m
+sbindir	Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
+sharedstatedir	Makefile	/^sharedstatedir = ${prefix}\/com$/;"	m
+srcdir	Makefile	/^srcdir = .$/;"	m
+subdir	Makefile	/^subdir = src$/;"	m
+sysconfdir	Makefile	/^sysconfdir = ${prefix}\/etc$/;"	m
+target_alias	Makefile	/^target_alias = $/;"	m
+test_obj_add	example-service.c	/^gboolean test_obj_add (TestObj *obj, int num1, int num2, int *sum, GError **error)$/;"	f
+test_obj_class_init	example-service.c	/^static void test_obj_class_init (TestObjClass *klass)$/;"	f	file:
+test_obj_init	example-service.c	/^static void test_obj_init (TestObj *obj)$/;"	f	file:
+top_build_prefix	Makefile	/^top_build_prefix = ..\/$/;"	m
+top_builddir	Makefile	/^top_builddir = ..$/;"	m
+top_srcdir	Makefile	/^top_srcdir = ..$/;"	m
+transform	Makefile	/^transform = $(program_transform_name)$/;"	m

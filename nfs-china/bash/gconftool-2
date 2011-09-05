@@ -1,0 +1,6 @@
+#! /bin/bash
+
+
+#gconftool-2 -t string -s /apps/geoclue/master/org.freedesktop.Geoclue.GPSDevice /dev/ttyUSB0
+ gconftool-2 --get /apps/geoclue/master/org.freedesktop.Geoclue.GPSDevice
+

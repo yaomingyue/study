@@ -1,0 +1,154 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACK	garmin_gps.c	115;"	d	file:
+APP_REQ_SEEN	garmin_gps.c	170;"	d	file:
+APP_RESP_SEEN	garmin_gps.c	171;"	d	file:
+CLEAR_HALT_REQUIRED	garmin_gps.c	172;"	d	file:
+CMND_ABORT_TRANSFER	garmin_gps.c	102;"	d	file:
+DEV_MAJOR	hello.cc	16;"	d	file:
+DEV_NAME	hello.cc	17;"	d	file:
+DLE	garmin_gps.c	114;"	d	file:
+DRIVER_AUTHOR	garmin_gps.c	/^MODULE_AUTHOR(DRIVER_AUTHOR);$/;"	v
+DRIVER_AUTHOR	garmin_gps.c	59;"	d	file:
+DRIVER_DESC	garmin_gps.c	/^MODULE_DESCRIPTION(DRIVER_DESC);$/;"	v
+DRIVER_DESC	garmin_gps.c	60;"	d	file:
+DRIVER_VERSION	garmin_gps.c	58;"	d	file:
+EINVPKT	garmin_gps.c	63;"	d	file:
+ETX	garmin_gps.c	113;"	d	file:
+FLAGS_BULK_IN_ACTIVE	garmin_gps.c	167;"	d	file:
+FLAGS_BULK_IN_RESTART	garmin_gps.c	168;"	d	file:
+FLAGS_DROP_DATA	garmin_gps.c	175;"	d	file:
+FLAGS_GSP_DLESEEN	garmin_gps.c	178;"	d	file:
+FLAGS_GSP_SKIP	garmin_gps.c	177;"	d	file:
+FLAGS_QUEUING	garmin_gps.c	174;"	d	file:
+FLAGS_SESSION_REPLY1_SEEN	garmin_gps.c	165;"	d	file:
+FLAGS_SESSION_REPLY2_SEEN	garmin_gps.c	166;"	d	file:
+FLAGS_SESSION_REPLY_MASK	garmin_gps.c	164;"	d	file:
+FLAGS_THROTTLED	garmin_gps.c	169;"	d	file:
+GARMIN_APP_LAYER_REPLY	garmin_gps.c	/^static unsigned char const GARMIN_APP_LAYER_REPLY[]$/;"	v	file:
+GARMIN_BULK_IN_AVAIL_REPLY	garmin_gps.c	/^static unsigned char const GARMIN_BULK_IN_AVAIL_REPLY[]$/;"	v	file:
+GARMIN_LAYERID_APPL	garmin_gps.c	95;"	d	file:
+GARMIN_LAYERID_PRIVATE	garmin_gps.c	97;"	d	file:
+GARMIN_LAYERID_TRANSPORT	garmin_gps.c	94;"	d	file:
+GARMIN_PKTHDR_LENGTH	garmin_gps.c	67;"	d	file:
+GARMIN_PKTID_L001_COMMAND_DATA	garmin_gps.c	100;"	d	file:
+GARMIN_PKTID_PVT_DATA	garmin_gps.c	99;"	d	file:
+GARMIN_START_PVT_REQ	garmin_gps.c	/^static unsigned char const GARMIN_START_PVT_REQ[]$/;"	v	file:
+GARMIN_START_SESSION_REPLY	garmin_gps.c	/^static unsigned char const GARMIN_START_SESSION_REPLY[]$/;"	v	file:
+GARMIN_START_SESSION_REQ	garmin_gps.c	/^static unsigned char const GARMIN_START_SESSION_REQ[]$/;"	v	file:
+GARMIN_STOP_PVT_REQ	garmin_gps.c	/^static unsigned char const GARMIN_STOP_PVT_REQ[]$/;"	v	file:
+GARMIN_STOP_TRANSFER_REQ	garmin_gps.c	/^static unsigned char const GARMIN_STOP_TRANSFER_REQ[]$/;"	v	file:
+GARMIN_STOP_TRANSFER_REQ_V2	garmin_gps.c	/^static unsigned char const GARMIN_STOP_TRANSFER_REQ_V2[]$/;"	v	file:
+GARMIN_VENDOR_ID	garmin_gps.c	47;"	d	file:
+GPS_IN_BUFSIZ	garmin_gps.c	81;"	d	file:
+GPS_OUT_BUFSIZ	garmin_gps.c	84;"	d	file:
+GSP_INITIAL_OFFSET	garmin_gps.c	89;"	d	file:
+KERNEL_DIR	Makefile	/^KERNEL_DIR := \/lib\/modules\/$(shell uname -r)\/build$/;"	m
+MAX_SERIAL_PKT_SIZ	garmin_gps.c	70;"	d	file:
+MAX_SERIAL_PKT_SIZ_STUFFED	garmin_gps.c	73;"	d	file:
+MODE_GARMIN_SERIAL	garmin_gps.c	161;"	d	file:
+MODE_NATIVE	garmin_gps.c	160;"	d	file:
+NAK	garmin_gps.c	116;"	d	file:
+PRIVATE_REQ	garmin_gps.c	/^static unsigned char const PRIVATE_REQ[]$/;"	v	file:
+PRIVPKTSIZ	garmin_gps.c	92;"	d	file:
+PRIV_PKTID_INFO_REQ	garmin_gps.c	107;"	d	file:
+PRIV_PKTID_INFO_RESP	garmin_gps.c	108;"	d	file:
+PRIV_PKTID_RESET_REQ	garmin_gps.c	109;"	d	file:
+PRIV_PKTID_SET_DEBUG	garmin_gps.c	105;"	d	file:
+PRIV_PKTID_SET_DEF_MODE	garmin_gps.c	110;"	d	file:
+PRIV_PKTID_SET_MODE	garmin_gps.c	106;"	d	file:
+PWD	Makefile	/^PWD := $(shell pwd)$/;"	m
+STATE_ACTIVE	garmin_gps.c	153;"	d	file:
+STATE_DISCONNECTED	garmin_gps.c	156;"	d	file:
+STATE_GSP_WAIT_DATA	garmin_gps.c	158;"	d	file:
+STATE_INITIAL_DELAY	garmin_gps.c	149;"	d	file:
+STATE_NEW	garmin_gps.c	148;"	d	file:
+STATE_RESET	garmin_gps.c	155;"	d	file:
+STATE_SESSION_REQ1	garmin_gps.c	151;"	d	file:
+STATE_SESSION_REQ2	garmin_gps.c	152;"	d	file:
+STATE_TIMEOUT	garmin_gps.c	150;"	d	file:
+STATE_WAIT_TTY_ACK	garmin_gps.c	157;"	d	file:
+VERSION_MAJOR	garmin_gps.c	53;"	d	file:
+VERSION_MINOR	garmin_gps.c	54;"	d	file:
+_DRIVER_VERSION	garmin_gps.c	57;"	d	file:
+_STR	garmin_gps.c	56;"	d	file:
+__this_module	garmin_gps.mod.c	/^struct module __this_module$/;"	v	typeref:struct:module
+__this_module	hello.mod.c	/^struct module __this_module$/;"	v	typeref:struct:module
+__used	garmin_gps.mod.c	/^__used$/;"	v	file:
+__used	hello.mod.c	/^__used$/;"	v	file:
+count	garmin_gps.c	/^	__u8   count;$/;"	m	struct:garmin_data	file:
+data	garmin_gps.c	/^	__u8              data[1];$/;"	m	struct:garmin_packet	file:
+debug	garmin_gps.c	/^static int debug;$/;"	v	file:
+flags	garmin_gps.c	/^	__u16  flags;$/;"	m	struct:garmin_data	file:
+garmin_attach	garmin_gps.c	/^static int garmin_attach(struct usb_serial *serial)$/;"	f	file:
+garmin_clear	garmin_gps.c	/^static int garmin_clear(struct garmin_data *garmin_data_p)$/;"	f	file:
+garmin_close	garmin_gps.c	/^static void garmin_close(struct usb_serial_port *port)$/;"	f	file:
+garmin_data	garmin_gps.c	/^struct garmin_data {$/;"	s	file:
+garmin_device	garmin_gps.c	/^static struct usb_serial_driver garmin_device = {$/;"	v	typeref:struct:usb_serial_driver	file:
+garmin_disconnect	garmin_gps.c	/^static void garmin_disconnect(struct usb_serial *serial)$/;"	f	file:
+garmin_driver	garmin_gps.c	/^static struct usb_driver garmin_driver = {$/;"	v	typeref:struct:usb_driver	file:
+garmin_exit	garmin_gps.c	/^module_exit(garmin_exit);$/;"	v
+garmin_exit	garmin_gps.c	/^static void __exit garmin_exit(void)$/;"	f	file:
+garmin_flush_queue	garmin_gps.c	/^static int garmin_flush_queue(struct garmin_data *garmin_data_p)$/;"	f	file:
+garmin_init	garmin_gps.c	/^module_init(garmin_init);$/;"	v
+garmin_init	garmin_gps.c	/^static int __init garmin_init(void)$/;"	f	file:
+garmin_init_session	garmin_gps.c	/^static int garmin_init_session(struct usb_serial_port *port)$/;"	f	file:
+garmin_open	garmin_gps.c	/^static int garmin_open(struct tty_struct *tty, struct usb_serial_port *port)$/;"	f	file:
+garmin_packet	garmin_gps.c	/^struct garmin_packet {$/;"	s	file:
+garmin_read_bulk_callback	garmin_gps.c	/^static void garmin_read_bulk_callback(struct urb *urb)$/;"	f	file:
+garmin_read_int_callback	garmin_gps.c	/^static void garmin_read_int_callback(struct urb *urb)$/;"	f	file:
+garmin_read_process	garmin_gps.c	/^static void garmin_read_process(struct garmin_data *garmin_data_p,$/;"	f	file:
+garmin_release	garmin_gps.c	/^static void garmin_release(struct usb_serial *serial)$/;"	f	file:
+garmin_throttle	garmin_gps.c	/^static void garmin_throttle(struct tty_struct *tty)$/;"	f	file:
+garmin_unthrottle	garmin_gps.c	/^static void garmin_unthrottle(struct tty_struct *tty)$/;"	f	file:
+garmin_write	garmin_gps.c	/^static int garmin_write(struct tty_struct *tty, struct usb_serial_port *port,$/;"	f	file:
+garmin_write_bulk	garmin_gps.c	/^static int garmin_write_bulk(struct usb_serial_port *port,$/;"	f	file:
+garmin_write_bulk_callback	garmin_gps.c	/^static void garmin_write_bulk_callback(struct urb *urb)$/;"	f	file:
+garmin_write_room	garmin_gps.c	/^static int garmin_write_room(struct tty_struct *tty)$/;"	f	file:
+getDataLength	garmin_gps.c	/^static inline int getDataLength(const __u8 *usbPacket)$/;"	f	file:
+getLayerId	garmin_gps.c	/^static inline int getLayerId(const __u8 *usbPacket)$/;"	f	file:
+getPacketId	garmin_gps.c	/^static inline int getPacketId(const __u8 *usbPacket)$/;"	f	file:
+gsp_next_packet	garmin_gps.c	/^static int gsp_next_packet(struct garmin_data *garmin_data_p)$/;"	f	file:
+gsp_rec_packet	garmin_gps.c	/^static int gsp_rec_packet(struct garmin_data *garmin_data_p, int count)$/;"	f	file:
+gsp_receive	garmin_gps.c	/^static int gsp_receive(struct garmin_data *garmin_data_p,$/;"	f	file:
+gsp_send	garmin_gps.c	/^static int gsp_send(struct garmin_data *garmin_data_p,$/;"	f	file:
+gsp_send_ack	garmin_gps.c	/^static int gsp_send_ack(struct garmin_data *garmin_data_p, __u8 pkt_id)$/;"	f	file:
+hello_exit	hello.cc	/^module_exit(hello_exit);$/;"	v
+hello_exit	hello.cc	/^static void hello_exit(void)$/;"	f	file:
+hello_fops	hello.cc	/^struct file_operations hello_fops = {$/;"	v	typeref:struct:file_operations
+hello_init	hello.cc	/^module_init(hello_init);$/;"	v
+hello_init	hello.cc	/^static int hello_init(void)$/;"	f	file:
+hello_read	hello.cc	/^static ssize_t hello_read(struct file *filp, char *buf, size_t len, loff_t *off)$/;"	f	file:
+id_table	garmin_gps.c	/^static const struct usb_device_id id_table[] = {$/;"	v	typeref:struct:usb_device_id	file:
+inbuffer	garmin_gps.c	/^	__u8   inbuffer [GPS_IN_BUFSIZ];  \/* tty -> usb *\/$/;"	m	struct:garmin_data	file:
+initial_mode	garmin_gps.c	/^static int initial_mode = 1;$/;"	v	file:
+insize	garmin_gps.c	/^	int    insize;$/;"	m	struct:garmin_data	file:
+isAbortTrfCmnd	garmin_gps.c	/^static inline int isAbortTrfCmnd(const unsigned char *buf)$/;"	f	file:
+list	garmin_gps.c	/^	struct list_head  list;$/;"	m	struct:garmin_packet	typeref:struct:garmin_packet::list_head	file:
+lock	garmin_gps.c	/^	spinlock_t lock;$/;"	m	struct:garmin_data	file:
+mode	garmin_gps.c	/^	__u8   mode;$/;"	m	struct:garmin_data	file:
+nat_receive	garmin_gps.c	/^static int nat_receive(struct garmin_data *garmin_data_p,$/;"	f	file:
+obj-m	Makefile	/^obj-m := garmin_gps.o$/;"	m
+outbuffer	garmin_gps.c	/^	__u8   outbuffer[GPS_OUT_BUFSIZ]; \/* usb -> tty *\/$/;"	m	struct:garmin_data	file:
+outsize	garmin_gps.c	/^	int    outsize;$/;"	m	struct:garmin_data	file:
+pkt_add	garmin_gps.c	/^static int pkt_add(struct garmin_data *garmin_data_p,$/;"	f	file:
+pkt_clear	garmin_gps.c	/^static void pkt_clear(struct garmin_data *garmin_data_p)$/;"	f	file:
+pkt_id	garmin_gps.c	/^	__u8   pkt_id;$/;"	m	struct:garmin_data	file:
+pkt_pop	garmin_gps.c	/^static struct garmin_packet *pkt_pop(struct garmin_data *garmin_data_p)$/;"	f	file:
+pktlist	garmin_gps.c	/^	struct list_head pktlist;$/;"	m	struct:garmin_data	typeref:struct:garmin_data::list_head	file:
+port	garmin_gps.c	/^	struct usb_serial_port *port;$/;"	m	struct:garmin_data	typeref:struct:garmin_data::usb_serial_port	file:
+priv_status_resp	garmin_gps.c	/^static void priv_status_resp(struct usb_serial_port *port)$/;"	f	file:
+privpkt	garmin_gps.c	/^	__u8   privpkt[4*6];$/;"	m	struct:garmin_data	file:
+process_resetdev_request	garmin_gps.c	/^static int process_resetdev_request(struct usb_serial_port *port)$/;"	f	file:
+send_to_tty	garmin_gps.c	/^static void send_to_tty(struct usb_serial_port *port,$/;"	f	file:
+seq	garmin_gps.c	/^	int               seq;$/;"	m	struct:garmin_packet	file:
+seq_counter	garmin_gps.c	/^	int    seq_counter;$/;"	m	struct:garmin_data	file:
+serial_num	garmin_gps.c	/^	__u32  serial_num;$/;"	m	struct:garmin_data	file:
+size	garmin_gps.c	/^	int               size;$/;"	m	struct:garmin_packet	file:
+state	garmin_gps.c	/^	__u8   state;$/;"	m	struct:garmin_data	file:
+timeout_handler	garmin_gps.c	/^static void timeout_handler(unsigned long data)$/;"	f	file:
+timer	garmin_gps.c	/^	struct timer_list timer;$/;"	m	struct:garmin_data	typeref:struct:garmin_data::timer_list	file:

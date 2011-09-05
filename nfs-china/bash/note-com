@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /home/yaomoon/notes/linux/
+vim prime-com

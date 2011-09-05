@@ -1,0 +1,24 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+TEST_IS_OBJECT	example-service.c	47;"	d	file:
+TEST_IS_OBJECT_CLASS	example-service.c	48;"	d	file:
+TEST_OBJECT	example-service.c	45;"	d	file:
+TEST_OBJECT_CLASS	example-service.c	46;"	d	file:
+TEST_OBJECT_GET_CLASS	example-service.c	49;"	d	file:
+TEST_TYPE_OBJECT	example-service.c	44;"	d	file:
+TestObj	example-service.c	/^struct TestObj$/;"	s	file:
+TestObj	example-service.c	/^typedef struct TestObj TestObj;$/;"	t	typeref:struct:TestObj	file:
+TestObjClass	example-service.c	/^struct TestObjClass$/;"	s	file:
+TestObjClass	example-service.c	/^typedef struct TestObjClass TestObjClass;$/;"	t	typeref:struct:TestObjClass	file:
+lose	example-service.c	/^lose (const char *str, ...)$/;"	f	file:
+lose_gerror	example-service.c	/^lose_gerror (const char *prefix, GError *error) $/;"	f	file:
+main	example-service.c	/^int main (int argc, char **argv)$/;"	f
+parent	example-service.c	/^  GObject parent;$/;"	m	struct:TestObj	file:
+parent	example-service.c	/^  GObjectClass parent;$/;"	m	struct:TestObjClass	file:
+test_obj_add	example-service.c	/^gboolean test_obj_add (TestObj *obj, int num1, int num2, int *sum, GError **error)$/;"	f
+test_obj_class_init	example-service.c	/^static void test_obj_class_init (TestObjClass *klass)$/;"	f	file:
+test_obj_init	example-service.c	/^static void test_obj_init (TestObj *obj)$/;"	f	file:

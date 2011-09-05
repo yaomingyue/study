@@ -1,0 +1,53 @@
+#!/bin/bash
+
+
+#echo this is a test script
+#touch kk
+#
+#for ((i=0;i<8;i++))
+#do 
+#echo hello >> kk
+#done
+#
+#cat /dev/null > kk
+#
+#for file in $(ls)
+#do
+#echo $file
+#done
+str="hello"
+if [ $str*="hello" ]
+then
+echo "this is"
+fi
+
+
+if [ $(pwd) != "/home/yaomoon/study/bash/stu-not" ]
+then  
+echo kkkkkkkkkkkk
+else goto moon
+fi
+
+echo $(pwd)
+
+tail -20 stu1 > kk
+kk=9
+
+printf "this is %d \n" $kk
+
+
+moon:
+    echo helloworld
+
+exit
+
+
+
+
+
+
+
+
+
+
+exit

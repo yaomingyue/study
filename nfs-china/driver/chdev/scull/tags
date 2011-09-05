@@ -1,0 +1,72 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+KERNEL_DIR	Makefile	/^KERNEL_DIR := \/lib\/modules\/$(shell uname -r)\/build$/;"	m
+NUM	scull.h	101;"	d
+PDEBUG	scull.h	27;"	d
+PDEBUG	scull.h	31;"	d
+PDEBUG	scull.h	34;"	d
+PDEBUG	scull.h	37;"	d
+PDEBUGG	scull.h	40;"	d
+PDEBUGG	scull.h	41;"	d
+PWD	Makefile	/^PWD := $(shell pwd)$/;"	m
+SCULL_IOCGQSET	scull.h	148;"	d
+SCULL_IOCGQUANTUM	scull.h	147;"	d
+SCULL_IOCHQSET	scull.h	154;"	d
+SCULL_IOCHQUANTUM	scull.h	153;"	d
+SCULL_IOCQQSET	scull.h	150;"	d
+SCULL_IOCQQUANTUM	scull.h	149;"	d
+SCULL_IOCRESET	scull.h	133;"	d
+SCULL_IOCSQSET	scull.h	144;"	d
+SCULL_IOCSQUANTUM	scull.h	143;"	d
+SCULL_IOCTQSET	scull.h	146;"	d
+SCULL_IOCTQUANTUM	scull.h	145;"	d
+SCULL_IOCXQSET	scull.h	152;"	d
+SCULL_IOCXQUANTUM	scull.h	151;"	d
+SCULL_IOC_MAGIC	scull.h	130;"	d
+SCULL_IOC_MAXNR	scull.h	165;"	d
+SCULL_MAJOR	scull.h	44;"	d
+SCULL_NR_DEVS	scull.h	48;"	d
+SCULL_P_BUFFER	scull.h	76;"	d
+SCULL_P_IOCQSIZE	scull.h	162;"	d
+SCULL_P_IOCTSIZE	scull.h	161;"	d
+SCULL_P_NR_DEVS	scull.h	52;"	d
+SCULL_QSET	scull.h	69;"	d
+SCULL_QUANTUM	scull.h	65;"	d
+TYPE	scull.h	100;"	d
+_SCULL_H_	scull.h	19;"	d
+__this_module	hello.mod.c	/^struct module __this_module$/;"	v	typeref:struct:module
+__used	hello.mod.c	/^__used$/;"	v	file:
+access_key	scull.h	/^	unsigned int access_key;  \/* used by sculluid and scullpriv *\/$/;"	m	struct:scull_dev
+cdev	scull.h	/^	struct cdev cdev;	  \/* Char device structure		*\/$/;"	m	struct:scull_dev	typeref:struct:scull_dev::cdev
+data	scull.h	/^	struct scull_qset *data;  \/* Pointer to first quantum set *\/$/;"	m	struct:scull_dev	typeref:struct:scull_dev::scull_qset
+data	scull.h	/^	void **data;$/;"	m	struct:scull_qset
+next	scull.h	/^	struct scull_qset *next;$/;"	m	struct:scull_qset	typeref:struct:scull_qset::scull_qset
+obj-m	Makefile	/^obj-m := hello.o$/;"	m
+qset	scull.h	/^	int qset;                 \/* the current array size *\/$/;"	m	struct:scull_dev
+quantum	scull.h	/^	int quantum;              \/* the current quantum size *\/$/;"	m	struct:scull_dev
+scull_cleanup_module	hello.c	/^module_exit(scull_cleanup_module);$/;"	v
+scull_cleanup_module	hello.c	/^void scull_cleanup_module(void)$/;"	f
+scull_dev	scull.h	/^struct scull_dev {$/;"	s
+scull_devices	hello.c	/^struct scull_dev *scull_devices;	\/* allocated in scull_init_module *\/$/;"	v	typeref:struct:scull_dev
+scull_follow	hello.c	/^struct scull_qset *scull_follow(struct scull_dev *dev, int n)$/;"	f
+scull_fops	hello.c	/^struct file_operations scull_fops = {$/;"	v	typeref:struct:file_operations
+scull_init_module	hello.c	/^int scull_init_module(void)$/;"	f
+scull_init_module	hello.c	/^module_init(scull_init_module);$/;"	v
+scull_major	hello.c	/^int scull_major =   SCULL_MAJOR;$/;"	v
+scull_minor	hello.c	/^int scull_minor =   0;$/;"	v
+scull_nr_devs	hello.c	/^int scull_nr_devs = SCULL_NR_DEVS;	\/* number of bare scull devices *\/$/;"	v
+scull_open	hello.c	/^int scull_open(struct inode *inode, struct file *filp)$/;"	f
+scull_qset	hello.c	/^int scull_qset =    SCULL_QSET;$/;"	v
+scull_qset	scull.h	/^struct scull_qset {$/;"	s
+scull_quantum	hello.c	/^int scull_quantum = SCULL_QUANTUM;$/;"	v
+scull_read	hello.c	/^ssize_t scull_read(struct file *filp, char __user *buf, size_t count,$/;"	f
+scull_release	hello.c	/^int scull_release(struct inode *inode, struct file *filp)$/;"	f
+scull_setup_cdev	hello.c	/^static void scull_setup_cdev(struct scull_dev *dev, int index)$/;"	f	file:
+scull_trim	hello.c	/^int scull_trim(struct scull_dev *dev)$/;"	f
+scull_write	hello.c	/^ssize_t scull_write(struct file *filp, const char __user *buf, size_t count,$/;"	f
+sem	scull.h	/^	struct semaphore sem;     \/* mutual exclusion semaphore     *\/$/;"	m	struct:scull_dev	typeref:struct:scull_dev::semaphore
+size	scull.h	/^	unsigned long size;       \/* amount of data stored here *\/$/;"	m	struct:scull_dev
