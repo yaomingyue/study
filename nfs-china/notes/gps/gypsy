@@ -1,0 +1,11 @@
+#1 gypsy-daemon 
+
+#2 The Server object is used to connect to and obtain the object path of
+specific GPS devices. 
+
+#3 gypsy_client.c 中打开设备文件，将打开的设备文件做成一个glib通道 
+   glib的IO Channels允许我们在glib主循环等待指定的文件或socket句柄。
+
+   你可以用 read() 来直接读串口数据，也可以用 glib 提供的iochannel读取函数读
+
+

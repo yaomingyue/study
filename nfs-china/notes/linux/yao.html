@@ -1,0 +1,25 @@
+<h1>1rm -rf <directory name>   ;remove the directory enforcedly</h1>
+<h1>2 tar ;</h1>
+<p>-vf 输出相关信息 对普通文件操作
+  -x 解压
+  -c 压缩
+  -z </p>
+<h1>3 ps -axf | grep minicom ;find the specific process</h1>
+<h1>4 find . -name <em>kk</em>   ;find the files with name containing string "kk" in</h1>
+<p>current directory; 
+ find . |xargs grep fopen  ;find the files with content having string "kk"  in current directory;</p>
+<h1>rpm</h1>
+<h2>5 which ls ; 查看命令在哪个目录</h2>
+<h2>6  which gcc ;</h2>
+<p>rpm -qif <which 的结果> 
+   得出软件的版本信息6<br />
+</p>
+<h2>7 rpm -qa gcc ; gcc属于哪个rpm包</h2>
+<h2>8 rpm -qf &lt; filename&gt; 该文件属于哪个rpm包</h2>
+<h1>9 ls -l 显示分析：</h1>
+<p>如：crw-rw----. 1 root tty       7, 130  7月 25 09:02 vcsa2
+ 第一个字符：- 普通文件
+            c 字符设备文件
+            b 块设备文件
+            d 目录文件
+            l 链接文件</p>

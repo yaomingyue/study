@@ -1,0 +1,48 @@
+1111 minicom 的使用
+    minicom -s 进入minicom的设置界面，选中set serial prot ，修改port 和
+    波特率，hardware flow control 和 software flow control 都设置为 no 
+    minicom中快捷键ctrl + a,再按q，则退出minicom
+22222 通过脚本操作minicom
+   在linux 中
+   minicom是一个很好用的串口调试工具，手动操作很简单，当遇到自动化测试时，就有点麻烦了；下面讲一下minicom的自动化测试，也就是用bash脚本操作minicom
+   1 首先是通过minicom连接目标串口，
+       手动设置的话很简单，
+       在 /etc
+       下有一个minicom的配置文件“minirc.dfl",当minicom启动时先从其中读取配置，其格式是：
+       pu port             /dev/ttyS3
+       pu baudrate         115200
+       pu bits             8
+       pu parity           N
+       pu stopbits         1
+       pu rtscts           No
+       pu xonxoff          No
+       所以，我们可以通过脚本修改mini.dfl文件，再启动minicom
+   2 之后就要解决minicom中输入数据问题
+     这就用到minicom自带的脚本runscript ，下边是一个简单的runscript脚本
+        expect {
+          "OK" break
+        }
+        send "ATI"
+        exit
+     脚本的基本意思是 当minicom收到ok字符串时，发送ATI字符串
+     这样我们可以再启动minicom时加载runscript脚本
+     用命令：minicom -S <runscript name>
+  3 这样就基本能用bash脚本操作minicom了
+    下边是一个用minicom进行串口自动化测试的bash脚本：
+
+    #!/bin/bash
+
+    sudo echo "pu port             /dev/ttyHS2" > /etc/minirc.dfl 
+
+    echo "expect {
+        \"OK\" break
+    }
+    send \"at_ogps=2\"
+    exit
+    " > run 
+
+    minicom -S run &
+
+    kill -9 $(ps -ef|grep minicom|gawk '$0 !~/grep/ {print $2}' |tr -s '\n' ' ')
+    rm run 
+    脚本的内容是用minicom连接/dev/ttyHS2 ，当收到OK时，发送at_ogps=2,

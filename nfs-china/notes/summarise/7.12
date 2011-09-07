@@ -1,0 +1,53 @@
+#configur the Xephyr emulation enviroment
+
+    install the meego1.2 SDK
+    $ chmod +x ./meego-sdk-installer-online
+    $ ./meego-sdk-installer-online
+
+    configur the Xephyr
+    $ wget http://download3.meego.com/meego-sdk-chroot
+    $ chmod +x meego-sdk-chroot
+    $ sudo mv meego-sdk-chroot /usr/bin
+    $ sudo yum install Xephyr
+    $ su
+    $ cd /usr/lib/madde/linux-i686/runtimes/meego-handset-ia32-qemu-1.1.2-runtime
+    $ mkdir rootfs
+    $ chmod 777 information
+    $ ./information
+    $ mount -o loop,offset=512 meego-tablet-ia32-qemu-1.2.0.90.0.20110517.1-sda.raw rootfs/
+    $xhost +si:localuser:root
+    $ meego-sdk-chroot rootfs
+    # startmeego &(chroot 环境下）
+
+    at this step,the MeeGo UI with Xephyr environment is starting;and you can
+    debug and
+    run you application on the meego system;
+
+    ## application development
+        running with Xephye
+        $ export DISPLAY=:2
+            $ <start your application>
+#the lifecycle of meego application development
+
+    develop --> debug --> package --> distribute
+            ( emulation)  
+    Qt                      (rpm )
+           ( or device)
+    development:
+    Qt creator + meego toolchain
+    debug:
+    Qt + emulation or device;
+    package:
+    in order to submit your application to a app store,you should to have it
+    packeged as an RMP; 
+    distribute:
+    your RMP can be submitted to one of the various app stores;
+
+#Qt quick
+　　Qt Quick是Qt 4.7 中推出的一项新技术。
+  是一种高级用户界面技术，使用它可轻松地创建供移动和嵌入式设备使用的动态触摸式界面和轻量级应用程序。三种全新的技术共同构成了
+  Qt Quick 用户界面创建工具包：一个改进的Qt Creator
+  IDE、一种新增的简便易学的语言 (QML) 和一个新加入 Qt 库中名为 QtDeclarative
+  的模块，这些使得 Qt 更加便于不熟悉 C++ 的开发人员和设计人员使用。
+
+

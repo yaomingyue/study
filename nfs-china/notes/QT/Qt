@@ -1,0 +1,54 @@
+Qt的图形用户界面的基础是QWidget.Qt中所有类型的GUI组件如按钮、标签、工具栏等都派生自QWidget，而QWidget本身则为QObject的子类。Widget负责接收鼠标，键盘和来自窗口系统的其他事件，并描绘了自身显示在屏幕上。每一个GUI组件都是一个widget，widget还可以作为容器，在其内包含其他Widget。
+
+Qt利用信号与槽（signals/slots）机制取代传统的callback来进行对象之间的沟通。
+
+Qt notes;
+
+11111  Qt hello world
+#include <qapplication.h>
+#include <qpushbutton.h>
+#include <QLabel>
+
+int main( int argc, char **argv )
+{
+    QApplication a( argc, argv );
+
+    QLabel *label = new QLabel("<h2><font color='red'>Hello</font>,
+    world!<h2>");
+    label->resize(300,100);
+
+    label->show();
+
+    //QPushButton hello( "Hello world!" );
+    //hello.resize( 100, 30 );
+    //QObject::connect(&hello,SIGNAL(clicked()),&a,SLOT(quit()));
+
+    //a.setMainWidget( &hello );
+    //hello.show();
+     return a.exec();
+}
+qt 支持html语言
+22222222 signal and slot
+当一个按钮被点击时，它会发出一个clicked信号，意思是，向周围的组件们声明：我被点击啦！当然，其它很多组件都懒得理他。如果对它感兴趣，就告诉
+QObject说，你帮我盯着点，只要button发出clicked信号，你就告诉我——想了想之后，说，算了，你也别告诉我了，直接去执行我的某某某函数吧！就这样，一个信号槽就形成了。具体来说呢，这个例子就是QApplication的实例a说，如果button发出了clicked信号，你就去执行我的quit函数。所以，当我们点击button的时候，a的quit函数被调用，程序退出了。所以，在这里，clicked()就是一个信号，而
+quit()就是槽，形象地说就是把这个信号插进这个槽里面去。
+3333333333 qt layout
+layout1.addwidget(&label1);
+layout1.addwidget(&label2);
+layout1.addlayout(&layout2);
+Qt 学习笔记2
+QObject 绝大部分的 Qt 类都是从这个类继承而来
+QObject 的中心特征就是signal and slot ,using connect() and disconnect()
+function ;
+
+
+
+#44444444444444
+    QObject 类的实现文件一共有四个:
+    * qobject.h，QObject class 的基本定义，也是我们一般定义一个类的头文件
+    * qobject.cpp，QObject class 的实现代码基本上都在这个文件
+    * qobjectdefs.h，这个文件中最重要的东西就是定义了 QMetaObject
+    * class，这个class是为了实现
+    * signal、slot、properties，的核心部分。
+55555555555555
+

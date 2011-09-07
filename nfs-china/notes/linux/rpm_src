@@ -1,0 +1,14 @@
+111source rpm package
+take the rpm source package "build-2011.03.29-6.1.src.rpm" for example;
+1 rpm -ivh package name;
+    rpm -ivh build-2011.03.29-6.1.src.rpm
+ 
+ then the sourc file and spec file will be found in /root/rebuild/
+
+2 we can rebuild the rpm package via building spec file;the spec file is just a script file for rpm rebuilding;
+    the command is :
+    rpmbuild --ba build.spec
+
+then the rpm file will be generated in /root/rebuild/RPMS directory;
+
+3 and the following things is just install the general rpm package;

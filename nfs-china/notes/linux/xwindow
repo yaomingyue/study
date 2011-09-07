@@ -1,0 +1,20 @@
+1111 xwindow gnome kde 
+    X-Windows：就是图形界面程序(有X服务\X客户端\窗口管理器等)！
+    X服务器：负责屏幕画面的绘制与显示！
+    X客户端：负责事件处理！
+    窗口管理器：GNOME \ KDE \ XFCE ... ...
+
+    我们在前台看到最直观的就是 GNOME \ KDE \ XFCE ... ... 这些了,
+    这些后台就是“X服务器”和“X客户端”在工作了，X客户端把接收到的事件（如点鼠标）告诉X服务，然后X服务就在屏幕上显示下点鼠标的状态！
+
+    Linux(命令行) -> X-Windows(X服务\X客户端) -> 窗口管理器(GNOME \ KDE \ XFCE ...
+    ...)
+    Linux 是命令行的操作系统 X-Windows 可以看成是 Linux 中的一个程序而已，而 GNOME
+    是窗口管理器，如果安装了个基本的 Linux
+    系统（没有桌面），想要安装桌面时，就得先安装 X-Windows 服务，再安装 GNOME \
+    KDE 这类窗口管理器！
+
+    虽然现在的 Linux 基本上都有桌面了，但 Linux
+    本质还是命令行的操作系统，桌面很多事情做不了。
+22222 gnome kde
+    gnome 采用QT，gnme 采用gtk

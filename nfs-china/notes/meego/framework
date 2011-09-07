@@ -1,0 +1,45 @@
+1111111111 what is kernel
+广义地来说kernel就是一个软件，它在硬件和运行在计算机上的应用程序之间提供了一个层
+Kernel通过许多的进入端口也就是我们从技术角度所说的系统调用，来使得运行在它上面的应用程序可用
+与硬件"交流"，这也就是我们所说的抽象（abstraction），将底层的东西以更易懂的方式表达出来。
+
+2222222222 location(GPS) in the meego framework
+
+kernel(driver for GPS) --->GPSD(a daemon process0--->GeoClue ---> APP
+
+Geoclue introcuction: 
+    Geoclue is a modular geoinformation service built on top of the D-Bus
+    messaging system. The goal of the Geoclue project is to make creating
+    location-aware applications as simple as possible. 
+    
+    Geoclue is Free Software, licensed under GNU LGPL. It is developed for
+    Linux, but should be portable to any platform that uses D-Bus. 
+
+D-bus
+    应用程序互相通信
+    a IPC 进程间通信
+ geoclue 介绍：
+在详细介绍之前，先讲讲GeoClue的来龙去脉。大家知道，原先在应用程序中要获取设备的当前位置，最常见的做法是通过GPS定位，程序员往往需要直接访问串口读取GPS设备发来的NMEA帧，然后通过分析获得需要的位置数据。这种做法有2个缺点：第一，工作量大;第二，GPS为某个进程独占，其他应用如果也有类似需求就只能说抱歉了。在这种情况下，引入了GPS
+Daemon，就是Daemon独占了GPS设备，分析NMEA帧获取位置信息，并把位置信息提供给应用程序。这样GPS
+Daemon就可以同时为多个进程服务，并且大大减轻了程序员的工作量，不用再为编写分析NMEA数据的代码而头大了。目前Linux上比较流行的GPS
+Daemon有gpsd和gypsy。不过使用GPS定位有一定的局限性，首先带有GPS的设备并不普及，其次，室内无法收到GPS信号。随着技术的发展，越来越多的定位方式出现在世人面前，如IP地址定位，wifi定位，基站定位等，这些新出现的定位技术对传统的定位方式起到了补充的作用。于是程序员想在程序中采用多种定位技术结合，自动选取最优定位技术来获取位置信息。问题又来了：又要自己写代码分析位置了，程序里要加不少代码来判断最优，如果需要支持新的定位技术怎么办?在这种情况下，GeoClue出现了。
+
+　　GeoClue是架构在D-BUS上的一套提供位置相关信息的中间件，遵循LGPL。这里的位置相关信息包括了位置、地址和运动速度等等。GeoClue下有若干Provider提供位置相关信息。同一个Provider可能提供若干种不同类型的信息，比如gypsy可以提供位置信息与速度;不同的Provider也可能提供相同类型的信息，比如gypsy与hostip都可以提供位置信息，所不同的是前者的信息是通过GPS获得，而后者则是通过互联网上IP转经纬度的服务而获得。GeoClue提供了2套API供应用程序使用，一套是C语言API，另一套是D-BUS
+API，用户可以根据实际情况选择。
+
+
+44444444444
+ Location  - Location Framework，相关的LBS能力
+
+   1.
+   定位框架：采用GeoClue开源项目。在Intel工程师方亮的文章有介绍：http://software.intel.com/zh-cn
+   /blogs/2009/03/11/moblin-sdk-geoclue/，摘录如下：原先在应用程序中要获取设备的当前位置，最常见的做法是通过
+   GPS定位，程序员往往需要直接访问串口读取GPS设备发来的NMEA帧，然后通过分析获得需要的位置数据。这种做法有2个缺点：第一，工作量大；第二，GPS为某个进程独占，其他应用如果也有类似需求就只能说抱歉了。在这种情况下，引入了GPS
+   Daemon，就是Daemon独占了GPS设备，分析NMEA帧获取位置信息，并把位置信息提供给应用程序。这样GPS
+   Daemon就可以同时为多个进程服务，并且大大减轻了程序员的工作量，不用再为编写分析NMEA数据的代码而头大了。随着技术的发展，越来越多的定位方式出现在世人面前，程序员想在程序中采用多种定位技术结合，自动选取最优定位技术来获取位置信息。在这种情况下，GeoClue出现了。GeoClue是架构在D-BUS上的一套提供位置相关信息的中间件，遵循LGPL。这里的位置相关信息包括了位置、地址和运动速度等等。GeoClue下有若干
+   Provider提供位置相关信息。同一个Provider可能提供若干种不同类型的信息，比如gypsy可以提供位置信息与速度；不同的
+   Provider也可能提供相同类型的信息，比如gypsy与hostip都可以提供位置信息，所不同的是前者的信息是通过GPS获得，而后者则是通过互联网上IP转经纬度的服务而获得。GeoClue提供了2套API供应用程序使用，一套是C语言API，另一套是D-BUS
+   API，用户可以根据实际情况选择。
+      2. 定位适配：对GPS等定位原设备的硬件抽象层。
+
+

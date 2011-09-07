@@ -1,0 +1,13 @@
+the different between gmake and make 
+一种说法：
+gmake是GNU Make的缩写。
+Linux系统环境下的make就是GNU
+Make，之所以有gmake，是因为在别的平台上，make一般被占用，GNU
+make只好叫gmake了。
+比如在安装二进制文件进行编译时要使用make命令,但如果在Solaris或其他非GNU系统中运行，必须使用GNU
+make，而不是使用系统自带的make版本，
+这时要用gmake代替make进行编译。
+另一种说法：
+gmake和BSD自带的make是不同的，他们的Makefile有些不兼容，比如说一些变量的写法和含义。
+在编译出的程序如果有不同，也只是因为Makefile里指定的命令不同。
+也因为内核的makefile语法有些特殊，gmake似乎不能用来编译bsd的内核，看来，只适用于bsd自带的那个make。 

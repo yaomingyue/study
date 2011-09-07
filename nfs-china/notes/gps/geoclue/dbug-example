@@ -1,0 +1,14 @@
+11111
+geoclue-example 没有启动gypsy-daemon的原因是
+geoclue_master_client_set_requirements (client,
+                                        GEOCLUE_ACCURACY_LEVEL_DETAILED,
+                                        0, TRUE,
+                                        GEOCLUE_RESOURCE_ALL,
+                                        NULL)
+中GEOCLUE_RESOURCE_NETWORK,改为GEOCLUE_RESOURCE_ALL,
+
+但改了之后仍有  warning: Geoclue master client has no usable Position
+providers
+ 问题处在init_position（）的geoclue_position_get_position（）
+ 该函数对应/src/client.c 的get_position();
+

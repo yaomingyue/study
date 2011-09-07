@@ -1,0 +1,36 @@
+
+
+beTrotter GI4xx – GPS Control Interface is a COM port that can be used
+for sending GPS AT commands to configure GPS parameters. This can also be used
+for
+general AT commands.
+In case of the Icon461, it is recommended to only use this port only for
+sending Option
+proprietary GPS AT commands.
+
+222222222BUILD IMAGE:         
+Image: oaktrail-1.2.0.90.7.20110706.4
+
+HARDWARE MODEL:
+ECS S10OT3
+
+BUG DETAILED DESCRIPTIONS
+===========================================================
+Geoclue fails to fix to location
+
+EXACT STEPS LEADING TO PROBLEM:
+===========================================================
+1.Run the command: echo -e "AT_OGPS=2\\r" > /dev/ttyHS2
+2.Then run: cat /dev/ttyHS1
+3.gpsd /dev/ttyHS1
+4.cgps 
+5.In the open air, wait for some minutes.
+
+EXPECTED OUTCOME:
+===================
+The status can turn to "Fixed". And the location information can be shown.
+
+ACTUAL OUTCOME:
+===================
+The status is always "Not fixed" after more than 5 minutes.The location
+information can't be seen.

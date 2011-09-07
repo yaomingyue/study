@@ -1,0 +1,16 @@
+X服务器（X
+Server）是Linux系统下的一个底层程序，为用户运行的图形程序提供一个图形环境，但是用户并不是直接和X服务器会话
+
+另一个则是基于 Xephyr （http://www.freedesktop.org/wiki/Software/Xephyr） 的
+MeeGo chroot （change-root） 环境，该环境还包括一个启动 MeeGo
+桌面的脚本，以及可以远程配置 MeeGo 设备的 Qt Creator 。 
+
+The Qt Creator-based development environment with integrated help, along with
+Qt Simulator, and a full virtual machine (QEMU), enables the developer to
+create applications ready for submission to an appstore, with or without
+target hardware.
+ meego sdk 1.2包含来QEMU ，QT，和一些工具；
+
+ *****************
+ meego 1.2 sdk Qt config
+ 

@@ -32,6 +32,16 @@ print_hash_value (gpointer key, gpointer val, gpointer data)
   printf ("%s -> %s\n", (char *) key, (char *) val);
 }
 
+//yaomoon
+static void
+posistion (GypsyCourse    *course,
+               gpointer          userdata)
+{
+    printf("helloyaomoon\n");
+
+}
+//*****************
+
 int
 main (int argc, char **argv)
 {
@@ -67,6 +77,12 @@ main (int argc, char **argv)
 			  G_TYPE_INT, &sum, G_TYPE_INVALID))
     lose_gerror ("Failed to call Add", error);
   printf("sum is %d\n", sum);
+
+  //yaomoon
+  g_signal_connect (remote_object, "position",
+                  G_CALLBACK (position), NULL);
+//****************
+
 
   remote_object_introspectable = dbus_g_proxy_new_for_name (bus,
 							    "org.fmddlmyy.Test",

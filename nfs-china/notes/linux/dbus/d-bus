@@ -1,0 +1,18 @@
+1 what is D-bus
+    D-Bus是针对桌面环境优化的IPC（interprocess communication
+    ）机制，用于进程间的通信或进程与内核的通信。
+2 DBus进程间通信主要有三层架构：
+    1.底层接口层：主要是通过libdbus这个函数库，给予系统使用DBus的能力。
+    2.总线层：主要Message bus
+    daemon这个总线守护进程提供的，在Linux系统启动时运行，负责进程间的消息路由和传递，其中包括Linux内核和Linux桌面环境的消息传递。总线守护进程可同时与多个应用程序相连，并能把来自一个应用程序的消息路由到0或者多个其他程序。
+    3.应用封装层：通过一系列基于特定应用程序框架将DBus的底层接口封装成友好的Wrapper库，供不同开发人员使用（DBus官方主页http://www.freedesktop.org/wiki/Software/dbus，提供了大部分编程语言的DBus库版本）。比如libdbus-glib,
+    libdbus-python.
+3 d-bus Daemon 与Application通信是通过socket实现
+
+2222 libdbus 可以用于两进程的通信，像建立一个通道；
+    多进程或多个应用程序通信，可以用dbus daemon来分配消息
+    dbus 有多种封装库，将底层的接口封装，如：libdbus-glib libdusb-qt
+
+用dbus_g_bus_get得到到session
+bus的连接。在这个连接上用dbus_g_proxy_new_for_name函数获得到拥有指定公共名的连接的指定对象的指定接口的代理。最后，用
+dbus_g_proxy_call函数通过接口代理调用接口提供的方法。

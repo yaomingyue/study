@@ -1,0 +1,8 @@
+rpm -ivh <rpm name>   install
+
+rpm -qf <file name>    check what the file belong to
+
+rpm -e <rpm name>    uninstall the rpm ; note that <rpm name> not
+follow .rpm
+
+rebuild -ba <spec file name>   

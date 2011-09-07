@@ -1,0 +1,14 @@
+create meego image :
+the error meeted
+
+111 SELinux must be disable;
+answer : just disable the selinux : 
+    some commands about selinux :
+        getenforce: get the value of the current selinux;
+        setenforce: set the value of the selinux;
+to sove the error by setting the selinux's value Permissive: the command is :
+setenforce Permissive;
+2222222 the command "extlinux"is not found;
+answer: sudo yum install syslinux-extlinux;
+you can search the packeg by :yum search *extlinux;
+

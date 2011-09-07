@@ -1,0 +1,123 @@
+1111111
+Hi,
+
+I read that the Location API abstracts the GeoClue library for positioning,
+and defaults to using Gypsy for the device driver... is this only for the
+Meego platform? Shouldn't desktop also use this sort of implementation (not
+sure if it already does). I'd like to use gpsd on Linux with the Location
+API out of the box; this would be possible if GeoClue was used for the
+desktop variant as well, since GeoClue supports gpsd as well as Gypsy on the
+desktop. Sorry if I'm overlooking the obvious, it's hard to find information
+on this.
+
+That's only for MeeGo.  We don't have any support for GPS on desktop
+platforms aside from QNmeaPositionInfoSource.
+
+
+Kf
+222222
+clue is the reference back end. Geoclue however is not a manadatory
+component.
+It's very likely that some commercial implementations of MeeGo will have
+their own custom back end,
+especially to tie into location services (maps etc) that service
+providers provide for a fee. 
+33333333333333
+Actually the devil is in the detail. From a Qt perspective Location covers
+four things:
+
+1.) Positioning (get me the current coordinate
+2.) Maps
+3.) Navigation
+4.) Landmarks/POIs
+
+Point 2-4 are based on plug-ins and can easily swapped out.
+
+With regards to positioning the Qt location actually integrates GeoClue into
+its own code base (and links against it). Swapping GoeClue out for positioning
+would therefore require a new backend inside the QtLocation library. Such
+positioning adaptations have to happen below/inside GeoClue (from a stack
+perspective).
+
+Not every Qt API consists of plug-ins as their backend. In general, that's
+only done if it is likely that the same device image should/could be
+extended/changed during the same device's lifetime (e.g. add more codecs, use
+a different maps provider etc). Otherwise a plug-in solution is too expensive
+for multiple reasons. The same applies to things like connman, ofono or other
+types of platform API's. Most Qt libraries with ties to those platform API's
+do not have a plug-in mechanism for their backends.
+
+-- 
+Alex 33333333333333
+Actually the devil is in the detail. From a Qt perspective Location covers
+four things:
+
+1.) Positioning (get me the current coordinate
+2.) Maps
+3.) Navigation
+4.) Landmarks/POIs
+
+Point 2-4 are based on plug-ins and can easily swapped out.
+
+With regards to positioning the Qt location actually integrates GeoClue into
+its own code base (and links against it). Swapping GoeClue out for positioning
+would therefore require a new backend inside the QtLocation library. Such
+positioning adaptations have to happen below/inside GeoClue (from a stack
+perspective).
+
+Not every Qt API consists of plug-ins as their backend. In general, that's
+only done if it is likely that the same device image should/could be
+extended/changed during the same device's lifetime (e.g. add more codecs, use
+a different maps provider etc). Otherwise a plug-in solution is too expensive
+for multiple reasons. The same applies to things like connman, ofono or other
+types of platform API's. Most Qt libraries with ties to those platform API's
+do not have a plug-in mechanism for their backends.
+
+-- 
+Alex 33333333333333
+Actually the devil is in the detail. From a Qt perspective Location covers
+four things:
+
+1.) Positioning (get me the current coordinate
+2.) Maps
+3.) Navigation
+4.) Landmarks/POIs
+
+Point 2-4 are based on plug-ins and can easily swapped out.
+
+With regards to positioning the Qt location actually integrates GeoClue into
+its own code base (and links against it). Swapping GoeClue out for positioning
+would therefore require a new backend inside the QtLocation library. Such
+positioning adaptations have to happen below/inside GeoClue (from a stack
+perspective).
+
+Not every Qt API consists of plug-ins as their backend. In general, that's
+only done if it is likely that the same device image should/could be
+extended/changed during the same device's lifetime (e.g. add more codecs, use
+a different maps provider etc). Otherwise a plug-in solution is too expensive
+for multiple reasons. The same applies to things like connman, ofono or other
+types of platform API's. Most Qt libraries with ties to those platform API's
+do not have a plug-in mechanism for their backends.
+
+-- 
+Alex 
+55555555555
+You may want to look at the Qt-mobility Location API's. Hopefully down the
+road there will be a geoclue backend made for it. In theory, if you target the
+Qt-mobility location APIs with your applications, your app will be able to run
+regardless of the backend (geoclue, yahoo, gpsd, google, etc). 
+
+666666
+n principle on MeeGo Qt Mobility Location API uses GeoclueMaster for
+positioning ->
+
+As a consequence it supports whatever Geoclue Master works with and adding
+your own provider should be possible.
+
+777777
+As you probably know, GeoClue is part of the Meego architecture as the
+Geolocation component. However, current plans are using the QtMobility API for
+UI applications and defining GeoClue as one of the available backends.
+
+888888
+

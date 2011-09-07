@@ -1,0 +1,38 @@
+11 
+在position-example.c中连接position-change信号,并回调函数打印position数据     
+在master-provider.c 中，
+g_signal_connect (G_OBJECT (priv->position),
+"position-changed",
+ G_CALLBACK (position_changed), provider);
+
+ position_changed函数中发送了position-change信号；
+ 先从别的连接中获得position-chagne信号，再在本连接中发送出去；
+
+ /geoclue/geoclue-position.c中也是这么发送的
+
+2222 position-example.c 中调用了geoclue_position_get_position ，c API，
+      position-example.c 中即用了C-API，也用了d-bus API;
+
+3333 
+    master-provider.c 中 
+    连接position-chagned信号，回调position_changed，--》中调用gc_master_provider_set_position，——》中给priv数据赋值，并发送position-changed信号;
+    
+    同样，在c
+    API中geoclue_position_get_position函数中调用org_freedesktop_Geoclue_Position_get_position
+-->中d-bus调用GetPosition方法;可以肯定，GetPosition是gypsy的d-bus方法;
+444 geoclue 中也实现来dbus 方法GetPosition
+对应函数为gc_iface_position_get_position,位于geoclue/gc-iface-positon.c
+-->中get-position是函数指针，在/provider/gypsy/geoclue-gypsy.c中实现了函数为get-position
+5555 
+/provider/geoclue-gypsy.c 中调用gypsy_control_create 来启动gypsy-daemon
+gypsy_control_create 在set_option
+中被调用；set-option又在gc-iface-geoclue.c
+的gc_iface_geoclue_set_options函数中被调用；
+gc_iface_geoclue_set_options 在gc-iface-geoclue-glue.h中和dbus接口org.freedes
+ktop.Geoclue 的setOption方法联系
+set_option中
+device_value = g_hash_table_lookup (options,
+                         "org.freedesktop.Geoclue.GPSDevice");
+ 上句是在gconf中配置gps设备文件
+66666666 API geoclue_provider_set_options
+中调用org_freedesktop_Geoclue_set_options，--》中调用dbus 方法setoption

@@ -1,0 +1,9 @@
+111将文件夹制成镜像文件，并挂载
+make mydir diretory to a image file
+#mkisofs -r -J -V mydisk -o /home/sunky/mydisk.iso /home/sunky/ mydir
+
+mount the iso file to /dev/cdrom
+#mount -o loop -t iso9660 /home/sunky/mydisk.iso /mnt/vcdrom
+#
+umount 
+umount /mnt/vcdrom

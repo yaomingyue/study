@@ -1,0 +1,45 @@
+1 $1 $2 are the arguments
+  $# is the num of the arguments
+2 judgement 
+    if [ $# -eq 0 ];then
+3
+    switch case in bash
+
+    case $1 in
+    -help)
+    echo help
+    ;;
+    esac  //the syntax of bash is interesting( the end of "if" is "fi";the end of "case" is "esac");
+
+4 output large section char
+  cat <<\EOF
+  Usage: depcomp [--help] [--version] PROGRAM [ARGS]
+  
+  Run PROGRAMS ARGS to compile a file, generating dependencies
+  as side-effects.
+  
+ Environment variables:
+ depmode     Dependency tracking mode.
+ source      Source file read by `PROGRAMS ARGS'.
+ object      Object file output by `PROGRAMS ARGS'.
+ DEPDIR      directory where to store dependencies.
+ depfile     Dependency file to output.
+ tmpdepfile  Temporary file to use when outputing
+ dependencies.
+ libtool     Whether libtool is used (yes/no).
+    
+ Report bugs to <bug-automake@gnu.org>.
+EOF
+5 echo -e 之后可以输出转义字符
+
+6 sed '$d' '1d' kk
+     将文件kk中的数据输出到标准输出，并且没有最后一行和第一行
+
+#7 bash script 中的格式化输出
+    
+    printf "%3d" "$i" 
+
+#8 bash 中的转义字符
+
+    echo -e "at_ogps=2\\r" > /dev/ttyHS1 -e 是为了识别转义字符
+    echo -e \\b 退格

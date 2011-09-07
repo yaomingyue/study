@@ -1,0 +1,30 @@
+一个Makefile 实例：文件由 4个 c文件和4个h文件组成;
+main:main.o dog.o cat.o cock.o
+    cc -o main main.o dog.o cat.o cock.o
+main.o: main.c main.h cat.h dog.h cock.h
+    cc -c main.c
+cat.o: cat.c main.h
+    cc -c cat.c
+dog.o: dog.c main.h
+    cc -c dog.c
+cock.o: cock.c main.h
+    cc -c cock.c
+clean:
+    rm main main.o cat.o dog.o cock.o
+
+只要执行make就可以生成执行文件main了；执行make clean 就可以删除相关文件；
+
+在makefile中冒号前边的是执行文件或中间目标文件：冒号后边的是生成前边文件依赖
+文件，就是和生成文件有关的文件，当这些文件变化时，从新生成目标文件或执行文件
+；
+定义好了依赖关系后，下面的是生成目标文件的系统命令了；一定要由tab键开头；
+make 命令会比较targets文件（冒号前）和prerequisites文件（冒号后）的修改日期；
+如果prerequisites文件的日期要比targets文件的日期要新，或者targets文件不
+存在的话，那么，make就会执行后边的命令了；
+
+这里要说明一点的是，clean不是一个目标文件，只是一个动作名字；它后边没有
+依赖文件，那么make命令就找不到依赖关系，也不能执行后边的命令；要执行后边
+的命令，就要在make命令的后边明显的指出这个命令动作；make clean
+这样的方法很有用，我们可以在makefile中定义不用编译或者与编译无关的命令；
+比如程序的打包，程序的备份和删除命令；
+

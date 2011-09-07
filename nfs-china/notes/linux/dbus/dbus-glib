@@ -1,0 +1,22 @@
+11
+g_signal_connect
+gulong g_signal_connect( gpointer *object,
+const gchar *name,
+GCallback func,
+gpointer func_data );
+
+第一个参数是要发出信号的构件，第二个参数是你想要连接的信号的名称，第三个参数是信号被捕获时所要调用的函数，第四个参数是你想传递给这个函数的数据。
+
+第三个参数指定的函数叫做回调函数，一般为下面的形式：
+void callback_func( GtkWidget *widget,
+gpointer callback_data );
+
+第一个参数是一个指向发出信号的构件的指针，第二个参数是一个指向数据的指针，就是上面
+g_signal_connect() 函数的最后一个参数传进来的数据。
+
+注意上面回调函数的声明只是一般的形式，有些构件的特殊信号会用不同的调用参数。
+22
+g_signal_emit
+信号的创建一般在类初始化（our_item_class_init）中进行，这里我们用函数g_signal_emit来发射信号，它也有多个参数，它的第一个参数是对象的实例，用G_OBJECT来转换；第二个参数是信号的标记，即我们上面定义的ouritem_signals数组中的一个值，这里取
+ouritem_signals[OURITEM_OK_SIGNAL]；第三个参数是详细内容，可以设为0不做处理。还可以用
+g_signal_emitv函数来发射信号，它的用法参考GOBJECT的API手册。

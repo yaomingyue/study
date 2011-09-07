@@ -1,0 +1,48 @@
+dbus 消息
+
+ 1 dbus消息初探
+    dbus消息是dbus通信的基础；应用程序B调用应用程序A的方法，就是B向A发送一
+    类型是method_call的消息；A又通过一个类型为method_return的消息将返回值发
+    给B；
+ 2 dbus消息的类型
+    • method_call 方法调用
+    • method_return 方法返回
+    • error 错误
+    • signal 信号jk
+ 3 dbus-send dbus-monitor
+    其实我们可以通过dbus-send发送消息，通过dbus-monitor监测消息；
+    1)
+    举例：
+    dbus-send --system --print-reply --dest:org.freedesktop.Hal /org/freedesktop/Hal/Manager org.freedesktop.Hal.Manager.GetAllDevices
+                                          
+     --system   使用系统消息总线
+     --print-reply  打印系统回应到标准输出上
+     --dest:  指定要接收该消息的连接的bus name。org.freedesktop.Hal 
+     /org/freedesktop/Hal/Manager 要接收该消息的对象的路径
+     org.freedesktop.Hal.Manager.GetAllDevices
+         GetAllDevices是一个具体的方法
+       所以，以上这条命令的作用就是，向系统消息总线上的org.freedesktop.Hal连接中的manager对象，发送一条获得所有设备的方法。然后hal上与这个方法对应的代码来实现打印所有设备细节到标准输出上。
+
+    2) dbus-send 调用方法
+    dbus-send --session --type=method_call --print-reply
+    --dest=org.freedesktop.DBus /
+    org.freedesktop.DBus.Introspectable.Introspect
+
+
+    3) dbus-send 发送信号
+    　　dbus-send --system --type=signal /org/openmoko/PhoneKit/Network
+    org.openmoko.PhoneKit.Network.signal_changed int32:12
+
+    信号发射不象方法调用需要答复。信号发射只是简单单一信息类型SIGNAL。它必须有三个头域，PATH给出发送信号的对象，加上INTERFACE和MEMBER给出信号的全称名字。INTERFACE头部域在信号中是必须的，尽管它在方法调用中是可选的。 
+
+     dbus-send --system --type=signal /org/freedesktop/Gypsy/ttyS1
+     org.freedesktop.Gypsy.Position.PositionChanged int32:12 int32:22 double:0
+     double:0 double:0
+
+     用dbus-monitor --system 查看
+     sigal sender=:1.32 -> dest=(null destination) serial=2
+     path=/org/freedesktop/Gypsy/ttyS1: interface=org.freedesktop.Gypsy.Positon: member=PositionChanged
+
+     在这里；dest 是要接收该信号的连接，可以省去
+      /org/freedesktop/Gypsy/ttyS1 是该信号属于的对象的路径
+      org.freedesktop.Gypsy.Position.PositionChanged 具体的interface 和signal

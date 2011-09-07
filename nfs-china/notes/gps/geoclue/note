@@ -1,0 +1,20 @@
+11 GeoClue是架构在D-BUS上的一套提供位置相关信息的中间件 
+222 master provider
+  程序员只需在代码中告诉总管所需要的数据精度和数据大致来源，总管就能自动的返回一个最优的Provider来。
+ 333 gypsyy provider requires the option org.freedesktop.Geoclue.GPSDevice 
+ to be set.Valid values are GPS bluetooth mac addresses (e.g. 00:02:76:C5:81:BF) and device names (/dev/pgps). 
+sh_table_insert (options, "org.freedesktop.Geoclue.GPSDevice",
+GPS_DEVICE_NAME);
+gconftool-2 -t string -s
+/apps/geoclue/master/org.freedesktop.Geoclue.GPSDevice 00:02:76:C5:81:BF
+4444
+the first thing to check is if you had the Gypsy provider compiled when
+you built geoclue.  There is a summary of what is being built at the end
+of the configure script.
+
+Second, is to check if you installed geoclue in /usr.  Because of the
+dbus services, it can't be installed elsewhere.  the .service files are
+located in /usr/share/dbus-1/services/ so if you can't find
+org.freedesktop.Geoclue.Providers.Gypsy.service there, the provider
+cannot start upon request.
+

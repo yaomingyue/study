@@ -1,0 +1,44 @@
+1what is dbus
+D-Bus 是针对桌面环境优化的 IPC(interprocess communication
+)机制,用于进程间的通信或进程与内核的通信。
+最基本的 D-Bus 协议是一对
+一的通信协议。但在很多情况下,通信的一方是消息总线。消息总线是一个特殊的应用,它同时与多个应用通信,并在应用之间传递消息。下面我们会在
+实例中观察消息总线的作用。消息总线的角色有点类似与 X
+系统中的窗口管理器,窗口管理器既是 X 客户,又负责管理窗口。
+支持 dbus 的系统都有两个标准的消息总线:系统总线和会话总线。
+系统总线用于系统与应用的通信。
+会话总线用于应用之间的通信。
+2 dbus调试工具 
+    1 d-feet 
+    可以查看system bus 和session bus中所有的连接名称和其对象->对象->接口->me
+    thod and signal
+    2 dbus-send dbus-monitor
+    dbus-send 可以向总线上的连接发送消息，达到方法调用和发送信号的目的，
+    dbus-monitor 可以监测指定bus 连接，
+    具体的用法，后边在说；
+3 dbus中各个名词含义及之间的关系
+    名词包括：连接，bus name，对象，路径，接口（interface），方法，信号。
+
+    bus name 确定了一个应用到消息总线上的连接，bus name 分为公共名和唯一名；
+    如org.freedesktop.Gypsy 是连接的公共名，:1.311是其唯一名。
+    唯一名是必须的，而有的连接没有公共名，说名该连接没有供外界使用的方法和信
+    号；
+
+    每个应用到消息总线上的连接有一个bus name，一个连接有多个对象，这些对象是
+    按照树状组织的，每个对象都有一个唯一的路径；
+    如org.freedesktop.Gypsy中有/org/freedesktop/Gypsy和/org/freedesktop/Gypsy/ttyS1两个对象
+    对象的路径一般包含“/”；
+
+    通过对象路径，我们可以找到连接中的一个对象，每个对象下可以有多个接口：
+    如：org.freedesktop.Gypsy.Satellite 和org.freedesktop.Gypsy.Position等；
+
+    每个接口下又可以包含自己的methods and signals;
+
+4构架
+    分成三层：
+    a.libdbus库，实现了底层的API以及协议，他除了需要XML解析器以外没有必须的依赖。对于不同的语言，协议可能被重新实现。这个库是一个基础，虽然官方说他不是设计给应用程序调用的，但是实际上应用程序是可以直接调用的，特别是windows版，后面的使用分析中的例子就能看到；
+
+    b.消息守护进程，建立在libdbus的基础上，可以管理多个应用程序之间的通信。每个应用程序都和消息守护进程建立dbus链接，由消息守护进程统一进行消息的派发；
+
+    c.各种包装库，绑定了一些常见的框架（qt，Glib，Java，Python，C,sharp,etc.）没什么新功能，只是对dbus进行了一层封装。方便使用官方建议应用程序使用这层进行调用；
+

@@ -1,0 +1,36 @@
+111i glib实现串口读
+    想实现“在按键事件开始后不断的读串口，直到关断串口的按键事件启动”的话，用
+    while是不可行的，单单加入非阻塞也不行，因为在while循环中你的程序将不会响
+    应按键事件。
+    多线程是可以解决问题的，不过尽量不要使用。
+
+    用iochannel是最合适的。方法大致如下：
+
+    1. 以非阻塞方式打开串口，非阻塞是必须的，下面会提到原因。
+    fd = open("/dev/ttyS0",O_RDWR|O_NONBLOCK,0644);
+
+    2. 建立iochannel。
+    io_channel = g_io_channel_unix_new (fd);
+    g_io_channel_set_encoding (io_channel, NULL, &err); /* 应该可选 */
+
+    3. 把文件描述符可读的事件加入到程序的事件循环中：
+    source_id = g_io_add_watch (io_channel, G_IO_IN, read_ttyS, NULL);
+
+    4. 当这些做好后就可以用 read_ttyS() 来读取串口数据了。
+    你可以用 read() 来直接读串口数据，也可以用 glib 提供的iochannel读取函数
+    读。
+    不过要注意的是必须要用循环读到出现没有数据可读以致返回错误时才能结束一次
+    读操作。这是因为内核中有缓冲，要是一次读取没有把全部数据读完的话，本应该
+    在这次回调中读取的数据就要等到下一次才能读取了。串口的数据流量不大，不用
+    这种处理办法可能也不会有问题，不过还是保险一点好。上面打开串口时使用非阻
+    塞方式就是为了这里可以把达到的数据完整读完。
+    5 其中read_tty是watch函数的回调函数，可以在其中实现读功能
+
+222222222  DBus消息如何映射成本地方法调用
+    static const DBusGMethodInfo dbus_glib_e_data_book_factory_methods[] = {
+      { (GCallback) impl_BookFactory_getBook,
+      dbus_glib_marshal_e_data_book_factory_NONE__STRING_POINTER, 0 },
+      };
+      impl_BookFactory_getBook为本地调用的业务方法，dbus_glib_marshal_e_data
+      _book_factory_NONE__STRING_POINTER为远程DBUS文本消息映射到本地调用方法
+      需要用到的反序列化函数。

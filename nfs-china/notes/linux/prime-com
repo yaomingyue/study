@@ -1,0 +1,48 @@
+#1rm -rf <directory name>   ;remove the directory enforcedly
+#2 tar ;
+  -vf 输出相关信息 对普通文件操作
+  -x 解压
+  -c 压缩
+  -z 
+#3 ps -axf | grep minicom ;find the specific process
+
+#4 find 
+##find . -name *kk*   ;find the files with name containing string "kk" in
+current directory; 
+
+## find . |xargs grep fopen  ;find the files with content having string "kk"  in current directory;
+
+#5rpm
+    ## which ls ; 查看命令在哪个目录 
+    ##  which gcc ;
+       rpm -qif <which 的结果> 
+       得出软件的版本信息6  
+    ## rpm -qa gcc ; gcc属于哪个rpm包
+    ## rpm -qf < filename> 该文件属于哪个rpm包
+    ## rpm -qpl <rpm package name>  看包里边的文件列表
+
+#6 ls -l 显示分析：
+ 如：crw-rw----. 1 root tty       7, 130  7月 25 09:02 vcsa2
+ 第一个字符：- 普通文件
+            c 字符设备文件
+            b 块设备文件
+            d 目录文件
+            l 链接文件
+
+#7 编译内核
+    在linux2.37目录下，make arch=x86，可能会报没有.config文件的错误，执行make menuconfig ，出来对话框，在最后一行选择，save……，exit退出，则生成来.config文件，运行make arch=x86，在arch/x86/boot下生成bzImage文件
+#8 about vim
+    1折叠函数 set fdm=syntax; zc 折叠，zo 打开
+#9 linux 的 sed 命令； 在命令行对文件内容编辑
+    sed 是一种在线编辑器，它一次处理一行内容。处理时，把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。
+#10 proc
+#cat /proc/partition  查看现在存在硬盘分区
+#cat /proc/devices  查看设备文件(字符设备和块设备）
+
+
+#11 重定向
+    >  >>  2> tee
+    > 重定向到    cat /dev/ttyHS1 > data
+    >> 追加到     cat /dev/ttyHS1 >> data
+    2> 将标准错误重定向到  cat /dev/ttyHS1 2> data
+    tee 将标准输入重定向到文件并到标准输出 cat /dev/ttyHS1 | tee data

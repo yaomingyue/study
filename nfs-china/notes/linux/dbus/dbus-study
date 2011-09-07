@@ -1,0 +1,9 @@
+111 dbus dbuging 
+   the toll is d-feet;
+   using the d-feet, you can check the dbus connection,and it's methods and
+   signal;
+   use the "hello-dbus3-0.1" project to touch the dbus ;
+222 the structure of dbus
+    busname (public name and private name)
+    busname --> object --> connection --> methods and signals
+333 

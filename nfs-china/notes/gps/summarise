@@ -1,0 +1,66 @@
+111
+    garmin-gps.c   (gps driver)
+        file-operation structure 
+        gps function(write open etc)
+        module functions
+222 
+    /gypsy/src/
+        gypsy daemon (open device file, data structure)
+    /gypsy/gypsy/
+        libgypsy ( control daemon, obtain data)
+333 /proc
+    
+444 gps driver procedure
+    联系用户空间和内核空间的是设备文件；联系内核和硬件的是驱动；
+    1 user system call :
+    在用户空间对设备文件进行系统调用时，会转入内核空间调用相应的驱动函数(open
+    read);而设备文件确定了设备号，也就确定来设备驱动程序;
+    2 
+    总的来说：设备文件通过设备号绑定了设备驱动，fops绑定了应用层的write和驱动层的write。当应用层写一个设备文件的时候，系统找到对应的设备驱动，再通过fops找到对应的驱动write函数。
+    3 引用
+    现在我们就演示一下用户使用write函数将数据写到设备里面这个过程到底是怎么实现的：
+    1，insmod驱动程序。驱动程序申请设备名和主设备号，这些可以在/proc/devieces中获得。
+    2，从/proc/devices中获得主设备号，并使用mknod命令建立设备节点文件。这是通过主
+    设备号将设备节点文件和设备驱动程序联系在一起。设备节点文件中的file属性中指明了
+    驱动程序中fops方法实现的函数指针。
+    3，用户程序使用open打开设备节点文件，这时操作系统内核知道该驱动程序工作了，就
+    调用fops方法中的open函数进行相应的工作。open方法一般返回的是文件标示符，实际
+    上并不是直接对它进行操作的，而是有操作系统的系统调用在背后工作。
+    4，当用户使用write函数操作设备文件时，操作系统调用sys_write函数，该函数首先通
+    过文件标示符得到设备节点文件对应的inode指针和flip指针。inode指针中有设备号信
+    息，能够告诉操作系统应该使用哪一个设备驱动程序，flip指针中有fops信息，可以告诉
+    操作系统相应的fops方法函数在那里可以找到。
+    5，然后这时sys_write才会调用驱动程序中的write方法来对设备进行写的操作。
+    其中1-3都是在用户空间进行的，4-5是在核心空间进行的。用户的write函数和操作系统
+    的write函数通过系统调用sys_write联系在了一起
+555555 modeprobe garmin_gps  加载gps模块
+    内核中的驱动好多默认是模块形式的，要在启动时加载该驱动，需要设置menuconfig，在相应的模块前选Y,然后编译内核；
+    make config  
+
+6666666   modprobe garmin_gps 可以手动加载驱动模块和其相关联的模块；rmmod garmin_gps 卸载
+    1看ttyHS2能不能接受AT命令
+    2lsmod 看已加载的模块， 
+    3 cat /proc/devices 看模块的设备号
+    4 实在不行， modprobe garmin_gps ; mknod -m 666 ttyUSB0 c xx 0; cat
+    /dev/ttyUSB0; 看能不能读出东西；
+777777 usb driver 
+       1 procedure  
+        写一个USB的驱动程序最基本的要做四件事：驱动程序要支持的设备、注册USB
+        驱动程序、探测和断开、提交和控制urb（USB请求块）（当然也可以不用urb
+        来传输数据，下文我们会说到）。
+
+       2 usb driver connected to usb device
+         usb core 为usb driver 提供来一个用于访问和控制usb device 的接口；
+
+
+       3 usb 驱动的个人理解
+            usb driver 和硬件通信不用访问设备地址或相应IO；直接通过urb
+            进行通信，通过填充urb 结构，调用usb core提供的接口来创建，管理，
+            接受，发送urb；
+            驱动由两部分组成：usb_driver的成员函数(完成对插入
+            设备的侦测，和对连接 的管理）和tty设备的tty_operations结构体成员
+            函数（驱动的主体部分，完成open，read等具体数据处理操作;
+            注册时需要将两个结构体都注册
+  777777777 major and minor 
+    major 确定了内核该调用哪个驱动程序，minor 确定该为程序传什么参数；major
+    和minor 唯一确定来一个设备的访问方法

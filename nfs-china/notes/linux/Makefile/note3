@@ -1,0 +1,39 @@
+
+
+1 makefile 中定义变量；有时一个文件名字符串被重复来很多次，定义一个变量就
+方便了，修改时不至于修改很多处；
+如:
+objects = main.o dog.o cat.o cock.o
+
+main:$(objects)
+cc -o main $(objects)
+
+2GNU 的make命令很强大；它会自动的把.c文件加到依赖关系中，如mian.o，make
+会自动认为main.c是他的依赖文件;并且 cc -c main.c也会被推到出来;
+
+如:
+
+dog.o: main.h
+cat.o: main.h
+cc -c dog.c 可以被省略;这种方法是make的“隐晦规则”
+
+3 .PHONY : clean
+clean:
+rm *.o
+“.PHONY" 表示，clean是个伪目标文件，make就不会默认执行后边的命令;
+
+4  引用其他的makefile 
+ include <filename>
+ 就像C语言一样，被包含的makefile会原模原样的放在当前文件的包含位置
+
+5 makefile 工作过程
+
+    1  读入所有的makefile
+    2  读入被include的其他makefile
+    3  初始化文件中的变量
+    4  推导隐晦规则，并分析所有规则。
+    5  为所有的目标文件创建依赖关系链；
+    6  依据依赖关系，决定那些目标文件要重新生成；
+    7  执行生成命令；
+
+ 

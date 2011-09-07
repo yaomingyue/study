@@ -1,0 +1,22 @@
+glib-dbus 
+
+1 对象和接口是怎么来的，又是怎么被用到的
+
+    1 dbus 定义接口时用到了xml接口描述语言；xml中描述了dbus
+    的对象和该对象下的各个连接-》接口-》methods and signals
+
+    如下：
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <node name="/org/freesmartphone/GSM/Device">
+    <interface name="org.freesmartphone.GSM.SMS">
+    <method name="SendMessage">
+    <arg name="number" type="s"/>
+    <arg name="contents" type="s"/>
+
+    2 由接口文件生成绑定文件 一般 以 glue.h 结尾；
+    这个绑定文件中包含了dbus对象的接口等信息，
+    如果 xml 中有方法SendMessage,绑定文件就会引用一个名称为$(prefix)_send_message 的函数
+   prefix 实在生成绑定文件时命令指定
+   在.c文件中引用绑定文件，并实现对象接口信息结构和 方法对应的函数
+
+

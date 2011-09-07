@@ -1,0 +1,48 @@
+111 清空cat /dev/null > wtmp
+
+2 使用变量，比把代码写死的好；
+
+3 for 循环
+    for ((i=0;i<8;i++))
+    do 
+    echo hello >> kk
+    done
+
+    for file in $(ls)
+    do
+    echo $file
+    done
+44 if  
+    if [ "$UID" -ne "$ROOT_UID" ] 如果是非root权限的话
+
+    if [ $str*="hello" ] // 中括号内有空格
+      then
+      echo "this is"
+      fi
+    比较字符串
+    -eq    等于
+    -ne    不等于
+    -gt     大于
+    -lt    小于
+    -le     小于等于
+    -ge    大于等于
+    -z    空串
+    *=    两个字符相等
+    *!=   两个字符不等
+    *-n   非空串
+5555  tail 将一个文件的最后几行打印出来
+      head  将一个文件的 开头几行打印出来
+    tail -20 moon 将moon 的最后20行打印
+    head -20 moon 将moon 的 开头20行打印
+666 bash stu1  //调用别的脚本
+    bash <script name>
+77777 格式化输出
+    printf “this is %d \n" $kk
+888 case 选择语句
+    case "$variable" in
+    abc) echo "\$variable = abc" ;;
+    xyz) echo "\$variable = xyz" ;;
+    esac
+99 exec <filename>
+    将标准 输入重定向到文件中，从这句开始，后边的输入就都来自于这个文件
+

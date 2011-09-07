@@ -1,0 +1,4 @@
+编译提示qmake 未找到
+在QtCreator 工具-选项-QT4中添加qmake（安装Qt目录下的bin
+/opt/meego/meego-sdk-qt/bin
+）

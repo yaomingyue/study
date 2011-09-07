@@ -1,0 +1,57 @@
+install meego sdk
+download meego sdk from https://meego.com/downloads/releases/sdk version 1.2
+
+change mode for the sdk ,add execution permission
+execute the sdk
+
+####1MeeGo SDK介绍:
+
+　　MeeGoSDK由以下部分构成：
+
+　　1.一个MeeGochroot环境，这包含了一个基于Xephyr(http://www.freedesktop.org/wiki /Software/Xephyr)的MeeGo应用程序模拟器(仅支持Linux)，一些在Xephyr里启动/停止MeeGo桌面的脚本，以及可以远程配置和部署MeeGo设备的QtCreator。
+
+　　2.一个启动MeeGochroot环境，并运行模拟器和QtCreator的meego-sdk-chroot脚本。
+
+#####2 install the sdk and configur the Xephyr emulation enviroment
+
+install the meego1.2 SDK
+$ chmod +x ./meego-sdk-installer-online
+$ ./meego-sdk-installer-online
+
+configur the Xephyr
+$ wget http://download3.meego.com/meego-sdk-chroot
+$ chmod +x meego-sdk-chroot
+$ sudo mv meego-sdk-chroot /usr/bin
+$ sudo yum install Xephyr
+$ su
+$ cd /usr/lib/madde/linux-i686/runtimes/meego-handset-ia32-qemu-1.1.2-runtime
+$ mkdir rootfs
+$ chmod 777 information
+$ ./information
+$ mount -o loop,offset=512
+meego-tablet-ia32-qemu-1.2.0.90.0.20110517.1-sda.raw rootfs/
+xhost +si:localuser:root
+$ meego-sdk-chroot rootfs
+startmeego &
+
+at this step,the MeeGo UI with Xephyr environment is starting;and you can debug and
+run you application on the meego system;
+
+####3 application development 
+    running with Xephye
+    $ export DISPLAY=:2
+    $ <start your application>
+
+    or  DISPLAY=:2 gedit main.cpp
+
+/usr/lib/madde/linux-i686/runtimes/meego-tablet-ia32-qemu-1.2.0.90.0.20110517.1-runtime
+每次开机需要重新挂载rootfs；
+载root权限下;
+$ mount -o loop,offset=512 meego-tablet-ia32-qemu-1.2.0.90.0.20110517.1-sda.raw rootfs/
+xhost +si:localuser:root
+
+
+meego SDK 
+下载SDK；
+tar jxvf …….bz2  (在root下）
+./meego-sdk-chroot 目录
