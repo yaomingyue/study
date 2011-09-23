@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+a = 'hello world'
+k = 2
+z = 3
+def hello(i, m):
+    print i+m
+    i = 6
+
+hello(k, z)
+print k 
+
+
+
+
+

@@ -46,3 +46,11 @@ current directory;
     >> 追加到     cat /dev/ttyHS1 >> data
     2> 将标准错误重定向到  cat /dev/ttyHS1 2> data
     tee 将标准输入重定向到文件并到标准输出 cat /dev/ttyHS1 | tee data
+ 
+#12 一个python小程序，架构http服务器，共享本地目录
+#
+   python -m SimpleHTTPServer 
+   主意要关本地防火墙
+#13 关闭防火墙命令
+
+    service iptables stop

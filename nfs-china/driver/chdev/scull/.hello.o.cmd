@@ -1,7 +1,7 @@
-cmd_/home/yaomoon/study/driver/chdev/scull/hello.o := gcc -Wp,-MD,/home/yaomoon/study/driver/chdev/scull/.hello.o.d  -nostdinc -isystem /usr/lib/gcc/i686-redhat-linux/4.5.1/include -I/usr/src/kernels/2.6.35.13-92.fc14.i686/arch/x86/include -Iinclude  -include include/generated/autoconf.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -Os -m32 -msoft-float -mregparm=3 -freg-struct-return -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -Wframe-larger-than=1024 -fno-omit-frame-pointer -fno-optimize-sibling-calls -g -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack  -DMODULE -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(hello)"  -D"KBUILD_MODNAME=KBUILD_STR(hello)" -D"DEBUG_HASH=16" -D"DEBUG_HASH2=13" -c -o /home/yaomoon/study/driver/chdev/scull/hello.o /home/yaomoon/study/driver/chdev/scull/hello.c
+cmd_/home/yaomoon/study/study/nfs-china/driver/chdev/scull/hello.o := gcc -Wp,-MD,/home/yaomoon/study/study/nfs-china/driver/chdev/scull/.hello.o.d  -nostdinc -isystem /usr/lib/gcc/i686-redhat-linux/4.5.1/include -I/usr/src/kernels/2.6.35.13-92.fc14.i686/arch/x86/include -Iinclude  -include include/generated/autoconf.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -Os -m32 -msoft-float -mregparm=3 -freg-struct-return -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -Wframe-larger-than=1024 -fno-omit-frame-pointer -fno-optimize-sibling-calls -g -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack  -DMODULE -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(hello)"  -D"KBUILD_MODNAME=KBUILD_STR(hello)" -D"DEBUG_HASH=62" -D"DEBUG_HASH2=30" -c -o /home/yaomoon/study/study/nfs-china/driver/chdev/scull/hello.o /home/yaomoon/study/study/nfs-china/driver/chdev/scull/hello.c
 
-deps_/home/yaomoon/study/driver/chdev/scull/hello.o := \
-  /home/yaomoon/study/driver/chdev/scull/hello.c \
+deps_/home/yaomoon/study/study/nfs-china/driver/chdev/scull/hello.o := \
+  /home/yaomoon/study/study/nfs-china/driver/chdev/scull/hello.c \
   include/linux/module.h \
     $(wildcard include/config/symbol/prefix.h) \
     $(wildcard include/config/modules.h) \
@@ -519,8 +519,8 @@ deps_/home/yaomoon/study/driver/chdev/scull/hello.o := \
     $(wildcard include/config/x86/intel/usercopy.h) \
   /usr/src/kernels/2.6.35.13-92.fc14.i686/arch/x86/include/asm/uaccess_32.h \
     $(wildcard include/config/debug/strict/user/copy/checks.h) \
-  /home/yaomoon/study/driver/chdev/scull/scull.h \
+  /home/yaomoon/study/study/nfs-china/driver/chdev/scull/scull.h \
 
-/home/yaomoon/study/driver/chdev/scull/hello.o: $(deps_/home/yaomoon/study/driver/chdev/scull/hello.o)
+/home/yaomoon/study/study/nfs-china/driver/chdev/scull/hello.o: $(deps_/home/yaomoon/study/study/nfs-china/driver/chdev/scull/hello.o)
 
-$(deps_/home/yaomoon/study/driver/chdev/scull/hello.o):
+$(deps_/home/yaomoon/study/study/nfs-china/driver/chdev/scull/hello.o):

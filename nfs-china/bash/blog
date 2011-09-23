@@ -1,0 +1,9 @@
+#! /bin/bash
+
+
+for ((i=0;i<100;i++))
+do
+firefox http://yaomingyue906629.blog.163.com/blog/static/77790531201181533332919/
+sleep 1
+done
+exit 0

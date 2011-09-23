@@ -1,0 +1,48 @@
+11 what is python
+    一种解释语言，类似与perl，具有简单，易移植等优势，成为程序员的最爱
+
+2 hello world
+
+    #!/usr/bin/python
+    print 'hello world'
+    print r"hello \n"  //  前边加r,使输出自然语言，即\n不代表换行，只是字符；
+    print "hello world \n"
+     像bash编程一样，开头为要调用的解释工具；
+ 
+3 python 的分支结构 if
+    例子：
+       i = len('hello world')
+       if i == 11:
+          print "that's right"
+       else:
+          print "no"
+    注意 if和else 后有‘：’ ，还有，if后的语句有缩进，没缩进的话会报错，
+    第一次见到这种报错；
+4 for循环
+    for i in range(1, 5):
+        print i
+5 关于缩进
+    for i in range(1, 5)
+        print i
+        print 'hello'
+    输出结果：
+    1
+    hello
+    2
+    hello
+    3
+    hello
+    4
+    hello
+    另一个程序
+    for i in range(1, 5)
+        print i
+    print 'hello'
+    输出结果：
+    1
+    2
+    3
+    4
+    hello
+    python中没有C总的‘{}'，也没有bash中的if fi，只能用缩进表示模块关系
+              

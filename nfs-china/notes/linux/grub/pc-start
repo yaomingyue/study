@@ -1,0 +1,26 @@
+计算机的启动过程（硬盘启动linux系统）
+
+1开机（电源按钮）--> BIOS
+  当pc上电或复位时，cpu会将pc指针赋值为一个特定的地址0xFFFF0,并执行该地址
+  处的指令。在PC中，该地址位于BIOS中，它保存在主板上的ROM或FLASH中。
+2BIOS-->硬盘MBR
+    BIOS会根据CMOS设置的启动设备顺序来搜索可以引导的设备。若从硬盘启动，BIOS
+    会将硬盘MBR（主引导记录）中的内容加载到RAM。MBR是一个512字节大小的扇区
+    ，位于磁盘上的第一扇区（0道0柱面1扇区）。当MBR被加载到RAM中之后，BIOS就
+    将控制权交给MBR。
+
+3 MBR --> grub
+    grub 的step1就是MBR，MBR 之后交给grub的step2，之后引导内核，具体的细节、
+    可以看另一篇文章；
+ 
+4 grub ——>linux kernel  linux kernel 进行设备初始化，加载驱动模块，搭建
+    基本的linux环境，
+
+
+5 kernel --》init（），启动init进程。
+    在init进程中 关于 rc.sysinit rc.script rc.local 这三个脚本文件
+
+6 init  --》mingetty   init 完成后就将打开终端，运行mingeetty 进行登录
+    登录程序好像是login
+
+7 mingetty 之后就是以下配置文件 profile .bash_profile等

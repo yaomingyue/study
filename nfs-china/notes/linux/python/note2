@@ -1,0 +1,111 @@
+
+1 python中的函数
+
+a = 'hello world'
+k = 2
+z = 3
+def hello(i, m):
+    print i+m
+hello(k, z)
+python中的参数可以不考虑类型，有点不适应阿；
+
+2 数据结构之列表（list）
+     shoplist = ['apple', 'mango', 'carrot', 'banana']
+
+     print len(shoplist)
+
+     for item in shoplist:
+         print item
+
+     shoplist.append('rice')
+
+     print shoplist
+
+     shoplist.sort()
+     print shoplist
+                          
+  python有点Qt中字符串类的意思，有自己的方法，和属性,只不过他不限于字符串类型
+
+3元组（tuple）
+
+  zoo = ('wolf', 'elephant', 'penguin')
+  print len(zoo)
+
+  print 'zoo',zoo
+
+  new_zoo = ('monkey', 'dolphin', zoo)
+
+  print len(new_zoo)
+  print 'new_noo',new_zoo
+
+  print new_zoo[2]
+  print new_zoo[2][2]
+元组和list差不多，只不过没有插入等方法，但可以几个元组嵌套，
+
+使用元组进行格式化输出
+
+    age = 22
+    name = 'moon'
+    print '%s is %d years old' %(name, age)
+4 字典 dist
+#!/usr/bin/python
+
+ab = {
+        'baidu' : 'www.baidu.com',
+        'youku' : 'www.youku.com',
+        'google': 'www.google.com.hk',
+     }
+
+print ab['baidu'] 
+print ab 
+
+ab['qzone'] = 'www.qzone.com'
+
+del ab['baidu']
+
+print ab
+
+5 关于结构的拷贝
+    shoplist = ['apple', 'mango','carrot']
+
+    mylist = shoplist
+
+    del shoplist[0]
+
+    print shoplist
+    print mylist
+    得到的结果是一样的，说明两个变量指向相同的对象，mylist只是一个别名而已
+
+    要想真正的拷贝，可以这样
+
+    mylist = shoplist[:]
+    据说只是用切片操作符建立序列的拷贝
+
+6 python中调用命令
+
+   import os
+   target = 'moon'
+   command = "mkdir %s" %target
+   
+    os.system(command)
+ 
+7 python 中文件操作
+
+   import os
+   target = 'moon'
+   command = "mkdir %s" %target
+    
+   os.system(command)
+    
+   text = '''\
+   yaomon 
+   sldf
+   sfdf
+   '''
+   f = file('./moon/moon1', 'w')
+   f.write(text)
+   f.close()
+
+   需要注意的就是，在bash中可以先运行个cd
+   命令，之后的操作就在cd后的目录下操作， 但python，还在cd之前，所以，打开
+   的是全路径
