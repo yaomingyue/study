@@ -1,5 +1,9 @@
-all:
-	gcc main.c main.h mycopy.c mycopy.h mmap_cp.c mmap_cp.h process.c process.h process_cp.c process_cp.h pipeline.c pipeline.h
-	rm *.gch
+main:print.o main.o
+	gcc -o main print.o main.o
+print.o:print.c
+	gcc -c print.c
+main.o:main.c main.h
+	gcc -c main.c main.h
+
 clean:
-	rm a.out *.gch
+	rm main.o print.o main

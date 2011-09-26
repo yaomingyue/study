@@ -12,8 +12,10 @@ int main()
 	int code,i;
 	
 	sculltest = open("/dev/scull0",O_WRONLY );
-    if(sculltest < 0)
+    if(sculltest < 0){
         printf("error\n");
+	exit(1);
+    }
 
     for ( i=20 ; i>0 ; i-=code)		{  
     if ((code=write(sculltest , &buffer1[20-i] , i)) != i) printf("write error! code=%d \n",code);

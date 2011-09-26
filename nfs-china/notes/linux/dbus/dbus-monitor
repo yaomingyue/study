@@ -1,1 +1,2 @@
-dbus-monitor "type='signal',sender='net.connman',interface='net.connman'"
+
+ dbus-monitor --system "type='signal',interface='fi.w1.wpa_supplicant1.BSS'"

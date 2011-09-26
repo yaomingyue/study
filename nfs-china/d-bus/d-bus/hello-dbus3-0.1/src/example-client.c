@@ -31,11 +31,10 @@ print_hash_value (gpointer key, gpointer val, gpointer data)
 {
   printf ("%s -> %s\n", (char *) key, (char *) val);
 }
-
 //yaomoon
 static void
-posistion (GypsyCourse    *course,
-               gpointer          userdata)
+position (DBusGProxy *remote_object,
+          gpointer          userdata)
 {
     printf("helloyaomoon\n");
 
@@ -52,6 +51,11 @@ main (int argc, char **argv)
   char *introspect_data;
   guint i;
   gint sum;
+
+  //yaomoon
+  GMainLoop *mainloop;
+  mainloop = g_main_loop_new (NULL, FALSE);
+  //******
 
   g_type_init ();
 
@@ -79,10 +83,9 @@ main (int argc, char **argv)
   printf("sum is %d\n", sum);
 
   //yaomoon
-  g_signal_connect (remote_object, "position",
+  g_signal_connect (remote_object, "position-change",
                   G_CALLBACK (position), NULL);
 //****************
-
 
   remote_object_introspectable = dbus_g_proxy_new_for_name (bus,
 							    "org.fmddlmyy.Test",
@@ -94,6 +97,10 @@ main (int argc, char **argv)
     lose_gerror ("Failed to complete Introspect", error);
   printf ("%s", introspect_data);
   g_free (introspect_data);
+
+  //yaomoon
+  g_main_loop_run (mainloop);
+  //*********
 
   g_object_unref (G_OBJECT (remote_object_introspectable));
   g_object_unref (G_OBJECT (remote_object));

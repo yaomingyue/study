@@ -1,0 +1,21 @@
+
+
+
+
+11 dbus-send
+
+wpa dbus-send 例子
+dbus-send --system --type=signal /fi/w1/wpa_supplicant1/Interfaces
+fi.w1.wpa_supplicant1.BSS.PropertiesChange
+
+
+22 dbus-monitor
+
+dbus-monitor "type='signal',sender='test.signal',interface='test.signal.Type'"
+这样有sender= 项就不行
+
+dbus-monitor "type='signal',interface='test.signal.Type'" 去掉就行
+
+监测wpa 例子
+
+dbus-monitor --system "type='signal',interface='fi.w1.wpa_supplicant1.BSS'"

@@ -1,0 +1,12 @@
+111
+scull 的编译，模块加载，
+
+1	编译直接make，生成hello.ko文件
+2	模块加载  ： insmod hello.ko  (模块删除 ： rmmod hello.ko)
+3	查看模块： lsmod
+4	查看设备号：cat /proc/devices ，看scull模块的设备号
+5       建立设备节点；mknod -m 666 /dev/scull0 c 250 0  (其中/dev/scull0为生成的节点路径和名字，250为主设备号，0为从设备号) 	
+
+6  	就可以运行 scull-test程序了
+
+7      在hello.c中scull_init_module中加入printk ，则debug达到dmesge中了；

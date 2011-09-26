@@ -1,0 +1,2 @@
+dbus-send --session --type=signal --dest=test.signal.sink /luther/gliethttp
+test.signal.Type.Test string:'gliethttp.cublog.cn'

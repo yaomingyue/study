@@ -14,3 +14,5 @@
 #include <string.h>
 
 #endif
+
+void myprint();

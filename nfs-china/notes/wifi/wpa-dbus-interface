@@ -1,0 +1,31 @@
+11
+
+在 /wpa_supplicant 中 和dbus接口定义相关的函数
+
+ global = wpa_supplicant_init(&params);
+
+
+        if (wpas_notify_supplicant_initialized(global)) {
+               wpa_supplicant_deinit(global);
+               return NULL;
+        }
+
+
+int wpas_notify_supplicant_initialized(struct wpa_global *global)
+{               
+#ifdef CONFIG_DBUS
+       if (global->params.dbus_ctrl_interface) {
+              global->dbus = wpas_dbus_init(global);
+              if (global->dbus == NULL)
+                    return -1;
+       }       
+#endif
+/* CONFIG_DBUS * */
+
+                                                                     
+    return 0;
+}
+                                                                                         
+
+
+

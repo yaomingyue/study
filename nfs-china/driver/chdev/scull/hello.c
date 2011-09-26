@@ -270,6 +270,8 @@ int scull_init_module(void)
 	int result, i;
 	dev_t dev = 0;
 
+		printk(KERN_WARNING "scull: yaomoon debug\n");
+		printk(KERN_NOTICE "scull: yaomoon debug\n");
 /*
  * Get a range of minor numbers to work with, asking for a dynamic
  * major unless directed otherwise at load time.

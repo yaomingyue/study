@@ -1,0 +1,61 @@
+--------------------------------------------------------------------------------------------------
+
+Time(Y/M/D): 2007/05/31
+
+Modify Person: 	Yue
+
+Delivery:
+
+	|-- Drivers
+	|	|-- Doc
+	|	|	|
+	|	|	|-- Design Spec
+	|	|	|	|
+	|	|	|	|--S2S65A00_DS_TIMB.doc			TIMB Design Spec 
+	|	|	|	|
+	|	|	|	|--S2S65A00_DS_ADC.doc			ADC Design Spec 
+	|	|	|	|
+	|	|	|	|--S2S65A00_DS_GPIO.doc			GPIO Design Spec 
+	|	|	|	|
+	|	|	|	|--S2S65A00_DS_RTC_hwclock.doc		RTC Design Spec 
+	|	|	|	
+	|	|	|-- Test Spec
+	|	|	|	|--Bug_Management_sheet-BEE.xls				The bug management sheet of BEE	
+	|	|	|	|
+	|	|	|	|--s2s65a00-TIMB-TestSpec.xls					TIMB Test Spec
+	|	|	|	|
+	|	|	|	|--s2s65a00-ADC-TestSpec.xls					ADC Test Spec
+	|	|	|	|
+	|	|	|	|--s2s65a00-GPIO-TestSpec.xls					GPIO Test Spec
+	|	|	|	|
+	|	|	|	|--s2s65a00-RTC-TestSpec.xls					RTC Test Spec
+	|	|		
+	|	|-- Src
+	|	|	|
+	|	|	|-- s2s65a_driver_20070530.tar.bz2			Source code
+	|
+	|-- Maintenance Command
+	|	|
+	|	|-- Design Spec
+	|	|	|
+	|	|	|-- S265A00_DS_CMD.doc									Command Design Spec(middle version)
+	|	|
+	|	|-- Test Spec
+	|	|	|
+	|	|	|-- s2s65a00-Command-TestSpec.xls				Command Test Spec(middle version)
+	|	|
+	|
+	|-- Management
+	|	|
+	|	|--Driver_Recorder_Project_Plan.xls						Project plan,schedule
+	|	|
+	|	|--Driver_recorder_MonthlyReport_0705.doc			Monthly report
+	|	| 			
+	|-- ReleaseNote.txt
+
+
+Note:
+	1. This is the release result of Driver Recorder project.
+	2. Scaned by "Norton AntiVirus 2006 Professional".
+
+--------------------------------------------------------------------------------------------------		
