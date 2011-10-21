@@ -54,3 +54,5 @@ current directory;
 #13 关闭防火墙命令
 
     service iptables stop
+# 14 ctags
+    ctags -R 将子目录中的也联系进来

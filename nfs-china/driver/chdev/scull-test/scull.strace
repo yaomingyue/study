@@ -1,0 +1,61 @@
+execve("./scull", ["./scull"], [/* 47 vars */]) = 0
+brk(0)                                  = 0x8d10000
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7748000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/opt/meego/meego-sdk-qt/lib/tls/i686/sse2/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat64("/opt/meego/meego-sdk-qt/lib/tls/i686/sse2", 0xbfd5d2b0) = -1 ENOENT (No such file or directory)
+open("/opt/meego/meego-sdk-qt/lib/tls/i686/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat64("/opt/meego/meego-sdk-qt/lib/tls/i686", 0xbfd5d2b0) = -1 ENOENT (No such file or directory)
+open("/opt/meego/meego-sdk-qt/lib/tls/sse2/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat64("/opt/meego/meego-sdk-qt/lib/tls/sse2", 0xbfd5d2b0) = -1 ENOENT (No such file or directory)
+open("/opt/meego/meego-sdk-qt/lib/tls/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat64("/opt/meego/meego-sdk-qt/lib/tls", 0xbfd5d2b0) = -1 ENOENT (No such file or directory)
+open("/opt/meego/meego-sdk-qt/lib/i686/sse2/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat64("/opt/meego/meego-sdk-qt/lib/i686/sse2", 0xbfd5d2b0) = -1 ENOENT (No such file or directory)
+open("/opt/meego/meego-sdk-qt/lib/i686/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat64("/opt/meego/meego-sdk-qt/lib/i686", 0xbfd5d2b0) = -1 ENOENT (No such file or directory)
+open("/opt/meego/meego-sdk-qt/lib/sse2/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat64("/opt/meego/meego-sdk-qt/lib/sse2", 0xbfd5d2b0) = -1 ENOENT (No such file or directory)
+open("/opt/meego/meego-sdk-qt/lib/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat64("/opt/meego/meego-sdk-qt/lib", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+open("tls/i686/sse2/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("tls/i686/libc.so.6", O_RDONLY)    = -1 ENOENT (No such file or directory)
+open("tls/sse2/libc.so.6", O_RDONLY)    = -1 ENOENT (No such file or directory)
+open("tls/libc.so.6", O_RDONLY)         = -1 ENOENT (No such file or directory)
+open("i686/sse2/libc.so.6", O_RDONLY)   = -1 ENOENT (No such file or directory)
+open("i686/libc.so.6", O_RDONLY)        = -1 ENOENT (No such file or directory)
+open("sse2/libc.so.6", O_RDONLY)        = -1 ENOENT (No such file or directory)
+open("libc.so.6", O_RDONLY)             = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=97612, ...}) = 0
+mmap2(NULL, 97612, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb7730000
+close(3)                                = 0
+open("/lib/libc.so.6", O_RDONLY)        = 3
+read(3, "\177ELF\1\1\1\3\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\220\17t\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1847224, ...}) = 0
+mmap2(0x72a000, 1612328, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x72a000
+mprotect(0x8ad000, 4096, PROT_NONE)     = 0
+mmap2(0x8ae000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x183) = 0x8ae000
+mmap2(0x8b1000, 10792, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x8b1000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb772f000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb772f6c0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0x8ae000, 8192, PROT_READ)     = 0
+mprotect(0x726000, 4096, PROT_READ)     = 0
+munmap(0xb7730000, 97612)               = 0
+open("/dev/scull0", O_WRONLY)           = 3
+write(3, "\0\1\2\3\4\5\6\7\10\t\n\v\f\r\16\17\20\21\22\23", 20) = 20
+fstat64(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 12), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7747000
+write(1, "write ok! code=20 \n", 19)    = 19
+close(3)                                = 0
+open("/dev/scull0", O_RDONLY)           = 3
+read(3, "\0\1\2\3\4\5\6\7\10\t\n\v\f\r\16\17\20\21\22\23", 20) = 20
+write(1, "read ok! code=20 \n", 18)     = 18
+write(1, "[0]=0 [1]=1 [2]=2 [3]=3 [4]=4\n", 30) = 30
+write(1, "[5]=5 [6]=6 [7]=7 [8]=8 [9]=9\n", 30) = 30
+write(1, "[10]=10 [11]=11 [12]=12 [13]=13 "..., 40) = 40
+write(1, "[15]=15 [16]=16 [17]=17 [18]=18 "..., 40) = 40
+write(1, "\n", 1)                       = 1
+close(3)                                = 0
+exit_group(0)                           = ?

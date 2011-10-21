@@ -84,10 +84,12 @@ struct scull_qset {
 	struct scull_qset *next;
 };
 
+//设备结构体
 struct scull_dev {
 	struct scull_qset *data;  /* Pointer to first quantum set */
-	int quantum;              /* the current quantum size */
-	int qset;                 /* the current array size */
+	int quantum;              /* the current quantum size */  //由于scull设备是内存的缓冲区,实际数据为scull_dev->size表示，它由一个链表来管理数据，链表有多个list单
+                                                                    //元组成，每个list单元由qset个quantum组成，quantum表示基本单元
+	int qset;                 /* the current array size */    //quantum 表示一个基本单元中字节数,qset 表示一个list单元中的quantum数，即data【】中数；
 	unsigned long size;       /* amount of data stored here */
 	unsigned int access_key;  /* used by sculluid and scullpriv */
 	struct semaphore sem;     /* mutual exclusion semaphore     */

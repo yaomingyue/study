@@ -1,0 +1,34 @@
+111 meego sdk 安装
+    
+
+22 trac 的使用
+
+33 linux 内核编译
+
+44 rpm 打包
+
+55 meego 镜像的制作
+
+66 meego gps 设备文件
+     在/dev/ttyHS1 和/dev/ttyHS2 ，分别为数据口和命令口;
+
+77linux 驱动原理
+
+88 geoclue 和 gypsy 的启动
+    geoclue
+    的启动和dbus联系起来了，当有针对geoclue和gyspy的dbus调用时，geoclu和gypsy就会启动，启动命令在/usr/share/dbus-1/system-services/org.freedesktop.Gypsy.service
+    中；
+
+99 linux 中守护进程debug信息存到哪了
+    可能重定向到了某个文件，也可能通过syslog写入了日志文件
+
+10 内核的log的利用
+    在 /var/log 中有各种log，其中message中有系统中各个程序产生的警告和错误；
+    dmesge 命令可以查看系统启动过程；驱动中printk打印的信息可以在其中查看
+
+11 geoclue gypsy 和gps设备文件通过什么联系起来的
+    gconf key
+    通过gconftool-2命令设置gconf值/apps/geoclue/master/org.freedesktop.Geoclue.GPSDevice
+    的值就是gps设备文件的路径，geoclue通过读该值获得路径，在以参数方式传给
+    gypsy
+

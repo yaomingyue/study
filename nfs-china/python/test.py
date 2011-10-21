@@ -1,13 +1,15 @@
 #!/usr/bin/python
 
+ab = {
+        'baidu' : 'www.baidu.com',
+        'youku' : 'www.youku.com',
+        'google': 'www.google.com.hk',
+     }
 
-a = 'abcde'
 
-for i in a[1:3:1]:
-    print i, 
+print ab['baidu'] 
 
-print ''
 
-for i in a[-1:-3:-1]:
-    print i, 
+
+
 

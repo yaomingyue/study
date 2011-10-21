@@ -2,3 +2,18 @@
     简而言之，操作系统通过给设备驱动制造麻烦来达到给上层应用提供便利的目的，
     如果设备驱动都安装操作系统给出的独立与设备的接口而设计，应用程序将可以
     使用统一的系统调用接口来访问各种接口；
+
+222 module_param() (传递参数）
+    内核模块则通过module_param()来传递命令行参数
+    module_param(scull_major, int, S_IRUGO);
+    sudo insmod hello.ko scull_major=245 
+    通过cat /proce/devices 可以看到scull的主设备号是245 
+    
+    module_param(name,type,perm); 
+    module_param 使用了 3 个参数: 变量名, 它的类型,
+    以及一个权限掩码,表示此参数在sysfs文件系统中所对应的文件节点的属性。
+    在/sys/module/hello/ 中有相应hello模块的参数值，就是通过module_para
+
+33 设备结构体
+    注册设备时要将设备结构体注册给内核，包含了设备信息和file-operation，
+    open中的一个参数中就包含设备结构体

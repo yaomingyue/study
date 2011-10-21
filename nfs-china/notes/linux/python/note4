@@ -1,0 +1,23 @@
+11 global variable 
+
+python 中使用全局变量，当函数中使用时，会默认为局部变量，并且不改变其值，出错，应该在函数
+外边定义，在函数内部声明
+如：
+#! /usr/bin/python
+flag = 0
+
+def main():
+    global flag
+    flag = flag + 111 global variable 
+
+    python
+    中使用全局变量，当函数中使用时，会默认为局部变量，并出错，应该在函数
+    外边定义，在函数内部声明
+    如：
+    #! /usr/bin/python
+    flag = 0
+
+    def main():
+        global flag
+        flag = flag + 111 global variable 
+

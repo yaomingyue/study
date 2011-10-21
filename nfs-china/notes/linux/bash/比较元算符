@@ -1,0 +1,37 @@
+11 比较运算符
+
+    1)
+    运算符              描述                例子
+    -e filename         file存在为真        [-e /var/log/syslog]
+    -d filename         file为目录为真      [-d /tmp/mydir]
+    -f filename         file为常规文件为真  [-f
+    -L                        符号连接
+    -r                        可读
+    -w
+    -x
+
+    运算符                      描述                例子
+    filename1 -nt filename2     file1比file2新为真  [filename1 -nt filename2]
+    filename2 -ot filename2                  旧
+
+    2)字符串比较
+
+    运算符              描述                例子
+
+    -z string           string 长度为0为真  [-z "$myvar"] (
+    加引号是防止空格乱码,不加也行）
+    -n string                       非0
+    str1 = str2          str1 str2相同为真
+    str1 != str2                  不同
+
+    3)算术比较运算符
+        
+        num1 -eq num2       等于    [3 -eq $mynum]
+        num1 -ne num2       不等于
+        num1 -lt num3       小于
+        num1 -le num2       小于等于
+        num1 -gt num2       大于
+        num1 -ge num2       大于等于
+
+
+

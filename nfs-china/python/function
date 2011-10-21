@@ -6,9 +6,9 @@ z = 3
 def hello(i, m):
     print i+m
     i = 6
+    print 'heoo'
 
 hello(k, z)
-print k 
 
 
 

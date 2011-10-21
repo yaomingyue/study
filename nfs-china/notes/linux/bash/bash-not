@@ -10,6 +10,7 @@
     echo help
     ;;
     esac  //the syntax of bash is interesting( the end of "if" is "fi";the end of "case" is "esac");
+    注意：每次case完，后要加两个分号
 
 4 output large section char
   cat <<\EOF
@@ -43,3 +44,53 @@ EOF
 
     echo -e "at_ogps=2\\r" > /dev/ttyHS1 -e 是为了识别转义字符
     echo -e \\b 退格
+ 
+#9 while getopts a:c:C arg 匹配参数
+
+    arg 参数列表，没写时它会取命令行参数列表
+ 
+#10 cd 'dirname $0'
+  在命令行状态下单纯执行 $ cd `dirname $0`
+  是毫无意义的。因为他返回当前路径的"."。
+  这个命令写在脚本文件里才有作用，他返回这个脚本文件放置的目录，并可以根据这个目录来定位所要运行程序的相对位置（绝对位置除外）
+
+
+#11
+
+    $? 代表上一个程序或函数返回值
+      hello()
+      {
+          echo heool
+          return 3
+      }
+      
+      hello
+      echo $?
+
+      输出3
+      其他特殊变量，
+      $0 这个程序的执行名字
+
+      　　$n 　这个程序的第n个参数值，n=1...9
+
+      　　$*　 这个程序的所有参数
+
+      　　$# 这个程序的参数个数
+
+      　　$$ 这个程序的PID
+
+      　　$! 执行上一个背景指令的PID
+
+      　　$? 上一个指令的返回值 
+
+  #12 将文件中的字符串赋给变量
+
+    aa=$(cat "./moon")
+    echo $aa
+
+#13 直接用中括号进行判断
+    [ -f "sss" ] && \
+    {
+         echo 'this sss exit'
+    }
+    在后边加 && \ 和if 效果一样 , 加|| \ 和 if ！ 一样

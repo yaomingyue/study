@@ -1,0 +1,59 @@
+111 一个很有用的调试工具，跟踪代码中的系统调用strace
+    
+    strace -o scull.strace ./scull
+
+    跟踪一个正在运行的进程
+
+    strace -o kkk.strace -f -p pid
+
+222
+    fedora syslog 配置在 /etc/rsyslog.conf
+
+
+333 dmesg  显示开机信息，开机时来不及查看的信息可利用dmesg查看
+
+
+444 dmesg是从kernel的ring buffer(环缓冲区)中读取信息的.
+
+那什么是ring buffer呢?
+在LINUX中,所有的系统信息(包内核信息)都会传送到ring
+buffer中.而内核产生的信息由printk()打印出来。系统启动时所看到的信息都是由该函数打印到屏幕中。
+printk（）打出的信息往往以 <0>...<2>...
+这的数字表明消息的重要级别。高于一定的优先级别会打印到屏幕上，否则只会保留在系统的缓冲区中(ring
+buffer)。
+至于dmesg具体是如何从ring
+buffer中读取的,大家可以看dmesg.c源代码.很短,比较容易读懂.
+
+syslogd这个守护进程根据/etc/syslog.conf,将不同的服务产生的Log记录到不同的文件中.
+LINUX系统启动后，由/etc/init.d/sysklogd先后启动klogd,syslogd两个守护进程。
+其中klogd会通过syslog()系统调用或者读取proc文件系统来从系统缓冲区(ring
+buffer)中得到由内核printk()发出的信息.而syslogd是通过klogd来读取系统内核信息.
+
+1> 所有系统信息是输出到ring buffer中去的.dmesg所显示的内容也是从ring
+buffer中读取的.
+2> LINUX系统中/etc/init.d/sysklogd会启动2个守护进程:Klogd, Syslogd
+3> klogd是负责读取内核信息的,有2种方式:
+syslog()系统调用(这个函数用法比较全,大家去MAN一下看看)直接的对/proc/kmsg进行读取(再这提一下,/proc/kmsg是专门输出内核信息的地方)
+4>
+Klogd的输出结果会传送给syslogd进行处理,syslogd会根据/etc/syslog.conf的配置把log信息输出到/var/log/下的不同文件中.
+
+注意将printk与syslog接合使用, 用在内核开发方面很不错.
+将/etc/syslog.conf
+kern.* /tmp/my_kernel_debug.txt
+
+在输出的文件中查看结果很不错
+
+
+
+5555 log 总结
+
+内核中的printk 打印的信息到 ring
+buffer中，通过dmesg可以这就查看，klogd将读取内核
+信息，传送给syslog进行处理，syslogd会根据/etc/syslog.conf的配置把log信息输出到/var/log/
+下的不同文件中.
+fedora 中好像没有klogd 有rsyslog
+
+666  /proc中的log接口
+
+    /proc/kmsg是内核log与用户空间的连接处，可以手动读kmsg数据，没有log打印就会阻塞；
+    /proc/sys/kernel/printk 中定义了printk的当前打印级别等四个参数

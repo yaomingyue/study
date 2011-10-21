@@ -16,18 +16,22 @@
 /*
  * Our parameters which can be set at load time.
  */
-int scull_major =   SCULL_MAJOR;
-int scull_minor =   0;
+int scull_major =   SCULL_MAJOR; //主设备号
+int scull_minor =   0;           //从设备号
 int scull_nr_devs = SCULL_NR_DEVS;	/* number of bare scull devices */
 int scull_quantum = SCULL_QUANTUM;
 int scull_qset =    SCULL_QSET;
 
+// 传递的参数 
+// scull_major 参数名；int 类型;
+// S_IRUGO为权限掩码，定义在sysfs中相应属性的权限，include/linux/stat.h定义了不同的掩码
 module_param(scull_major, int, S_IRUGO);
 module_param(scull_minor, int, S_IRUGO);
 module_param(scull_nr_devs, int, S_IRUGO);
 module_param(scull_quantum, int, S_IRUGO);
 module_param(scull_qset, int, S_IRUGO);
 
+//scull_dev 自定义的设备结构体 ,包括字符设备结构体
 struct scull_dev *scull_devices;	/* allocated in scull_init_module */
 
 /*
@@ -64,16 +68,18 @@ int scull_open(struct inode *inode, struct file *filp)
 {
 	struct scull_dev *dev; /* device information */
 
-	dev = container_of(inode->i_cdev, struct scull_dev, cdev);
+	dev = container_of(inode->i_cdev, struct scull_dev, cdev); //inode中有指向cdev的指针，cdev又包含设备信息和file_operation等，该函数作用是提取cdev，放入新建的
+                                                                //        scull_dev结构中；
 	filp->private_data = dev; /* for other methods */
 
 	/* now trim to 0 the length of the device if open was write-only */
-	if ( (filp->f_flags & O_ACCMODE) == O_WRONLY) {
-		if (down_interruptible(&dev->sem))
+	if ( (filp->f_flags & O_ACCMODE) == O_WRONLY) {  //当设备文件被打开时，内核就创建了file结构体，f_flags 对应于系统调用open时指定的flag
+                                                            //应该是判断打开的权限
+		if (down_interruptible(&dev->sem)) //获得信号量dev->sem
 			return -ERESTARTSYS;
 		scull_trim(dev); /* ignore errors */
 		up(&dev->sem);
-	}
+        //}
 	return 0;          /* success */
 }
 
@@ -137,7 +143,10 @@ ssize_t scull_read(struct file *filp, char __user *buf, size_t count,
 	s_pos = rest / quantum; q_pos = rest % quantum;
 
 	/* follow the list up to the right position (defined elsewhere) */
-	dptr = scull_follow(dev, item);
+	dptr = scull_follow(dev, item);    
+    /*
+
+     */
 
 	if (dptr == NULL || !dptr->data || ! dptr->data[s_pos])
 		goto out; /* don't fill holes */

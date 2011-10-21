@@ -8,8 +8,3 @@
 
 #[ -f "$scenfile" ] || scenfile="$LTPROOT/runtest/$scenfile"
 
-echo hellomoon
-[ -f "sss" ] || \
-{
-    echo 'this sss exit'
-}

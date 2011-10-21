@@ -1,0 +1,8 @@
+#!/bin/sh
+
+bb='./bb'
+kk='./kk'
+
+echo $arg
+
+#cd `dirname $0` || \

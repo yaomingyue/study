@@ -9,3 +9,5 @@ specific GPS devices.
    你可以用 read() 来直接读串口数据，也可以用 glib 提供的iochannel读取函数读
 
 
+#3 simple-gps-gypsy 中调用了 /gypsy/目录下的函数，其中函数中接收了dbus signal
+之后回调函数中发送了gobject 本地 signal，在simple-gps-gypsy 本函数中 g_signal_connect又连接了gobject信号;

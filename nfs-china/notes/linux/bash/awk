@@ -1,0 +1,84 @@
+1 what is awk 
+    a w k语言的最基本功能是在文件或字符串中基于指定规则浏览和抽取信息
+
+2 学习awk必须知道的概念
+    1 记录（record）
+    记录是awk从数据文件上读取数据的基本单位。一般是一行。
+    2 域 （field）
+    域就是记录上被分割的子字符串。
+3awk 的内部变量
+    $0 为一字符串，其内容是目前awk所读入的记录
+    $1 代表$0上第一个域的数据
+    $2 代表$0上第二个域的数据
+    
+    NF (number of fields)为一整数，表示域的数目，
+    NR （number of records）为一整数，表示qwk读入记录的条数
+    FS  输入域分隔符的值，默认是空格或tab。
+ 
+4 awk 命令基本构成
+    awk [options] 'script; var=value files
+
+    其中 options 是命令选项，-f 等
+    script 是awk脚本，由 qattern {action} 构成，action 默认是打印当前记录
+    即打印符合条件的行。pattern 是条件（关系表达式，/条件表达式）
+
+5 几个awk例子解释
+   awk '{print $0}' test 
+   打印test文件中的所有记录,$0是当前行，由于awk是以行为单位遍历所有行   
+   awk '{print NR,$0}' test 
+   输出文件中的所有记录，并记录当前显示的记录号
+   awk -F'[:\t]' '{print $1,$3}' test，
+   表示以空格、冒号和tab作为分隔符
+   awk '$1 + $2 < 100' test
+   如果第一和第二个域相加大于100，则打印这些行。
+   awk '$1 > 5 && $2 < 10' test
+   如果第一个域大于5，并且第二个域小于10，则打印这些行。
+
+   一个长例子
+   1$ cat /etc/passwd | awk -F: '\
+   2NF != 7{\
+   3printf("line %d,does not have 7 fields:%s\n",NR,$0)}\
+   4$1 !~ /[A-Za-z0-9]/{printf("line %d,non alpha and numeric user id:%d:
+   %s\n,NR,$0)}\
+   5$2 == "*" {printf("line %d, no password: %s\n",NR,$0)}'
+
+   1 cat把结果输出给awk，awk把域之间的分隔符设为冒号。
+   2 如果域的数量(NF)不等于7，就执行下面的程序。
+   3 printf打印字符串"line ?? does not have 7 fields"，并显示该条记录。
+   4 如果第一个域没有包含任何字母和数字，printf打印“no alpha and numeric use
+   rid" ，并显示记录数和记录。
+   5 如果第二个域是一个星号，就打印字符串“no
+   passwd”，紧跟着显示记录数和记录本身。
+
+6自己的一个在文件中搜索关键次的命令
+    awk '{i=1; while ( i < NF ){ if ( $i ~/mo/ ) print $i;i++}}' awk-file
+    awk '{i=1; while ( i < NF ){ if ( $i ~/mo/ ) print $i,":",$0;i++}}' awk-file
+
+
+7 -f 加入自己的awk命令文件
+
+    下边是我的awk命令文件 awk-cmd
+    BEGIN{
+    print "now,begin statistic the lines of file ";
+    }
+    {
+    i=1;
+    while(i<NF)
+    {
+    if($i ~/mo/)
+    print $i,":",$0;
+    i++;
+    }
+    }
+    END{
+    print "this is the end of file";
+    }
+
+    运行命令 awk -f awk-cmd awk-file
+
+    GEGIN模块在awk 陪陪awk-file前执行
+    END 模块在awk匹配awk-file之后执行 
+    中间每次匹配一行执行一次；（中间用大括号括起来的）
+
+
+8 参考资料 http://man.lupaworld.com/content/manage/ringkee/awk.htm#id2808925

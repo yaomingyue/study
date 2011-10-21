@@ -6,10 +6,6 @@
 #sudo minicom -D /dev/ttyS0
 #sudo echo "pu port             /dev/ttyS5" > zz
 
-#[ -f "$scenfile" ] || scenfile="$LTPROOT/runtest/$scenfile"
 
-echo hellomoon
-[ -f "sss" ] || \
-{
-    echo 'this sss exit'
-}
+pwd | xargs echo 
+
