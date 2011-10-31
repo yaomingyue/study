@@ -8,8 +8,25 @@
 
 #[ -f "$scenfile" ] || scenfile="$LTPROOT/runtest/$scenfile"
 
-echo hellomoon
-[ -f "sss" ] || \
+hello()
 {
-    echo 'this sss exit'
+echo "this script will exit"
+exit 0
 }
+trap 'hello' SIGINT
+
+while [ 0 ]
+do
+    echo -n "plz input a num :"
+    read -e NUM
+
+    if [ $NUM -gt 0 -a $NUM -lt 10 ]
+    then
+    echo "this is a test"
+    else
+    echo "not a "
+    fi
+done
+
+
+echo $(($nu+$kk))

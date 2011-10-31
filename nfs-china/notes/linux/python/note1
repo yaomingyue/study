@@ -5,9 +5,10 @@
 
     #!/usr/bin/python
     print 'hello world'
-    print r"hello \n"  //  前边加r,使输出自然语言，即\n不代表换行，只是字符；
+    print r"hello \n"  //  前边加r,使输出自然语言，即\n不代表换行，只是字符
+    ；
     print "hello world \n"
-     像bash编程一样，开头为要调用的解释工具；
+    像bash编程一样，开头为要调用的解释工具；
  
 3 python 的分支结构 if
     例子：

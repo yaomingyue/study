@@ -1,15 +1,11 @@
 #!/usr/bin/python
-
-ab = {
-        'baidu' : 'www.baidu.com',
-        'youku' : 'www.youku.com',
-        'google': 'www.google.com.hk',
-     }
+import os
 
 
-print ab['baidu'] 
+zoo = ['wolf', 'elephant', 'panguin']
 
+new_zoo = ['kkk', zoo]
 
-
-
+print zoo
+print new_zoo[1][2]
 

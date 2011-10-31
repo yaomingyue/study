@@ -21,3 +21,14 @@ def main():
         global flag
         flag = flag + 111 global variable 
 
+
+#12 os模块中的write函数
+
+    例子：
+    import os
+    ak = "kkkk"
+    print ak,
+    os.write(1,ak)   // os.write 原型是os.write(fd,string)
+
+    print 打印的时候默认后有换行，后边加个逗号会屏蔽换行，但打印后有个空格
+    os.write 没有换行，也没有空格

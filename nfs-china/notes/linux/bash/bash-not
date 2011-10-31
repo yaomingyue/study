@@ -94,3 +94,13 @@ EOF
          echo 'this sss exit'
     }
     在后边加 && \ 和if 效果一样 , 加|| \ 和 if ！ 一样
+
+#14 bash中的重定向组合
+cmd 2>file  把文件描述符2重定向到file，即把错误输出存到file中。
+cmd > file 2>&1
+把标准错误重定向到标准输出，再重定向到file，即stderr和stdout都被输出到file中
+cmd &> file     功能与上一个相同，更为简便的写法。
+cmd >& file     功能仍与上一个相同。
+cmd > f1 2>f2   把stdout重定向到f1，而把stderr重定向到f2
+tee files   把stdout原样输出的同时，复制一份到files中。
+tee files   把stderr和stdout都输出到files中，同时输出到屏幕。

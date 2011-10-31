@@ -8,3 +8,9 @@
 
 #[ -f "$scenfile" ] || scenfile="$LTPROOT/runtest/$scenfile"
 
+#awk '{i=1; while ( i < NF ){ if ( $i ~/mo/ ) print $i;i++}}' awk-file 
+dd=4
+#zz=$(awk 'BEGIN{i=1}{i++;if(i==data) print $0}' data=$dd awk-file)
+zz=$(awk '{i=1; while ( i < NF ){ if ( $i ~/mo/ ) print $0;i++}}' awk-file)
+echo "hello"
+echo $zz

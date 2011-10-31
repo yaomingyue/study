@@ -1,0 +1,29 @@
+一 android 系统启动过程
+    1 android 分区
+    我了解到的Android系统中的分区有：
+
+    hboot（我们刷的SPL就是这玩意），这个分区是最基本的引导分区（类似电脑中的BIOS），这个区坏了，差不多就变砖了，所以我们刷SPL时才要如此小心啊。
+
+    boot，这个分区应该是linux操作系统的引导分区。
+
+    radio，这个分区是手机的一些底层设备相关的驱动或功能程序吧，如打电话和发短信等，不同的系统版本会有不同的radio配套，我们平时刷了高版本的ROM后，如果不刷高版本的Radio就有可能导致打电话不正常之类的。
+
+    recovery，这个分区装的就是前面提到的recovery程序了，这个刷不同的recovery版本可以带来不同的功能，有兴趣的同学可以基于recovery的源码自己编译出一个自己的recovery出来。但一般来说，刷recovery最主要的就是提Root权限。
+
+    system，是一般发布的ROM的主要功能程序分区了，我们说的ROM功能和自带程序的定制应该就是基于这个分区的修改和编译了。
+
+    userdata，用户数据，不说了。
+
+    cache，缓存，一般是用来OTA升级时的缓存，我们说刷SPL可以增加程序区的空间大小就是主要将这个区的大小缩水了然后加大了程序区的分区大小。
+
+    2 android 启动
+     开机----》bootloader （包括IPL->SPL)
+     -->kernel-->进android系统了(init， 脚本等）
+
+    3 关于recovery 和bootloader
+    系统bootloader后会有三条路要走（通过不同的中断 什么小房子键音量键组合）
+    1 第一条，进入bootloader界面
+    2 第二条 ，bootloader加载recovery镜像，进入recovery模式
+    3 第三条，bootloader 加载系统镜像，进入正常启动模式。
+
+

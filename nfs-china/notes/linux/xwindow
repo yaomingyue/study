@@ -17,4 +17,4 @@
     虽然现在的 Linux 基本上都有桌面了，但 Linux
     本质还是命令行的操作系统，桌面很多事情做不了。
 22222 gnome kde
-    gnome 采用QT，gnme 采用gtk
+    gnome 采用QT，kde 采用gtk

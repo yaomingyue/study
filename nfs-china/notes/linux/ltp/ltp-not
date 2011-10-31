@@ -1,0 +1,72 @@
+111 pan 
+    pan工作原理：LTP测试套件有一个专门的测试驱动程序pan，具体的测试用例的执行都是由pan来调用执行，它可以跟踪孤儿进程和抓取测试的输出信息。它的工作方式是这样的：
+    从一个测试命令文件中读取要测试的条目的要执行的命令行，然后等待该项测试的结束，并记录详细的测试输出。默认状态下pan会随机的选择一个命令行来运行，可以指定在同一时间要执行测试的次数。
+    pan会记录测试产生的详细的格式复杂的输出，但它不进行数据的整理和统计，数据整理统计的工作由scanner来完成，scanner是一个测试结果分析工具，它会理解pan的输出格式，并输出成一个表格的
+    形式来总结那些测试passed或failed。
+
+
+222 ltp  测试过程
+
+    LTP测试的过程主要分为两个阶段：
+
+    第一阶段——初始测试，主要用于测试系统的可靠性，包括LTP测试套件在硬件和操作系统上24小时的成功运转。
+
+    第二阶段——压力测试，主要验证产品在系统高使用率时的健壮性。
+
+    初始测试
+    ./runltp -p -l /tmp/resultlog.20061222 -d /tmp -o /tmp/ltpscreen.20061222
+    -t 24h
+
+    压力测试
+    ./ltpstress.sh -m 35 -S -t 72h  //-m:
+    表示genload不停的在分配和释放35m内存，
+         -S: 使用sar工具记录
+          -t: 测试时间    
+
+3333  runltp 调试过程
+
+    将ltp安装在pc机上
+        make autotools
+        make
+        make install
+
+    在/opt/ltp  目录下就是安装好的ltp。可以在其中运行测试脚本
+     例如：  ./runltp -p -l result.log   （该命令没有指定测试案例，默认）
+     可以将输出结果重定向到一个文件如：rtp-info 
+     就可以修改runltp脚本，看rtp-info的输出结果
+
+444 ltp 在arm的交叉编译
+
+    $ make autotools
+    $./configure CC=arm-linux-gcc --build=i686-pc-linux --target=arm-linux
+    --host=arm-linux CFLAGS="-static -pthread"
+    $make 
+    make install
+
+    make时会报openlog的错误。将testcases/kernel/fs/fs-bench 文件夹移走，不编译
+
+
+555 runltp 脚本
+    
+    bash脚本，主要是通过调用ltp-pan 来运行testcas中的各个测试用例
+    还有根据参数来自定义测试，及对测试结果进行不同的保存
+
+666 测试自己的用例
+    一 修改已有的测试命令文件
+    1 在runtest/syscalls 中加入moon01 （自己编写的脚本名，只打印）
+    2 将moon01 脚本放入testcase/bin 目录下
+    运行./runltp -p -l result.log  会看到打印。说明调用了moon01脚本
+    （由于没有-f 指定测试命令文件，用scenario_groups/default 文件读入默认
+    的测试命令文件，其中第一个为syscalls文件，该文件中写明了要测试的命令，
+    注意格式）
+
+    二 填写自己的命令文件
+    1 填写自己的命令文件my_cmd_file 
+    写入  moon01 moon01
+    将该文件放入runtest 目录下
+    2将moon01脚本放入testcase/bin下
+    3执行./runltp -p -l result.log -f my_cmd_file 
+    4 执行结果调用moon01打印出信息
+
+7777 runltp  中tmp目录下的alltest中入的是所有的测试命令，从各个测试命令文件
+    中的集合

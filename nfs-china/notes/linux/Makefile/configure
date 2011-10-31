@@ -1,0 +1,10 @@
+11  这种脚本的用途之一是自动进行对目标新系统的猜测过程。
+
+22 configure 中常用的选项 
+
+    1 CC=gcc  指定编译器
+    2 CFLAGS="-static"   指定CC 编译是后边跟的参数,
+    3 --prefix=PEWFIX  包中的独立部分安装的目录
+    4 --exec-prefix=   包中依赖部分安装的目录
+
+

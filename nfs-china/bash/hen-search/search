@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#awk '{i=1; while ( i < NF ){ if ( $i ~/kk/ ) print $i;i++}}' kk=$1 awk-file 
+search_exit()
+{
+    echo "this script will exit"
+    rm outfile
+    exit 0
+}
+
+grep $1 . -rn > outfile
+
+awk 'BEGIN{i=1;}{print "NO",i,$0;i++}' outfile
+
+trap 'search_exit' SIGINT
+
+while ((1))
+do
+echo -n "please input the num :"
+read -e NUM
+#echo $NUM
+#path=$(awk -F":" 'BEGIN{i=0;}{i++; if(i==data) {print $2}}' data=$NUM outfile \
+path=$(awk -F":" 'BEGIN{i=0;}{i++; if(i==data) {print $1,"+"$2}}' data=$NUM outfile)
+#echo $path
+#echo ${#path}
+vim $path
+done

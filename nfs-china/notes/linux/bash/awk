@@ -54,7 +54,6 @@
     awk '{i=1; while ( i < NF ){ if ( $i ~/mo/ ) print $i;i++}}' awk-file
     awk '{i=1; while ( i < NF ){ if ( $i ~/mo/ ) print $i,":",$0;i++}}' awk-file
 
-
 7 -f 加入自己的awk命令文件
 
     下边是我的awk命令文件 awk-cmd
@@ -82,3 +81,9 @@
 
 
 8 参考资料 http://man.lupaworld.com/content/manage/ringkee/awk.htm#id2808925
+
+9
+NUM = 4
+pth=$(awk -F":" 'BEGIN{i=0;}{i++; if(i==data) {print $1,"+"$2}}' data=$NUM
+outfile)
+将参数传进awk， print时两个参数中间加逗号，结果有空格隔开

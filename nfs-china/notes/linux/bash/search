@@ -1,0 +1,16 @@
+111 计算字符串长度
+path = "hello"
+echo ${#path}
+
+222 trap 使用,  等待某个信号, 
+
+trap ‘hello’ SIGINT
+
+trap 会等待SIGINT信号，之后执行hello程序,hello是一个函数 
+
+333 bash 中的数组
+Bash的数组，其元素的个数没有限制。数组的索引由0开始，但不一定要
+连续(可以跳号)。索引也可以算术表达式。bash仅支持一维数组。
+
+declare -a aa
+aa[i++]= 

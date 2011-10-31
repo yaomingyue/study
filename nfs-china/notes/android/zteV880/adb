@@ -1,0 +1,34 @@
+1电脑系统 fedora 14
+手机系统  android 2.37
+手机 中兴V880
+
+11刚开始的时候手机用USB连接电脑后，打开usb存储设备后，电脑上仍然没反映，
+不能挂载手机的sd卡，
+用sdk中的adb工具时：
+adb devices 没有找到设备。
+
+22解决办法：
+在电脑端操作：
+1执行lsusb
+    [yaomoon@yaomoon zteV880]$ lsusb
+     后显示
+    Bus 001 Device 005: ID 19d2:1351 ONDA Communication S.p.A.
+    其中19d2是中兴的ID号，记下来，一会有用
+2 新建文件/etc/udev/rules.d/50-android.rules 
+    添加如下内容：
+    SUBSYSTEM=="usb",ATTRS{idVendor}=="19D2",SYMLINK+="android_adb",MODE="0666",OWNER="moon"
+    其中 idverdor 后就是前边的哪个ID号，OWNER是自己起的名字
+
+3 运行以下命令：
+    sudo chmod a+rx /etc/udev/rules.d/50-android.rules
+    
+之后重启，之后应该就行了
+
+重启adb
+sudo ./adb kill-server
+sudo ./adb devices 
+ 我的成功显示
+ List of devices attached 
+ CM7-Blade  device
+用adb shell命令就可以用adb操作手机了
+

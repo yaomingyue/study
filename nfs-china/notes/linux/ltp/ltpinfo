@@ -1,0 +1,403 @@
+INFO: creating /opt/ltp/results directory
+
+    INFO: no command files were provided. Will execute the following
+          runtest scenario files:
+
+syscalls fs fs_perms_simple fsx dio io mm ipc sched math nptl pty containers fs_bind controllers filecaps cap_bounds fcntl-locktests connectors admin_tools timers power_management_tests numa hugetlb commands hyperthreading 
+    
+If some fields are empty or look unusual you may have an old version.
+Compare to the current minimal requirements in Documentation/Changes.
+ 
+Fedora release 14 (Laughlin)
+Fedora release 14 (Laughlin)
+Fedora release 14 (Laughlin)
+Linux yaomoon 2.6.35.13-92.fc14.i686 #1 SMP Sat May 21 17:39:42 UTC 2011 i686 i686 i386 GNU/Linux
+ 
+Gnu C                  gcc (GCC) 4.5.1 20100924 (Red Hat 4.5.1-4)
+Gnu make               3.82
+util-linux             ng 2.18)
+mount                  ng 2.18 (with libblkid and selinux support)
+modutils               3.11.1
+e2fsprogs              1.41.12
+PPP                    2.4.5
+Linux C Library        > libc.2.13
+Dynamic linker (ldd)   2.13
+Procps                 3.2.8
+Net-tools              1.60
+iproute2              iproute2-ss100804
+Kbd                    1.15
+Sh-utils               8.5
+Modules Loaded         vfat fat usb_storage nf_nat_h323 nf_conntrack_h323 nf_nat_pptp nf_conntrack_pptp nf_conntrack_proto_gre nf_nat_proto_gre nf_nat_tftp nf_conntrack_tftp nf_nat_sip nf_conntrack_sip nf_nat_irc nf_conntrack_irc nf_nat_ftp nf_conntrack_ftp arc4 ath9k_htc ath9k_common ath9k_hw mac80211 ath cfg80211 rfkill tcp_lp fuse ebtable_nat ebtables ipt_MASQUERADE iptable_nat nf_nat bridge stp llc rmd160 crypto_null camellia lzo lzo_compress cast6 cast5 deflate zlib_deflate cts ctr gcm ccm serpent blowfish twofish twofish_common ecb xcbc cbc sha256_generic sha512_generic des_generic aes_i586 geode_aes aes_generic ah6 ah4 esp6 esp4 xfrm4_mode_beet xfrm4_tunnel tunnel4 xfrm4_mode_tunnel xfrm4_mode_transport xfrm6_mode_transport xfrm6_mode_ro xfrm6_mode_beet xfrm6_mode_tunnel ipcomp ipcomp6 xfrm_ipcomp xfrm6_tunnel tunnel6 af_key sunrpc cpufreq_ondemand acpi_cpufreq mperf ip6t_REJECT nf_conntrack_ipv6 ip6table_filter ip6_tables ipv6 kvm_intel kvm uinput snd_hda_codec_realtek snd_hda_intel snd_hda_codec snd_hwdep snd_seq snd_seq_device snd_pcm snd_timer snd soundcore snd_page_alloc serio_raw dell_wmi wmi broadcom tg3 iTCO_wdt iTCO_vendor_support i2c_i801 ppdev parport_pc parport dcdbas microcode i915 drm_kms_helper drm i2c_algo_bit i2c_core video output
+
+free reports:
+             total       used       free     shared    buffers     cached
+Mem:       2024556    1935304      89252          0     157764     915844
+-/+ buffers/cache:     861696    1162860
+Swap:      4095996      32484    4063512
+
+/proc/cpuinfo
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     E7500  @ 2.93GHz
+stepping	: 10
+cpu MHz		: 2933.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx lm constant_tsc arch_perfmon pebs bts aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 xsave lahf_lm tpr_shadow vnmi flexpriority
+bogomips	: 5852.96
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     E7500  @ 2.93GHz
+stepping	: 10
+cpu MHz		: 2933.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx lm constant_tsc arch_perfmon pebs bts aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 xsave lahf_lm tpr_shadow vnmi flexpriority
+bogomips	: 5851.67
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+remove test cases which require the block device.
+You can specify it with option -b
+COMMAND:    /opt/ltp/bin/ltp-pan  -e -S   -a 21790     -n 21790  -p  -f /tmp/ltp-8tgMA83MrY/alltests -l /opt/ltp/results/result.log  -C /opt/ltp/output/LTP_RUN_ON-result.log.failed
+LOG File: /opt/ltp/results/result.log
+FAILED COMMAND File: /opt/ltp/output/LTP_RUN_ON-result.log.failed
+Running tests.......
+<<<test_start>>>
+tag=abort01 stime=1318577687
+cmdline="ulimit -c 1024;abort01"
+contacts=""
+analysis=exit
+<<<test_output>>>
+abort01     1  TPASS  :  abort dumped core
+abort01     2  TPASS  :  abort raised SIGIOT
+abort01     1  TPASS  :  abort dumped core
+abort01     2  TPASS  :  abort raised SIGIOT
+abort01     3  TPASS  :  abort dumped core
+abort01     4  TPASS  :  abort raised SIGIOT
+abort01     1  TPASS  :  abort dumped core
+abort01     2  TPASS  :  abort raised SIGIOT
+abort01     3  TPASS  :  abort dumped core
+abort01     4  TPASS  :  abort raised SIGIOT
+abort01     5  TPASS  :  abort dumped core
+abort01     6  TPASS  :  abort raised SIGIOT
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=accept01 stime=1318577687
+cmdline="accept01"
+contacts=""
+analysis=exit
+<<<test_output>>>
+accept01    1  TPASS  :  bad file descriptor successful
+accept01    2  TPASS  :  bad file descriptor successful
+accept01    3  TPASS  :  invalid socket buffer successful
+accept01    4  TPASS  :  invalid salen successful
+accept01    5  TPASS  :  invalid salen successful
+accept01    6  TPASS  :  no queued connections successful
+accept01    7  TPASS  :  UDP accept successful
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=accept4_01 stime=1318577687
+cmdline="accept4_01"
+contacts=""
+analysis=exit
+<<<test_output>>>
+accept04_01    1  TPASS  :  Test passed
+accept04_01    2  TPASS  :  Test passed
+accept04_01    3  TPASS  :  Test passed
+accept04_01    4  TPASS  :  Test passed
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=access01 stime=1318577687
+cmdline="access01"
+contacts=""
+analysis=exit
+<<<test_output>>>
+access01    1  TPASS  :  access(accessfile, F_OK) returned 0
+access01    2  TPASS  :  access(accessfile, X_OK) returned 0
+access01    3  TPASS  :  access(accessfile, W_OK) returned 0
+access01    4  TPASS  :  access(accessfile, R_OK) returned 0
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=access02 stime=1318577687
+cmdline="access02"
+contacts=""
+analysis=exit
+<<<test_output>>>
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=1
+<<<test_end>>>
+<<<test_start>>>
+tag=access03 stime=1318577687
+cmdline="access03"
+contacts=""
+analysis=exit
+<<<test_output>>>
+access03    1  TPASS  :  access(0xb783c000, R_OK) failed as expected with EFAULT
+access03    2  TPASS  :  access(0xb783c000, W_OK) failed as expected with EFAULT
+access03    3  TPASS  :  access(0xb783c000, X_OK) failed as expected with EFAULT
+access03    4  TPASS  :  access(0xb783c000, F_OK) failed as expected with EFAULT
+access03    5  TPASS  :  access(0x9056001, R_OK) failed as expected with EFAULT
+access03    6  TPASS  :  access(0x9056001, W_OK) failed as expected with EFAULT
+access03    7  TPASS  :  access(0x9056001, X_OK) failed as expected with EFAULT
+access03    8  TPASS  :  access(0x9056001, F_OK) failed as expected with EFAULT
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=access04 stime=1318577687
+cmdline="access04"
+contacts=""
+analysis=exit
+<<<test_output>>>
+access04    1  TPASS  :  functionality of access(testdir/testfile, F_OK) ok
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=access05 stime=1318577687
+cmdline="access05"
+contacts=""
+analysis=exit
+<<<test_output>>>
+access05    1  TPASS  :  access failed as expected: TEST_ERRNO=EACCES(13): Permission denied
+access05    2  TPASS  :  access failed as expected: TEST_ERRNO=EACCES(13): Permission denied
+access05    3  TPASS  :  access failed as expected: TEST_ERRNO=EACCES(13): Permission denied
+access05    4  TPASS  :  access failed as expected: TEST_ERRNO=EINVAL(22): Invalid argument
+access05    5  TPASS  :  access failed as expected: TEST_ERRNO=EFAULT(14): Bad address
+access05    6  TPASS  :  access failed as expected: TEST_ERRNO=EFAULT(14): Bad address
+access05    7  TPASS  :  access failed as expected: TEST_ERRNO=ENOENT(2): No such file or directory
+access05    8  TPASS  :  access failed as expected: TEST_ERRNO=ENAMETOOLONG(36): File name too long
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=acct01 stime=1318577687
+cmdline="acct01"
+contacts=""
+analysis=exit
+<<<test_output>>>
+acct01      1  TPASS  :  Failed with EISDIR as expected
+acct01      2  TPASS  :  Failed with EACCES as expected
+acct01      3  TPASS  :  Failed with ENOENT as expected
+acct01      4  TPASS  :  Failed with ENOTDIR as expected
+acct01      5  TPASS  :  Failed with EPERM as expected
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=acct02 stime=1318577687
+cmdline="acct02"
+contacts=""
+analysis=exit
+<<<test_output>>>
+acct02      1  TPASS  :  Received expected error: EPERM
+acct02      2  TPASS  :  Received expected error: EPERM
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=add_key01 stime=1318577687
+cmdline="add_key01"
+contacts=""
+analysis=exit
+<<<test_output>>>
+add_key01    1  TPASS  :  add_key call succeeded
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=add_key02 stime=1318577687
+cmdline="add_key02"
+contacts=""
+analysis=exit
+<<<test_output>>>
+add_key02    0  TINFO  :  called add_key() with wrong args got EXPECTED errno: TEST_ERRNO=EINVAL(22): Invalid argument
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=adjtimex01 stime=1318577687
+cmdline="adjtimex01"
+contacts=""
+analysis=exit
+<<<test_output>>>
+adjtimex01    1  TPASS  :  adjtimex() returned 5
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=adjtimex02 stime=1318577687
+cmdline="adjtimex02"
+contacts=""
+analysis=exit
+<<<test_output>>>
+adjtimex02    1  TPASS  :  Test Passed, adjtimex() returned -1: TEST_ERRNO=EFAULT(14): Bad address
+adjtimex02    2  TPASS  :  Test Passed, adjtimex() returned -1: TEST_ERRNO=EINVAL(22): Invalid argument
+adjtimex02    3  TPASS  :  Test Passed, adjtimex() returned -1: TEST_ERRNO=EINVAL(22): Invalid argument
+adjtimex02    4  TCONF  :  this kernel normalizes buf.offset value if it is outside the acceptable range.
+adjtimex02    5  TCONF  :  this kernel normalizes buf.offset value if it is outside the acceptable range.
+adjtimex02    6  TPASS  :  Test Passed, adjtimex() returned -1: TEST_ERRNO=EPERM(1): Operation not permitted
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=alarm01 stime=1318577687
+cmdline="alarm01"
+contacts=""
+analysis=exit
+<<<test_output>>>
+alarm01     1  TPASS  :  alarm(1) returned 0
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=alarm02 stime=1318577687
+cmdline="alarm02"
+contacts=""
+analysis=exit
+<<<test_output>>>
+alarm02     1  TPASS  :  alarm(4294967295) returned 0 as expected for value -1
+alarm02     2  TPASS  :  alarm(4294967295) returned 0 as expected for value ULONG_MAX
+alarm02     3  TPASS  :  alarm(0) returned 0 as expected for value ULONG_MAX+1
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=alarm03 stime=1318577687
+cmdline="alarm03"
+contacts=""
+analysis=exit
+<<<test_output>>>
+21957: alarm(100), fork, alarm(0) child's alarm returned 0
+alarm03     2  TPASS  :  alarm(100), fork, alarm(0) parent's alarm returned 100
+<<<execution_status>>>
+initiation_status="ok"
+duration=0 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=alarm05 stime=1318577687
+cmdline="alarm05"
+contacts=""
+analysis=exit
+<<<test_output>>>
+alarm05     1  TPASS  :  Functionality of alarm(5) successful
+<<<execution_status>>>
+initiation_status="ok"
+duration=8 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=alarm06 stime=1318577695
+cmdline="alarm06"
+contacts=""
+analysis=exit
+<<<test_output>>>
+alarm06     1  TPASS  :  Functionality of alarm(0) successful
+<<<execution_status>>>
+initiation_status="ok"
+duration=15 termination_type=exited termination_id=0 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+<<<test_start>>>
+tag=alarm07 stime=1318577710
+cmdline="alarm07"
+contacts=""
+analysis=exit
+<<<test_output>>>
+alarm07     1  TBROK  :  unexpected signal 2 received (pid = 21962).
+alarm07     2  TBROK  :  Remaining cases broken
+alarm07     1  TBROK  :  unexpected signal 2 received (pid = 21961).
+alarm07     2  TBROK  :  Remaining cases broken
+<<<execution_status>>>
+initiation_status="ok"
+duration=3 termination_type=driver_interrupt termination_id=2 corefile=no
+cutime=0 cstime=0
+<<<test_end>>>
+INFO: ltp-pan reported some tests FAIL
+LTP Version: LTP-20110915
+        
+       ###############################################################"
+        
+            Done executing testcases."
+            LTP Version:  LTP-20110915
+       ###############################################################"
+       
