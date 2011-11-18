@@ -1,0 +1,117 @@
+
+11 标准输入输入字符串
+    str1=raw_input('please input:)
+
+22 格式化输出 
+    print 'this is %d' %str1
+    python 与c的区别，输出变量前也加%；
+
+3  字符串转换
+    num=string.atoi(str2)
+    或 num=int(str2)
+
+4  逻辑运算符
+    and or 
+    例：
+    if str1 == 'a' or str1 == 'e' or str1 == 'i':
+
+5  关于python的自加，好像不是a++之类的，而python根本就没有自增运算，原因，
+    先看例子
+
+    import os
+    import string
+    a = 5
+    b = 5
+ 
+    print id(b)
+    b = b+1
+     
+    print id(a)
+    print id(b)
+
+    结果：
+    164356224
+    164356224
+    164356212
+
+    也就是a b
+    都是5时，他们的id是一样的，安c的思想很难理解，变量是以内容为基准而不是像
+    c中以变量名为基准,所以只要你的数字内容是5，不管你起什么名字，这个变量的 
+    ID是相同的，同时也就说明了 python 中一个变量可以以多个名称访问
+    因此，正确的自增操作应该 b = b + 1 或者 b += 1，当此 b 自增后，通过 id()
+    观察可知，id 值变化了，即 b 已经是新值的名称
+
+6 算术运算计算
+    浮点
+        return sum1/float(num)  sum 和num 都是整型，直接除之后还是整型，把nu
+        m强制
+        转换为浮点型（安C理解);
+    整除，取余
+        7/4   1
+        7%4   3
+        和C一致
+        
+
+7 python 的格式化输出
+    1 用print函数 
+        a = 3
+        print "this is %d" %a
+
+    2 用os.write()
+        a=4
+        os.write(1,"this is %d" %a)
+        
+    3 直接对字符串格式化
+        a=5
+        str2=“this is %d" %a
+        print str2
+
+8 python 连接signal
+    如相应SIGINT，可以响应ctrl - c 按键退出
+    例子：
+    import signal
+    import time
+    import sys 
+
+    def myexit(signalNum,e):
+        #print 'signalNum: %s' %(signalNum)
+        #print 'e:%s ' %(e)
+        print "this program will exit"
+        sys.exit(0)
+
+    signal.signal(signal.SIGINT, myexit)
+
+    while 1:
+        print "heooooooo"
+        time.sleep(1)
+
+    主要： singnal.signal()函数中的handler 函数必须有两个参数，信号标号和
+        退出信息
+
+
+9 python的string操作函数
+    python的string 提供了丰富的字符串处理函数，字符大小写转换，查找替换，输
+    出， 对齐，字符串整型转换
+    string.atoi()  字符串转整型
+    string.lower() 转换成小写，小写不变，大写的转成小写
+    string.supper()  转换成大写
+
+10 python random 模块 取随机数
+    
+    import random
+
+    random.randint(1,100) 取1到100 之间的随机整数
+    random.random()   生成0到1随机小数
+    random.uniform(a,b) 生成a到b的随机浮点数
+    random.randrange(start,stop,step)
+    从start到stop，步长为step的随机数，如random.randrange(0,10,2) 
+    从 0 2 4 6 8 10中取随机数
+
+
+
+
+
+
+
+
+

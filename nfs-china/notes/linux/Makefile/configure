@@ -8,3 +8,9 @@
     4 --exec-prefix=   包中依赖部分安装的目录
 
 
+if test "${with_power_management_testsuite+set}" = set; then :
+ 解读： test 是判断后边语句, 
+ ${with_power_management_testsuite+set}
+ 意思是当with_power_management_testsuite 有值时，上一个语句结果为set，为空时
+ 语句结果为空
+

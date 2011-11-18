@@ -1,0 +1,4 @@
+./configure CC=arm-linux-gcc --build=i686-pc-linux --target=arm-linux
+--host=arm-linux --prefix=/home/yaomoon/test/ CFLAGS="-pthread -static"
+LDFLAGS="-static"
+

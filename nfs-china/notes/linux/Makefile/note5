@@ -1,0 +1,105 @@
+1 target 可以有多个写在一起
+如：
+    main moon : main.h
+    有相同的依赖
+
+2 伪目标
+    .PHONY :clean
+    clean :
+        -rm main moon.o
+
+   .PHONY 声明clean是伪目标，只有make clean 才执行，rm 前加‘-’ 表示若文件不
+   存在不报错，往下执行。
+
+3 Makefile组成
+    makefile 由显式规则，隐失规则，变量定义，文件指示，注释组成
+
+    变量相当于C中的宏定义，make是替换
+
+    文件指示： 1 像include 引用别的makefile
+               2 指定有效部分，像预编译#if
+
+4 makefile 最终目标
+    makefile 只有一个最终目标，其他的都是这个目标连带出来的，第一条规则中的
+    目标将被确立为最终目标。
+
+5 依赖与command
+    如果cmd和依赖不在一行，则用Tab开头，如在一行，则和依赖用分号隔开。
+    规则告诉makefile两件事，文件的依赖关系和如何生成目标文件。
+    一般来说，makefile以/bin/sh 执行命令
+
+6文件搜索
+    变量VPARH 和关键字vpath
+    VPATH 指定makefile搜索文件的路径
+    vpath %.h ../headers
+    该句表示，要求makezai ../headers 目录下搜索所有以.h结尾的文件。
+
+7静态模式
+
+    <targets ...>;: <target-pattern>;: <prereq-patterns ...>;
+    <commands>;
+
+    targets是有相同特点的目标集(如都以.o结尾) ,target-pattern 是目标模式，描述这种特点,；prereq-patterns
+    是依赖模式，
+
+    适用于多目标
+    例:
+    objects = foo.o bar.o
+    all: $(objects)
+    $(objects): %.o: %.c
+    $(CC) -c $(CFLAGS) $< -o $@
+
+    将objects 中.o 改成.c 作为依赖文件
+
+
+8 makefile 的嵌套
+    当一个工程很大时，就会有许多的子目录，而每个子目录也会有自己的makefile
+    ，这样顶层makefile 会进入子目录，调用子目录的makefile
+
+    变量的传递
+        顶层的变量可以传递到下层，默认情况下只有命令行的环境变量可以直接传递
+        而顶层makefile中定义的变量需要用到export关键字
+
+
+9 定义成命令包
+    我们可以将一系列命令定义成一个变量，这样，一个变量就执行许多命令
+    例 
+    define run-yacc
+    yacc $(firstword $^)
+    mv y.tab.c $@
+    endef
+
+10 变量
+    给变量赋值空格
+    space = $(nullstring) #end of the line
+    $(nullstring) 代表空，从其开始到#结尾，正好是个空格
+
+11 条件分支
+    ifeq
+    ifneq
+
+    如ifeq ($(CC),gcc)     表示$(CC) 是否为gcc
+
+
+12 函数
+    makefile中可以使用函数格式为
+    $(strip $(foo))
+
+    strip  是make 的一个函数
+
+13 隐含变量
+    makefile有很多隐含变量,他们有默认值,有时看到变量没有定义直接使用
+    如cc , 默认gcc
+
+14  自动化变量
+    makefile 有很多自动化变量，如 $@,$<
+    ,$?等，自动化变量的好处是能把模式中所定义的一系列文件自动的挨个取出
+    如
+    %.o : %.c
+    $(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+    将.c文件一个一个的编译成.o文件
+    $< 表示依赖集中的一个依赖   $@表示目标集中的一个目标
+
+
+
+

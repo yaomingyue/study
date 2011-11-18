@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+#!/bin/sh
+#!/bin/sh
+#!/system/bin/sh
 
 #echo -n input :
 #read -e MOON
@@ -8,8 +11,5 @@
 
 #[ -f "$scenfile" ] || scenfile="$LTPROOT/runtest/$scenfile"
 
-kk="hello"
 
-zz=${#kk}
-
-echo $zz
+echo "hello"

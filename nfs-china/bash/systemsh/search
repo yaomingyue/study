@@ -1,0 +1,24 @@
+#!/bin/bash
+
+search_exit()
+{
+    echo "this script will exit"
+    rm outfile
+    exit 0
+}
+
+grep "bin/sh" . -rn > outfile
+grep "bin/bash" . -rn >> outfile
+
+echo "grep -----------------done"
+
+line_num=$(awk 'BEGIN{i=0;}{i++}END{print i}' outfile)
+echo $line_num
+
+for ((i=0;i<line_num;i++))
+do
+    file_name=$(awk -F":" 'BEGIN{i=0;}{i++; if(i==data) {print $1}}' data=$i outfile)
+    echo $file_name
+    #sed -i '1i\#!/system/bin/sh' $file_name
+done
+

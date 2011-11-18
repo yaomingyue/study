@@ -69,7 +69,7 @@
     i++;
     }
     }
-    END{
+   END{
     print "this is the end of file";
     }
 

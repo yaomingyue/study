@@ -1,0 +1,23 @@
+1 acpi 
+    acpi （advanced configuration and power management interface) 高级配置
+    和电源管理接口
+
+    acpi 共用六种状态：s0 - s5 也就是正常工作，睡眠等与节省功耗相关
+
+    1???????????? acpi是什么，软件，硬件？
+    是软件，供操作系统调用的管理电源的接口，但需要硬件的支持，即硬件能响应
+    软件的控制,这样操作系统就能控制电脑的功耗
+
+
+    2??????????? acpi 对用在什么硬件和操作系统上
+    acpi是intel开发的，应该不能用在arm上，对于操作系统，windows从98开始就支
+    持acpi，而linux大部分发行版都支持
+ 
+
+2 agp 
+    agp(accelerated graphic ports) 加速图形接口，pc 的图形系统接口的一种 
+
+    1?????????agp是什么
+    是一种x86个人电脑上的图形设备接口，AGP插槽的形状与PCI扩展槽相似，位置在PCI插槽的右边偏低一些
+
+

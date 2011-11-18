@@ -1,0 +1,35 @@
+1 linux kernel bootloader移植的基础知识
+
+    1一个嵌入式linux系统从软件角度可以分为四个部分：引导加载程序（bootloader），linux内核，文件系统，应用程序。
+
+    2在嵌入式系统开发的过程中，很大一部分精力都花在bootloader和linux内核的
+    开发或移植上。
+
+    3 bootloader是系统上电后运行的第一个程序，将非易失存储器中的linux内核烤
+    到RAM中去，然后跳到RAM中执行内核的第一条指令；
+    
+    4 不同处理器上电执行的第一条指令的地址不同，ARM是0x00000000.通常嵌入式
+    系统把FLAS映射到这个地址，而bootloader就位于该存储器的最前端。所以上电执行
+
+    5 bootloader 必须具备的最基本功能
+        1）初始化RAM
+        2）初始化串口
+        3）检测处理器类型
+        4) 设置linux启动参数
+        5）调用linux内核镜像
+
+
+    6 zimage 必须解压缩之后才能执行，所以在它之前加入解压缩的代码。
+
+    7 对应ARM处理器来说，zimage的入口程序即为arch/arm/boot/compressed/head.S
+    。它依次完成以下工作：开启MMU和Cache，调用decompress_kernel()解压内核，
+    最后通过调用call_kernel()进入非压缩内核image的启动。
+
+    8 linux 非压缩内核的入口位于/arch/arm/kernel/head-armv.S中的stext段
+
+
+
+
+
+问题1  ;  移植到arm板上的linux内核需要对内核进行哪些修改？
+问题2  ： 移植bootloader 需要将uboot修改哪些地方来适应arm板？

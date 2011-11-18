@@ -1,0 +1,27 @@
+#!/system/bin/sh
+#!/system/bin/sh
+#!/system/bin/sh
+#!/bin/sh
+
+#awk '{i=1; while ( i < NF ){ if ( $i ~/kk/ ) print $i;i++}}' kk=$1 awk-file 
+search_exit()
+{
+    echo "this script will exit"
+    rm outfile
+    exit 0
+}
+
+grep "bin/sh" . -rn > outfile
+
+line_num=$(awk 'BEGIN{i=0;}{i++}END{print i}' outfile)
+
+echo $line_num
+
+#path=$(awk -F":" 'BEGIN{i=0;}{i++; if(i==data) {print $1,"+"$2}}' data=$NUM outfile)
+for ((i=0;i<line_num;i++))
+do
+file_name=$(awk -F":" 'BEGIN{i=0;}{i++; if(i==data) {print $1}}' data=$i outfile)
+echo $file_name
+#sed -i '1a\#!/system/bin/sh' file_name
+done
+

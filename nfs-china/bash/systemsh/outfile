@@ -1,0 +1,27 @@
+./ss:1:#!/bin/sh
+./ss:2:#!/bin/sh
+./ss:3:#!/bin/sh
+./ss:4:#!/system/bin/sh
+./search:11:grep "bin/sh" . -rn > outfile
+./search:21:    #sed -i '1i\#!/system/bin/sh' $file_name
+./awk:1:#!/system/bin/sh
+./awk:2:#!/bin/sh
+./zz:1:#!/system/bin/sh
+./zz:2:#!/bin/sh
+./mmmm/kk:1:#!/system/bin/sh
+./mmmm/kk:2:#!/bin/sh
+./gconftool-2:1:#!/system/bin/sh
+./gconftool-2:2:#! /bin/sh
+./gps-data-test:1:#!/system/bin/sh
+./gps-data-test:2:#! /bin/sh
+./moon:2:#!/bin/sh
+./moon:3:#!/bin/sh
+./moon:4:#!/bin/sh
+./moon:5:#!/system/bin/sh
+./search2:1:#!/system/bin/sh
+./search2:2:#!/system/bin/sh
+./search2:3:#!/system/bin/sh
+./search2:4:#!/bin/sh
+./search2:14:grep "bin/sh" . -rn > outfile
+./search2:25:#sed -i '1a\#!/system/bin/sh' file_name
+./kk:1:#!/bin/sh

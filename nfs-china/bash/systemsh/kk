@@ -1,5 +1,4 @@
 #!/bin/sh
-#!/system/bin/sh
 
 #echo -n input :
 #read -e MOON

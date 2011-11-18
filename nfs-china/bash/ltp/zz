@@ -1,0 +1,1682 @@
+Connectors
+./test1/connectors:2:Connectors connector_test.sh
+move_pages01
+./test1/numa:2:move_pages01 move_pages.sh 01
+./test1/syscalls:576:move_pages01 move_pages.sh 01
+move_pages02
+./test1/numa:3:move_pages02 move_pages.sh 02
+./test1/syscalls:577:move_pages02 move_pages.sh 02
+move_pages04
+./test1/numa:5:move_pages04 move_pages.sh 04
+./test1/syscalls:579:move_pages04 move_pages.sh 04
+move_pages05
+./test1/numa:6:move_pages05 move_pages.sh 05
+./test1/syscalls:580:move_pages05 move_pages.sh 05
+move_pages06
+./test1/numa:7:move_pages06 move_pages.sh 06
+./test1/syscalls:581:move_pages06 move_pages.sh 06
+move_pages07
+./test1/numa:8:move_pages07 move_pages.sh 07
+./test1/syscalls:582:move_pages07 move_pages.sh 07
+move_pages08
+./test1/numa:9:move_pages08 move_pages.sh 08
+./test1/syscalls:583:move_pages08 move_pages.sh 08
+move_pages09
+./test1/numa:10:move_pages09 move_pages.sh 09
+./test1/syscalls:584:move_pages09 move_pages.sh 09
+move_pages10
+./test1/numa:11:move_pages10 move_pages.sh 10
+./test1/syscalls:585:move_pages10 move_pages.sh 10
+p9auth
+./test1/p9auth:1:#DESCRIPTION:p9auth /dev/caphash module
+./test1/p9auth:2:p9auth		runp9auth.sh
+smack_set_onlycap
+./test1/smack:9:smack_set_onlycap	smack_set_onlycap.sh
+Containers
+./test1/containers:2:Containers	container_test.sh
+lftest01
+./test1/fs:61:lftest01	lftest 100
+writetest01
+./test1/fs:62:writetest01	writetest
+proc01
+./test1/fs:70:proc01 proc01
+quota_remount_test01
+./test1/fs:76:quota_remount_test01 quota_remount_test01.sh
+dio01
+./test1/dio:3:dio01 diotest1
+dio02
+./test1/dio:4:dio02 diotest2
+dio03
+./test1/dio:5:dio03 diotest3
+dio04
+./test1/dio:6:dio04 diotest4
+dio05
+./test1/dio:7:dio05 diotest5
+dio06
+./test1/dio:8:dio06 diotest6
+dio07
+./test1/dio:11:dio07 diotest1 -b 65536
+dio08
+./test1/dio:12:dio08 diotest2 -b 65536
+dio09
+./test1/dio:13:dio09 diotest3 -b 65536
+dio11
+./test1/dio:15:dio11 diotest5 -b 65536
+dio12
+./test1/dio:16:dio12 diotest6 -b 65536
+dio13
+./test1/dio:19:dio13 diotest1 -b 65536 -n 2000
+dio14
+./test1/dio:20:dio14 diotest2 -b 65536 -i 1000
+dio15
+./test1/dio:21:dio15 diotest3 -b 65536 -i 1000 
+dio16
+./test1/dio:22:dio16 diotest5 -b 65536 -i 1000
+dio17
+./test1/dio:23:dio17 diotest6 -b 65536 -i 1000
+dio18
+./test1/dio:26:dio18 diotest2 -b 65536 -i 1000 -o 1024000 
+dio19
+./test1/dio:27:dio19 diotest3 -b 65536 -i 1000 -o 1024000 
+dio20
+./test1/dio:28:dio20 diotest5 -b 65536 -i 1000 -o 1024000 
+dio21
+./test1/dio:29:dio21 diotest6 -b 65536 -i 1000 -o 1024000 
+dio22
+./test1/dio:32:dio22 diotest2 -b 65536 -i 1000 -o 104857600
+dio23
+./test1/dio:33:dio23 diotest3 -b 65536 -i 1000 -o 104857600
+dio24
+./test1/dio:34:dio24 diotest5 -b 65536 -i 1000 -o 104857600
+dio25
+./test1/dio:35:dio25 diotest6 -b 65536 -i 1000 -o 104857600
+dio26
+./test1/dio:38:dio26 diotest6 -b 8192 -v 100
+dio27
+./test1/dio:39:dio27 diotest6 -b 8192 -o 1024000 -i 1000 -v 100
+mm01
+./test1/mm:2:mm01 mmap001 -m 10000
+mm02
+./test1/mm:6:mm02 mmap001
+mtest01
+./test1/mm:12:mtest01 mtest01 -p80
+./test1/mm:13:mtest01w mtest01 -p80 -w
+mtest01w
+./test1/mm:13:mtest01w mtest01 -p80 -w
+mtest05
+./test1/mm:16:mtest05   mmstress
+mtest06
+./test1/mm:17:mtest06   mmap1 -x 0.05
+mtest06_2
+./test1/mm:18:mtest06_2 mmap2 -x 0.002 -a -p
+mtest06_3
+./test1/mm:19:mtest06_3 mmap3 -x 0.002 -p
+mem01
+./test1/crashme:13:mem01 mem01 -r
+./test1/mm:23:mem01 mem01
+mem03
+./test1/mm:25:mem03 mem03
+page01
+./test1/mm:27:page01 page01
+page02
+./test1/mm:28:page02 page02
+mmapstress01
+./test1/mm:46:mmapstress01 mmapstress01 -p 20 -t 0.2
+mmapstress02
+./test1/mm:47:mmapstress02 mmapstress02
+mmapstress03
+./test1/mm:48:mmapstress03 mmapstress03
+mmapstress04
+./test1/mm:49:mmapstress04 TMPFILE=`mktemp /tmp/example.XXXXXXXXXX`; ls -lR /usr/include/ > $TMPFILE; mmapstress04 $TMPFILE
+mmapstress05
+./test1/mm:50:mmapstress05 mmapstress05
+mmapstress06
+./test1/mm:51:mmapstress06 mmapstress06 20
+mmapstress07
+./test1/mm:52:mmapstress07 TMPFILE=`mktemp /tmp/example.XXXXXXXXXXXX`; mmapstress07 $TMPFILE
+mmapstress08
+./test1/mm:53:mmapstress08 mmapstress08
+mmapstress09
+./test1/mm:54:mmapstress09 mmapstress09 -p 20 -t 0.2
+mmapstress10
+./test1/mm:55:mmapstress10 mmapstress10 -p 20 -t 0.2
+mmap10
+./test1/mm:57:mmap10 mmap10
+./test1/mm:58:mmap10_1 mmap10 -a
+./test1/mm:59:mmap10_2 mmap10 -s
+./test1/mm:60:mmap10_3 mmap10 -a -s
+./test1/mm:61:mmap10_4 mmap10 -a -s -i 60
+./test1/mm:62:mmap10_5 mmap10 -a -s -c 200
+mmap10_1
+./test1/mm:58:mmap10_1 mmap10 -a
+mmap10_2
+./test1/mm:59:mmap10_2 mmap10 -s
+mmap10_3
+./test1/mm:60:mmap10_3 mmap10 -a -s
+mmap10_4
+./test1/mm:61:mmap10_4 mmap10 -a -s -i 60
+mmap10_5
+./test1/mm:62:mmap10_5 mmap10 -a -s -c 200
+ksm01
+./test1/mm:64:ksm01 ksm01
+./test1/mm:65:ksm01_1 ksm01 -u 128
+ksm01_1
+./test1/mm:65:ksm01_1 ksm01 -u 128
+ksm02
+./test1/mm:66:ksm02 ksm02
+./test1/mm:67:ksm02_1 ksm02 -u 128
+ksm02_1
+./test1/mm:67:ksm02_1 ksm02 -u 128
+ksm03
+./test1/mm:68:ksm03 ksm03
+./test1/mm:69:ksm03_1 ksm03 -u 128
+ksm03_1
+./test1/mm:69:ksm03_1 ksm03 -u 128
+ksm04
+./test1/mm:70:ksm04 ksm04
+./test1/mm:71:ksm04_1 ksm04 -u 128
+ksm04_1
+./test1/mm:71:ksm04_1 ksm04 -u 128
+ksm05
+./test1/mm:72:ksm05 ksm05 -I 10
+cpuset01
+./test1/mm:74:cpuset01 cpuset01 -I 3600
+oom01
+./test1/mm:76:oom01 oom01
+oom02
+./test1/mm:77:oom02 oom02
+oom03
+./test1/mm:78:oom03 oom03
+oom04
+./test1/mm:79:oom04 oom04
+vma02
+./test1/mm:84:vma02 vma02
+ptem01
+./test1/pty:3:ptem01 ptem01
+hangup01
+./test1/pty:4:hangup01 hangup01
+abort01
+./test1/syscalls:2:abort01 ulimit -c 1024;abort01
+accept01
+./test1/syscalls:4:accept01 accept01
+accept4_01
+./test1/syscalls:5:accept4_01 accept4_01
+access01
+./test1/syscalls:7:access01 access01
+access03
+./test1/syscalls:9:access03 access03
+add_key01
+./test1/syscalls:16:add_key01 add_key01
+add_key02
+./test1/syscalls:17:add_key02 add_key02
+adjtimex01
+./test1/syscalls:19:adjtimex01 adjtimex01
+alarm01
+./test1/syscalls:22:alarm01 alarm01
+alarm02
+./test1/syscalls:23:alarm02 alarm02
+alarm03
+./test1/syscalls:24:alarm03 alarm03
+alarm05
+./test1/syscalls:25:alarm05 alarm05
+alarm06
+./test1/syscalls:26:alarm06 alarm06
+alarm07
+./test1/syscalls:27:alarm07 alarm07
+asyncio02
+./test1/syscalls:29:asyncio02 asyncio02
+bind01
+./test1/syscalls:31:bind01 bind01
+bdflush01
+./test1/syscalls:34:bdflush01 bdflush01
+brk01
+./test1/syscalls:36:brk01 brk01
+capget01
+./test1/syscalls:38:capget01 capget01
+capget02
+./test1/syscalls:39:capget02 capget02
+capset01
+./test1/syscalls:41:capset01 capset01
+cacheflush01
+./test1/syscalls:44:cacheflush01 cacheflush01
+chdir01
+./test1/syscalls:46:chdir01 chdir01
+./test1/syscalls:47:chdir01A symlink01 -T chdir01
+chdir01A
+./test1/syscalls:47:chdir01A symlink01 -T chdir01
+chdir02
+./test1/syscalls:48:chdir02 chdir02
+chdir04
+./test1/syscalls:50:chdir04 chdir04
+chmod01
+./test1/syscalls:52:chmod01 chmod01
+./test1/syscalls:53:chmod01A symlink01 -T chmod01
+chmod01A
+./test1/syscalls:53:chmod01A symlink01 -T chmod01
+chmod02
+./test1/syscalls:54:chmod02 chmod02
+chown01
+./test1/syscalls:61:chown01 chown01
+chown01_16
+./test1/syscalls:62:chown01_16 chown01_16
+chown02
+./test1/syscalls:63:chown02 chown02
+chown02_16
+./test1/syscalls:64:chown02_16 chown02_16
+chown05
+./test1/syscalls:69:chown05 chown05
+chown05_16
+./test1/syscalls:70:chown05_16 chown05_16
+chroot02
+./test1/syscalls:73:chroot02 chroot02
+chroot03
+./test1/syscalls:74:chroot03 chroot03
+clock_getres01
+./test1/syscalls:77:clock_getres01 clock_getres01
+clock_nanosleep01
+./test1/syscalls:78:clock_nanosleep01 clock_nanosleep01
+clock_nanosleep2_01
+./test1/syscalls:79:clock_nanosleep2_01 clock_nanosleep2_01
+clone01
+./test1/syscalls:81:clone01 clone01
+clone02
+./test1/syscalls:82:clone02 clone02
+clone03
+./test1/syscalls:83:clone03 clone03
+clone04
+./test1/syscalls:84:clone04 clone04
+clone05
+./test1/syscalls:85:clone05 clone05
+clone06
+./test1/syscalls:86:clone06 clone06
+clone07
+./test1/syscalls:87:clone07 clone07
+close01
+./test1/syscalls:89:close01 close01
+close02
+./test1/syscalls:90:close02 close02
+close08
+./test1/syscalls:91:close08 close08
+confstr01
+./test1/syscalls:93:confstr01 confstr01
+connect01
+./test1/syscalls:95:connect01 connect01
+creat03
+./test1/syscalls:98:creat03 creat03
+creat05
+./test1/syscalls:100:creat05 creat05
+creat09
+./test1/syscalls:104:creat09 creat09
+dup01
+./test1/syscalls:106:dup01 dup01
+dup02
+./test1/syscalls:107:dup02 dup02
+dup03
+./test1/syscalls:108:dup03 dup03
+dup04
+./test1/syscalls:109:dup04 dup04
+dup05
+./test1/syscalls:110:dup05 dup05
+dup06
+./test1/syscalls:111:dup06 dup06
+dup07
+./test1/syscalls:112:dup07 dup07
+dup201
+./test1/syscalls:114:dup201 dup201
+dup202
+./test1/syscalls:115:dup202 dup202
+dup203
+./test1/syscalls:116:dup203 dup203
+dup204
+./test1/syscalls:117:dup204 dup204
+dup205
+./test1/syscalls:118:dup205 dup205
+dup3_01
+./test1/syscalls:120:dup3_01 dup3_01
+eventfd01
+./test1/syscalls:125:eventfd01 eventfd01
+eventfd2_01
+./test1/syscalls:127:eventfd2_01 eventfd2_01
+eventfd2_02
+./test1/syscalls:128:eventfd2_02 eventfd2_02
+eventfd2_03
+./test1/syscalls:129:eventfd2_03 eventfd2_03
+execl01
+./test1/syscalls:131:execl01 execl01
+execle01
+./test1/syscalls:132:execle01 execle01
+execlp01
+./test1/syscalls:133:execlp01 execlp01
+execv01
+./test1/syscalls:135:execv01 execv01
+execve01
+./test1/syscalls:136:execve01 execve01
+execve05
+./test1/syscalls:140:execve05 execve05 20 $LTPROOT/testcases/bin/execve05 $LTPROOT/testcases/bin/execve05 4
+execvp01
+./test1/syscalls:141:execvp01 execvp01
+exit01
+./test1/syscalls:143:exit01 exit01
+exit02
+./test1/syscalls:144:exit02 exit02
+exit_group01
+./test1/syscalls:146:exit_group01 exit_group01
+fallocate01
+./test1/syscalls:152:fallocate01 fallocate01
+fallocate02
+./test1/syscalls:153:fallocate02 fallocate02
+fallocate03
+./test1/syscalls:154:fallocate03 fallocate03
+posix_fadvise01
+./test1/syscalls:157:posix_fadvise01                      posix_fadvise01
+posix_fadvise02
+./test1/syscalls:159:posix_fadvise02                      posix_fadvise02
+posix_fadvise02_64
+./test1/syscalls:160:posix_fadvise02_64                posix_fadvise02_64
+posix_fadvise03
+./test1/syscalls:161:posix_fadvise03                      posix_fadvise03
+posix_fadvise04
+./test1/syscalls:163:posix_fadvise04                      posix_fadvise04
+posix_fadvise04_64
+./test1/syscalls:164:posix_fadvise04_64                posix_fadvise04_64
+fchdir01
+./test1/syscalls:166:fchdir01 fchdir01
+fchdir02
+./test1/syscalls:167:fchdir02 fchdir02
+fchmod01
+./test1/syscalls:170:fchmod01 fchmod01
+fchmod07
+./test1/syscalls:176:fchmod07 fchmod07
+fchown01
+./test1/syscalls:181:fchown01 fchown01
+fchown01_16
+./test1/syscalls:182:fchown01_16 fchown01_16
+fchown02
+./test1/syscalls:183:fchown02 fchown02
+fchown02_16
+./test1/syscalls:184:fchown02_16 fchown02_16
+fchown05
+./test1/syscalls:189:fchown05 fchown05
+fchown05_16
+./test1/syscalls:190:fchown05_16 fchown05_16
+fcntl01
+./test1/syscalls:195:fcntl01 fcntl01
+fcntl01_64
+./test1/syscalls:196:fcntl01_64 fcntl01_64
+fcntl02
+./test1/syscalls:197:fcntl02 fcntl02
+fcntl02_64
+./test1/syscalls:198:fcntl02_64 fcntl02_64
+fcntl03
+./test1/syscalls:199:fcntl03 fcntl03
+fcntl03_64
+./test1/syscalls:200:fcntl03_64 fcntl03_64
+fcntl04
+./test1/syscalls:201:fcntl04 fcntl04
+fcntl04_64
+./test1/syscalls:202:fcntl04_64 fcntl04_64
+fcntl05
+./test1/syscalls:203:fcntl05 fcntl05
+fcntl05_64
+./test1/syscalls:204:fcntl05_64 fcntl05_64
+fcntl06
+./test1/syscalls:205:fcntl06 fcntl06
+fcntl06_64
+./test1/syscalls:206:fcntl06_64 fcntl06_64
+fcntl07
+./test1/syscalls:207:fcntl07 fcntl07
+fcntl07_64
+./test1/syscalls:208:fcntl07_64 fcntl07_64
+fcntl07B
+./test1/syscalls:209:fcntl07B fcntl07B
+fcntl07B_64
+./test1/syscalls:210:fcntl07B_64 fcntl07B_64
+fcntl08
+./test1/syscalls:211:fcntl08 fcntl08
+fcntl08_64
+./test1/syscalls:212:fcntl08_64 fcntl08_64
+fcntl09
+./test1/syscalls:213:fcntl09 fcntl09
+fcntl09_64
+./test1/syscalls:214:fcntl09_64 fcntl09_64
+fcntl10
+./test1/syscalls:215:fcntl10 fcntl10
+fcntl10_64
+./test1/syscalls:216:fcntl10_64 fcntl10_64
+fcntl11
+./test1/syscalls:217:fcntl11 fcntl11
+fcntl11_64
+./test1/syscalls:218:fcntl11_64 fcntl11_64
+fcntl12
+./test1/syscalls:219:fcntl12 fcntl12
+fcntl12_64
+./test1/syscalls:220:fcntl12_64 fcntl12_64
+fcntl13
+./test1/syscalls:221:fcntl13 fcntl13
+fcntl13_64
+./test1/syscalls:222:fcntl13_64 fcntl13_64
+fcntl14
+./test1/syscalls:223:fcntl14 fcntl14
+fcntl14_64
+./test1/syscalls:224:fcntl14_64 fcntl14_64
+fcntl15
+./test1/syscalls:225:fcntl15 fcntl15
+fcntl15_64
+./test1/syscalls:226:fcntl15_64 fcntl15_64
+fcntl16
+./test1/syscalls:227:fcntl16 fcntl16
+fcntl16_64
+./test1/syscalls:228:fcntl16_64 fcntl16_64
+fcntl17
+./test1/syscalls:229:fcntl17 fcntl17
+fcntl17_64
+./test1/syscalls:230:fcntl17_64 fcntl17_64
+fcntl19
+./test1/syscalls:233:fcntl19 fcntl19
+fcntl19_64
+./test1/syscalls:234:fcntl19_64 fcntl19_64
+fcntl20
+./test1/syscalls:235:fcntl20 fcntl20
+fcntl20_64
+./test1/syscalls:236:fcntl20_64 fcntl20_64
+fcntl21
+./test1/syscalls:237:fcntl21 fcntl21
+fcntl21_64
+./test1/syscalls:238:fcntl21_64 fcntl21_64
+fcntl22
+./test1/syscalls:239:fcntl22 fcntl22
+fcntl22_64
+./test1/syscalls:240:fcntl22_64 fcntl22_64
+fcntl23
+./test1/syscalls:241:fcntl23 fcntl23
+fcntl23_64
+./test1/syscalls:242:fcntl23_64 fcntl23_64
+fcntl24
+./test1/syscalls:243:fcntl24 fcntl24
+fcntl24_64
+./test1/syscalls:244:fcntl24_64 fcntl24_64
+fcntl25
+./test1/syscalls:245:fcntl25 fcntl25
+fcntl25_64
+./test1/syscalls:246:fcntl25_64 fcntl25_64
+fcntl26
+./test1/syscalls:247:fcntl26 fcntl26
+fcntl26_64
+./test1/syscalls:248:fcntl26_64 fcntl26_64
+fcntl27
+./test1/syscalls:249:fcntl27 fcntl27
+fcntl27_64
+./test1/syscalls:250:fcntl27_64 fcntl27_64
+fcntl28
+./test1/syscalls:251:fcntl28 fcntl28
+fcntl28_64
+./test1/syscalls:252:fcntl28_64 fcntl28_64
+fdatasync01
+./test1/syscalls:254:fdatasync01 fdatasync01
+fdatasync02
+./test1/syscalls:255:fdatasync02 fdatasync02
+flock01
+./test1/syscalls:257:flock01 flock01
+flock02
+./test1/syscalls:258:flock02 flock02
+flock03
+./test1/syscalls:259:flock03 flock03
+flock04
+./test1/syscalls:260:flock04 flock04
+flock05
+./test1/syscalls:261:flock05 flock05
+flock06
+./test1/syscalls:262:flock06 flock06
+fmtmsg01
+./test1/syscalls:264:fmtmsg01 fmtmsg01
+fork01
+./test1/syscalls:266:fork01 fork01
+fork02
+./test1/syscalls:267:fork02 fork02
+fork03
+./test1/syscalls:268:fork03 fork03
+fork04
+./test1/syscalls:269:fork04 fork04
+fork05
+./test1/syscalls:270:fork05 fork05
+fork06
+./test1/syscalls:271:fork06 fork06
+fork07
+./test1/syscalls:272:fork07 fork07
+fork08
+./test1/syscalls:273:fork08 fork08
+fork09
+./test1/syscalls:274:fork09 fork09
+fork10
+./test1/syscalls:275:fork10 fork10
+fork11
+./test1/syscalls:276:fork11 fork11
+fork13
+./test1/syscalls:277:fork13 fork13 -c 2 -i 1000000
+fpathconf01
+./test1/syscalls:279:fpathconf01 fpathconf01
+fstat01
+./test1/syscalls:281:fstat01 fstat01
+fstat01_64
+./test1/syscalls:282:fstat01_64 fstat01_64
+fstat03
+./test1/syscalls:285:fstat03 fstat03
+fstat03_64
+./test1/syscalls:286:fstat03_64 fstat03_64
+fstatfs01
+./test1/syscalls:296:fstatfs01 fstatfs01
+fstatfs01_64
+./test1/syscalls:297:fstatfs01_64 fstatfs01_64
+fstatfs02
+./test1/syscalls:298:fstatfs02 fstatfs02
+fstatfs02_64
+./test1/syscalls:299:fstatfs02_64 fstatfs02_64
+ftruncate01
+./test1/syscalls:305:ftruncate01 ftruncate01
+ftruncate01_64
+./test1/syscalls:306:ftruncate01_64 ftruncate01_64
+ftruncate02
+./test1/syscalls:307:ftruncate02 ftruncate02
+ftruncate02_64
+./test1/syscalls:308:ftruncate02_64 ftruncate02_64
+ftruncate03
+./test1/syscalls:309:ftruncate03 ftruncate03
+ftruncate03_64
+./test1/syscalls:310:ftruncate03_64 ftruncate03_64
+ftruncate04
+./test1/syscalls:311:ftruncate04 ftruncate04.sh
+./test1/syscalls:312:ftruncate04_64 ftruncate04.sh 64
+ftruncate04_64
+./test1/syscalls:312:ftruncate04_64 ftruncate04.sh 64
+getcpu01
+./test1/syscalls:319:getcpu01 getcpu01
+getcwd01
+./test1/syscalls:321:getcwd01 getcwd01
+getdents01
+./test1/syscalls:325:getdents01 getdents01
+getdents01_64
+./test1/syscalls:326:getdents01_64 getdents01_64
+getdents02
+./test1/syscalls:327:getdents02 getdents02
+getdents02_64
+./test1/syscalls:328:getdents02_64 getdents02_64
+getdents03
+./test1/syscalls:329:getdents03 getdents03
+getdents03_64
+./test1/syscalls:330:getdents03_64 getdents03_64
+getdents04
+./test1/syscalls:331:getdents04 getdents04
+getdents04_64
+./test1/syscalls:332:getdents04_64 getdents04_64
+getdomainname01
+./test1/syscalls:334:getdomainname01 getdomainname01
+getdtablesize01
+./test1/syscalls:336:getdtablesize01 getdtablesize01
+getegid01
+./test1/syscalls:338:getegid01 getegid01
+getegid01_16
+./test1/syscalls:339:getegid01_16 getegid01_16
+geteuid01
+./test1/syscalls:343:geteuid01 geteuid01
+geteuid01_16
+./test1/syscalls:344:geteuid01_16 geteuid01_16
+getgid01
+./test1/syscalls:346:getgid01 getgid01
+getgid01_16
+./test1/syscalls:347:getgid01_16 getgid01_16
+getgroups01
+./test1/syscalls:351:getgroups01 getgroups01
+getgroups01_16
+./test1/syscalls:352:getgroups01_16 getgroups01_16
+getgroups02
+./test1/syscalls:353:getgroups02 getgroups02
+getgroups02_16
+./test1/syscalls:354:getgroups02_16 getgroups02_16
+getgroups03
+./test1/syscalls:355:getgroups03 getgroups03
+getgroups03_16
+./test1/syscalls:356:getgroups03_16 getgroups03_16
+getgroups04
+./test1/syscalls:357:getgroups04 getgroups04
+getgroups04_16
+./test1/syscalls:358:getgroups04_16 getgroups04_16
+gethostname01
+./test1/syscalls:362:gethostname01 gethostname01
+getitimer01
+./test1/syscalls:364:getitimer01 getitimer01
+getitimer02
+./test1/syscalls:365:getitimer02 getitimer02
+getitimer03
+./test1/syscalls:366:getitimer03 getitimer03
+getpagesize01
+./test1/syscalls:368:getpagesize01 getpagesize01
+getpeername01
+./test1/syscalls:370:getpeername01 getpeername01
+getpgid01
+./test1/syscalls:372:getpgid01 getpgid01
+getpgid02
+./test1/syscalls:373:getpgid02 getpgid02
+getpgrp01
+./test1/syscalls:375:getpgrp01 getpgrp01
+getpid01
+./test1/syscalls:377:getpid01 getpid01
+getpid02
+./test1/syscalls:378:getpid02 getpid02
+getppid01
+./test1/syscalls:380:getppid01 getppid01
+getppid02
+./test1/syscalls:381:getppid02 getppid02
+getpriority01
+./test1/syscalls:383:getpriority01 getpriority01
+getpriority02
+./test1/syscalls:384:getpriority02 getpriority02
+getresgid01
+./test1/syscalls:386:getresgid01 getresgid01
+getresuid01
+./test1/syscalls:390:getresuid01 getresuid01
+getrlimit01
+./test1/syscalls:394:getrlimit01 getrlimit01
+getrlimit02
+./test1/syscalls:395:getrlimit02 getrlimit02
+get_mempolicy01
+./test1/syscalls:397:get_mempolicy01 get_mempolicy01
+get_robust_list01
+./test1/syscalls:398:get_robust_list01 get_robust_list01
+getrusage01
+./test1/syscalls:400:getrusage01 getrusage01
+getrusage02
+./test1/syscalls:401:getrusage02 getrusage02
+getsid01
+./test1/syscalls:404:getsid01 getsid01
+getsid02
+./test1/syscalls:405:getsid02 getsid02
+getsockname01
+./test1/syscalls:407:getsockname01 getsockname01
+getsockopt01
+./test1/syscalls:409:getsockopt01 getsockopt01
+gettid01
+./test1/syscalls:411:gettid01 gettid01
+gettimeofday01
+./test1/syscalls:413:gettimeofday01 gettimeofday01
+gettimeofday02
+./test1/syscalls:414:gettimeofday02 gettimeofday02
+getuid01
+./test1/syscalls:416:getuid01 getuid01
+getuid01_16
+./test1/syscalls:417:getuid01_16 getuid01_16
+ioctl01_02
+./test1/syscalls:428:ioctl01_02   test_ioctl
+inotify_init1_01
+./test1/syscalls:431:inotify_init1_01 inotify_init1_01
+inotify_init1_02
+./test1/syscalls:432:inotify_init1_02 inotify_init1_02
+inotify01
+./test1/syscalls:434:inotify01 inotify01
+inotify02
+./test1/syscalls:435:inotify02 inotify02
+ioperm01
+./test1/syscalls:438:ioperm01 ioperm01
+ioperm02
+./test1/syscalls:439:ioperm02 ioperm02
+iopl01
+./test1/syscalls:441:iopl01 iopl01
+iopl02
+./test1/syscalls:442:iopl02 iopl02
+io_cancel01
+./test1/syscalls:444:io_cancel01 io_cancel01
+io_destroy01
+./test1/syscalls:445:io_destroy01 io_destroy01
+io_getevents01
+./test1/syscalls:446:io_getevents01 io_getevents01
+io_setup01
+./test1/syscalls:447:io_setup01 io_setup01
+io_submit01
+./test1/syscalls:448:io_submit01 io_submit01
+keyctl01
+./test1/syscalls:450:keyctl01 keyctl01
+kill01
+./test1/syscalls:452:kill01 kill01
+kill02
+./test1/syscalls:453:kill02 kill02
+kill03
+./test1/syscalls:454:kill03 kill03
+kill04
+./test1/syscalls:455:kill04 kill04
+kill06
+./test1/syscalls:457:kill06 kill06
+kill08
+./test1/syscalls:459:kill08 kill08
+kill09
+./test1/syscalls:460:kill09 kill09
+kill10
+./test1/syscalls:461:kill10 kill10
+kill11
+./test1/syscalls:462:kill11 ulimit -c 1024;kill11
+kill12
+./test1/syscalls:463:kill12 kill12
+lchown01
+./test1/syscalls:465:lchown01 lchown01
+lchown01_16
+./test1/syscalls:466:lchown01_16 lchown01_16
+link01
+./test1/syscalls:470:link01 symlink01 -T link01
+link02
+./test1/syscalls:471:link02 link02
+link03
+./test1/syscalls:472:link03 link03
+link04
+./test1/syscalls:473:link04 link04
+link05
+./test1/syscalls:474:link05 link05
+link06
+./test1/syscalls:475:link06 link06
+link07
+./test1/syscalls:476:link07 link07
+linkat01
+./test1/syscalls:479:linkat01 linkat01
+listen01
+./test1/syscalls:481:listen01 listen01
+llseek01
+./test1/syscalls:483:llseek01 llseek01
+llseek02
+./test1/syscalls:484:llseek02 llseek02
+lseek01
+./test1/syscalls:486:lseek01 lseek01
+lseek02
+./test1/syscalls:487:lseek02 lseek02
+lseek03
+./test1/syscalls:488:lseek03 lseek03
+lseek04
+./test1/syscalls:489:lseek04 lseek04
+lseek05
+./test1/syscalls:490:lseek05 lseek05
+lseek06
+./test1/syscalls:491:lseek06 lseek06
+lseek07
+./test1/syscalls:492:lseek07 lseek07
+lseek08
+./test1/syscalls:493:lseek08 lseek08
+lseek09
+./test1/syscalls:494:lseek09 lseek09
+lseek10
+./test1/syscalls:495:lseek10 lseek10
+lstat01A
+./test1/syscalls:497:lstat01A symlink01 -T lstat01
+lstat01A_64
+./test1/syscalls:498:lstat01A_64 symlink01 -T lstat01_64
+lstat01
+./test1/syscalls:497:lstat01A symlink01 -T lstat01
+./test1/syscalls:499:lstat01 lstat01
+lstat01_64
+./test1/syscalls:498:lstat01A_64 symlink01 -T lstat01_64
+./test1/syscalls:500:lstat01_64 lstat01_64
+mallopt01
+./test1/syscalls:506:mallopt01 mallopt01
+mbind01
+./test1/syscalls:508:mbind01 mbind01
+memset01
+./test1/syscalls:510:memset01 memset01
+memcmp01
+./test1/syscalls:511:memcmp01 memcmp01
+memcpy01
+./test1/syscalls:512:memcpy01 memcpy01
+mlockall01
+./test1/syscalls:514:mlockall01 mlockall01
+mkdir01
+./test1/syscalls:518:mkdir01 mkdir01
+mkdir03
+./test1/syscalls:520:mkdir03 mkdir03
+mkdir05A
+./test1/syscalls:523:mkdir05A symlink01 -T mkdir05
+mkdir08
+./test1/syscalls:524:mkdir08 mkdir08
+mkdir09
+./test1/syscalls:525:mkdir09 mkdir09
+mkdirat01
+./test1/syscalls:528:mkdirat01 mkdirat01
+mknod01
+./test1/syscalls:530:mknod01 mknod01
+mknod06
+./test1/syscalls:535:mknod06 mknod06
+mknod09
+./test1/syscalls:538:mknod09 mknod09
+mlock01
+./test1/syscalls:543:mlock01 mlock01
+mlock02
+./test1/syscalls:544:mlock02 mlock02
+mlock03
+./test1/syscalls:545:mlock03 mlock03 -i 20
+mlock04
+./test1/syscalls:546:mlock04 mlock04
+qmm01
+./test1/syscalls:548:qmm01 mmap001 -m 1
+mmap01
+./test1/syscalls:549:mmap01 mmap01
+mmap02
+./test1/syscalls:550:mmap02 mmap02
+mmap03
+./test1/syscalls:551:mmap03 mmap03
+mmap04
+./test1/syscalls:552:mmap04 mmap04
+mmap05
+./test1/syscalls:553:mmap05 mmap05
+mmap06
+./test1/syscalls:554:mmap06 mmap06
+mmap07
+./test1/syscalls:555:mmap07 mmap07
+mmap08
+./test1/syscalls:556:mmap08 mmap08
+mmap09
+./test1/syscalls:557:mmap09 mmap09
+modify_ldt01
+./test1/syscalls:561:modify_ldt01 modify_ldt01
+modify_ldt02
+./test1/syscalls:562:modify_ldt02 modify_ldt02
+mount1234
+./test1/syscalls:574:mount1234 test_mount
+move_pages01
+./test1/numa:2:move_pages01 move_pages.sh 01
+./test1/syscalls:576:move_pages01 move_pages.sh 01
+move_pages02
+./test1/numa:3:move_pages02 move_pages.sh 02
+./test1/syscalls:577:move_pages02 move_pages.sh 02
+move_pages04
+./test1/numa:5:move_pages04 move_pages.sh 04
+./test1/syscalls:579:move_pages04 move_pages.sh 04
+move_pages05
+./test1/numa:6:move_pages05 move_pages.sh 05
+./test1/syscalls:580:move_pages05 move_pages.sh 05
+move_pages06
+./test1/numa:7:move_pages06 move_pages.sh 06
+./test1/syscalls:581:move_pages06 move_pages.sh 06
+move_pages07
+./test1/numa:8:move_pages07 move_pages.sh 07
+./test1/syscalls:582:move_pages07 move_pages.sh 07
+move_pages08
+./test1/numa:9:move_pages08 move_pages.sh 08
+./test1/syscalls:583:move_pages08 move_pages.sh 08
+move_pages09
+./test1/numa:10:move_pages09 move_pages.sh 09
+./test1/syscalls:584:move_pages09 move_pages.sh 09
+move_pages10
+./test1/numa:11:move_pages10 move_pages.sh 10
+./test1/syscalls:585:move_pages10 move_pages.sh 10
+mprotect01
+./test1/syscalls:588:mprotect01 mprotect01
+mprotect02
+./test1/syscalls:589:mprotect02 mprotect02
+mprotect03
+./test1/syscalls:590:mprotect03 mprotect03
+mremap01
+./test1/syscalls:598:mremap01 mremap01
+mremap02
+./test1/syscalls:599:mremap02 mremap02
+mremap03
+./test1/syscalls:600:mremap03 mremap03
+msync01
+./test1/syscalls:634:msync01 msync01
+msync02
+./test1/syscalls:635:msync02 msync02
+msync03
+./test1/syscalls:636:msync03 msync03
+msync04
+./test1/syscalls:637:msync04 msync04
+msync05
+./test1/syscalls:638:msync05 msync05
+munlock01
+./test1/syscalls:640:munlock01 munlock01
+munlock02
+./test1/syscalls:641:munlock02 munlock02
+munlockall01
+./test1/syscalls:643:munlockall01 munlockall01
+munmap01
+./test1/syscalls:646:munmap01 munmap01
+munmap02
+./test1/syscalls:647:munmap02 munmap02
+munmap03
+./test1/syscalls:648:munmap03 munmap03
+nanosleep01
+./test1/syscalls:650:nanosleep01 nanosleep01
+nanosleep02
+./test1/syscalls:651:nanosleep02 nanosleep02
+nanosleep03
+./test1/syscalls:652:nanosleep03 nanosleep03
+nanosleep04
+./test1/syscalls:653:nanosleep04 nanosleep04
+nice01
+./test1/syscalls:658:nice01 nice01
+nice02
+./test1/syscalls:659:nice02 nice02
+nice03
+./test1/syscalls:660:nice03 nice03
+nice05
+./test1/syscalls:662:nice05 nice05
+open01A
+./test1/syscalls:665:open01A symlink01 -T open01
+open02
+./test1/syscalls:666:open02 open02
+open03
+./test1/syscalls:667:open03 open03
+open04
+./test1/syscalls:668:open04 open04
+open06
+./test1/syscalls:670:open06 open06
+open07
+./test1/syscalls:671:open07 open07
+open09
+./test1/syscalls:673:open09 open09
+openat01
+./test1/syscalls:677:openat01 openat01
+mincore01
+./test1/syscalls:679:mincore01 mincore01
+mincore02
+./test1/syscalls:680:mincore02 mincore02 
+madvise01
+./test1/syscalls:682:madvise01 madvise01
+madvise02
+./test1/syscalls:683:madvise02 madvise02
+newuname01
+./test1/syscalls:686:newuname01 newuname01
+pause01
+./test1/syscalls:690:pause01 pause01
+pause02
+./test1/syscalls:691:pause02 pause02
+pause03
+./test1/syscalls:692:pause03 pause03
+pipe01
+./test1/syscalls:700:pipe01 pipe01
+pipe02
+./test1/syscalls:701:pipe02 pipe02
+pipe03
+./test1/syscalls:702:pipe03 pipe03
+pipe04
+./test1/syscalls:703:pipe04 pipe04
+pipe05
+./test1/syscalls:704:pipe05 pipe05
+pipe06
+./test1/syscalls:705:pipe06 pipe06
+pipe08
+./test1/syscalls:707:pipe08 pipe08
+pipe09
+./test1/syscalls:708:pipe09 pipe09
+pipe10
+./test1/syscalls:709:pipe10 pipe10
+pipe11
+./test1/syscalls:710:pipe11 pipe11
+pipe2_01
+./test1/syscalls:712:pipe2_01 pipe2_01
+pipe2_02
+./test1/syscalls:713:pipe2_02 pipe2_02
+poll01
+./test1/syscalls:715:poll01 poll01
+ppoll01
+./test1/syscalls:717:ppoll01 ppoll01
+prctl01
+./test1/syscalls:719:prctl01 prctl01
+prctl02
+./test1/syscalls:720:prctl02 prctl02
+pread01
+./test1/syscalls:722:pread01 pread01
+pread01_64
+./test1/syscalls:723:pread01_64 pread01_64
+pread02
+./test1/syscalls:724:pread02 pread02
+pread02_64
+./test1/syscalls:725:pread02_64 pread02_64
+pread03
+./test1/syscalls:726:pread03 pread03
+pread03_64
+./test1/syscalls:727:pread03_64 pread03_64
+pselect01
+./test1/syscalls:731:pselect01 pselect01
+pselect01_64
+./test1/syscalls:732:pselect01_64 pselect01_64
+ptrace01
+./test1/syscalls:734:ptrace01 ptrace01
+ptrace02
+./test1/syscalls:735:ptrace02 ptrace02
+ptrace03
+./test1/syscalls:736:ptrace03 ptrace03
+ptrace04
+./test1/syscalls:737:ptrace04 ptrace04
+ptrace05
+./test1/syscalls:738:ptrace05 ptrace05
+pwrite01
+./test1/syscalls:742:pwrite01 pwrite01
+pwrite02
+./test1/syscalls:743:pwrite02 pwrite02
+pwrite03
+./test1/syscalls:744:pwrite03 pwrite03
+pwrite04
+./test1/syscalls:745:pwrite04 pwrite04
+pwrite01_64
+./test1/syscalls:747:pwrite01_64 pwrite01_64
+pwrite02_64
+./test1/syscalls:748:pwrite02_64 pwrite02_64
+pwrite03_64
+./test1/syscalls:749:pwrite03_64 pwrite03_64
+pwrite04_64
+./test1/syscalls:750:pwrite04_64 pwrite04_64
+quotactl01
+./test1/syscalls:752:quotactl01 quotactl01
+read01
+./test1/syscalls:754:read01 read01
+read03
+./test1/syscalls:756:read03 read03
+read04
+./test1/syscalls:757:read04 read04
+readdir01
+./test1/syscalls:759:readdir01 readdir01
+readdir02
+./test1/syscalls:760:readdir02 readdir02
+readlink01A
+./test1/syscalls:762:readlink01A symlink01 -T readlink01
+readlink02
+./test1/syscalls:764:readlink02 readlink02
+readv01
+./test1/syscalls:771:readv01 readv01
+readv02
+./test1/syscalls:772:readv02 readv02
+readv03
+./test1/syscalls:773:readv03 readv03
+reboot01
+./test1/syscalls:775:reboot01 reboot01
+recv01
+./test1/syscalls:778:recv01 recv01
+recvfrom01
+./test1/syscalls:780:recvfrom01 recvfrom01
+recvmsg01
+./test1/syscalls:782:recvmsg01 recvmsg01
+remap_file_pages02
+./test1/syscalls:785:remap_file_pages02 remap_file_pages02
+rename01
+./test1/syscalls:787:rename01 rename01
+./test1/syscalls:788:rename01A symlink01 -T rename01
+rename01A
+./test1/syscalls:788:rename01A symlink01 -T rename01
+rename02
+./test1/syscalls:789:rename02 rename02
+rename03
+./test1/syscalls:790:rename03 rename03
+rename04
+./test1/syscalls:791:rename04 rename04
+rename05
+./test1/syscalls:792:rename05 rename05
+rename06
+./test1/syscalls:793:rename06 rename06
+rename07
+./test1/syscalls:794:rename07 rename07
+rename08
+./test1/syscalls:795:rename08 rename08
+rename10
+./test1/syscalls:797:rename10 rename10
+rename13
+./test1/syscalls:799:rename13 rename13
+rename14
+./test1/syscalls:800:rename14 rename14
+rmdir01
+./test1/syscalls:805:rmdir01 rmdir01
+rmdir02
+./test1/syscalls:806:rmdir02 rmdir02
+rmdir03A
+./test1/syscalls:808:rmdir03A symlink01 -T rmdir03
+rmdir04
+./test1/syscalls:809:rmdir04 rmdir04
+rmdir05
+./test1/syscalls:810:rmdir05 rmdir05
+rt_sigaction01
+./test1/syscalls:812:rt_sigaction01 rt_sigaction01
+rt_sigaction02
+./test1/syscalls:813:rt_sigaction02 rt_sigaction02
+rt_sigaction03
+./test1/syscalls:814:rt_sigaction03 rt_sigaction03
+rt_sigprocmask01
+./test1/syscalls:815:rt_sigprocmask01 rt_sigprocmask01
+rt_sigprocmask02
+./test1/syscalls:816:rt_sigprocmask02 rt_sigprocmask02
+rt_sigqueueinfo01
+./test1/syscalls:817:rt_sigqueueinfo01 rt_sigqueueinfo01
+rt_sigsuspend01
+./test1/syscalls:818:rt_sigsuspend01 rt_sigsuspend01
+sbrk01
+./test1/syscalls:820:sbrk01 sbrk01
+sched_get_priority_max01
+./test1/syscalls:822:sched_get_priority_max01 sched_get_priority_max01
+sched_get_priority_max02
+./test1/syscalls:823:sched_get_priority_max02 sched_get_priority_max02
+sched_get_priority_min01
+./test1/syscalls:825:sched_get_priority_min01 sched_get_priority_min01
+sched_get_priority_min02
+./test1/syscalls:826:sched_get_priority_min02 sched_get_priority_min02
+sched_getparam01
+./test1/syscalls:828:sched_getparam01 sched_getparam01
+sched_getparam02
+./test1/syscalls:829:sched_getparam02 sched_getparam02
+sched_getparam03
+./test1/syscalls:830:sched_getparam03 sched_getparam03
+sched_rr_get_interval01
+./test1/syscalls:832:sched_rr_get_interval01 sched_rr_get_interval01
+sched_rr_get_interval02
+./test1/syscalls:833:sched_rr_get_interval02 sched_rr_get_interval02
+sched_rr_get_interval03
+./test1/syscalls:834:sched_rr_get_interval03 sched_rr_get_interval03
+sched_setparam01
+./test1/syscalls:836:sched_setparam01 sched_setparam01
+sched_setparam02
+./test1/syscalls:837:sched_setparam02 sched_setparam02
+sched_setparam03
+./test1/syscalls:838:sched_setparam03 sched_setparam03
+sched_setparam04
+./test1/syscalls:839:sched_setparam04 sched_setparam04
+sched_getscheduler01
+./test1/syscalls:842:sched_getscheduler01 sched_getscheduler01
+sched_getscheduler02
+./test1/syscalls:843:sched_getscheduler02 sched_getscheduler02
+sched_setscheduler01
+./test1/syscalls:845:sched_setscheduler01 sched_setscheduler01
+sched_yield01
+./test1/syscalls:848:sched_yield01 sched_yield01
+sched_getaffinity01
+./test1/syscalls:850:sched_getaffinity01 sched_getaffinity01
+select01
+./test1/syscalls:852:select01 select01
+select02
+./test1/syscalls:853:select02 select02
+select03
+./test1/syscalls:854:select03 select03
+semctl06
+./test1/syscalls:861:semctl06 semctl06
+send01
+./test1/syscalls:876:send01 send01
+sendfile02
+./test1/syscalls:878:sendfile02 sendfile02
+sendfile02_64
+./test1/syscalls:879:sendfile02_64 sendfile02_64
+sendfile03
+./test1/syscalls:880:sendfile03 sendfile03
+sendfile03_64
+./test1/syscalls:881:sendfile03_64 sendfile03_64
+sendfile04
+./test1/syscalls:882:sendfile04 sendfile04
+sendfile04_64
+./test1/syscalls:883:sendfile04_64 sendfile04_64
+sendfile05
+./test1/syscalls:884:sendfile05 sendfile05
+sendfile05_64
+./test1/syscalls:885:sendfile05_64 sendfile05_64
+sendfile06
+./test1/syscalls:886:sendfile06 sendfile06
+sendfile06_64
+./test1/syscalls:887:sendfile06_64 sendfile06_64
+sendfile07
+./test1/syscalls:888:sendfile07 sendfile07
+sendfile07_64
+./test1/syscalls:889:sendfile07_64 sendfile07_64
+sendto01
+./test1/syscalls:894:sendto01 sendto01
+setdomainname01
+./test1/syscalls:896:setdomainname01	setdomainname01
+setdomainname02
+./test1/syscalls:897:setdomainname02	setdomainname02
+setfsgid01
+./test1/syscalls:900:setfsgid01 setfsgid01
+setfsgid01_16
+./test1/syscalls:901:setfsgid01_16 setfsgid01_16
+setfsgid02
+./test1/syscalls:902:setfsgid02 setfsgid02
+setfsuid01
+./test1/syscalls:907:setfsuid01 setfsuid01
+setfsuid01_16
+./test1/syscalls:908:setfsuid01_16 setfsuid01_16
+setfsuid02
+./test1/syscalls:909:setfsuid02 setfsuid02
+setfsuid02_16
+./test1/syscalls:910:setfsuid02_16 setfsuid02_16
+setgid01
+./test1/syscalls:916:setgid01 setgid01
+setgid01_16
+./test1/syscalls:917:setgid01_16 setgid01_16
+sgetmask01
+./test1/syscalls:925:sgetmask01 sgetmask01
+setgroups01
+./test1/syscalls:927:setgroups01 setgroups01
+setgroups01_16
+./test1/syscalls:928:setgroups01_16 setgroups01_16
+setgroups04
+./test1/syscalls:933:setgroups04 setgroups04
+setgroups04_16
+./test1/syscalls:934:setgroups04_16 setgroups04_16
+sethostname01
+./test1/syscalls:936:sethostname01 sethostname01
+sethostname02
+./test1/syscalls:937:sethostname02 sethostname02
+setitimer01
+./test1/syscalls:940:setitimer01 setitimer01
+setitimer02
+./test1/syscalls:941:setitimer02 setitimer02
+setitimer03
+./test1/syscalls:942:setitimer03 setitimer03
+setpgid01
+./test1/syscalls:944:setpgid01 setpgid01
+setpgid02
+./test1/syscalls:945:setpgid02 setpgid02
+setpgid03
+./test1/syscalls:946:setpgid03 setpgid03
+setpgrp01
+./test1/syscalls:948:setpgrp01 setpgrp01
+setpgrp02
+./test1/syscalls:949:setpgrp02 setpgrp02
+setpriority01
+./test1/syscalls:951:setpriority01 setpriority01
+setpriority03
+./test1/syscalls:953:setpriority03 setpriority03
+setpriority04
+./test1/syscalls:954:setpriority04 setpriority04
+setregid01
+./test1/syscalls:957:setregid01 setregid01
+setregid01_16
+./test1/syscalls:958:setregid01_16 setregid01_16
+setreuid01
+./test1/syscalls:982:setreuid01 setreuid01
+setreuid01_16
+./test1/syscalls:983:setreuid01_16 setreuid01_16
+setrlimit01
+./test1/syscalls:997:setrlimit01 setrlimit01
+setrlimit03
+./test1/syscalls:999:setrlimit03 setrlimit03
+set_robust_list01
+./test1/syscalls:1001:set_robust_list01 set_robust_list01
+set_thread_area01
+./test1/syscalls:1002:set_thread_area01 set_thread_area01
+set_tid_address01
+./test1/syscalls:1003:set_tid_address01 set_tid_address01
+setsid01
+./test1/syscalls:1005:setsid01 setsid01
+setsockopt01
+./test1/syscalls:1007:setsockopt01 setsockopt01
+settimeofday01
+./test1/syscalls:1009:settimeofday01 settimeofday01
+setuid01
+./test1/syscalls:1012:setuid01 setuid01
+setuid01_16
+./test1/syscalls:1013:setuid01_16 setuid01_16
+setuid02
+./test1/syscalls:1014:setuid02 setuid02
+setuid02_16
+./test1/syscalls:1015:setuid02_16 setuid02_16
+sigaction01
+./test1/syscalls:1039:sigaction01 sigaction01
+sigaction02
+./test1/syscalls:1040:sigaction02 sigaction02
+sigaltstack01
+./test1/syscalls:1042:sigaltstack01 sigaltstack01
+sigaltstack02
+./test1/syscalls:1043:sigaltstack02 sigaltstack02
+sighold02
+./test1/syscalls:1046:sighold02 sighold02
+signal01
+./test1/syscalls:1048:signal01 signal01
+signal02
+./test1/syscalls:1049:signal02 signal02
+signal03
+./test1/syscalls:1050:signal03 signal03
+signal04
+./test1/syscalls:1051:signal04 signal04
+signal05
+./test1/syscalls:1052:signal05 signal05
+signalfd01
+./test1/syscalls:1054:signalfd01 signalfd01
+signalfd4_01
+./test1/syscalls:1056:signalfd4_01 signalfd4_01
+signalfd4_02
+./test1/syscalls:1057:signalfd4_02 signalfd4_02
+sigpending02
+./test1/syscalls:1059:sigpending02 sigpending02
+sigprocmask01
+./test1/syscalls:1061:sigprocmask01 sigprocmask01
+sigrelse01
+./test1/syscalls:1063:sigrelse01 sigrelse01
+sigsuspend01
+./test1/syscalls:1065:sigsuspend01 sigsuspend01
+socket01
+./test1/syscalls:1068:socket01 socket01
+socket02
+./test1/syscalls:1069:socket02 socket02
+socket03
+./test1/syscalls:1070:socket03 socket03
+socketcall01
+./test1/syscalls:1072:socketcall01 socketcall01
+socketcall02
+./test1/syscalls:1073:socketcall02 socketcall02
+socketcall03
+./test1/syscalls:1074:socketcall03 socketcall03
+socketcall04
+./test1/syscalls:1075:socketcall04 socketcall04
+socketpair01
+./test1/syscalls:1077:socketpair01 socketpair01
+socketpair02
+./test1/syscalls:1078:socketpair02 socketpair02
+sockioctl01
+./test1/syscalls:1080:sockioctl01 sockioctl01
+splice01
+./test1/syscalls:1083:splice01 splice01
+splice02
+./test1/syscalls:1084:splice02 seq 1 10000000 | splice02 splice02-temp
+tee01
+./test1/syscalls:1086:tee01 tee01
+ssetmask01
+./test1/syscalls:1088:ssetmask01 ssetmask01
+stat04
+./test1/syscalls:1096:stat04 symlink01 -T stat04
+stat04_64
+./test1/syscalls:1097:stat04_64 symlink01 -T stat04_64
+stat05
+./test1/syscalls:1098:stat05 stat05
+stat05_64
+./test1/syscalls:1099:stat05_64 stat05_64
+stat06
+./test1/syscalls:1100:stat06 stat06
+stat06_64
+./test1/syscalls:1101:stat06_64 stat06_64
+statfs01
+./test1/syscalls:1103:statfs01 statfs01
+statfs01_64
+./test1/syscalls:1104:statfs01_64 statfs01_64
+statfs02
+./test1/syscalls:1105:statfs02 statfs02
+statfs02_64
+./test1/syscalls:1106:statfs02_64 statfs02_64
+statvfs01
+./test1/syscalls:1110:statvfs01 statvfs01
+stime01
+./test1/syscalls:1112:stime01 stime01
+string01
+./test1/syscalls:1115:string01 string01
+swapon02
+./test1/syscalls:1121:swapon02 swapon02
+switch01
+./test1/syscalls:1125:switch01 endian_switch01
+symlinkat01
+./test1/syscalls:1134:symlinkat01 symlinkat01
+sync_file_range01
+./test1/syscalls:1140:sync_file_range01 sync_file_range01
+syscall01
+./test1/syscalls:1142:syscall01 syscall01
+sysconf01
+./test1/syscalls:1144:sysconf01 sysconf01
+sysctl01
+./test1/syscalls:1146:sysctl01 sysctl01
+sysctl04
+./test1/syscalls:1148:sysctl04 sysctl04
+sysctl05
+./test1/syscalls:1149:sysctl05 sysctl05
+sysfs01
+./test1/syscalls:1151:sysfs01 sysfs01
+sysfs02
+./test1/syscalls:1152:sysfs02 sysfs02
+sysfs03
+./test1/syscalls:1153:sysfs03 sysfs03
+sysfs04
+./test1/syscalls:1154:sysfs04 sysfs04
+sysfs05
+./test1/syscalls:1155:sysfs05 sysfs05
+sysfs06
+./test1/syscalls:1156:sysfs06 sysfs06
+sysinfo01
+./test1/syscalls:1158:sysinfo01 sysinfo01
+sysinfo02
+./test1/syscalls:1159:sysinfo02 sysinfo02
+syslog01
+./test1/syscalls:1161:syslog01 syslog01
+syslog02
+./test1/syscalls:1162:syslog02 syslog02
+syslog03
+./test1/syscalls:1163:syslog03 syslog03
+syslog04
+./test1/syscalls:1164:syslog04 syslog04
+syslog05
+./test1/syscalls:1165:syslog05 syslog05
+syslog06
+./test1/syscalls:1166:syslog06 syslog06
+syslog07
+./test1/syscalls:1167:syslog07 syslog07
+syslog08
+./test1/syscalls:1168:syslog08 syslog08
+syslog09
+./test1/syscalls:1169:syslog09 syslog09
+syslog10
+./test1/syscalls:1170:syslog10 syslog10
+time01
+./test1/syscalls:1174:time01 time01
+time02
+./test1/syscalls:1175:time02 time02
+times01
+./test1/syscalls:1177:times01 times01
+times03
+./test1/syscalls:1178:times03 times03
+timerfd01
+./test1/syscalls:1182:timerfd01 timerfd01
+timerfd02
+./test1/syscalls:1183:timerfd02 timerfd02
+timerfd03
+./test1/syscalls:1184:timerfd03 timerfd03
+timer_getoverrun01
+./test1/syscalls:1186:timer_getoverrun01 timer_getoverrun01
+timer_gettime01
+./test1/syscalls:1187:timer_gettime01 timer_gettime01
+tkill01
+./test1/syscalls:1189:tkill01 tkill01
+tkill02
+./test1/syscalls:1190:tkill02 tkill02
+truncate01
+./test1/syscalls:1192:truncate01 truncate01
+truncate01_64
+./test1/syscalls:1193:truncate01_64 truncate01_64
+truncate02
+./test1/syscalls:1194:truncate02 truncate02
+truncate02_64
+./test1/syscalls:1195:truncate02_64 truncate02_64
+ulimit01
+./test1/syscalls:1205:ulimit01 ulimit01
+umask01
+./test1/syscalls:1207:umask01 umask01
+umask02
+./test1/syscalls:1208:umask02 umask02
+umask03
+./test1/syscalls:1209:umask03 umask03
+uname01
+./test1/syscalls:1211:uname01 uname01
+uname02
+./test1/syscalls:1212:uname02 uname02
+uname03
+./test1/syscalls:1213:uname03 uname03
+unlink01
+./test1/syscalls:1215:unlink01 symlink01 -T unlink01
+unlink05
+./test1/syscalls:1216:unlink05 unlink05
+unlink06
+./test1/syscalls:1217:unlink06 unlink06
+unlink07
+./test1/syscalls:1218:unlink07 unlink07
+unlink08
+./test1/syscalls:1219:unlink08 unlink08
+unshare01
+./test1/syscalls:1224:unshare01 unshare01
+unshare02
+./test1/syscalls:1225:unshare02 unshare02
+umount123
+./test1/syscalls:1236:umount123 test_umount
+ustat01
+./test1/syscalls:1238:ustat01 ustat01
+ustat02
+./test1/syscalls:1239:ustat02 ustat02
+utime01
+./test1/syscalls:1241:utime01 utime01
+./test1/syscalls:1242:utime01A symlink01 -T utime01
+utime01A
+./test1/syscalls:1242:utime01A symlink01 -T utime01
+utime04
+./test1/syscalls:1245:utime04 utime04
+utimes01
+./test1/syscalls:1249:utimes01 utimes01
+vfork01
+./test1/syscalls:1254:vfork01 vfork01
+vfork02
+./test1/syscalls:1255:vfork02 vfork02
+vhangup02
+./test1/syscalls:1258:vhangup02 vhangup02
+vmsplice01
+./test1/syscalls:1261:vmsplice01 vmsplice01
+wait02
+./test1/syscalls:1263:wait02 wait02
+wait401
+./test1/syscalls:1265:wait401 wait401
+wait402
+./test1/syscalls:1266:wait402 wait402
+waitpid01
+./test1/syscalls:1268:waitpid01 waitpid01
+waitpid02
+./test1/syscalls:1269:waitpid02 waitpid02
+waitpid03
+./test1/syscalls:1270:waitpid03 waitpid03
+waitpid04
+./test1/syscalls:1271:waitpid04 waitpid04
+waitpid05
+./test1/syscalls:1272:waitpid05 waitpid05
+waitpid06
+./test1/syscalls:1273:waitpid06 waitpid06
+waitpid07
+./test1/syscalls:1274:waitpid07 waitpid07
+waitpid08
+./test1/syscalls:1275:waitpid08 waitpid08
+waitpid09
+./test1/syscalls:1276:waitpid09 waitpid09
+waitpid10
+./test1/syscalls:1277:waitpid10 waitpid10 5
+waitpid11
+./test1/syscalls:1278:waitpid11 waitpid11
+waitpid12
+./test1/syscalls:1279:waitpid12 waitpid12
+waitpid13
+./test1/syscalls:1280:waitpid13 waitpid13
+waitid01
+./test1/syscalls:1282:waitid01 waitid01
+waitid02
+./test1/syscalls:1283:waitid02 waitid02
+write01
+./test1/syscalls:1285:write01 write01
+write02
+./test1/syscalls:1286:write02 write02
+write03
+./test1/syscalls:1287:write03 write03
+write04
+./test1/syscalls:1288:write04 write04
+write05
+./test1/syscalls:1289:write05 write05
+writev01
+./test1/syscalls:1291:writev01 writev01
+writev02
+./test1/syscalls:1292:writev02 writev02
+writev03
+./test1/syscalls:1293:writev03 writev03
+writev04
+./test1/syscalls:1294:writev04 writev04
+writev05
+./test1/syscalls:1295:writev05 writev05
+writev06
+./test1/syscalls:1296:writev06 writev06
+pipe_test_01
+./test1/ipc:41:pipe_test_01			pipe_test_01
+pipe_test_02
+./test1/ipc:42:pipe_test_02			pipe_test_02
+shmem_test_02
+./test1/ipc:47:shmem_test_02			shmem_test_02
+shmem_test_04
+./test1/ipc:49:shmem_test_04			shmem_test_04
+signal_test_01
+./test1/ipc:52:signal_test_01			signal_test_01
+signal_test_02
+./test1/ipc:53:signal_test_02			signal_test_02
+signal_test_04
+./test1/ipc:55:signal_test_04			signal_test_04
+signal_test_05
+./test1/ipc:56:signal_test_05			signal_test_05
+pth_str01
+./test1/sched:2:pth_str01 pth_str01
+pth_str02
+./test1/sched:3:pth_str02 pth_str02 -n1000
+pth_str03
+./test1/sched:4:pth_str03 pth_str03
+time-schedule01
+./test1/sched:6:time-schedule01		time-schedule
+trace_sched01
+./test1/sched:7:trace_sched01		trace_sched -c 1
+hackbench01
+./test1/sched:9:hackbench01 hackbench 50 process 1000
+hackbench02
+./test1/sched:10:hackbench02 hackbench 20 thread 1000
+sched_cli_serv
+./test1/sched:12:sched_cli_serv run_sched_cliserv.sh
+sched_stress
+./test1/sched:14:sched_stress sched_stress.sh
+memcg_regression
+./test1/controllers:3:memcg_regression	memcg_regression_test.sh
+memcg_function
+./test1/controllers:4:memcg_function		memcg_function_test.sh
+memcg_stress
+./test1/controllers:5:memcg_stress		memcg_stress_test.sh
+memcg_control
+./test1/controllers:6:memcg_control		PAGESIZE=$(mem_process -p);memcg_control_test.sh $PAGESIZE $PAGESIZE $((PAGESIZE * 2))
+cgroup_fj
+./test1/controllers:7:cgroup_fj	run_cgroup_test_fj.sh
+clock_gettime02
+./test1/timers:2:clock_gettime02 clock_gettime02
+clock_gettime03
+./test1/timers:3:clock_gettime03 clock_gettime03
+clock_settime02
+./test1/timers:4:clock_settime02 clock_settime02
+timer_create02
+./test1/timers:6:timer_create02 timer_create02
+timer_create03
+./test1/timers:7:timer_create03 timer_create03
+timer_create04
+./test1/timers:8:timer_create04 timer_create04
+timer_delete02
+./test1/timers:9:timer_delete02 timer_delete02
+timer_delete03
+./test1/timers:10:timer_delete03 timer_delete03
+timer_settime02
+./test1/timers:11:timer_settime02 timer_settime02
+timer_settime03
+./test1/timers:12:timer_settime03 timer_settime03
+mail
+./test1/commands:11:mail export TCdat=$LTPROOT/testcases/bin; mail_tests.sh
+cp_tests01
+./test1/commands:15:cp_tests01 cp_tests.sh
+mkdir_tests01
+./test1/commands:17:mkdir_tests01 mkdir_tests.sh
+mv_tests01
+./test1/commands:18:mv_tests01 mv_tests.sh
+at_deny01
+./test1/admin_tools:7:at_deny01 at_deny01
+at_allow01
+./test1/admin_tools:8:at_allow01 at_allow01
+f00f
+./test1/crashme:3:f00f f00f
+./test1/crashme:4:# This is a simple test for handling of the pentium f00f bug.
+./test1/crashme:8:# Generate random code and execute it. Read f00f comment,
+crash01
+./test1/crashme:7:crash01 crash01
+mem01
+./test1/crashme:13:mem01 mem01 -r
+./test1/mm:23:mem01 mem01
+abs01
+./test1/math:2:abs01 abs01
+atof01
+./test1/math:4:atof01 atof01
+fptest01
+./test1/math:12:fptest01 fptest01
+fptest02
+./test1/math:13:fptest02 fptest02
+nextafter01
+./test1/math:15:nextafter01 nextafter01

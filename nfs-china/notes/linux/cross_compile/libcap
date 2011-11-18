@@ -1,0 +1,23 @@
+1交叉编译libcap库
+    下载libcap库 http://download.chinaunix.net/download/0006000/5757.shtml
+    libcap-2.17.tar.bz2
+    解压
+ 
+2 编译
+   1 修改Make.Rules 文件
+      
+      CC := arm-linux-gcc
+      CFLAGS := -O2 -static
+      BUILD_CC := gcc
+      BUILD_CFLAGS := -O2 $(IPATH)
+      AR := arm-linux-ar
+      RANLIB := arm-linux-ranlib
+
+   2 进入  $(top-dir)/libcap/Makefile
+    注释 #LDFLAGS += -lattr
+
+    3 如果还有头文件找不到，将主机的头文件目录加进来
+
+      IPATH += -I$(topdir)/libcap/include -I$(KERNEL_HEADERS) -I/usr/include
+
+3 将libcap.a库文件拷到交叉编译工具的lib目录下
