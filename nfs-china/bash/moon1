@@ -8,8 +8,8 @@
 
 #[ -f "$scenfile" ] || scenfile="$LTPROOT/runtest/$scenfile"
 
-kk="hello"
-
-zz=${#kk}
-
-echo $zz
+num=$1
+for ((i=0;i<num;i++))
+do
+echo hello
+done

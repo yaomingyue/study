@@ -1,9 +1,9 @@
-main:print.o main.o
-	gcc -o main print.o main.o
-print.o:print.c
-	gcc -c print.c
+main:moon.o main.o
+	gcc -o main moon.o main.o
+print.o:moon.c
+	gcc -c moon.c
 main.o:main.c main.h
 	gcc -c main.c main.h
 
 clean:
-	rm main.o print.o main
+	rm main.o moon.o main

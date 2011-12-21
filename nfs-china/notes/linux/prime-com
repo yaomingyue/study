@@ -56,3 +56,9 @@ current directory;
     service iptables stop
 # 14 ctags
     ctags -R 将子目录中的也联系进来
+
+# 15 查看文件修改时间
+    stat filename
+
+# 16 linux下查看二进制文件
+# xxd filename

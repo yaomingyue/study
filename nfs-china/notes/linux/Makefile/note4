@@ -26,3 +26,5 @@
         moon = "yaomoon"
         $(warning $(moon))
 
+    注意，warning的优先级较高，整个makefile执行时，把所有的warning都打出，再
+    执行编译过程 

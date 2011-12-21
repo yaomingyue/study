@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/bin/bash
 #!/bin/sh
 
 #echo -n input :
@@ -9,9 +9,11 @@
 
 #[ -f "$scenfile" ] || scenfile="$LTPROOT/runtest/$scenfile"
 
-#awk '{i=1; while ( i < NF ){ if ( $i ~/mo/ ) print $i;i++}}' awk-file 
-dd=4
+#awk '{i=1; if ( (NR > 3)&&(NR < 6) ){ print $0;i++}}' awk-file 
+awk '{if ( (NR > 3)&&(NR < 6) ){ print $0 }}' awk-file 
+#awk '{  ){ print $0;i++}}' awk-file 
+#dd=4
 #zz=$(awk 'BEGIN{i=1}{i++;if(i==data) print $0}' data=$dd awk-file)
-zz=$(awk '{i=1; while ( i < NF ){ if ( $i ~/mo/ ) print $0;i++}}' awk-file)
-echo "hello"
-echo $zz
+#zz=$(awk '{i=1; while ( i < NF ){ if ( $i ~/mo/ ) print $0;i++}}' awk-file)
+#echo "hello"
+#echo $zz

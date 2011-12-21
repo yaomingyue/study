@@ -1,9 +1,11 @@
 #include <stdio.h>
 
-int main(int argc, const char *argv[])
+static void myprint(void)
 {
-    
-    printf("helll\n");
-    
-    return 0;
+    printf("hello moon\n");
+}
+
+void printhello(void)
+{
+    myprint();
 }

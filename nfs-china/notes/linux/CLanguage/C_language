@@ -1,0 +1,33 @@
+ c 语言编程技巧
+
+1 设置标志位 
+    将一字节每一位当作一个标志位
+    例子：
+
+    #define DOG 1<<0
+    #define CAT 1<<1
+    #define PIG 1<<2
+
+    #define ANIMAL DOG|CAT
+
+    if(ANIMAL & DOG)
+
+
+2 将一系列地址挨着的寄存器存在一个结构体中，则给该结构体赋地址就行了；
+
+ struct 2440REG {
+
+    unsigned long TCONG;
+    unsigned long TCONG1;
+    unsigned long TCONG2;
+
+ } 2440reg;
+    
+   2440reg = 0x10000000;
+
+3 static 修饰函数,全局变量
+
+ 当在工程中加入一个模块时，（如加入调试模块，打印串口），其中模块内的函数,和
+ 全局变量, 定义成static类型，这样防止函数重复定义；而宏定义可以 用 #ifndef
+ 来防止重复 定义；
+   

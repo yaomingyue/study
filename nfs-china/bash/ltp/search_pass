@@ -11,9 +11,9 @@ search_exit()
 #grep $1 . -rn > outfile
 
 #awk 'BEGIN{i=1;}{print "NO",i,$0;i++}' outfile
-awk 'BEGIN{i=1;}{if($2=="PASS") {print $1, $2;}i++}' result-log.5test > kk1
+awk 'BEGIN{i=1;}{if($2=="PASS") {print $1, $2;}i++}' result > pass
 
-echo '' >>kk1
+echo '' >>pass
 
 trap 'search_exit' SIGINT
 testcase="hello"
@@ -21,9 +21,9 @@ testcase="hello"
 line=0
 while [ ${#testcase} -gt 0 ] 
 do
-testcase=$(awk 'BEGIN{i=0;}{ if(i==num) {print $1;} i++}' num=$line kk1) 
+testcase=$(awk 'BEGIN{i=0;}{ if(i==num) {print $1;} i++}' num=$line pass) 
 #echo $testcase
-grep "\<$testcase\>" ./test1 -rn >> zz1
+grep "\<$testcase\>" ./test1 -rn >> pass_cases
 
 ((line=$line+1))
 
@@ -31,22 +31,22 @@ done
 
 #echo "testcase --------done"
 
-echo '' zz1
+echo '' >> pass_cases
 
 line1=0
 testcmd="hello"
 
 while [ ${#testcmd} -gt 0 ] 
 do
-testcmd=$(awk 'BEGIN{i=0;}{ if(i==num) {print $2;} i++}' num=$line1 zz1) 
+testcmd=$(awk 'BEGIN{i=0;}{ if(i==num) {print $2;} i++}' num=$line1 pass_cases) 
 echo $testcmd
-find . -name $testcmd
+find ./testcases -name $testcmd
 
 ((line1=$line1+1))
 
 done
 
-#rm zz1
+#rm pass_cases
 
 #path=$(awk -F":" 'BEGIN{i=0;}{i++; if(i==data) {print $2}}' data=$NUM outfile \
 #path=$(awk -F":" 'BEGIN{i=0;}{i++; if(i==data) {print $1,"+"$2}}' data=$NUM outfile)

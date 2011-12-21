@@ -1,0 +1,20 @@
+11
+试试将nand里下程序覆盖了bootloader，然后从nand启动，再用jlink仿真，看能不能运行，如果能，说明，仿真时需要初始化SDRAM
+
+    nand中没有booloader后jlink不能像之前那样仿真
+22
+从nand启动，按说sdram已经初始化了，那为什么程序用串口烧就能运行，用jlink仿真就不行，
+
+    应该还有地没设置，应该不是sdram初始化的问题
+
+
+33 cpu复位或者瞬间掉电再上电,内存的数据应该不会丢失,
+
+44 2440 0x30000000 -- 0x34000000 是sdram 但uboot中下载到0x37000000.并且go
+0x330000000 也能运行，说明两个地址指向同一个SDRAM 地址?
+是MMU，还是SDRAM的接线特点?
+
+55 3led 通过uboot下载能运行，用jlink就不行，why？
+
+66 格式化nand后载jlink仿真，看按照jlink-axd仿真实验手册方法能不能仿真。
+
