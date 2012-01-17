@@ -1,0 +1,65 @@
+一 arm 板端配置
+1 将tet arm版本拷到 /data下，即tet目录为 /data/tet4arm/.
+2 systems和systems.equiv文件。
+ 用于在代码中将systems.equiv 定为
+/data/tet4arm/systems.equiv,故，新建/data/tet4arm/systems.equiv文件，内容如下：
+127.0.0.1
+192.168.57.106
+192.168.57.114
+
+新建/data/tet4arm/systems 文件，内容如下;
+000     192.168.57.106
+001     192.168.57.114
+
+3 将要执行的用例放到 /data/tet4arm/contrib/mytetest/ts/目录.
+
+二 pc端版本配置
+
+1 关闭防火墙
+    service iptables stop
+
+2 新建tet用户，将编译好的tet版本tet3 拷到/home/tet/tet3目录下。
+
+3 systems和systems.equiv文件。
+    新建如下systems.equiv文件
+    /home/tet/systems.equiv,内容如下：
+    yaomoon           // 本机用户名
+    192.168.57.106   //  arm板1的ip
+    192.168.57.114
+
+    新建systems文件
+    /home/tet/tet3/systems,内容如下：
+    000     192.168.57.114         // 本机ip
+    001     192.168.57.106         //arm板1ip
+
+4 修改contrib/mytetest/tetdist.cfg文件,修改成arm板上tet安装目录,如：
+TET_REM001_TET_ROOT=/data/tet4arm
+TET_REM001_TET_TSROOT=/data/tet4arm/contrib/mytetest
+    
+5 contrib/mytetest/tet_scen文件，格式如下
+#       Demonstration test suite.
+all
+        "start  scenario"  //  启动信息
+        :remote,001:      // 远程客户机（就是arm板）列表，001在
+                               systems文件着那个已定义为arm板1的ip
+        /ts/ltp.sh           //要执行的用例,在这里是一个执行ltp的脚本
+        :endremote:       
+        "test over"
+
+  注：tet_scen中要执行的用例，要放在在arm板的/data/tet4arm/contrib/mytetest/ts/ 目录下，并且可执行
+
+6 在tet目录下，即/home/tet/tet3目录下新建脚本文件，内容如下：
+#!/bin/bash
+export TET_ROOT=/home/tet/tet3               
+export PTAH=$PATH:/home/tet/tet3/bin
+bin/tcc -p -bec contrib/mytetest/    
+
+
+三 执行过程
+1在arm板端，执行 /data/tet4arm/bin/tccd -p 1234  ，启动tccd
+2在pc端，执行 /home/tet/tet3/bin/tccd ,启动tccd。
+3 在pc端 执行 /home/tet/tet3/tcc.sh ,  开始测试。
+4 测试的结构类似为/home/tet/tet3/contrib/mytetest/results/0100bec/journal。
+  其中记录了本地和远程的配置信息和远程测试的输出。
+
+ 注： pc端执行时需要root权限。 

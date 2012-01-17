@@ -1,0 +1,18 @@
+1  uboot作用
+    一阶段
+    设svc  ，关dog， 设MPLL ， 关MMU、CACHE， 初始化SDRAM，（lowlevel_init.S), 复制第二阶段代码到SDRAM空间， 设置栈，跳转到第二阶段入口， 
+
+    二阶段
+
+    设置系统时钟，初始化串口，  检测系统内存映射， uboot命令的格式，
+    设置内核参数，复制内核，跳转到内核（其实进入内核相关的部分也是uboot命令
+    实现的
+
+
+2 关于uboot的连接 
+    在顶层makefile中，LDFLAGES中有-T board/smdk2410/u-boot.lds -Ttext
+    0x33F80000 , 
+
+4 uboot在nand启动过程
+    uboot的第一部分在nand的前4k空间，只要保证第一部分代码在前4k就行，第二部
+    分就跳转到ram中了，从nand到ram拷贝代码时是整个代码段都烤的(跳过了中断向量表的位置)。
