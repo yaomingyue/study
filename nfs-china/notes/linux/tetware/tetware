@@ -1,0 +1,35 @@
+一 tetware 编译
+1 configure
+    在tetware 目录执行
+    $ bash configure -t lite/inet 
+    lite是编译成单机版本
+    inet是编译成distributed版本
+
+2修改makefile
+    修改src目录下的define.mk ,
+    将 TCCD = in.tccd 改成 TCCD = tccd
+    将DTET_CDEFS = -DINETD 改成DTET_CDEFS = -D_XOPEN_SOURCE=500
+3编译
+    进入src目录
+    $make
+    $make install
+    之后生成的可执行文件就放在tetware目录的bin目录下。
+
+4运行tccd
+    tccd是distributed tetware的守护进程，运行前先完成两条件。
+    （1）建立tet用户，用adduser命令就行
+    （2）修改/etc/services文件
+        加入 tcc             1234/tcp
+
+   运行tccd后守护进程启动起来了。
+
+5 将tccd设置开机自启动。
+    在/etc/rc 中加入
+    if test -x tet-root/bin/tccd
+    then
+    tet-root/bin/tccd && echo tccd started
+    fi
+    其中tet-root 就是tetware的安装目录。
+    tccd 运行时/tmp/tccdlog中就有tccd的运行log信息了 
+
+

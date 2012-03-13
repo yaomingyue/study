@@ -1,0 +1,33 @@
+  pguide.pdf中的第八章 
+  the C API
+8.4  用例的结构和管理接口
+   用于用例的初始化和清理。还有就是用例及测试部件的选择性运行。
+   1静态指定测试部件。 tet_testlist[] 数组，在用例中指定运行的测试部件。
+   2 动态的指定测试部件 . tet_getmaxic(),tet_getminic() 等接口。
+   8.4.4 tet_startup , tet_cleanup  是函数指针，指定用例运行前和清理前要运行
+   部件或程序模块。
+   8.4.5 tet-thistest, tet_nosigreset , tet_pname 
+      api 中定义的一些变量，tet-thistest 静态指定测试部件时当前部件的系列号
+      tet_nosigreset tet_gettestnum()返回的测试部件号
+      tet_pname 指向测试进程名称的指针。
+8.5   屏蔽测试环境中信号相关的变量
+      TET_SIG_IGN
+      等，指定那些运行环境中的信号需要被用例响应。
+
+8.6 api发生错误相关的  
+    tet_errno 发生的错误号
+    tet_errlist[]  
+    :
+8.7  生成日志条目相关的
+    tet_setcontext(),tet_setblock()
+
+    tet_infoline(), 向结果文件中输出信息
+    tet_printf() 格式化输出
+
+    tet_result()  
+                         
+
+
+
+
+      

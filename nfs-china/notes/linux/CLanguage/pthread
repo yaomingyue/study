@@ -1,0 +1,28 @@
+1 新建线程，
+int pthread_create(pthread_t *tid, const pthread_attr_t *attr,
+void *(*func) (void *), void *arg);
+
+例子：rc = pthread_create(&tid, NULL, (void *)fun1, &fun1_data);
+
+fun1 是线程建立后调用的函数指针。原型为
+void * fun1(struct fun_data *data)
+&fun1_data 为函数的参数，多个参数的话就用结构体
+
+注意： 建立线程后最好主线程用个循环，不然主线程退出，其他的都退出了
+
+2 新建线程时改变线程属性。
+    pthread_create(); 第二个参数，是定义新建线程的属性，如，默认情况下，线程
+    是不分离状态的，退出时需要主线程进行回收资源，如果改变属性，将新建线程
+    变成分离状态，退出时其资源被系统自动回收，前提是其他线程不关心其退出状态
+
+pthread_create() 第二个参数的初始化和定义
+     pthread_attr_t attr;
+     int err = 0;
+ 
+     err = pthread_attr_init(&attr);
+     if( !err )
+         debug("pthread attr init error");
+     err = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+     if( !err )
+         debug("pthread attr set detachstate error");
+

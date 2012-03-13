@@ -1,0 +1,54 @@
+结构体 sockaddr 和 sockaddr_in   :
+    sockaddr_in 是sockaddr的改进，
+
+    truct sockaddr_in
+    {
+        short int sin_family;          // Address family 16位无符号类型
+        unsigned short int sin_port;   // Port number     16位无符号类型
+        struct in_addr sin_addr;       // Internet address
+        是一个地址结构，其实是32位无符号类型
+        unsigned char sin_zero[8];     // Same size as struct
+        sockaddr 为了和sockaddr 结构体大小一致
+     };
+
+     struct in_addr
+     {
+        unsigned long s_addr;  //32位无符号类型 
+     };
+
+     引入sockaddr_in就是方便使用sockaddr，因为bind等函数使用sockaddr，所以
+     使用sockaddr_in是要将其强制转换成sockaddr。
+ 2 网络编程的大小端问题。
+    网络用大端，所以要调整。
+    htons（）把16位值从主机字节转换成网络字节。
+    inet_addr()将一个点间隔地址转换成一个in_addr, 返回的地址已经是网络字节顺
+    序了，没有必要再去调用htonl函数了。
+
+    在struct sockaddr_in中sin_addr 和sin_port 他们的字节顺序都是网络字节
+    顺序，而sin_family却不是网络顺序，为什么？
+    这是因为sin_addr 和sin_port是IP和UDP协议层相关的，而sin_family域只是
+    内核用来判断struct sockaddr_in是存储的什么类型的数据，它不会被发送到网络
+    上.
+
+3 一个套接字是怎样在网络上传输数据的？ 
+数据被分成一个一个的包(Packet) 包的数据头,(或数据尾)被第一层协议
+(比如 TFTP协议) 加上第一层协议数据;然后整个包(包括内部加入的 TFTP 信息头)
+被下层协议再次包装(比如 UDP),再这之后数据包会再次被下层协议包装
+(比如 IP 协议),最后是被最底层的硬件层(物理层)包装上最后一层信息
+(Ethernet 信息头).
+ linux 系统中已经建立了传输层和网络层。硬件负责物理链路层。
+
+5 网络编程相关的函数接口
+
+    socket  bind等
+
+    gethostbyname() ，返回一个struct hostent 的结构体，包含地址信息。参数是
+    char * 的主机名或域名。可以用于dns。
+
+    gethostbyaddr()   返回一个struct hostent 的结构体，只不过参数是ip地址
+
+    inet_ntoa()   将ip地址结构体（struct in_addr) 地址信息转换成数点形式的
+    ip地址（char *）
+
+    inet_addr()    将数点型的ip地址转换成struct in_addr 类型
+

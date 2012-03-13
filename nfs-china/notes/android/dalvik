@@ -1,0 +1,32 @@
+一 名词
+dalvik：android的虚拟机，与java虚拟机jvm有区别，基于寄存器的虚拟机。
+
+NDK:NDK提供了一系列的工具，帮助开发者快速开发C（或C++）的动态库，并能自动将
+    so和java应用一起打包成apk
+
+android 核心库：在android的结构中，android runtime由android核心库和dalvik
+    虚拟机组成。android核心库里包含了大部分java程序所需要调用的函数库，
+    如data structrue， network，file system等，其中与jva se的类库有非常大
+    的相似性，就增强了与java se的兼容性。其实它是 core java library。
+
+
+JNI:(java native interface)JNI的目的是使java方法中能够调用c实现的一些函数 
+
+JNI Call Bridge:它的作用是把一系列的整型值转变成各种类型的函数参数，并且调用
+    函数。这个调用过程必须符合C函数调用的约定。
+
+解释器：虚拟机的核心，所有的java字节码（经过了加载器)都经过解释器解释成具体
+    cpu上运行的机器指令.
+    dalvik 的解释器将java字节码进行分析，通过一个解释程序地址表找到该字节
+    码对应的解释程序。字节码解释程序需要由汇编实现。
+
+dalvik 指令集：就是dalvik自己的java字节码指令集。一个一个的字节码。在解释器
+    中，每个字节码都应该有自己的解释程序，解释程序由汇编完成，这样将字节码
+    和具体cpu指令联系起来。
+
+
+
+
+1 dalvik 虚拟机的移植
+  核心库的移植
+  解释器的移植

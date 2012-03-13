@@ -1,0 +1,8 @@
+1 参数定义为void * ，传参数是不用进行类型转换了 
+void hello(void *p)
+{
+     printf("%s\n",p);
+}
+
+char buff[23] ;
+hello(buff);
