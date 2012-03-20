@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo  "add all files to git"
+git add .
+echo "-------------------done"
+echo -n "plz input a info:"
+read -e message
+echo $message
+
+echo  "commit that files"
+git commit -m $message
+echo "-------------------done"
+
+echo -n "prepare to push files to github"
+git push
+echo "------------------done"
