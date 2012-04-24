@@ -1,0 +1,59 @@
+一  udev 和模块加载的关系
+1 对于已经编入内核的驱动程序，
+   当被内核检测到的时候，会直接在 sysfs
+中注册其对象；对于编译成模块的驱动程序，当模块载入的时候才会这样做。一旦挂载了
+sysfs 文
+   件系统(挂载到 /sys)，内建的驱动程序在 sysfs
+注册的数据就可以被用户空间的进程使用，并提供给 udev 以创建设备节点。
+
+   udev 初始化脚本负责在 Linux 启动的时候创建设备节点，该脚本首先将
+/sbin/udevsend 注册为热插拔事件处理程序。热插拔事
+   件(随后将讨论)本不应该在这个阶段发生，注册 udev 只是为了以防万一。然后
+udevstart 遍历 /sys 文件系统，并在 /dev 目录下创建符
+   合描述的设备。例如，/sys/class/tty/vcs/dev 里含有"7:0"字符串，udevstart
+就根据这个字符串创建主设备号为 7 、次设备号为 0 
+   的 /dev/vcs 设备。udevstart 创建的每个设备的名字和权限由 /etc/udev/rules.d/
+目录下的文件指定的规则来设置。如果 udev 找不
+   到所创建设备的权限文件，就将其权限设置为缺省的 660 ，所有者为 root:root 。
+上面的步骤完成后，那些已经存在并且已经内建驱动的设备就可以使用了，那么以模块驱动的设备呢？
+
+2 对于没有编进内核的模块
+  
+前面我们提到了"热插拔事件处理程序"的概念，当内核检测到一个新设备连接时，内核会产生一个热插拔事件，
+   并在 /proc/sys/kernel/hotplug 文件里查找处理设备连接的用户空间程序。udev
+初始化脚本将 udevsend 注册为该处理程序。
+   当产生热插拔事件的时候，内核让 udev 在 /sys
+文件系统里检测与新设备的有关信息，并为新设备在 /dev 里创建项目。
+
+   大多数 Linux 发行版通过 /etc/modules.conf
+配置文件来处理模块加载，对某个设备节点的访问导致相应的内核模块被加载。对 udev
+这
+个方法就行不通了，因为在模块加载前，设备节点根本不存在。为了解决这个问题，可以在开机时加载相应的模块，可以用到的方法有：
+
+1 可以在 /etc/rc.local rc.sysinit 中添加相应的加载模块命令。
+2 可以在 /etc/sysconfig/modules/
+下放相应的模块加载脚本。具体脚本的书写可以参考该目录下的其他脚本。 在
+/etc/rc.sysinit 中有以下内容：
+ # Load modules (for backward compatibility with VARs)
+ if [ -f /etc/rc.modules ]; then
+     /etc/rc.modules
+ fi
+ 可知在rc.sysinit中执行了 /etc/sysconfig/modules/中的脚本。
+ 当然modules/中的脚本是调用modprobe
+ 来加载模块的，这样必须将编译好的ko文件放到kernel的modules目录，并执行depmod命令：
+ cp hello.ko /lib/modules/2.6.35.6-45.fc14.i686/kernel/drivers/char/ 
+ depmod
+ 之后就可以用modprobe加载hello模块了
+
+这样就可以在系统启动的时候加载这些模块，这样 udev 就
+  
+可以检测到设备，并创建相应的设备节点了。
+
+3  如果插入的设备有一个驱动程序模块但是尚未加载，
+Hotplug软件包就有用了，它就会响应上述的内核总线驱动热插拔事件并加载相应的模块，为其创建设备节点，这样设备就可以使用了。
+
+
+
+
+
+

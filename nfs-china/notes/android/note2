@@ -1,0 +1,43 @@
+1android 体系结构
+从下到上，依次为linux kernel ，Android Runtime，Libraries，Application
+Framework，Applications
+1 linux kernel 和相关设备的驱动
+2 Android Runtime 包括一个核心库的集合和dalvik虚拟机
+3 Libraries ，c/c++库的集合，通过Application
+Framework供系统的各个组件
+使用。
+4 Application Framework 
+5 Applications
+
+    2 什么是android虚拟机
+(1)
+    普通java虚拟机，java语言特点就是与平台无关，而使用java虚拟机是实现这
+    一特点的关键。而引入Java语言虚拟机后,Java语言在不同平台上运行时不需要重
+    新编译。Java虚拟机在执行字节码时,把字节码解释成具体平台上的机器指令执行
+
+    (2)android
+    的Dalvik虚拟机它对内存的高效使用，和在低速CPU上表现出的高性能
+    ，
+    它并不是真实意义上的java虚拟机，普通java虚拟机为基于栈的，而dalvik是基于
+    寄存器的，java虚拟机运行的是java字节码，而dalvik运行的是其专有的文件格式
+    DEX文件。
+    每一个android应用在底层都会对应一个独立的dalvik虚拟机实例。其代码在虚拟
+    机的解释下得以执行。
+
+    3
+    android的虚拟机怎么还和底层有关系，用到汇编指令
+
+
+    4
+    bonic库实现怎么也和汇编有关
+
+    5 android
+    应用程序的编译打包过程
+    android
+    应用所使用的编程语言是java语言，和java
+    se一样，编译时使用sun
+    JDK将
+    java源程序编译成标准的java字节码文件（.class
+    文件），而后通过工具软件DX把
+    所有的字节文件转成DEX文件（classes.dex)。最后使用android打包工具（aapt)将DEX
+    文件，资源文件及androidmanifest.xml文件（二进制）组合成一个应用程序包（apk).

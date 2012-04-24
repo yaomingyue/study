@@ -1,0 +1,33 @@
+在fedora 上搭建ftp服务器
+ 1 安装vsftp， yum isntall vsftpd
+
+ 2 配置文件在 /etc/vsftpd/目录下，其中包括了不允许ftp登录的用户，可以配置禁止
+    匿名和本地用户名登录。
+
+ 3安装了vsftp后应该系统就有了一个匿名用户ftp，可以用它登录，其用户目录在/var/ftp
+
+ 4可以建立一个用户ftpfile，专门为ftp登录，在起用户目录下存放ftp文件。ftp登录密码
+ 就是其用户密码。
+
+ 5ftp登录命令：
+ 在远端 输入： ftp 192.168.160.81
+ 之后屏幕输出
+ Connected to 192.168.160.81 (192.168.160.81).
+ 220 (vsFTPd 2.3.4)
+ Name (192.168.160.81:qinbiao):
+ 之后输入登录名:ftpfile
+ 之后输入密码
+ 显示登录成功。
+
+ 6 ftp基本操作：
+ 将本地文件上传到ftp，
+ 先到本地的文件目录，登录ftp，执行：put
+ filename,之后文件就上传到ftp文件目录了。
+
+ 下载文件：
+ 执行：get filename， 
+ 之后ftp文件目录中的文件就下载到本地目录了。
+
+7 log文件
+默认情况下，vsftp 将记录上传下载ip，log文件默认为
+/var/log/xferlog

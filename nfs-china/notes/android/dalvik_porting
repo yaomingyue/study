@@ -1,0 +1,22 @@
+Dalvik 移植指导
+1 JNI Call Bridge 的移植， 
+
+2 解释器的移植
+解释器的基本功能就是取字节码指令，通过一个解释程序地址表，找到该字节码的解释程序。
+1 在mterp目录下新建自己的架构的目录myarch，
+2 修改Android.mk,使makefile能找到修改或添加的文件。
+3 修改rebuild.sh
+和添加config-myarch文件，将myarch目录名添加到rebuild.sh的列表里, rebuild.sh
+和gen-mterp.py工具将根据config-$(myarch)文件把目录里的源码添加到 out目录下的 InterpAsm-$(myarch).s和InterpC-$(myarch).c中，最终这两个文件参与编译解释器。
+4 修改mterp 和stubs ，
+在mterp/myarch
+下需要实现解释器的入口dvmMterpStdRun（entry.S),流程控制程序（stubs.S),和各个指令的汇编实现,以及异常处理和打印接口（汇编实现）。
+解释器代码结构：解释器的入口代码位于interp目录下的Interp.c文件中的dvmInterpret
+函数，之后执行dvmMterpStd
+（汇编实现），最终会调用dvmMterpStdRun函数,此时会根据不同的cpu来选择执行不同的
+汇编程序。
+
+
+3 JIT
+每启动一个应用程序，都会相应地启动一个dalvik虚拟机，启动时会建立JIT线程，一直在后台运行。当某段代码被调用时，虚拟机会判断它是否需要编译成机器码，如果需要，就做一个标记，JIT线程不断判断此标记，如果发现被设定就把它编译成机器码，并将其机器码地址及相关信息放入entry
+table中，下次执行到此就跳到机器码段执行，而不再解释执行，从而提高速度。
