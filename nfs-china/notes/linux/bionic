@@ -1,0 +1,18 @@
+1 c库函数和系统调用的区别。
+    c库函数是glibc或bionic提供的接口。系统调用是kernel提供给外界的接口。
+
+2 bionic 中为什么会有系统调用的汇编实现呢？
+    bionic中 libc/arch-x86/syscalls
+    中确实有关于各个系统调用的汇编文件，但不是实现系统调用，系统调用是内核的。这些汇编只是在调用系统调用,
+    系统调用最终是要用int
+    0x80的，将调用号压入eax，参数压入其他一串寄存器中（看有多少个参数了），然后会执行system_call程序（系统初始化时候设置的
+    set_system_gate(SYSCALL_VECTOR,
+    &system_call);）接下来一系列调整内核栈的操作以及环境的设置后，就会用eax表示的系统调用号为索引，在系统调用跳转表中寻找系统调用的处理函数了，fork的就是跳转到sys_fork()，glibc其实就是把这个东西封装了一下
+
+
+3 c 库中的系统调用是通过 int 0x80 中断来陷入内核完成系统调用，那 unistd.h中
+的read 等系统调用函数是怎么实现的。
+   在unistd.h 中以read为例：
+   190 #define __NR_read 63
+   191 __SYSCALL(__NR_read, sys_read)
+   也是通过系统调用号来实现系统调用。

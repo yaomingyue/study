@@ -1,0 +1,4 @@
+1 Android
+froyo版本多媒体引擎做了变动，新添加了stagefright框架，并且默认情况android选择stagefright，弃用之前的opencore
+
+2

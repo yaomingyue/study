@@ -27,3 +27,29 @@
     3 第三条，bootloader 加载系统镜像，进入正常启动模式。
 
 
+
+4 boot.img
+　简单的说，boot.img包含两部分，分别为kernel 和ramdisk。
+　　当你的手机启动时首先会启动RADIO，然后是SPL。
+　　此时SPL 会根据你的按键，确定进入哪个模式（ 例如Recovery，Fastboot等等），
+　　如果没有按其他键，那么spl 会将kernel 载入到记忆体中，ramdisk
+也会载入到你的设备的根目录。
+
+刷机zip包中就有boot.img. cm7源码编译出来boot.img .但编译google标准版的源码
+就没有boot.img。
+
+5  android的各个分区
+recovery：该分区是恢复模式(即开机按Home+power进入的界面)，使用Nandroid
+backup备份为recovery.img
+
+boot：内核启动分区，使用Nandroid backup备份为boot.img
+,boot.img中包括kernel和ramdisk.img
+
+system：Android系统部分，目录表示为/system，通常为只读，使用Nandroid
+backup备份为system.img
+
+cache：缓存文件夹，目录表示为/cache，事实上除了T-mobile的OTA更新外，别无用处，使用Nandroid
+backup备份为cache.img
+
+userdata：用户安装的软件以及各种数据，目录为/data，使用Nandroid
+backup备份为data.img 
