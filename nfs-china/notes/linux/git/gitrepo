@@ -1,0 +1,164 @@
+一 建立本地的git仓库。将文件 push到本地。
+
+  1 准备工作。
+    安装git工具。 yum安装git-core就行了。
+    局域网中的两台主机，当然在本机上建也行。
+      本机：192.168.160.89.
+      git服务器：192.168.160.83
+
+    git服务器下新建git用户，必要时允许匿名访问。
+
+  2 例如要将本机上的某个目录（如moon）作成一个git repo，传到git服务器上。
+    moon 下结构
+    .
+    |-- file1
+    `-- file2
+    开始了,首先在git服务器上操作。
+    # mkdir /pub/git/moon.git
+    # cd /pub/git/moon.git
+    # git init --bare
+    # chown git:git /pub/git/moon.git -R
+     
+     在本机上操作
+    # cd moon
+    # git init-db
+    # git add *
+    # git commit -m -a "first"
+    # git remote add master git@192.168.160.83:/pub/git/moon.git
+    # git push master --all
+    之后如果顺利的话就可以将moon目录上传到git服务器上了，
+
+    在别的目录后主机上git clone就可以得到moon目录。
+    git clone git@192.168.160.83:/pub/git/moon.git
+
+
+二 将android源码在git服务器上保存。
+     1 android 源码git介绍。
+      android用repo管理，repo其实就是为了更好的管理多个git子项目，也就是说android源码中有多个子git项目，每个含有.git目录的目录就是一个git子项目。
+
+     2 先对某一个git子项目进行操作。
+       bionic就是android源码中的一个子git项目。
+       # cd bionic
+       # rm .git -rf
+       # git add *
+       # git commit -m -a "first"
+       # git remote add master git@192.168.160.83:/pub/git/android/bionic.git
+       # git push master --all 
+
+        就行了，当然git服务器上得有bionic.git目录。
+
+     3 用repo在git服务器上管理android源码。
+
+    自己新建一个repo管理git仓库：
+    假设目前已经配置好了git，gitweb等，且目前有用户： git 和 yyl，且yyl用户可以匿名访问git用户(ssh-key-copy...):
+    本机获得ssh pub key：
+    $ ssh-keygen       //不需要输入什么，直接按Enter键就可以了
+    在服务器上设置可以允许我的本机匿名登录
+    ssh-copy-id -i ../moon.pub git@192.168.160.83   // moon.pub就是我的pub key
+    这样再次ssh git@192.168.160.83 的时候就不用密码了
+
+    下边是建立自己的repo git仓库
+
+    本机端：
+    $ mkdir test_one
+    $ cd test_one
+    $ tree
+    |-- aa
+    |   |-- a1
+    |   `-- a2
+    |-- bb
+    |   |-- b1
+    |   `-- b2
+    `-- cc
+        |-- dd
+        |   |-- d1
+        |   `-- d2
+        |-- manifest
+        |   |
+        |   `-- default.xml
+        `-- ee
+            |-- e1
+            `-- e2
+    这是yyl用户下的一个普通项目目录，我想为他创建远程git仓库，并且分多个git来逐个管理，这时就需要用repo来管理这些git：
+    $ cd aa
+    $ git init-db
+    $ git add *
+    $ git commit -a -m "first init"
+    $ cd bb
+    $ git init-db
+    $ git add *
+    $ git commit -a -m "first init"
+    $ cd cc/dd
+    $ git init-db
+    $ git add *
+    $ git commit -a -m "first init"
+    $ cd ../ee
+    $ git init-db
+    $ git add *
+    $ git commit -a -m "first init"
+    $ cd ../manifest/
+    $ git init-db
+    $ git add *
+    $ git commit -a -m "first init"
+    }}}
+
+    服务器端：
+    我们将在git用户下创建git仓库：[[BR]]
+
+    $ cd /pub/gittrees/
+    $ mkdir test_one;cd test_one
+    $ mkdir aa.git
+    $ git init --bare
+    因为bb、dd、ee目录的特殊性，我想将他们放在一个独立的目录中：
+    $ mkdir platform;cd platform
+    $ mkdir bb.git; cd bb.git
+    $ git init --bare
+    $ cd -
+    $ mkdir cc; cd cc
+    $ mkdir dd.git; cd dd.git
+    $ git init --bare
+    $ cd -
+    $ mkdir ee.git; cd ee.git
+    $ git init --bare
+    $ cd -
+    $ mkdir manifest.git; cd manifest.git
+    $ git init --bare
+
+    本机端：
+
+
+    {{{
+    $ cd test_one
+    $ cd aa
+    $ git remote add master /pub/gittrees/test_one/aa.git
+    $ git push master --all
+    ......
+
+    完成后，拷贝manifest项目：
+    $ git clone git@192.168.160.83:/pub/gittrees/test_one/platform/manifest.git
+    $ cd manifest
+    $ vim default.xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <manifest>
+      <remote  name="origin"
+               fetch="../.." />
+
+      <default revision="master" remote="origin" />
+
+      <project path="aa" name="aa" />
+      <project path="bb" name="plathform/bb" />
+      <project path="cc/dd" name="plathform/cc/dd" />
+      <project path="cc/ee" name="plathform/cc/ee" />
+    </manifest>
+    注意： fetch="../.." /> 中 会考虑default.xml所在的路径。如default.xml路径为：/pub/gittree/test_one/platform/manifest . 而fetch为"../.." 。则
+    最后的url为：/pub/gittree/test_one .
+
+    $ git commit -a -m "modigy default.xml"
+    $ git push
+    这时，就可以下载所有的test_one项目了：
+    $ mkdir test; cd test
+    $ repo init -u git@192.168.160.83:/pub/gittrees/test_one/platform/manifest.git -b master
+    $ repo sync
+
+    这样就可以下载在整个目录了，含有多个git仓库。
+

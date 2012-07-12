@@ -1,0 +1,49 @@
+1 今天下载android4.0 源码出了如下错误
+    File "/usr/lib/python2.7/threading.py", line 530, in __bootstrap_inner
+self.run()
+    File "/usr/lib/python2.7/threading.py", line 483, in run
+self.__target(*self.__args, **self.__kwargs)
+    File
+    "/home/yaomoon/work/android/android-4.0.4/.repo/repo/subcmds/sync.py",
+    line 200, in _FetchHelper
+    clone_bundle=not opt.no_clone_bundle)
+    File
+    "/home/yaomoon/work/android/android-4.0.4/.repo/repo/project.py",
+    line 968, in Sync_NetworkHalf
+    and self._ApplyCloneBundle(initial=is_new,
+            quiet=quiet):
+        File
+        "/home/yaomoon/work/android/android-4.0.4/.repo/repo/project.py",
+    line 1526, in _ApplyCloneBundle
+        exist_dst = self._FetchBundle(bundle_url,
+                bundle_tmp, bundle_dst, quiet)
+        File
+        "/home/yaomoon/work/android/android-4.0.4/.repo/repo/project.py",
+        line 1590, in _FetchBundle
+    raise DownloadError('%s: %s ' %
+            (req.get_host(), str(e)))
+        DownloadError: android.googlesource.com:
+                       <urlopen error [Errno 110] Connection timed
+                       out>
+
+2 解决办法
+
+                       vim /etc/hosts
+
+                       在文件中加入如下信息
+
+                       74.125.71.82 www.googlesource.com
+
+                       74.125.71.82 android.googlesource.com 
+
+                       203.208.46.172 cache.pack.google.com
+
+                       59.24.3.173cache.pack.google.com
+
+
+
+                       然后重新repo init
+
+                       repo sync
+
+                       即可

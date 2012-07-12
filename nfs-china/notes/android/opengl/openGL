@@ -1,0 +1,72 @@
+
+openGL 架构介绍
+
+1 基本架构： 从上到下：
+(1)java framework 提供应用程序接口
+(2) openGL JNI部分  调用openGL本地库
+（3）openGL 本地库  包括GLESv1_CM、GLESv2和EGL，EGL 是可移植层，使openGL
+适应多个平台系统。
+（4）openGL实现层  android系统本身包括了软件实现该层，硬件厂商可以实现该层
+达到硬件加速的目的。
+
+2 重点知识点。
+  （1）真正实现openGL 3D加速的是openGL实现层，不管是软件的还是硬件的。其他的
+  JNI，java，EGL等都是接口或者是为适应android系统的转换功能
+  (2) 在EGL的帮助下，openGL可以应用到windows，linux，或者android等系统平台。
+
+  (3)如果处理器只有2D硬件加速而没有3D硬件加速，则可以利用opengl中的libagl，
+   实现封装在libagl里的copybit，因为相对3D API来说，这个模块的封装google
+   基本是做好的，只要去实现一个copybit HAL即可；
+   如果处理器2D/3D硬件加速均有，那么可以丢开 copybit，去实现openGL ES
+   2D/3D API 的加速功能。
+
+   (4)libagl的Android.mk中有如下定义，如果定义了LIBAGL_USE_GRALLOC_COPYBITS
+   宏，编译时将加入libagl的copybit.cpp文件，并链接libui库。
+    cm7 的blad没有定义，2.1中定义了
+
+   (5) EGL 库使用openGL 实现层时可以选择软件或者硬件实现，主要是靠 
+        /system/lib/egl/egl.cfg 文件来达到选择目的。
+
+
+
+
+二 以前的零散的笔记
+
+
+
+
+1 以unicore的android 2.1为例。
+ 通过对比unicore2.1和标准2.1的 framwork/base/opengl 目录，可以发现，主要就是
+ 增加了 vivant目录，其他的都是很少的改动（有.s文件和.mk文件）。
+
+ 在 /opengl/libs/egl/Loader.cpp 中有
+ FILE* cfg = fopen("/system/lib/egl/egl.cfg", "r");
+ 可知在egl中打开了egl.cfg文件。而unicore的egl.cgf文件内容为：
+ 0 1 VIVANTE
+ 根据该文件的内容，可以找到相关的动态库。
+在htc板子上的 /system/libs/egl 中与硬件相关的库
+libEGL_tegra.so
+libGLESv1_CM_tegra.so
+libGLESv2_tegra.so
+
+而从ftp://www.pkunity.com/android/ unicore的system.tar.gz中的 system/libs 中没有vivant相关的库，在system/lib/egl/中只有libGLES_android.so，这个opengl的
+软件实现的3D加速库
+
+
+2需研究opengl es，并实现/system/lib/egl/libGLES_sxwboy.so或者/system/lib/egl
+/libEGL_sxwboy.so、/system/lib/egl/libGLESv1_CM_sxwboy.so、/system/lib/egl
+/libGLESv2_sxwboy.so动态库来提供openGL ES 2D/3D 硬件加速API。
+
+
+3如果处理器只有2D硬件加速而没有3D硬件加速，则可以利用opengl中的libagl，
+实现封装在libagl里的copybit，因为相对3D API来说，这个模块的封装google
+基本是做好的，只要去实现一个copybit HAL即可；
+如果处理器2D/3D硬件加速均有，那么可以丢开 copybit，去实现openGL ES
+2D/3D API 的加速功能。
+
+
+4libagl的Android.mk中有如下定义，如果定义了LIBAGL_USE_GRALLOC_COPYBITS宏，编译时将加入libagl的copybit.cpp文件，并链接libui库。
+cm7 的blad没有定义，2.1中定义了
+
+
+

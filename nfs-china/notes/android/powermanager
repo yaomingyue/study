@@ -1,0 +1,29 @@
+
+
+Android实现了一个非常简单的电源管理机制，目前，它只支持screen
+on/off,screen backlight on/off,keyboard backlight on/off,button backlight
+on/off和调整screen亮度。不支持sleep,standby等更加充分利用CPU能力的模式。电源管理模块通过三个途径接收输入：RPC调用，电池状态改变事件和电源设置改变事件。与其它模块通信时，使用Intent广播或者直接API调用。也提供了重启和关机服务。当电池电量低于某个值时，会自动关闭设备。当没有用户事件时，电源模块会自动使屏幕dim或者off，状态转换如下图：
+PowerManagerService.java是核心服务。它调用Power.java做具体的工作。PowerManager.java是通过
+RPC访问PowerManagerService.java的代理。Power.java与JNI通信。Android_os_Power.cpp是对
+Power.java中JNI接口的实现它调用Power.c做具体的工作。Power.c通过读写下面的文件控制着电源设备驱动：
+"/sys/android_power/acquire_partial_wake_lock",
+"/sys/android_power/acquire_full_wake_lock",
+"/sys/android_power/release_wake_lock", "/sys/android_power/request_state"
+"/sys/android_power/auto_off_timeout",
+"/sys/class/leds/lcd-backlight/brightness",
+"/sys/class/leds/button-backlight/brightness",
+"/sys/class/leds/keyboard-backlight/brightness"
+BatteryService.java把自己注册为一个对路径”/sys/class/power_supply”的UEvent监视器，如果这个路径中的信息有改变的话，它通过JNI通过java层次的API发送ACTION_BATTERY_CHANGED广播来把最新的状态信息传递出去。
+Com_android_server_BatteryService.cpp是BatteryService.java中JNI的本地实现。它通过下面的文件获得当前电池状态：
+"/sys/class/power_supply/ac/online" "/sys/class/power_supply/usb/online"
+"/sys/class/power_supply/battery/status"
+"/sys/class/power_supply/battery/health"
+"/sys/class/power_supply/battery/present"
+"/sys/class/power_supply/battery/capacity"
+"/sys/class/power_supply/battery/batt_vol"
+"/sys/class/power_supply/battery/batt_temp"
+"/sys/class/power_supply/battery/technology"
+想在程序当中调用电源模块的话，使用下面的代码： PowerManager pm =
+(PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
+PowerManager.WakeLock wl = pm.newWakeLock( PowerManager.SCREEN_DIM_WAKE_LOCK |
+PowerManager.ON_AFTER_RELEASE, TAG); wl.acquire(); // ... wl.release(); 

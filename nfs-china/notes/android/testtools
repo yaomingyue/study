@@ -1,0 +1,49 @@
+1 在android命令行中启动android应用。
+
+# am start -n 包(package)名/包名.活动(activity)名称
+例
+
+2 monkey 工具启动包并进行压力测试
+
+monkey -p com.android.calculator2 -v 500
+
+查看系统中安装的包
+# ls data/data 
+
+
+3 gdbserver
+
+1 在主机上操作
+/home/yaomoon/work/android/android-2.3/android-2.3.5/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-gdb
+out/target/product/generic/obj/EXECUTABLES/memtest_intermediates/LINKED/memtest
+
+
+(gdb) set solib-absolute-prefix out/target/product/generic/sysbols/
+(gdb) set solib-search-path out/target/product/generic/symbols/system/lib/
+(gdb) target localhost:1234
+
+
+2在主机上操作
+\/home/yaomoon/work/android/android-2.3/android-2.3.5/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-gdb
+out/target/product/generic/system/bin/dalvikvm
+
+(gdb) set solib-absolute-prefix out/target/product/generic/sysbols/
+(gdb) set solib-search-path out/target/product/generic/symbols/system/lib/
+(gdb) target localhost:1234
+
+
+
+
+
+3 在模拟器上操作 adb shell 之后
+# gdbserver 10.0.2.2:1234 /data/bin/memtest
+
+gdbserver 10.0.2.2:1234 /system/bin/dalvikvm
+
+
+4 第三个终端中增加监视端口
+
+telnet localhost 5554
+
+redir add tcp:1234:1234
+

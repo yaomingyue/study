@@ -1,0 +1,7 @@
+1android 对linux 标准kernnel的修改。
+ android使用标准linux 的kernel，基本和其他的linux系统类似。
+ 具体区别主要有一下几点：
+ 1 增加了和要移植的平台架构相关的东西，
+ 2 增加了一些和硬件相关的驱动，
+ 3 增加了一些android专有的驱动，（和内存，log，电源管理等）
+ 4 增加了一些android的机制。

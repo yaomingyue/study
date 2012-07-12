@@ -1,0 +1,4 @@
+EGLBoolean eglSwapBuffers(EGLDisplay dpy, EGLSurface draw)
+
+应用程序通过OpenGL API进行绘制，一帧完成之后，调用eglSwapBuffers(EGLDisplay
+dpy, EGLContext ctx)来显示

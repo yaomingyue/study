@@ -1,4 +1,4 @@
-1android 体系结构
+1ndroid 体系结构
 从下到上，依次为linux kernel ，Android Runtime，Libraries，Application
 Framework，Applications
 1 linux kernel 和相关设备的驱动

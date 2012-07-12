@@ -1,0 +1,6 @@
+1 在layout的main.xml中定义textview
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textSize="100dp"  修改字体,似乎后边必须跟dp才行
+android:text="@string/moon"  />   //moon 是values中string.xml中定义的键值对。
+ndroid:textColor="#ff0000" // 设置颜色，是rgb色值

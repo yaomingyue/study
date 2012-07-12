@@ -1,41 +1,1301 @@
-#用法：tail [选项]... [文件]...
-显示每个指定文件的最后10 行到标准输出。
-若指定了多于一个文件，程序会在每段输出的开始添加相应文件名作为头。
-如果不指定文件或文件为"-" ，则从标准输入读取数据。
-
-长选项必须使用的参数对于短选项时也是必需使用的。
-  -c, --bytes=K		输出最后K 字节；另外，使用-c +K 从每个文件的
-			第K 字节输出
-  -f, --follow[={name|descriptor}]
-		即时输出文件变化后追加的数据。
-			-f, --follow 等于--follow=descriptor 
-  -F		即--follow=name --retry
-  -n, --lines=K	输出最后K 行，代替最后10 行；使用-n +K 从每个文件的第K 字节输出
-      --max-unchanged-stats=N
-			使用--follow=name, 重新打开一个在N(默认为5)
-				次迭代后没有改变大小的文件来看它是否被解除连
-				接或重命名(这是循环日志文件的通常情况)
-      --pid=PID		同 -f 一起使用，当 PID 所对应的进程死去后终止
-  -q, --quiet, --silent	不输出给出文件名的头
-      --retry		即使目标文件不可访问依然试图打开；在与参数
-			--follow=name 同时使用时常常有用。
-  -s, --sleep-interval=秒数	同-f 一起使用，在迭代间暂停约指定秒数的时间
-				(默认1.0 秒)
-  -v, --verbose		总是输出给出文件名的头
-      --help		显示此帮助信息并退出
-      --version		显示版本信息并退出
-
-如果字节数或行数K 的第一个字符是"+"，输出从文件开始第K 个项目，否则输出文件
-最后K 个项目。K 可以使用一下几种单位之一：
-b 512，kB 1000，K 1024，MB 1000*1000，M 1024*1024,
-GB 1000*1000*1000，G 1024*1024*1024，以及T，P，E，Z，Y。
-
-如果您希望即时追查一个文件的有效名称而非描述内容(例如循环日志)，默认
-的程序动作并不如您所愿。在这种场合可以使用--follow=name 选项，它会使
-tail 定期追踪打开给定名称的文件，以确认它是否被删除或被其它某些程序重新创建过。
-
-请向bug-coreutils@gnu.org 报告tail 的错误
-GNU coreutils 项目主页：<http://www.gnu.org/software/coreutils/>
-GNU 软件一般性帮助：<http://www.gnu.org/gethelp/>
-请向<http://translationproject.org/team/zh_CN.html> 报告tail 的翻译错误
-要获取完整文档，请运行：info coreutils 'tail invocation'
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 2.6.35.6-45.fc14.i686 (mockbuild@x86-16.phx2.fedoraproject.org) (gcc version 4.5.1 20100924 (Red Hat 4.5.1-4) (GCC) ) #1 SMP Mon Oct 18 23:56:17 UTC 2010
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000]  BIOS-e820: 0000000000000000 - 000000000009d800 (usable)
+[    0.000000]  BIOS-e820: 000000000009d800 - 00000000000a0000 (reserved)
+[    0.000000]  BIOS-e820: 00000000000e0000 - 0000000000100000 (reserved)
+[    0.000000]  BIOS-e820: 0000000000100000 - 00000000bf4e8000 (usable)
+[    0.000000]  BIOS-e820: 00000000bf4e8000 - 00000000bf534000 (ACPI NVS)
+[    0.000000]  BIOS-e820: 00000000bf534000 - 00000000bf53f000 (ACPI data)
+[    0.000000]  BIOS-e820: 00000000bf53f000 - 00000000bf540000 (ACPI NVS)
+[    0.000000]  BIOS-e820: 00000000bf540000 - 00000000bf561000 (reserved)
+[    0.000000]  BIOS-e820: 00000000bf561000 - 00000000bf563000 (usable)
+[    0.000000]  BIOS-e820: 00000000bf563000 - 00000000bf584000 (ACPI NVS)
+[    0.000000]  BIOS-e820: 00000000bf584000 - 00000000bf5a2000 (reserved)
+[    0.000000]  BIOS-e820: 00000000bf5a2000 - 00000000bf5ac000 (ACPI NVS)
+[    0.000000]  BIOS-e820: 00000000bf5ac000 - 00000000bf5db000 (reserved)
+[    0.000000]  BIOS-e820: 00000000bf5db000 - 00000000bf61e000 (ACPI NVS)
+[    0.000000]  BIOS-e820: 00000000bf61e000 - 00000000bf800000 (usable)
+[    0.000000]  BIOS-e820: 00000000fed1c000 - 00000000fed40000 (reserved)
+[    0.000000]  BIOS-e820: 00000000ff000000 - 0000000100000000 (reserved)
+[    0.000000]  BIOS-e820: 0000000100000000 - 000000013e000000 (usable)
+[    0.000000] Notice: NX (Execute Disable) protection cannot be enabled: non-PAE kernel!
+[    0.000000] DMI 2.6 present.
+[    0.000000] e820 update range: 0000000000000000 - 0000000000001000 (usable) ==> (reserved)
+[    0.000000] e820 remove range: 00000000000a0000 - 0000000000100000 (usable)
+[    0.000000] last_pfn = 0xbf800 max_arch_pfn = 0x100000
+[    0.000000] MTRR default type: uncachable
+[    0.000000] MTRR fixed ranges enabled:
+[    0.000000]   00000-9FFFF write-back
+[    0.000000]   A0000-BFFFF uncachable
+[    0.000000]   C0000-CFFFF write-protect
+[    0.000000]   D0000-E7FFF uncachable
+[    0.000000]   E8000-FFFFF write-protect
+[    0.000000] MTRR variable ranges enabled:
+[    0.000000]   0 base 000000000 mask F00000000 write-back
+[    0.000000]   1 base 100000000 mask FC0000000 write-back
+[    0.000000]   2 base 0C0000000 mask FC0000000 uncachable
+[    0.000000]   3 base 13E000000 mask FFE000000 uncachable
+[    0.000000]   4 disabled
+[    0.000000]   5 disabled
+[    0.000000]   6 disabled
+[    0.000000]   7 disabled
+[    0.000000]   8 disabled
+[    0.000000]   9 disabled
+[    0.000000] x86 PAT enabled: cpu 0, old 0x7040600070406, new 0x7010600070106
+[    0.000000] original variable MTRRs
+[    0.000000] reg 0, base: 0GB, range: 4GB, type WB
+[    0.000000] reg 1, base: 4GB, range: 1GB, type WB
+[    0.000000] reg 2, base: 3GB, range: 1GB, type UC
+[    0.000000] reg 3, base: 5088MB, range: 32MB, type UC
+[    0.000000] total RAM covered: 4064M
+[    0.000000] Found optimal setting for mtrr clean up
+[    0.000000]  gran_size: 64K 	chunk_size: 64M 	num_reg: 4  	lose cover RAM: 0G
+[    0.000000] New variable MTRRs
+[    0.000000] reg 0, base: 0GB, range: 2GB, type WB
+[    0.000000] reg 1, base: 2GB, range: 1GB, type WB
+[    0.000000] reg 2, base: 4GB, range: 1GB, type WB
+[    0.000000] reg 3, base: 5088MB, range: 32MB, type UC
+[    0.000000] e820 update range: 00000000c0000000 - 0000000100000000 (usable) ==> (reserved)
+[    0.000000] initial memory mapped : 0 - 01000000
+[    0.000000] found SMP MP-table at [c00fcd90] fcd90
+[    0.000000] init_memory_mapping: 0000000000000000-0000000036ffe000
+[    0.000000]  0000000000 - 0000400000 page 4k
+[    0.000000]  0000400000 - 0036c00000 page 2M
+[    0.000000]  0036c00000 - 0036ffe000 page 4k
+[    0.000000] kernel direct mapping tables up to 36ffe000 @ 7000-e000
+[    0.000000] RAMDISK: 373a5000 - 37ff0000
+[    0.000000] Allocated new RAMDISK: 00c31000 - 0187b0b0
+[    0.000000] Move RAMDISK from 00000000373a5000 - 0000000037fef0af to 00c31000 - 0187b0af
+[    0.000000] ACPI: RSDP 000f0420 00024 (v02 LENOVO)
+[    0.000000] ACPI: XSDT bf534070 0005C (v01 LENOVO TC-9H    0000012F AMI  00010013)
+[    0.000000] ACPI: FACP bf53dce8 000F4 (v04 LENOVO TC-9H    0000012F AMI  00010013)
+[    0.000000] ACPI: DSDT bf534158 09B8E (v02 LENOVO TC-9H    0000012F INTL 20051117)
+[    0.000000] ACPI: FACS bf5a3f80 00040
+[    0.000000] ACPI: APIC bf53dde0 00092 (v03 LENOVO TC-9H    0000012F AMI  00010013)
+[    0.000000] ACPI: SSDT bf53de78 001D6 (v01 LENOVO TC-9H    0000012F MSFT 03000001)
+[    0.000000] ACPI: MCFG bf53e050 0003C (v01 LENOVO TC-9H    0000012F MSFT 00000097)
+[    0.000000] ACPI: SLIC bf53e090 00176 (v01 LENOVO TC-9H    0000012F AMI  00010013)
+[    0.000000] ACPI: HPET bf53e208 00038 (v01 LENOVO TC-9H    0000012F AMI. 00000004)
+[    0.000000] ACPI: ASF! bf53e240 000A0 (v32 LENOVO TC-9H    0000012F TFSM 000F4240)
+[    0.000000] ACPI: Local APIC address 0xfee00000
+[    0.000000] 2184MB HIGHMEM available.
+[    0.000000] 879MB LOWMEM available.
+[    0.000000]   mapped low ram: 0 - 36ffe000
+[    0.000000]   low ram: 0 - 36ffe000
+[    0.000000]   node 0 low ram: 00000000 - 36ffe000
+[    0.000000]   node 0 bootmap 0000b000 - 00011e00
+[    0.000000] (13/32 early reservations) ==> bootmem [0000000000 - 0036ffe000]
+[    0.000000]   #0 [0000001000 - 0000002000]    EX TRAMPOLINE ==> [0000001000 - 0000002000]
+[    0.000000]   #1 [0000400000 - 0000c2b8c0]    TEXT DATA BSS ==> [0000400000 - 0000c2b8c0]
+[    0.000000]   #2 [0000c2c000 - 0000c301fa]              BRK ==> [0000c2c000 - 0000c301fa]
+[    0.000000]   #3 [00000fcda0 - 0000100000]    BIOS reserved ==> [00000fcda0 - 0000100000]
+[    0.000000]   #4 [00000fcd90 - 00000fcda0]     MP-table mpf ==> [00000fcd90 - 00000fcda0]
+[    0.000000]   #5 [000009d800 - 00000fcb00]    BIOS reserved ==> [000009d800 - 00000fcb00]
+[    0.000000]   #6 [00000fcd14 - 00000fcd90]    BIOS reserved ==> [00000fcd14 - 00000fcd90]
+[    0.000000]   #7 [00000fcb00 - 00000fcd14]     MP-table mpc ==> [00000fcb00 - 00000fcd14]
+[    0.000000]   #8 [0000002000 - 0000003000]       TRAMPOLINE ==> [0000002000 - 0000003000]
+[    0.000000]   #9 [0000003000 - 0000007000]      ACPI WAKEUP ==> [0000003000 - 0000007000]
+[    0.000000]   #10 [0000007000 - 000000b000]          PGTABLE ==> [0000007000 - 000000b000]
+[    0.000000]   #11 [0000c31000 - 000187c000]      NEW RAMDISK ==> [0000c31000 - 000187c000]
+[    0.000000]   #12 [000000b000 - 0000012000]          BOOTMAP ==> [000000b000 - 0000012000]
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA      0x00000001 -> 0x00001000
+[    0.000000]   Normal   0x00001000 -> 0x00036ffe
+[    0.000000]   HighMem  0x00036ffe -> 0x000bf800
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[4] active PFN ranges
+[    0.000000]     0: 0x00000001 -> 0x0000009d
+[    0.000000]     0: 0x00000100 -> 0x000bf4e8
+[    0.000000]     0: 0x000bf561 -> 0x000bf563
+[    0.000000]     0: 0x000bf61e -> 0x000bf800
+[    0.000000] On node 0 totalpages: 783976
+[    0.000000] free_area_init_node: node 0, pgdat c09fe0c0, node_mem_map c187d020
+[    0.000000]   DMA zone: 32 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 3964 pages, LIFO batch:0
+[    0.000000]   Normal zone: 1728 pages used for memmap
+[    0.000000]   Normal zone: 219454 pages, LIFO batch:31
+[    0.000000]   HighMem zone: 4369 pages used for memmap
+[    0.000000]   HighMem zone: 554429 pages, LIFO batch:31
+[    0.000000] Using APIC driver default
+[    0.000000] ACPI: PM-Timer IO Port: 0x408
+[    0.000000] ACPI: Local APIC address 0xfee00000
+[    0.000000] ACPI: LAPIC (acpi_id[0x01] lapic_id[0x00] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x02] lapic_id[0x02] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x03] lapic_id[0x04] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x04] lapic_id[0x06] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x05] lapic_id[0x01] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x06] lapic_id[0x03] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x07] lapic_id[0x05] enabled)
+[    0.000000] ACPI: LAPIC (acpi_id[0x08] lapic_id[0x07] enabled)
+[    0.000000] ACPI: LAPIC_NMI (acpi_id[0xff] high edge lint[0x1])
+[    0.000000] ACPI: IOAPIC (id[0x00] address[0xfec00000] gsi_base[0])
+[    0.000000] IOAPIC[0]: apic_id 0, version 32, address 0xfec00000, GSI 0-23
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.000000] ACPI: IRQ0 used by override.
+[    0.000000] ACPI: IRQ2 used by override.
+[    0.000000] ACPI: IRQ9 used by override.
+[    0.000000] Using ACPI (MADT) for SMP configuration information
+[    0.000000] ACPI: HPET id: 0x8086a701 base: 0xfed00000
+[    0.000000] SMP: Allowing 8 CPUs, 0 hotplug CPUs
+[    0.000000] nr_irqs_gsi: 40
+[    0.000000] PM: Registered nosave memory: 000000000009d000 - 000000000009e000
+[    0.000000] PM: Registered nosave memory: 000000000009e000 - 00000000000a0000
+[    0.000000] PM: Registered nosave memory: 00000000000a0000 - 00000000000e0000
+[    0.000000] PM: Registered nosave memory: 00000000000e0000 - 0000000000100000
+[    0.000000] Allocating PCI resources starting at bf800000 (gap: bf800000:3f51c000)
+[    0.000000] Booting paravirtualized kernel on bare hardware
+[    0.000000] setup_percpu: NR_CPUS:64 nr_cpumask_bits:64 nr_cpu_ids:8 nr_node_ids:1
+[    0.000000] PERCPU: Embedded 14 pages/cpu @c3400000 s35072 r0 d22272 u524288
+[    0.000000] pcpu-alloc: s35072 r0 d22272 u524288 alloc=1*4194304
+[    0.000000] pcpu-alloc: [0] 0 1 2 3 4 5 6 7 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 777847
+[    0.000000] Kernel command line: ro root=/dev/mapper/vg_yaomoon-LogVol01 rd_LVM_LV=vg_yaomoon/LogVol01 rd_LVM_LV=vg_yaomoon/LogVol00 rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=zh_CN.UTF-8 KEYTABLE=us rhgb quiet
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Enabling fast FPU save and restore... done.
+[    0.000000] Enabling unmasked SIMD FPU exception support... done.
+[    0.000000] Initializing CPU#0
+[    0.000000] xsave/xrstor: enabled xstate_bv 0x7, cntxt size 0x340
+[    0.000000] allocated 15687660 bytes of page_cgroup
+[    0.000000] please try 'cgroup_disable=memory' option if you don't want memory cgroups
+[    0.000000] Initializing HighMem for node 0 (00036ffe:000bf800)
+[    0.000000] Memory: 3073740k/3137536k available (3762k kernel code, 62164k reserved, 2497k data, 544k init, 2235192k highmem)
+[    0.000000] virtual kernel memory layout:
+[    0.000000]     fixmap  : 0xff575000 - 0xfffff000   (10792 kB)
+[    0.000000]     pkmap   : 0xff000000 - 0xff400000   (4096 kB)
+[    0.000000]     vmalloc : 0xf77fe000 - 0xfeffe000   ( 120 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf6ffe000   ( 879 MB)
+[    0.000000]       .init : 0xc0a1d000 - 0xc0aa5000   ( 544 kB)
+[    0.000000]       .data : 0xc07aca76 - 0xc0a1cf70   (2497 kB)
+[    0.000000]       .text : 0xc0400000 - 0xc07aca76   (3762 kB)
+[    0.000000] Checking if this processor honours the WP bit even in supervisor mode...Ok.
+[    0.000000] SLUB: Genslabs=13, HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	RCU dyntick-idle grace-period acceleration is enabled.
+[    0.000000] 	RCU-based detection of stalled CPUs is disabled.
+[    0.000000] 	Verbose stalled-CPUs detection is disabled.
+[    0.000000] NR_IRQS:2304
+[    0.000000] Extended CMOS year: 2000
+[    0.000000] Console: colour VGA+ 80x25
+[    0.000000] console [tty0] enabled
+[    0.000000] hpet clockevent registered
+[    0.000000] Fast TSC calibration using PIT
+[    0.001000] Detected 3391.676 MHz processor.
+[    0.000006] Calibrating delay loop (skipped), value calculated using timer frequency.. 6783.35 BogoMIPS (lpj=3391676)
+[    0.000009] pid_max: default: 32768 minimum: 301
+[    0.000022] Security Framework initialized
+[    0.000026] SELinux:  Initializing.
+[    0.000031] SELinux:  Starting in permissive mode
+[    0.000062] Mount-cache hash table entries: 512
+[    0.000152] Initializing cgroup subsys ns
+[    0.000155] Initializing cgroup subsys cpuacct
+[    0.000159] Initializing cgroup subsys memory
+[    0.000164] Initializing cgroup subsys devices
+[    0.000166] Initializing cgroup subsys freezer
+[    0.000167] Initializing cgroup subsys net_cls
+[    0.000168] Initializing cgroup subsys blkio
+[    0.000187] CPU: Physical Processor ID: 0
+[    0.000188] CPU: Processor Core ID: 0
+[    0.000191] mce: CPU supports 9 MCE banks
+[    0.000200] CPU0: Thermal monitoring enabled (TM1)
+[    0.000205] using mwait in idle threads.
+[    0.000208] Performance Events: PEBS fmt1+, generic architected perfmon, Intel PMU driver.
+[    0.000212] ... version:                3
+[    0.000213] ... bit width:              48
+[    0.000214] ... generic registers:      4
+[    0.000215] ... value mask:             0000ffffffffffff
+[    0.000216] ... max period:             000000007fffffff
+[    0.000217] ... fixed-purpose events:   3
+[    0.000218] ... event mask:             000000070000000f
+[    0.000592] ACPI: Core revision 20100428
+[    0.330407] ftrace: converting mcount calls to 0f 1f 44 00 00
+[    0.330409] ftrace: allocating 23137 entries in 46 pages
+[    0.336505] Enabling APIC mode:  Flat.  Using 1 I/O APICs
+[    0.337099] ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+[    0.347071] CPU0: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz stepping 07
+[    0.447949] Booting Node   0, Processors  #1
+[    0.458390] Initializing CPU#1
+[    0.538761]  #2
+[    0.549087] Initializing CPU#2
+[    0.629468]  #3
+[    0.639796] Initializing CPU#3
+[    0.720179]  #4
+[    0.730526] Initializing CPU#4
+[    0.810869]  #5
+[    0.821198] Initializing CPU#5
+[    0.901582]  #6
+[    0.911912] Initializing CPU#6
+[    0.992400]  #7 Ok.
+[    1.002729] Initializing CPU#7
+[    1.083066] Brought up 8 CPUs
+[    1.083068] Total of 8 processors activated (54269.40 BogoMIPS).
+[    1.087252] sizeof(vma)=88 bytes
+[    1.087253] sizeof(page)=32 bytes
+[    1.087254] sizeof(inode)=352 bytes
+[    1.087255] sizeof(dentry)=132 bytes
+[    1.087256] sizeof(ext3inode)=508 bytes
+[    1.087257] sizeof(buffer_head)=56 bytes
+[    1.087258] sizeof(skbuff)=192 bytes
+[    1.087258] sizeof(task_struct)=3228 bytes
+[    1.087423] devtmpfs: initialized
+[    1.088083] atomic64 test passed for i586+ platform with CX8 and with SSE
+[    1.088144] Time:  8:36:44  Date: 06/04/12
+[    1.088165] NET: Registered protocol family 16
+[    1.088222] ACPI: bus type pci registered
+[    1.088272] PCI: MMCONFIG for domain 0000 [bus 00-ff] at [mem 0xe0000000-0xefffffff] (base 0xe0000000)
+[    1.088274] PCI: not using MMCONFIG
+[    1.103029] PCI: Using configuration type 1 for base access
+[    1.103741] bio: create slab <bio-0> at 0
+[    1.104613] ACPI: EC: Look up EC in DSDT
+[    1.105794] ACPI: Executed 1 blocks of module-level executable AML code
+[    1.112005] ACPI: SSDT bf5ab898 006F4 (v01    AMI      IST 00000001 MSFT 03000001)
+[    1.112317] ACPI: Dynamic OEM Table Load:
+[    1.112319] ACPI: SSDT (null) 006F4 (v01    AMI      IST 00000001 MSFT 03000001)
+[    1.112359] ACPI: SSDT bf5a2d98 000E4 (v01    AMI      CST 00000001 MSFT 03000001)
+[    1.112585] ACPI: Dynamic OEM Table Load:
+[    1.112586] ACPI: SSDT (null) 000E4 (v01    AMI      CST 00000001 MSFT 03000001)
+[    1.113713] ACPI: Interpreter enabled
+[    1.113715] ACPI: (supports S0 S3 S4 S5)
+[    1.113728] ACPI: Using IOAPIC for interrupt routing
+[    1.113763] PCI: MMCONFIG for domain 0000 [bus 00-ff] at [mem 0xe0000000-0xefffffff] (base 0xe0000000)
+[    1.113851] PCI: MMCONFIG at [mem 0xe0000000-0xefffffff] reserved in ACPI motherboard resources
+[    1.113853] PCI: Using MMCONFIG for extended config space
+[    1.114070] ACPI: BIOS _OSI(Linux) query ignored
+[    1.118958] ACPI: No dock devices found.
+[    1.118961] PCI: Ignoring host bridge windows from ACPI; if necessary, use "pci=use_crs" and report a bug
+[    1.119273] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+[    1.119581] pci_root PNP0A08:00: host bridge window [io  0x0000-0x03af] (ignored)
+[    1.119583] pci_root PNP0A08:00: host bridge window [io  0x03e0-0x0cf7] (ignored)
+[    1.119584] pci_root PNP0A08:00: host bridge window [io  0x03b0-0x03df] (ignored)
+[    1.119585] pci_root PNP0A08:00: host bridge window [io  0x0d00-0xffff] (ignored)
+[    1.119587] pci_root PNP0A08:00: host bridge window [mem 0x000a0000-0x000bffff] (ignored)
+[    1.119588] pci_root PNP0A08:00: host bridge window [mem 0x000c0000-0x000dffff] (ignored)
+[    1.119590] pci_root PNP0A08:00: host bridge window [mem 0xf0000000-0xffffffff] (ignored)
+[    1.119635] pci 0000:00:01.0: PME# supported from D0 D3hot D3cold
+[    1.119637] pci 0000:00:01.0: PME# disabled
+[    1.119698] pci 0000:00:16.0: reg 10: [mem 0xfb12a000-0xfb12a00f 64bit]
+[    1.119744] pci 0000:00:16.0: PME# supported from D0 D3hot D3cold
+[    1.119750] pci 0000:00:16.0: PME# disabled
+[    1.119787] pci 0000:00:16.3: reg 10: [io  0xf0a0-0xf0a7]
+[    1.119794] pci 0000:00:16.3: reg 14: [mem 0xfb129000-0xfb129fff]
+[    1.119881] pci 0000:00:19.0: reg 10: [mem 0xfb100000-0xfb11ffff]
+[    1.119888] pci 0000:00:19.0: reg 14: [mem 0xfb128000-0xfb128fff]
+[    1.119894] pci 0000:00:19.0: reg 18: [io  0xf040-0xf05f]
+[    1.119931] pci 0000:00:19.0: PME# supported from D0 D3hot D3cold
+[    1.119937] pci 0000:00:19.0: PME# disabled
+[    1.119978] pci 0000:00:1a.0: reg 10: [mem 0xfb127000-0xfb1273ff]
+[    1.120030] pci 0000:00:1a.0: PME# supported from D0 D3hot D3cold
+[    1.120036] pci 0000:00:1a.0: PME# disabled
+[    1.120069] pci 0000:00:1b.0: reg 10: [mem 0xfb120000-0xfb123fff 64bit]
+[    1.120109] pci 0000:00:1b.0: PME# supported from D0 D3hot D3cold
+[    1.120114] pci 0000:00:1b.0: PME# disabled
+[    1.120155] pci 0000:00:1d.0: reg 10: [mem 0xfb126000-0xfb1263ff]
+[    1.120207] pci 0000:00:1d.0: PME# supported from D0 D3hot D3cold
+[    1.120213] pci 0000:00:1d.0: PME# disabled
+[    1.120426] pci 0000:00:1f.2: reg 10: [io  0xf090-0xf097]
+[    1.120433] pci 0000:00:1f.2: reg 14: [io  0xf080-0xf083]
+[    1.120439] pci 0000:00:1f.2: reg 18: [io  0xf070-0xf077]
+[    1.120446] pci 0000:00:1f.2: reg 1c: [io  0xf060-0xf063]
+[    1.120452] pci 0000:00:1f.2: reg 20: [io  0xf020-0xf03f]
+[    1.120459] pci 0000:00:1f.2: reg 24: [mem 0xfb125000-0xfb1257ff]
+[    1.120489] pci 0000:00:1f.2: PME# supported from D3hot
+[    1.120495] pci 0000:00:1f.2: PME# disabled
+[    1.120525] pci 0000:00:1f.3: reg 10: [mem 0xfb124000-0xfb1240ff 64bit]
+[    1.120538] pci 0000:00:1f.3: reg 20: [io  0xf000-0xf01f]
+[    1.120585] pci 0000:01:00.0: reg 10: [mem 0xfa000000-0xfaffffff]
+[    1.120592] pci 0000:01:00.0: reg 14: [mem 0xf0000000-0xf7ffffff 64bit pref]
+[    1.120598] pci 0000:01:00.0: reg 1c: [mem 0xf8000000-0xf9ffffff 64bit pref]
+[    1.120602] pci 0000:01:00.0: reg 24: [io  0xe000-0xe07f]
+[    1.120606] pci 0000:01:00.0: reg 30: [mem 0xfb000000-0xfb07ffff pref]
+[    1.120644] pci 0000:01:00.1: reg 10: [mem 0xfb080000-0xfb083fff]
+[    1.121849] pci 0000:00:01.0: PCI bridge to [bus 01-01]
+[    1.121852] pci 0000:00:01.0:   bridge window [io  0xe000-0xefff]
+[    1.121856] pci 0000:00:01.0:   bridge window [mem 0xfa000000-0xfb0fffff]
+[    1.121861] pci 0000:00:01.0:   bridge window [mem 0xf0000000-0xf9ffffff 64bit pref]
+[    1.121958] pci 0000:00:1e.0: PCI bridge to [bus 02-02] (subtractive decode)
+[    1.121964] pci 0000:00:1e.0:   bridge window [io  0xf000-0x0000] (disabled)
+[    1.121969] pci 0000:00:1e.0:   bridge window [mem 0xfff00000-0x000fffff] (disabled)
+[    1.121977] pci 0000:00:1e.0:   bridge window [mem 0xfff00000-0x000fffff pref] (disabled)
+[    1.121978] pci 0000:00:1e.0:   bridge window [io  0x0000-0xffff] (subtractive decode)
+[    1.121980] pci 0000:00:1e.0:   bridge window [mem 0x00000000-0xffffffff] (subtractive decode)
+[    1.121992] pci_bus 0000:00: on NUMA node 0
+[    1.121995] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0._PRT]
+[    1.122099] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.P0P1._PRT]
+[    1.122151] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.BR20._PRT]
+[    1.125137] ACPI: PCI Interrupt Link [LNKA] (IRQs 3 4 5 6 7 10 *11 12 14 15)
+[    1.125218] ACPI: PCI Interrupt Link [LNKB] (IRQs 3 4 5 6 7 *10 11 12 14 15)
+[    1.125300] ACPI: PCI Interrupt Link [LNKC] (IRQs 3 4 *5 6 10 11 12 14 15)
+[    1.125377] ACPI: PCI Interrupt Link [LNKD] (IRQs 3 4 5 6 *10 11 12 14 15)
+[    1.125454] ACPI: PCI Interrupt Link [LNKE] (IRQs *3 4 5 6 7 10 11 12 14 15)
+[    1.125533] ACPI: PCI Interrupt Link [LNKF] (IRQs 3 4 5 6 7 10 11 12 14 15) *0
+[    1.125609] ACPI: PCI Interrupt Link [LNKG] (IRQs 3 4 5 6 *7 10 11 12 14 15)
+[    1.125686] ACPI: PCI Interrupt Link [LNKH] (IRQs 3 4 5 6 7 10 *11 12 14 15)
+[    1.125722] HEST: Table is not found!
+[    1.125757] vgaarb: device added: PCI:0000:01:00.0,decodes=io+mem,owns=io+mem,locks=none
+[    1.125759] vgaarb: loaded
+[    1.125812] SCSI subsystem initialized
+[    1.125895] libata version 3.00 loaded.
+[    1.125925] usbcore: registered new interface driver usbfs
+[    1.125933] usbcore: registered new interface driver hub
+[    1.125946] usbcore: registered new device driver usb
+[    1.125981] PCI: Using ACPI for IRQ routing
+[    1.125982] PCI: pci_cache_line_size set to 64 bytes
+[    1.126066] reserve RAM buffer: 000000000009d800 - 000000000009ffff 
+[    1.126068] reserve RAM buffer: 00000000bf4e8000 - 00000000bfffffff 
+[    1.126070] reserve RAM buffer: 00000000bf563000 - 00000000bfffffff 
+[    1.126072] reserve RAM buffer: 00000000bf800000 - 00000000bfffffff 
+[    1.126124] NetLabel: Initializing
+[    1.126125] NetLabel:  domain hash size = 128
+[    1.126126] NetLabel:  protocols = UNLABELED CIPSOv4
+[    1.126133] NetLabel:  unlabeled traffic allowed by default
+[    1.126145] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0, 0, 0, 0, 0, 0
+[    1.126148] hpet0: 8 comparators, 64-bit 14.318180 MHz counter
+[    1.128162] Switching to clocksource tsc
+[    1.134486] pnp: PnP ACPI init
+[    1.134492] ACPI: bus type pnp registered
+[    1.136640] pnp: PnP ACPI: found 13 devices
+[    1.136641] ACPI: ACPI bus type pnp unregistered
+[    1.136647] system 00:01: [mem 0xfed10000-0xfed19fff] has been reserved
+[    1.136649] system 00:01: [mem 0xe0000000-0xefffffff] has been reserved
+[    1.136650] system 00:01: [mem 0xfed90000-0xfed93fff] has been reserved
+[    1.136652] system 00:01: [mem 0xfed20000-0xfed3ffff] has been reserved
+[    1.136654] system 00:01: [mem 0xfee00000-0xfee0ffff] has been reserved
+[    1.136657] system 00:02: [io  0x0a00-0x0a3f] has been reserved
+[    1.136660] system 00:08: [io  0x04d0-0x04d1] has been reserved
+[    1.136662] system 00:08: [mem 0xfed40000-0xfed44fff] has been reserved
+[    1.136665] system 00:0a: [io  0x0400-0x0453] has been reserved
+[    1.136666] system 00:0a: [io  0x0458-0x047f] has been reserved
+[    1.136668] system 00:0a: [io  0x1180-0x119f] has been reserved
+[    1.136669] system 00:0a: [io  0x0500-0x057f] has been reserved
+[    1.136671] system 00:0a: [mem 0xfed1c000-0xfed1ffff] has been reserved
+[    1.136672] system 00:0a: [mem 0xfec00000-0xfecfffff] could not be reserved
+[    1.136674] system 00:0a: [mem 0xfed08000-0xfed08fff] has been reserved
+[    1.136676] system 00:0a: [mem 0xff000000-0xffffffff] has been reserved
+[    1.136678] system 00:0b: [io  0x0454-0x0457] has been reserved
+[    1.172008] pci 0000:00:01.0: PCI bridge to [bus 01-01]
+[    1.172010] pci 0000:00:01.0:   bridge window [io  0xe000-0xefff]
+[    1.172012] pci 0000:00:01.0:   bridge window [mem 0xfa000000-0xfb0fffff]
+[    1.172015] pci 0000:00:01.0:   bridge window [mem 0xf0000000-0xf9ffffff 64bit pref]
+[    1.172017] pci 0000:00:1e.0: PCI bridge to [bus 02-02]
+[    1.172018] pci 0000:00:1e.0:   bridge window [io  disabled]
+[    1.172025] pci 0000:00:1e.0:   bridge window [mem disabled]
+[    1.172030] pci 0000:00:1e.0:   bridge window [mem pref disabled]
+[    1.172041] pci 0000:00:01.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[    1.172043] pci 0000:00:01.0: setting latency timer to 64
+[    1.172049] pci 0000:00:1e.0: setting latency timer to 64
+[    1.172054] pci_bus 0000:00: resource 0 [io  0x0000-0xffff]
+[    1.172055] pci_bus 0000:00: resource 1 [mem 0x00000000-0xffffffff]
+[    1.172057] pci_bus 0000:01: resource 0 [io  0xe000-0xefff]
+[    1.172058] pci_bus 0000:01: resource 1 [mem 0xfa000000-0xfb0fffff]
+[    1.172059] pci_bus 0000:01: resource 2 [mem 0xf0000000-0xf9ffffff 64bit pref]
+[    1.172061] pci_bus 0000:02: resource 4 [io  0x0000-0xffff]
+[    1.172062] pci_bus 0000:02: resource 5 [mem 0x00000000-0xffffffff]
+[    1.172074] NET: Registered protocol family 2
+[    1.172091] IP route cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    1.172134] TCP established hash table entries: 131072 (order: 8, 1048576 bytes)
+[    1.172277] TCP bind hash table entries: 65536 (order: 7, 524288 bytes)
+[    1.172347] TCP: Hash tables configured (established 131072 bind 65536)
+[    1.172348] TCP reno registered
+[    1.172350] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    1.172354] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    1.172399] NET: Registered protocol family 1
+[    1.172485] pci 0000:01:00.0: Boot video device
+[    1.172493] PCI: CLS 64 bytes, default 64
+[    1.172520] Trying to unpack rootfs image as initramfs...
+[    1.381318] Freeing initrd memory: 12588k freed
+[    1.383087] apm: BIOS not found.
+[    1.383161] audit: initializing netlink socket (disabled)
+[    1.383168] type=2000 audit(1338799003.820:1): initialized
+[    1.389985] highmem bounce pool size: 64 pages
+[    1.389988] HugeTLB registered 4 MB page size, pre-allocated 0 pages
+[    1.390840] VFS: Disk quotas dquot_6.5.2
+[    1.390870] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    1.391129] msgmni has been set to 1662
+[    1.391162] SELinux:  Registering netfilter hooks
+[    1.391373] alg: No test for stdrng (krng)
+[    1.391402] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    1.391404] io scheduler noop registered
+[    1.391405] io scheduler deadline registered
+[    1.391411] io scheduler cfq registered (default)
+[    1.391494] pcieport 0000:00:01.0: setting latency timer to 64
+[    1.391510] pcieport 0000:00:01.0: irq 40 for MSI/MSI-X
+[    1.391551] pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+[    1.391562] pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+[    1.391564] acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+[    1.391717] pci-stub: invalid id string ""
+[    1.391763] intel_idle: MWAIT substates: 0x1120
+[    1.391764] intel_idle: does not run on family 6 model 42
+[    1.391816] input: Power Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input0
+[    1.391826] ACPI: Power Button [PWRB]
+[    1.391854] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input1
+[    1.391856] ACPI: Power Button [PWRF]
+[    1.391999] ACPI: acpi_idle registered with cpuidle
+[    1.392296] Monitor-Mwait will be used to enter C-2 state
+[    1.392310] Monitor-Mwait will be used to enter C-3 state
+[    1.396553] ERST: Table is not found!
+[    1.396560] isapnp: Scanning for PnP cards...
+[    1.756365] isapnp: No Plug & Play device found
+[    1.756523] Non-volatile memory driver v1.3
+[    1.756524] Linux agpgart interface v0.103
+[    1.756624] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    1.999870] serial8250: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    2.000189] 00:03: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    2.000277] serial 0000:00:16.3: PCI INT B -> GSI 17 (level, low) -> IRQ 17
+[    2.000339] 0000:00:16.3: ttyS1 at I/O 0xf0a0 (irq = 17) is a 16550A
+[    2.000998] brd: module loaded
+[    2.001317] loop: module loaded
+[    2.001352] ahci 0000:00:1f.2: version 3.0
+[    2.001363] ahci 0000:00:1f.2: PCI INT B -> GSI 19 (level, low) -> IRQ 19
+[    2.001390] ahci 0000:00:1f.2: irq 41 for MSI/MSI-X
+[    2.011522] ahci 0000:00:1f.2: AHCI 0001.0300 32 slots 6 ports 6 Gbps 0xd impl SATA mode
+[    2.011526] ahci 0000:00:1f.2: flags: 64bit ncq sntf pm led clo pio slum part ems sxs apst 
+[    2.011537] ahci 0000:00:1f.2: setting latency timer to 64
+[    2.015538] scsi0 : ahci
+[    2.015593] scsi1 : ahci
+[    2.015623] scsi2 : ahci
+[    2.015653] scsi3 : ahci
+[    2.015685] scsi4 : ahci
+[    2.015715] scsi5 : ahci
+[    2.015819] ata1: SATA max UDMA/133 abar m2048@0xfb125000 port 0xfb125100 irq 41
+[    2.015821] ata2: DUMMY
+[    2.015825] ata3: SATA max UDMA/133 abar m2048@0xfb125000 port 0xfb125200 irq 41
+[    2.015829] ata4: SATA max UDMA/133 abar m2048@0xfb125000 port 0xfb125280 irq 41
+[    2.015830] ata5: DUMMY
+[    2.015831] ata6: DUMMY
+[    2.015868] Fixed MDIO Bus: probed
+[    2.015893] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.015907] ehci_hcd 0000:00:1a.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[    2.015917] ehci_hcd 0000:00:1a.0: setting latency timer to 64
+[    2.015922] ehci_hcd 0000:00:1a.0: EHCI Host Controller
+[    2.015947] ehci_hcd 0000:00:1a.0: new USB bus registered, assigned bus number 1
+[    2.015971] ehci_hcd 0000:00:1a.0: debug port 2
+[    2.019838] ehci_hcd 0000:00:1a.0: cache line size of 64 is not supported
+[    2.019862] ehci_hcd 0000:00:1a.0: irq 16, io mem 0xfb127000
+[    2.029443] ehci_hcd 0000:00:1a.0: USB 2.0 started, EHCI 1.00
+[    2.029465] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    2.029468] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.029471] usb usb1: Product: EHCI Host Controller
+[    2.029473] usb usb1: Manufacturer: Linux 2.6.35.6-45.fc14.i686 ehci_hcd
+[    2.029475] usb usb1: SerialNumber: 0000:00:1a.0
+[    2.029558] hub 1-0:1.0: USB hub found
+[    2.029560] hub 1-0:1.0: 3 ports detected
+[    2.029606] ehci_hcd 0000:00:1d.0: PCI INT A -> GSI 23 (level, low) -> IRQ 23
+[    2.029624] ehci_hcd 0000:00:1d.0: setting latency timer to 64
+[    2.029628] ehci_hcd 0000:00:1d.0: EHCI Host Controller
+[    2.029648] ehci_hcd 0000:00:1d.0: new USB bus registered, assigned bus number 2
+[    2.029670] ehci_hcd 0000:00:1d.0: debug port 2
+[    2.033532] ehci_hcd 0000:00:1d.0: cache line size of 64 is not supported
+[    2.033555] ehci_hcd 0000:00:1d.0: irq 23, io mem 0xfb126000
+[    2.042403] ehci_hcd 0000:00:1d.0: USB 2.0 started, EHCI 1.00
+[    2.042421] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
+[    2.042423] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.042426] usb usb2: Product: EHCI Host Controller
+[    2.042428] usb usb2: Manufacturer: Linux 2.6.35.6-45.fc14.i686 ehci_hcd
+[    2.042430] usb usb2: SerialNumber: 0000:00:1d.0
+[    2.042505] hub 2-0:1.0: USB hub found
+[    2.042507] hub 2-0:1.0: 3 ports detected
+[    2.042548] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    2.042555] uhci_hcd: USB Universal Host Controller Interface driver
+[    2.042598] PNP: PS/2 Controller [PNP0303:PS2K] at 0x60,0x64 irq 1
+[    2.042600] PNP: PS/2 appears to have AUX port disabled, if this is incorrect please boot with i8042.nopnp
+[    2.043340] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    2.043364] mice: PS/2 mouse device common for all mice
+[    2.043435] rtc_cmos 00:05: RTC can wake from S4
+[    2.043455] rtc_cmos 00:05: rtc core: registered rtc_cmos as rtc0
+[    2.043507] rtc0: alarms up to one month, y3k, 114 bytes nvram, hpet irqs
+[    2.043561] device-mapper: uevent: version 1.0.3
+[    2.043613] device-mapper: ioctl: 4.19.1-ioctl (2010-10-12) initialised: dm-devel@redhat.com
+[    2.043782] cpuidle: using governor ladder
+[    2.043989] cpuidle: using governor menu
+[    2.044093] usbcore: registered new interface driver hiddev
+[    2.044099] usbcore: registered new interface driver usbhid
+[    2.044100] usbhid: USB HID core driver
+[    2.044113] nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
+[    2.044172] CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Please use
+[    2.044173] nf_conntrack.acct=1 kernel parameter, acct=1 nf_conntrack module option or
+[    2.044174] sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+[    2.044218] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    2.044227] TCP cubic registered
+[    2.044228] Initializing XFRM netlink socket
+[    2.044234] NET: Registered protocol family 17
+[    2.044248] Using IPI No-Shortcut mode
+[    2.044288] PM: Resume from disk failed.
+[    2.044294] registered taskstats version 1
+[    2.044478]   Magic number: 0:726:623
+[    2.044554] rtc_cmos 00:05: setting system clock to 2012-06-04 08:36:45 UTC (1338799005)
+[    2.044588] Initalizing network drop monitor service
+[    2.062866] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input2
+[    2.319601] ata4: SATA link down (SStatus 0 SControl 300)
+[    2.319642] ata3: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+[    2.321595] ata1: SATA link up 6.0 Gbps (SStatus 133 SControl 300)
+[    2.322893] ata1.00: ATA-8: ST31000524AS, JC66, max UDMA/100
+[    2.322897] ata1.00: 1953525168 sectors, multi 16: LBA48 NCQ (depth 31/32)
+[    2.324457] ata1.00: configured for UDMA/100
+[    2.330579] usb 1-1: new high speed USB device using ehci_hcd and address 2
+[    2.334586] ata3.00: ATAPI: MATSHITADVD-RAM SW810, 8.04, max UDMA/100
+[    2.334716] scsi 0:0:0:0: Direct-Access     ATA      ST31000524AS     JC66 PQ: 0 ANSI: 5
+[    2.334809] sd 0:0:0:0: Attached scsi generic sg0 type 0
+[    2.334865] sd 0:0:0:0: [sda] 1953525168 512-byte logical blocks: (1.00 TB/931 GiB)
+[    2.334918] sd 0:0:0:0: [sda] Write Protect is off
+[    2.334920] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[    2.334943] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    2.335060]  sda:
+[    2.347335] ata3.00: configured for UDMA/100
+[    2.357017]  sda1 sda2 sda3 <
+[    2.362160] scsi 2:0:0:0: CD-ROM            MATSHITA DVD-RAM SW810    8.04 PQ: 0 ANSI: 5
+[    2.367412]  sda5sr0: scsi3-mmc drive: 40x/40x writer dvd-ram cd/rw xa/form2 cdda tray
+[    2.373696] Uniform CD-ROM driver Revision: 3.20
+[    2.373779] sr 2:0:0:0: Attached scsi CD-ROM sr0
+[    2.373807] sr 2:0:0:0: Attached scsi generic sg1 type 5
+[    2.381714]  sda6 sda7 sda8 > sda4
+[    2.398017] sd 0:0:0:0: [sda] Attached SCSI disk
+[    2.398087] Freeing unused kernel memory: 544k freed
+[    2.398249] Write protecting the kernel text: 3764k
+[    2.398340] Write protecting the kernel read-only data: 1840k
+[    2.406431] dracut: dracut-006-3.fc14
+[    2.409562] dracut: rd_NO_LUKS: removing cryptoluks activation
+[    2.413503] udev[155]: starting version 161
+[    2.435074] [drm] Initialized drm 1.1.0 20060810
+[    2.445575] usb 1-1: New USB device found, idVendor=8087, idProduct=0024
+[    2.445577] usb 1-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.445715] hub 1-1:1.0: USB hub found
+[    2.445807] hub 1-1:1.0: 6 ports detected
+[    2.450506] nouveau 0000:01:00.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+[    2.450510] nouveau 0000:01:00.0: setting latency timer to 64
+[    2.451796] [drm] nouveau 0000:01:00.0: Detected an NVc0 generation card (0x0c1100a1)
+[    2.454289] [drm] nouveau 0000:01:00.0: Attempting to load BIOS image from PRAMIN
+[    2.514477] [drm] nouveau 0000:01:00.0: ... appears to be valid
+[    2.514479] [drm] nouveau 0000:01:00.0: BIT BIOS found
+[    2.514481] [drm] nouveau 0000:01:00.0: Bios version 70.08.3d.00
+[    2.514482] [drm] nouveau 0000:01:00.0: Pointer to BIT loadval table invalid
+[    2.514576] [drm] nouveau 0000:01:00.0: TMDS table version 2.0
+[    2.514578] [drm] nouveau 0000:01:00.0: Found Display Configuration Block version 4.0
+[    2.514579] [drm] nouveau 0000:01:00.0: Raw DCB entry 0: 02000300 00000000
+[    2.514581] [drm] nouveau 0000:01:00.0: Raw DCB entry 1: 08011392 00020020
+[    2.514583] [drm] nouveau 0000:01:00.0: Raw DCB entry 2: 0000000e 00000000
+[    2.514584] [drm] nouveau 0000:01:00.0: DCB connector table: VHER 0x40 5 16 4
+[    2.514586] [drm] nouveau 0000:01:00.0:   0: 0x00000000: type 0x00 idx 0 tag 0xff
+[    2.514588] [drm] nouveau 0000:01:00.0:   1: 0x00002161: type 0x61 idx 1 tag 0x08
+[    2.514591] [drm] nouveau 0000:01:00.0: Parsing VBIOS init table 0 at offset 0x6C54
+[    2.534693] [drm] nouveau 0000:01:00.0: Parsing VBIOS init table 1 at offset 0x72A3
+[    2.544893] [drm] nouveau 0000:01:00.0: Parsing VBIOS init table 2 at offset 0x84A9
+[    2.544899] [drm] nouveau 0000:01:00.0: Parsing VBIOS init table 3 at offset 0x84AD
+[    2.544958] [drm] nouveau 0000:01:00.0: Parsing VBIOS init table 4 at offset 0x8595
+[    2.544960] [drm] nouveau 0000:01:00.0: Parsing VBIOS init table at offset 0x85FA
+[    2.548870] usb 2-1: new high speed USB device using ehci_hcd and address 2
+[    2.565850] [drm] nouveau 0000:01:00.0: 0x6B8D: Condition still not met after 20ms, skipping following opcodes
+[    2.565871] [drm] nouveau 0000:01:00.0: Detected 512MiB VRAM
+[    2.565972] [TTM] Zone  kernel: Available graphics memory: 425840 kiB.
+[    2.565974] [TTM] Zone highmem: Available graphics memory: 1543436 kiB.
+[    2.565975] [TTM] Initializing pool allocator.
+[    2.597042] [drm] nouveau 0000:01:00.0: 512 MiB GART (aperture)
+[    2.661967] usb 2-1: New USB device found, idVendor=8087, idProduct=0024
+[    2.661970] usb 2-1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.662219] hub 2-1:1.0: USB hub found
+[    2.662309] hub 2-1:1.0: 8 ports detected
+[    2.727416] usb 1-1.4: new low speed USB device using ehci_hcd and address 3
+[    2.742009] [drm] nouveau 0000:01:00.0: allocated 1680x1050 fb: 0x153000, bo f6285e00
+[    2.742037] fbcon: nouveaufb (fb0) is primary device
+[    2.754875] Console: switching to colour frame buffer device 210x65
+[    2.758207] fb0: nouveaufb frame buffer device
+[    2.758208] drm: registered panic notifier
+[    2.758210] Slow work thread pool: Starting up
+[    2.758289] Slow work thread pool: Ready
+[    2.758294] [drm] Initialized nouveau 0.0.16 20090420 for 0000:01:00.0 on minor 0
+[    2.773457] dracut: Starting plymouth daemon
+[    2.806273] usb 1-1.4: New USB device found, idVendor=17ef, idProduct=6019
+[    2.806277] usb 1-1.4: New USB device strings: Mfr=0, Product=2, SerialNumber=0
+[    2.806279] usb 1-1.4: Product: Lenovo Optical USB Mouse
+[    2.809994] input: Lenovo Optical USB Mouse as /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.4/1-1.4:1.0/input/input3
+[    2.810065] generic-usb 0003:17EF:6019.0001: input,hidraw0: USB HID v1.11 Mouse [Lenovo Optical USB Mouse] on usb-0000:00:1a.0-1.4/input0
+[    2.933970] dracut: rd_NO_DM: removing DM RAID activation
+[    2.934904] dracut: rd_NO_MD: removing MD RAID activation
+[    3.559995] dracut: Scanning devices sda8  for LVM logical volumes vg_yaomoon/LogVol01 vg_yaomoon/LogVol00 
+[    3.578824] dracut: inactive '/dev/vg_yaomoon/LogVol01' [48.84 GiB] inherit
+[    3.578872] dracut: inactive '/dev/vg_yaomoon/LogVol00' [1.00 GiB] inherit
+[    3.578918] dracut: inactive '/dev/vg_yaomoon/LogVol02' [649.66 GiB] inherit
+[    3.821748] EXT4-fs (dm-0): mounted filesystem with ordered data mode. Opts: (null)
+[    3.884758] dracut: Mounted root filesystem /dev/mapper/vg_yaomoon-LogVol01
+[    3.994502] dracut: Loading SELinux policy
+[    4.172739] type=1404 audit(1338799007.633:2): enforcing=1 old_enforcing=0 auid=4294967295 ses=4294967295
+[    4.235884] SELinux: 2048 avtab hash slots, 204976 rules.
+[    4.281284] SELinux: 2048 avtab hash slots, 204976 rules.
+[    4.412145] SELinux:  9 users, 14 roles, 3433 types, 179 bools, 1 sens, 1024 cats
+[    4.412147] SELinux:  77 classes, 204976 rules
+[    4.415284] SELinux:  Completing initialization.
+[    4.415285] SELinux:  Setting up existing superblocks.
+[    4.415289] SELinux: initialized (dev sysfs, type sysfs), uses genfs_contexts
+[    4.415293] SELinux: initialized (dev rootfs, type rootfs), uses genfs_contexts
+[    4.415427] SELinux: initialized (dev bdev, type bdev), uses genfs_contexts
+[    4.415431] SELinux: initialized (dev proc, type proc), uses genfs_contexts
+[    4.415435] SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+[    4.415442] SELinux: initialized (dev devtmpfs, type devtmpfs), uses transition SIDs
+[    4.415991] SELinux: initialized (dev sockfs, type sockfs), uses task SIDs
+[    4.415993] SELinux: initialized (dev debugfs, type debugfs), uses genfs_contexts
+[    4.416372] SELinux: initialized (dev pipefs, type pipefs), uses task SIDs
+[    4.416375] SELinux: initialized (dev anon_inodefs, type anon_inodefs), uses genfs_contexts
+[    4.416377] SELinux: initialized (dev devpts, type devpts), uses transition SIDs
+[    4.416388] SELinux: initialized (dev hugetlbfs, type hugetlbfs), uses transition SIDs
+[    4.416392] SELinux: initialized (dev mqueue, type mqueue), uses transition SIDs
+[    4.416396] SELinux: initialized (dev selinuxfs, type selinuxfs), uses genfs_contexts
+[    4.416404] SELinux: initialized (dev usbfs, type usbfs), uses genfs_contexts
+[    4.416408] SELinux: initialized (dev sysfs, type sysfs), uses genfs_contexts
+[    4.416597] SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+[    4.416606] SELinux: initialized (dev dm-0, type ext4), uses xattr
+[    4.418550] type=1403 audit(1338799007.881:3): policy loaded auid=4294967295 ses=4294967295
+[    4.685607] dracut: Switching root
+[    5.250474] readahead-collector: starting
+[    6.033498] udev[478]: starting version 161
+[    6.578880] microcode: CPU0 sig=0x206a7, pf=0x2, revision=0x25
+[    6.578888] microcode: CPU1 sig=0x206a7, pf=0x2, revision=0x25
+[    6.578896] microcode: CPU2 sig=0x206a7, pf=0x2, revision=0x25
+[    6.578903] microcode: CPU3 sig=0x206a7, pf=0x2, revision=0x25
+[    6.578909] microcode: CPU4 sig=0x206a7, pf=0x2, revision=0x25
+[    6.578916] microcode: CPU5 sig=0x206a7, pf=0x2, revision=0x25
+[    6.578923] microcode: CPU6 sig=0x206a7, pf=0x2, revision=0x25
+[    6.578929] microcode: CPU7 sig=0x206a7, pf=0x2, revision=0x25
+[    6.579092] microcode: Microcode Update Driver: v2.00 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+[    6.658205] ACPI: WMI: Skipping duplicate GUID 05901221-D566-11D1-B2F0-00A0C9062910
+[    6.658315] ACPI: WMI: Mapper loaded
+[    7.021657] iTCO_vendor_support: vendor-support=0
+[    7.071929] i801_smbus 0000:00:1f.3: PCI INT C -> GSI 18 (level, low) -> IRQ 18
+[    7.126909] iTCO_wdt: Intel TCO WatchDog Timer Driver v1.06
+[    7.126966] iTCO_wdt: Found a Cougar Point TCO device (Version=2, TCOBASE=0x0460)
+[    7.127038] iTCO_wdt: initialized. heartbeat=30 sec (nowayout=0)
+[    7.340495] HDA Intel 0000:00:1b.0: PCI INT A -> GSI 22 (level, low) -> IRQ 22
+[    7.340557] HDA Intel 0000:00:1b.0: irq 42 for MSI/MSI-X
+[    7.340587] HDA Intel 0000:00:1b.0: setting latency timer to 64
+[    7.398381] e1000e: Intel(R) PRO/1000 Network Driver - 1.9.5-NAPI
+[    7.398383] e1000e: Copyright(c) 1999 - 2011 Intel Corporation.
+[    7.476417] ALSA sound/pci/hda/patch_realtek.c:1308: SKU: Nid=0x1d sku_cfg=0x4004c601
+[    7.476419] ALSA sound/pci/hda/patch_realtek.c:1310: SKU: port_connectivity=0x1
+[    7.476421] ALSA sound/pci/hda/patch_realtek.c:1311: SKU: enable_pcbeep=0x0
+[    7.476422] ALSA sound/pci/hda/patch_realtek.c:1312: SKU: check_sum=0x00000004
+[    7.476424] ALSA sound/pci/hda/patch_realtek.c:1313: SKU: customization=0x000000c6
+[    7.476425] ALSA sound/pci/hda/patch_realtek.c:1314: SKU: external_amp=0x0
+[    7.476427] ALSA sound/pci/hda/patch_realtek.c:1315: SKU: platform_type=0x0
+[    7.476428] ALSA sound/pci/hda/patch_realtek.c:1316: SKU: swap=0x0
+[    7.476429] ALSA sound/pci/hda/patch_realtek.c:1317: SKU: override=0x1
+[    7.476660] hda_codec: ALC662 rev1: BIOS auto-probing.
+[    7.476663] ALSA sound/pci/hda/hda_codec.c:4435: autoconfig: line_outs=1 (0x14/0x0/0x0/0x0/0x0)
+[    7.476665] ALSA sound/pci/hda/hda_codec.c:4439:    speaker_outs=1 (0x15/0x0/0x0/0x0/0x0)
+[    7.476667] ALSA sound/pci/hda/hda_codec.c:4443:    hp_outs=1 (0x1b/0x0/0x0/0x0/0x0)
+[    7.476668] ALSA sound/pci/hda/hda_codec.c:4444:    mono: mono_out=0x0
+[    7.476670] ALSA sound/pci/hda/hda_codec.c:4455:    inputs: mic=0x18, fmic=0x19, line=0x1a, fline=0x0, cd=0x0, aux=0x0
+[    7.478344] ALSA sound/pci/hda/patch_realtek.c:1358: realtek: No valid SSID, checking pincfg 0x4004c601 for NID 0x1d
+[    7.478346] ALSA sound/pci/hda/patch_realtek.c:1374: realtek: Enabling init ASM_ID=0xc601 CODEC_ID=10ec0662
+[    7.481479] HDA Intel 0000:01:00.1: PCI INT B -> GSI 17 (level, low) -> IRQ 17
+[    7.481482] e1000e 0000:00:19.0: PCI INT A -> GSI 20 (level, low) -> IRQ 20
+[    7.481483] hda_intel: Disable MSI for Nvidia chipset
+[    7.481492] e1000e 0000:00:19.0: setting latency timer to 64
+[    7.481541] HDA Intel 0000:01:00.1: setting latency timer to 64
+[    7.543591] e1000e 0000:00:19.0: irq 43 for MSI/MSI-X
+[    7.695555] e1000e 0000:00:19.0: eth0: (PCI Express:2.5GT/s:Width x1) 44:37:e6:94:a9:21
+[    7.695558] e1000e 0000:00:19.0: eth0: Intel(R) PRO/1000 Network Connection
+[    7.695611] e1000e 0000:00:19.0: eth0: MAC: 11, PHY: 11, PBA No: FFFFFF-0FF
+[    8.068216] audit: name_count maxed, losing inode data: dev=00:05, inode=11179
+[    8.068233] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068239] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068261] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068266] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068280] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068285] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068299] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068303] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068322] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068326] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068371] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.068376] audit: name_count maxed, losing inode data: dev=00:05, inode=10871
+[    8.960916] yaomoon!
+[   10.003056] EXT4-fs (dm-0): re-mounted. Opts: (null)
+[   10.312542] EXT4-fs (sda7): mounted filesystem with ordered data mode. Opts: (null)
+[   10.318591] SELinux: initialized (dev sda7, type ext4), uses xattr
+[   10.365188] EXT4-fs (dm-2): mounted filesystem with ordered data mode. Opts: (null)
+[   10.365193] SELinux: initialized (dev dm-2, type ext4), uses xattr
+[   11.043298] Adding 1048572k swap on /dev/mapper/vg_yaomoon-LogVol00.  Priority:-1 extents:1 across:1048572k 
+[   11.044684] SELinux: initialized (dev binfmt_misc, type binfmt_misc), uses genfs_contexts
+[   11.309147] readahead-disable-service: delaying service auditd
+[   13.835966] NET: Registered protocol family 10
+[   13.836110] lo: Disabled Privacy Extensions
+[   14.147065] vboxdrv: Found 8 processor cores.
+[   14.147970] vboxdrv: fAsync=0 offMin=0x582 offMax=0x19770
+[   14.148146] vboxdrv: TSC mode is 'synchronous', kernel timer mode is 'normal'.
+[   14.148149] vboxdrv: Successfully loaded version 4.1.12 (interface 0x00190000).
+[   14.373717] vboxpci: IOMMU not found (not registered)
+[   15.878581] e1000e 0000:00:19.0: irq 43 for MSI/MSI-X
+[   15.929355] e1000e 0000:00:19.0: irq 43 for MSI/MSI-X
+[   15.929777] ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   16.194956] RPC: Registered udp transport module.
+[   16.194958] RPC: Registered tcp transport module.
+[   16.194959] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[   16.199289] SELinux: initialized (dev rpc_pipefs, type rpc_pipefs), uses genfs_contexts
+[   17.504488] e1000e: eth0 NIC Link is Up 100 Mbps Full Duplex, Flow Control: None
+[   17.504490] e1000e 0000:00:19.0: eth0: 10/100 speed: disabling TSO
+[   17.504653] ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   17.833904] NET: Registered protocol family 15
+[   18.008285] padlock: VIA PadLock not detected.
+[   18.016027] padlock: VIA PadLock Hash Engine not detected.
+[   18.036497] padlock: VIA PadLock not detected.
+[   18.290636] alg: No test for cipher_null (cipher_null-generic)
+[   18.290688] alg: No test for ecb(cipher_null) (ecb-cipher_null)
+[   18.290734] alg: No test for digest_null (digest_null-generic)
+[   18.290782] alg: No test for compress_null (compress_null-generic)
+[   27.061302] hda-intel: IRQ timing workaround is activated for card #1. Suggest a bigger bdl_pos_adj.
+[   28.305563] eth0: no IPv6 routers present
+[   30.029082] readahead-collector: starting delayed service auditd
+[   30.282504] readahead-collector: sorting
+[   30.412358] readahead-collector: finished
+[   34.861717] fuse init (API version 7.14)
+[   34.876131] SELinux: initialized (dev fusectl, type fusectl), uses genfs_contexts
+[   34.921250] SELinux: initialized (dev fuse, type fuse), uses genfs_contexts
+[  881.736771] npviewer.bin[3108]: segfault at 218 ip 01126af6 sp bfe4a018 error 6 in libflashplayer.so[dfa000+fc8000]
+[ 1397.807151] usb 2-1.3: new high speed USB device using ehci_hcd and address 3
+[ 1406.668500] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 1416.430522] usb 2-1.3: new high speed USB device using ehci_hcd and address 4
+[ 1418.150587] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 1428.874620] usb 2-1.3: new high speed USB device using ehci_hcd and address 5
+[ 1428.973043] usb 2-1.3: no configurations
+[ 1428.973047] usb 2-1.3: can't read configurations, error -22
+[ 1429.046109] usb 2-1.3: new high speed USB device using ehci_hcd and address 6
+[ 1429.135844] usb 2-1.3: no configurations
+[ 1429.135849] usb 2-1.3: can't read configurations, error -22
+[ 1429.209636] usb 2-1.3: new high speed USB device using ehci_hcd and address 7
+[ 1429.228474] usb 2-1.3: no configurations
+[ 1429.228479] usb 2-1.3: can't read configurations, error -22
+[ 1429.302378] usb 2-1.3: new high speed USB device using ehci_hcd and address 8
+[ 1429.355857] usb 2-1.3: no configurations
+[ 1429.355863] usb 2-1.3: can't read configurations, error -22
+[ 1429.356174] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 1431.621368] usb 2-1.3: new high speed USB device using ehci_hcd and address 9
+[ 1431.722955] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[ 1431.722960] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[ 1431.722963] usb 2-1.3: Product: VertexF_PRM
+[ 1431.722966] usb 2-1.3: Manufacturer: htc
+[ 1431.722967] usb 2-1.3: SerialNumber: 123456789012
+[ 1493.704895] usb 2-1.3: USB disconnect, address 9
+[ 1501.426051] usb 2-1.3: new high speed USB device using ehci_hcd and address 10
+[ 1503.504931] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 1514.340776] usb 2-1.3: new high speed USB device using ehci_hcd and address 11
+[ 1514.430395] usb 2-1.3: no configurations
+[ 1514.430401] usb 2-1.3: can't read configurations, error -22
+[ 1514.504159] usb 2-1.3: new high speed USB device using ehci_hcd and address 12
+[ 1514.597900] usb 2-1.3: no configurations
+[ 1514.597905] usb 2-1.3: can't read configurations, error -22
+[ 1514.671684] usb 2-1.3: new high speed USB device using ehci_hcd and address 13
+[ 1514.690521] usb 2-1.3: no configurations
+[ 1514.690527] usb 2-1.3: can't read configurations, error -22
+[ 1514.764438] usb 2-1.3: new high speed USB device using ehci_hcd and address 14
+[ 1514.783380] usb 2-1.3: no configurations
+[ 1514.783385] usb 2-1.3: can't read configurations, error -22
+[ 1514.784313] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 1519.131157] usb 2-1.3: new high speed USB device using ehci_hcd and address 15
+[ 1519.232751] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[ 1519.232756] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[ 1519.232759] usb 2-1.3: Product: VertexF_PRM
+[ 1519.232761] usb 2-1.3: Manufacturer: htc
+[ 1519.232763] usb 2-1.3: SerialNumber: 123456789012
+[ 1519.290060] Initializing USB Mass Storage driver...
+[ 1519.291374] scsi6 : usb-storage 2-1.3:1.0
+[ 1519.291551] usbcore: registered new interface driver usb-storage
+[ 1519.291555] USB Mass Storage support registered.
+[ 1520.294364] scsi 6:0:0:0: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[ 1520.297361] scsi 6:0:0:1: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[ 1520.298376] sd 6:0:0:0: Attached scsi generic sg2 type 0
+[ 1520.298756] sd 6:0:0:1: Attached scsi generic sg3 type 0
+[ 1520.312507] sd 6:0:0:0: [sdb] Attached SCSI removable disk
+[ 1520.315510] sd 6:0:0:1: [sdc] Attached SCSI removable disk
+[ 1843.640013] usb 2-1.3: USB disconnect, address 15
+[ 1851.219055] usb 2-1.3: new high speed USB device using ehci_hcd and address 16
+[ 1852.652941] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 1864.747897] usb 2-1.3: new high speed USB device using ehci_hcd and address 17
+[ 1864.837536] usb 2-1.3: no configurations
+[ 1864.837541] usb 2-1.3: can't read configurations, error -22
+[ 1864.911453] usb 2-1.3: new high speed USB device using ehci_hcd and address 18
+[ 1865.005053] usb 2-1.3: no configurations
+[ 1865.005058] usb 2-1.3: can't read configurations, error -22
+[ 1865.078832] usb 2-1.3: new high speed USB device using ehci_hcd and address 19
+[ 1865.116360] usb 2-1.3: no configurations
+[ 1865.116365] usb 2-1.3: can't read configurations, error -22
+[ 1865.189504] usb 2-1.3: new high speed USB device using ehci_hcd and address 20
+[ 1865.239499] usb 2-1.3: no configurations
+[ 1865.239505] usb 2-1.3: can't read configurations, error -22
+[ 1865.240367] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 1867.301079] usb 2-1.3: new high speed USB device using ehci_hcd and address 21
+[ 1867.406766] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[ 1867.406771] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[ 1867.406775] usb 2-1.3: Product: VertexF_PRM
+[ 1867.406777] usb 2-1.3: Manufacturer: htc
+[ 1867.406779] usb 2-1.3: SerialNumber: 123456789012
+[ 2480.024096] usb 2-1.3: USB disconnect, address 21
+[ 2496.792566] usb 2-1.3: new high speed USB device using ehci_hcd and address 22
+[ 2496.877909] usb 2-1.3: New USB device found, idVendor=04e8, idProduct=685e
+[ 2496.877914] usb 2-1.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[ 2496.877917] usb 2-1.3: Product: Android
+[ 2496.877919] usb 2-1.3: Manufacturer: Marvell
+[ 2496.877921] usb 2-1.3: SerialNumber: 0123456789ABCDEF
+[ 2496.882933] scsi7 : usb-storage 2-1.3:1.3
+[ 2496.940779] cdc_acm 2-1.3:1.0: This device cannot do calls on its own. It is not a modem.
+[ 2496.940794] usbcore: registered new interface driver cdc_acm
+[ 2496.940803] cdc_acm: v0.26:USB Abstract Control Model driver for USB modems and ISDN adapters
+[ 2497.881055] scsi 7:0:0:0: Direct-Access     Marvell  Android          0100 PQ: 0 ANSI: 2
+[ 2497.881716] sd 7:0:0:0: Attached scsi generic sg2 type 0
+[ 2497.889286] sd 7:0:0:0: [sdb] Attached SCSI removable disk
+[ 2556.093809] usb 2-1.3: USB disconnect, address 22
+[ 2702.283423] usb 2-1.3: new high speed USB device using ehci_hcd and address 23
+[ 2704.001366] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 2714.791324] usb 2-1.3: new high speed USB device using ehci_hcd and address 24
+[ 2714.882926] usb 2-1.3: no configurations
+[ 2714.882932] usb 2-1.3: can't read configurations, error -22
+[ 2714.956847] usb 2-1.3: new high speed USB device using ehci_hcd and address 25
+[ 2715.046486] usb 2-1.3: no configurations
+[ 2715.046491] usb 2-1.3: can't read configurations, error -22
+[ 2715.120376] usb 2-1.3: new high speed USB device using ehci_hcd and address 26
+[ 2715.167016] usb 2-1.3: no configurations
+[ 2715.167021] usb 2-1.3: can't read configurations, error -22
+[ 2715.240929] usb 2-1.3: new high speed USB device using ehci_hcd and address 27
+[ 2715.284654] usb 2-1.3: no configurations
+[ 2715.284659] usb 2-1.3: can't read configurations, error -22
+[ 2715.285744] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 2717.599769] usb 2-1.3: new high speed USB device using ehci_hcd and address 28
+[ 2717.745970] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[ 2717.745975] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[ 2717.745978] usb 2-1.3: Product: VertexF_PRM
+[ 2717.745981] usb 2-1.3: Manufacturer: htc
+[ 2717.745983] usb 2-1.3: SerialNumber: 123456789012
+[ 5125.880127] usb 2-1.3: USB disconnect, address 28
+[ 5133.714822] usb 2-1.3: new high speed USB device using ehci_hcd and address 29
+[ 5135.637158] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 5147.243670] usb 2-1.3: new high speed USB device using ehci_hcd and address 30
+[ 5147.333262] usb 2-1.3: no configurations
+[ 5147.333268] usb 2-1.3: can't read configurations, error -22
+[ 5147.407183] usb 2-1.3: new high speed USB device using ehci_hcd and address 31
+[ 5147.496675] usb 2-1.3: no configurations
+[ 5147.496681] usb 2-1.3: can't read configurations, error -22
+[ 5147.570591] usb 2-1.3: new high speed USB device using ehci_hcd and address 32
+[ 5147.590552] usb 2-1.3: no configurations
+[ 5147.590557] usb 2-1.3: can't read configurations, error -22
+[ 5147.664325] usb 2-1.3: new high speed USB device using ehci_hcd and address 33
+[ 5147.680300] usb 2-1.3: no configurations
+[ 5147.680305] usb 2-1.3: can't read configurations, error -22
+[ 5147.681271] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 5152.093877] usb 2-1.3: new high speed USB device using ehci_hcd and address 34
+[ 5152.198710] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[ 5152.198715] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[ 5152.198718] usb 2-1.3: Product: VertexF_PRM
+[ 5152.198720] usb 2-1.3: Manufacturer: htc
+[ 5152.198722] usb 2-1.3: SerialNumber: 123456789012
+[ 5152.212802] scsi8 : usb-storage 2-1.3:1.0
+[ 5153.211819] scsi 8:0:0:0: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[ 5153.213683] scsi 8:0:0:1: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[ 5153.214406] sd 8:0:0:0: Attached scsi generic sg2 type 0
+[ 5153.214795] sd 8:0:0:1: Attached scsi generic sg3 type 0
+[ 5153.231360] sd 8:0:0:0: [sdb] Attached SCSI removable disk
+[ 5153.234382] sd 8:0:0:1: [sdc] Attached SCSI removable disk
+[ 5413.103580] usb 2-1.3: USB disconnect, address 34
+[ 5420.891285] usb 2-1.3: new high speed USB device using ehci_hcd and address 35
+[ 5422.342265] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 5433.909615] usb 2-1.3: new high speed USB device using ehci_hcd and address 36
+[ 5434.000312] usb 2-1.3: no configurations
+[ 5434.000318] usb 2-1.3: can't read configurations, error -22
+[ 5434.075139] usb 2-1.3: new high speed USB device using ehci_hcd and address 37
+[ 5434.158777] usb 2-1.3: no configurations
+[ 5434.158783] usb 2-1.3: can't read configurations, error -22
+[ 5434.232686] usb 2-1.3: new high speed USB device using ehci_hcd and address 38
+[ 5434.255492] usb 2-1.3: no configurations
+[ 5434.255497] usb 2-1.3: can't read configurations, error -22
+[ 5434.329409] usb 2-1.3: new high speed USB device using ehci_hcd and address 39
+[ 5434.374279] usb 2-1.3: no configurations
+[ 5434.374285] usb 2-1.3: can't read configurations, error -22
+[ 5434.375241] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 5436.718143] usb 2-1.3: new high speed USB device using ehci_hcd and address 40
+[ 5436.823878] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[ 5436.823884] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[ 5436.823887] usb 2-1.3: Product: VertexF_PRM
+[ 5436.823889] usb 2-1.3: Manufacturer: htc
+[ 5436.823891] usb 2-1.3: SerialNumber: 123456789012
+[ 5758.231145] npviewer.bin[4111]: segfault at 218 ip 01126af6 sp bfb48888 error 6 in libflashplayer.so[dfa000+fc8000]
+[ 5806.171445] npviewer.bin[5595]: segfault at 0 ip 01279131 sp bfa38a20 error 4 in libflashplayer.so[dfa000+fc8000]
+[ 5871.519063] usb 2-1.3: USB disconnect, address 40
+[ 5879.097557] usb 2-1.3: new high speed USB device using ehci_hcd and address 41
+[ 5881.123865] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 5892.117041] usb 2-1.3: new high speed USB device using ehci_hcd and address 42
+[ 5892.210498] usb 2-1.3: no configurations
+[ 5892.210504] usb 2-1.3: can't read configurations, error -22
+[ 5892.284417] usb 2-1.3: new high speed USB device using ehci_hcd and address 43
+[ 5892.374033] usb 2-1.3: no configurations
+[ 5892.374039] usb 2-1.3: can't read configurations, error -22
+[ 5892.447954] usb 2-1.3: new high speed USB device using ehci_hcd and address 44
+[ 5892.466783] usb 2-1.3: no configurations
+[ 5892.466788] usb 2-1.3: can't read configurations, error -22
+[ 5892.540678] usb 2-1.3: new high speed USB device using ehci_hcd and address 45
+[ 5892.559496] usb 2-1.3: no configurations
+[ 5892.559501] usb 2-1.3: can't read configurations, error -22
+[ 5892.560786] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 5896.967244] usb 2-1.3: new high speed USB device using ehci_hcd and address 46
+[ 5897.074924] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[ 5897.074929] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[ 5897.074932] usb 2-1.3: Product: VertexF_PRM
+[ 5897.074935] usb 2-1.3: Manufacturer: htc
+[ 5897.074936] usb 2-1.3: SerialNumber: 123456789012
+[ 5897.084160] scsi9 : usb-storage 2-1.3:1.0
+[ 5898.083069] scsi 9:0:0:0: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[ 5898.085057] scsi 9:0:0:1: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[ 5898.085768] sd 9:0:0:0: Attached scsi generic sg2 type 0
+[ 5898.086242] sd 9:0:0:1: Attached scsi generic sg3 type 0
+[ 5898.105221] sd 9:0:0:0: [sdb] Attached SCSI removable disk
+[ 5898.108210] sd 9:0:0:1: [sdc] Attached SCSI removable disk
+[ 6371.079056] usb 2-1.3: USB disconnect, address 46
+[ 6378.659088] usb 2-1.3: new high speed USB device using ehci_hcd and address 47
+[ 6380.226465] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 6392.698332] usb 2-1.3: new high speed USB device using ehci_hcd and address 48
+[ 6392.783252] usb 2-1.3: no configurations
+[ 6392.783258] usb 2-1.3: can't read configurations, error -22
+[ 6392.856886] usb 2-1.3: new high speed USB device using ehci_hcd and address 49
+[ 6392.942762] usb 2-1.3: no configurations
+[ 6392.942768] usb 2-1.3: can't read configurations, error -22
+[ 6393.016338] usb 2-1.3: new high speed USB device using ehci_hcd and address 50
+[ 6393.039328] usb 2-1.3: no configurations
+[ 6393.039334] usb 2-1.3: can't read configurations, error -22
+[ 6393.102189] usb 2-1.3: new high speed USB device using ehci_hcd and address 51
+[ 6393.126605] usb 2-1.3: no configurations
+[ 6393.126611] usb 2-1.3: can't read configurations, error -22
+[ 6393.126987] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 6395.505802] usb 2-1.3: new high speed USB device using ehci_hcd and address 52
+[ 6395.611490] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[ 6395.611495] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[ 6395.611498] usb 2-1.3: Product: VertexF_PRM
+[ 6395.611500] usb 2-1.3: Manufacturer: htc
+[ 6395.611502] usb 2-1.3: SerialNumber: 123456789012
+[ 6796.056828] npviewer.bin[5853]: segfault at 0 ip 01279131 sp bfe23020 error 4 in libflashplayer.so[dfa000+fc8000]
+[ 7077.661928] usb 2-1.3: USB disconnect, address 52
+[ 7085.240965] usb 2-1.3: new high speed USB device using ehci_hcd and address 53
+[ 7087.168189] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 7098.259300] usb 2-1.3: new high speed USB device using ehci_hcd and address 54
+[ 7098.348980] usb 2-1.3: no configurations
+[ 7098.348987] usb 2-1.3: can't read configurations, error -22
+[ 7098.422815] usb 2-1.3: new high speed USB device using ehci_hcd and address 55
+[ 7098.512427] usb 2-1.3: no configurations
+[ 7098.512432] usb 2-1.3: can't read configurations, error -22
+[ 7098.586217] usb 2-1.3: new high speed USB device using ehci_hcd and address 56
+[ 7098.603183] usb 2-1.3: no configurations
+[ 7098.603188] usb 2-1.3: can't read configurations, error -22
+[ 7098.676955] usb 2-1.3: new high speed USB device using ehci_hcd and address 57
+[ 7098.695865] usb 2-1.3: no configurations
+[ 7098.695871] usb 2-1.3: can't read configurations, error -22
+[ 7098.696882] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 7103.109506] usb 2-1.3: new high speed USB device using ehci_hcd and address 58
+[ 7103.215316] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[ 7103.215321] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[ 7103.215324] usb 2-1.3: Product: VertexF_PRM
+[ 7103.215327] usb 2-1.3: Manufacturer: htc
+[ 7103.215329] usb 2-1.3: SerialNumber: 123456789012
+[ 7103.227855] scsi10 : usb-storage 2-1.3:1.0
+[ 7104.227437] scsi 10:0:0:0: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[ 7104.229344] scsi 10:0:0:1: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[ 7104.230230] sd 10:0:0:0: Attached scsi generic sg2 type 0
+[ 7104.230391] sd 10:0:0:1: Attached scsi generic sg3 type 0
+[ 7104.244338] sd 10:0:0:0: [sdb] Attached SCSI removable disk
+[ 7104.247366] sd 10:0:0:1: [sdc] Attached SCSI removable disk
+[ 7702.303373] usb 2-1.3: USB disconnect, address 58
+[ 7710.129202] usb 2-1.3: new high speed USB device using ehci_hcd and address 59
+[ 7711.534042] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 7724.432575] usb 2-1.3: new high speed USB device using ehci_hcd and address 60
+[ 7724.528678] usb 2-1.3: no configurations
+[ 7724.528681] usb 2-1.3: can't read configurations, error -22
+[ 7724.602090] usb 2-1.3: new high speed USB device using ehci_hcd and address 61
+[ 7724.692711] usb 2-1.3: no configurations
+[ 7724.692715] usb 2-1.3: can't read configurations, error -22
+[ 7724.766620] usb 2-1.3: new high speed USB device using ehci_hcd and address 62
+[ 7724.785440] usb 2-1.3: no configurations
+[ 7724.785444] usb 2-1.3: can't read configurations, error -22
+[ 7724.859350] usb 2-1.3: new high speed USB device using ehci_hcd and address 63
+[ 7724.878175] usb 2-1.3: no configurations
+[ 7724.878179] usb 2-1.3: can't read configurations, error -22
+[ 7724.879476] hub 2-1:1.0: unable to enumerate USB device on port 3
+[ 7727.241059] usb 2-1.3: new high speed USB device using ehci_hcd and address 64
+[ 7727.346748] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[ 7727.346751] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[ 7727.346752] usb 2-1.3: Product: VertexF_PRM
+[ 7727.346753] usb 2-1.3: Manufacturer: htc
+[ 7727.346754] usb 2-1.3: SerialNumber: 123456789012
+[ 9960.923373] ------------[ cut here ]------------
+[ 9960.923381] WARNING: at arch/x86/kernel/apic/ipi.c:109 default_send_IPI_mask_logical+0x2d/0x7c()
+[ 9960.923383] Hardware name: ThinkCentre M8300T
+[ 9960.923384] empty IPI mask
+[ 9960.923385] Modules linked in: cdc_acm usb_storage fuse deflate zlib_deflate ctr camellia cast5 rmd160 crypto_null ccm serpent blowfish twofish twofish_common ecb xcbc cbc sha256_generic sha512_generic des_generic aes_i586 aes_generic ah6 ah4 esp6 esp4 xfrm4_mode_beet xfrm4_tunnel tunnel4 xfrm4_mode_tunnel xfrm4_mode_transport xfrm6_mode_transport xfrm6_mode_ro xfrm6_mode_beet xfrm6_mode_tunnel ipcomp ipcomp6 xfrm_ipcomp xfrm6_tunnel tunnel6 af_key sunrpc vboxpci vboxnetadp vboxnetflt vboxdrv ipv6 cpufreq_ondemand acpi_cpufreq mperf hello uinput snd_hda_codec_nvhdmi snd_hda_codec_realtek e1000e snd_hda_intel iTCO_wdt snd_hda_codec i2c_i801 iTCO_vendor_support snd_hwdep snd_seq snd_seq_device snd_pcm snd_timer snd soundcore snd_page_alloc wmi microcode nouveau ttm drm_kms_helper drm i2c_algo_bit video output i2c_core [last unloaded: scsi_wait_scan]
+[ 9960.923433] Pid: 32247, comm: java Not tainted 2.6.35.6-45.fc14.i686 #1
+[ 9960.923435] Call Trace:
+[ 9960.923440]  [<c043938d>] warn_slowpath_common+0x6a/0x7f
+[ 9960.923443]  [<c041ae63>] ? default_send_IPI_mask_logical+0x2d/0x7c
+[ 9960.923446]  [<c0439415>] warn_slowpath_fmt+0x2b/0x2f
+[ 9960.923448]  [<c041ae63>] default_send_IPI_mask_logical+0x2d/0x7c
+[ 9960.923452]  [<c04195fc>] native_send_call_func_ipi+0x76/0x7c
+[ 9960.923457]  [<c045df0c>] smp_call_function_many+0x15f/0x176
+[ 9960.923461]  [<c04ac918>] ? drain_local_pages+0x0/0x15
+[ 9960.923464]  [<c045df42>] smp_call_function+0x1f/0x23
+[ 9960.923467]  [<c043e3ed>] on_each_cpu+0x14/0x2b
+[ 9960.923469]  [<c04ab4ab>] drain_all_pages+0x19/0x1b
+[ 9960.923471]  [<c04ad537>] __alloc_pages_nodemask+0x455/0x5ad
+[ 9960.923476]  [<c04ba727>] alloc_zeroed_user_highpage_movable.clone.51+0x1b/0x1d
+[ 9960.923479]  [<c04bcda9>] handle_mm_fault+0x2c4/0x999
+[ 9960.923482]  [<c042a21b>] ? need_resched+0x19/0x23
+[ 9960.923485]  [<c07a9dff>] do_page_fault+0x25f/0x275
+[ 9960.923488]  [<c07a9ba0>] ? do_page_fault+0x0/0x275
+[ 9960.923490]  [<c07a7a77>] error_code+0x73/0x78
+[ 9960.923493]  [<c07a0000>] ? ppro_with_ram_bug+0x2/0x39
+[ 9960.923495] ---[ end trace 4fca0de81bc720d1 ]---
+[10358.335193] java invoked oom-killer: gfp_mask=0x201da, order=0, oom_adj=0
+[10358.335195] java cpuset=/ mems_allowed=0
+[10358.335197] Pid: 21139, comm: java Tainted: G        W   2.6.35.6-45.fc14.i686 #1
+[10358.335199] Call Trace:
+[10358.335205]  [<c04aa43c>] dump_header+0x53/0x168
+[10358.335208]  [<c05b2e8b>] ? ___ratelimit+0xc8/0xdd
+[10358.335210]  [<c04aa586>] oom_kill_process+0x35/0x10f
+[10358.335212]  [<c04aa9b3>] __out_of_memory+0x7e/0x8d
+[10358.335213]  [<c04aac03>] out_of_memory+0x7d/0xa2
+[10358.335215]  [<c04ad5b3>] __alloc_pages_nodemask+0x4d1/0x5ad
+[10358.335218]  [<c04ae9f8>] __do_page_cache_readahead+0x9f/0x156
+[10358.335220]  [<c04aec90>] ra_submit+0x1c/0x21
+[10358.335222]  [<c04a8f29>] filemap_fault+0x161/0x2cd
+[10358.335224]  [<c04ba229>] __do_fault+0x3e/0x37b
+[10358.335226]  [<c04bcf59>] handle_mm_fault+0x474/0x999
+[10358.335229]  [<c07a7805>] ? apic_timer_interrupt+0x31/0x38
+[10358.335231]  [<c042a21b>] ? need_resched+0x19/0x23
+[10358.335233]  [<c07a9dff>] do_page_fault+0x25f/0x275
+[10358.335235]  [<c07a9ba0>] ? do_page_fault+0x0/0x275
+[10358.335237]  [<c07a7a77>] error_code+0x73/0x78
+[10358.335240]  [<c07a0000>] ? ppro_with_ram_bug+0x2/0x39
+[10358.335241] Mem-Info:
+[10358.335242] DMA per-cpu:
+[10358.335244] CPU    0: hi:    0, btch:   1 usd:   0
+[10358.335245] CPU    1: hi:    0, btch:   1 usd:   0
+[10358.335247] CPU    2: hi:    0, btch:   1 usd:   0
+[10358.335249] CPU    3: hi:    0, btch:   1 usd:   0
+[10358.335250] CPU    4: hi:    0, btch:   1 usd:   0
+[10358.335251] CPU    5: hi:    0, btch:   1 usd:   0
+[10358.335252] CPU    6: hi:    0, btch:   1 usd:   0
+[10358.335253] CPU    7: hi:    0, btch:   1 usd:   0
+[10358.335254] Normal per-cpu:
+[10358.335255] CPU    0: hi:  186, btch:  31 usd:  30
+[10358.335256] CPU    1: hi:  186, btch:  31 usd:   0
+[10358.335257] CPU    2: hi:  186, btch:  31 usd:   9
+[10358.335258] CPU    3: hi:  186, btch:  31 usd:   0
+[10358.335259] CPU    4: hi:  186, btch:  31 usd:   0
+[10358.335260] CPU    5: hi:  186, btch:  31 usd:   0
+[10358.335261] CPU    6: hi:  186, btch:  31 usd:   0
+[10358.335262] CPU    7: hi:  186, btch:  31 usd:   0
+[10358.335263] HighMem per-cpu:
+[10358.335264] CPU    0: hi:  186, btch:  31 usd:  32
+[10358.335265] CPU    1: hi:  186, btch:  31 usd:   0
+[10358.335266] CPU    2: hi:  186, btch:  31 usd: 175
+[10358.335267] CPU    3: hi:  186, btch:  31 usd:   0
+[10358.335268] CPU    4: hi:  186, btch:  31 usd:  14
+[10358.335269] CPU    5: hi:  186, btch:  31 usd:   0
+[10358.335270] CPU    6: hi:  186, btch:  31 usd:   0
+[10358.335271] CPU    7: hi:  186, btch:  31 usd:   0
+[10358.335274] active_anon:529305 inactive_anon:197495 isolated_anon:0
+[10358.335275]  active_file:114 inactive_file:1222 isolated_file:0
+[10358.335275]  unevictable:0 dirty:8 writeback:112 unstable:0
+[10358.335276]  free:20371 slab_reclaimable:2826 slab_unreclaimable:7226
+[10358.335276]  mapped:173 shmem:13 pagetables:2845 bounce:0
+[10358.335280] DMA free:8084kB min:64kB low:80kB high:96kB active_anon:0kB inactive_anon:0kB active_file:0kB inactive_file:0kB unevictable:0kB isolated(anon):0kB isolated(file):0kB present:15856kB mlocked:0kB dirty:0kB writeback:0kB mapped:0kB shmem:0kB slab_reclaimable:0kB slab_unreclaimable:16kB kernel_stack:0kB pagetables:0kB unstable:0kB bounce:0kB writeback_tmp:0kB pages_scanned:0 all_unreclaimable? yes
+[10358.335283] lowmem_reserve[]: 0 857 3022 3022
+[10358.335295] Normal free:72964kB min:3712kB low:4640kB high:5568kB active_anon:347176kB inactive_anon:347176kB active_file:272kB inactive_file:636kB unevictable:0kB isolated(anon):0kB isolated(file):0kB present:877816kB mlocked:0kB dirty:0kB writeback:420kB mapped:152kB shmem:52kB slab_reclaimable:11304kB slab_unreclaimable:28888kB kernel_stack:3864kB pagetables:904kB unstable:0kB bounce:0kB writeback_tmp:0kB pages_scanned:11478 all_unreclaimable? yes
+[10358.335299] lowmem_reserve[]: 0 0 17325 17325
+[10358.335303] HighMem free:436kB min:512kB low:2856kB high:5200kB active_anon:1770044kB inactive_anon:442804kB active_file:184kB inactive_file:4252kB unevictable:0kB isolated(anon):0kB isolated(file):0kB present:2217716kB mlocked:0kB dirty:32kB writeback:28kB mapped:540kB shmem:0kB slab_reclaimable:0kB slab_unreclaimable:0kB kernel_stack:0kB pagetables:10476kB unstable:0kB bounce:0kB writeback_tmp:0kB pages_scanned:7776 all_unreclaimable? yes
+[10358.335306] lowmem_reserve[]: 0 0 0 0
+[10358.335307] DMA: 5*4kB 2*8kB 3*16kB 2*32kB 2*64kB 3*128kB 3*256kB 1*512kB 2*1024kB 2*2048kB 0*4096kB = 8084kB
+[10358.335312] Normal: 785*4kB 495*8kB 383*16kB 234*32kB 144*64kB 97*128kB 44*256kB 24*512kB 5*1024kB 1*2048kB 0*4096kB = 73068kB
+[10358.335316] HighMem: 0*4kB 3*8kB 36*16kB 2*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 664kB
+[10358.335320] 16284 total pagecache pages
+[10358.335320] 14881 pages in swap cache
+[10358.335322] Swap cache stats: add 364396, delete 349515, find 30787/38295
+[10358.335322] Free swap  = 0kB
+[10358.335323] Total swap = 1048572kB
+[10358.339943] 784383 pages RAM
+[10358.339944] 559106 pages HighMem
+[10358.339945] 12666 pages reserved
+[10358.339946] 1109 pages shared
+[10358.339946] 750138 pages non-shared
+[10358.339948] Out of memory: kill process 7067 (make) score 398233 or a child
+[10358.339951] Killed process 21013 (java) vsz:1764780kB, anon-rss:689528kB, file-rss:0kB
+[20156.079743] usb 2-1.3: USB disconnect, address 64
+[20167.488081] usb 2-1.3: new high speed USB device using ehci_hcd and address 65
+[20167.575325] usb 2-1.3: New USB device found, idVendor=19d2, idProduct=1351
+[20167.575330] usb 2-1.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[20167.575333] usb 2-1.3: Product: ZTE HSUSB Device
+[20167.575336] usb 2-1.3: Manufacturer: ZTE Incorporated
+[20167.575338] usb 2-1.3: SerialNumber: CM7-Blade
+[20167.580196] scsi11 : usb-storage 2-1.3:1.0
+[20168.577735] scsi 11:0:0:0: Direct-Access     ZTE      Mass storage     0100 PQ: 0 ANSI: 2
+[20168.578713] sd 11:0:0:0: Attached scsi generic sg2 type 0
+[20168.581629] sd 11:0:0:0: [sdb] Attached SCSI removable disk
+[21582.934278] npviewer.bin[6694]: segfault at 0 ip 01452131 sp bfa8e770 error 4 in libflashplayer.so[fd3000+fc8000]
+[21766.585980] npviewer.bin[22111]: segfault at 218 ip 01126af6 sp bfa36a48 error 6 in libflashplayer.so[dfa000+fc8000]
+[22733.013460] usb 2-1.3: USB disconnect, address 65
+[29002.069222] usb 2-1.3: new high speed USB device using ehci_hcd and address 66
+[29002.156445] usb 2-1.3: New USB device found, idVendor=19d2, idProduct=1351
+[29002.156450] usb 2-1.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[29002.156453] usb 2-1.3: Product: ZTE HSUSB Device
+[29002.156455] usb 2-1.3: Manufacturer: ZTE Incorporated
+[29002.156458] usb 2-1.3: SerialNumber: CM7-Blade
+[29002.157667] scsi12 : usb-storage 2-1.3:1.0
+[29003.156882] scsi 12:0:0:0: Direct-Access     ZTE      Mass storage     0100 PQ: 0 ANSI: 2
+[29003.158056] sd 12:0:0:0: Attached scsi generic sg2 type 0
+[29003.161667] sd 12:0:0:0: [sdb] Attached SCSI removable disk
+[29028.323720] npviewer.bin[22399]: segfault at 218 ip 01280af6 sp bffa3548 error 6 in libflashplayer.so[f54000+fc8000]
+[29217.595061] usb 2-1.3: USB disconnect, address 66
+[34707.061449] usb 2-1.3: new high speed USB device using ehci_hcd and address 67
+[34707.147220] usb 2-1.3: no configurations
+[34707.147226] usb 2-1.3: can't read configurations, error -22
+[34707.221013] usb 2-1.3: new high speed USB device using ehci_hcd and address 68
+[34707.336152] usb 2-1.3: no configurations
+[34707.336158] usb 2-1.3: can't read configurations, error -22
+[34707.409442] usb 2-1.3: new high speed USB device using ehci_hcd and address 69
+[34707.432623] usb 2-1.3: no configurations
+[34707.432628] usb 2-1.3: can't read configurations, error -22
+[34707.506049] usb 2-1.3: new high speed USB device using ehci_hcd and address 70
+[34707.555769] usb 2-1.3: no configurations
+[34707.555774] usb 2-1.3: can't read configurations, error -22
+[34707.556877] hub 2-1:1.0: unable to enumerate USB device on port 3
+[34711.171915] usb 2-1.3: new high speed USB device using ehci_hcd and address 71
+[34711.272613] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[34711.272618] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[34711.272621] usb 2-1.3: Product: VertexF_PRM
+[34711.272623] usb 2-1.3: Manufacturer: htc
+[34711.272625] usb 2-1.3: SerialNumber: 123456789012
+[34711.286404] scsi13 : usb-storage 2-1.3:1.0
+[34712.285888] scsi 13:0:0:0: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[34712.287863] scsi 13:0:0:1: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[34712.288596] sd 13:0:0:0: Attached scsi generic sg2 type 0
+[34712.288893] sd 13:0:0:1: Attached scsi generic sg3 type 0
+[34712.302747] sd 13:0:0:0: [sdb] Attached SCSI removable disk
+[34712.305762] sd 13:0:0:1: [sdc] Attached SCSI removable disk
+[34906.352527] npviewer.bin[22469]: segfault at 218 ip 01126af6 sp bfd41cc8 error 6 in libflashplayer.so[dfa000+fc8000]
+[35176.942467] npviewer.bin[23199]: segfault at b722209c ip 01279147 sp bf885d00 error 4 in libflashplayer.so[dfa000+fc8000]
+[37638.897257] usb 2-1.3: USB disconnect, address 71
+[37646.476831] usb 2-1.3: new high speed USB device using ehci_hcd and address 72
+[37648.089057] hub 2-1:1.0: unable to enumerate USB device on port 3
+[37662.303575] usb 2-1.3: new high speed USB device using ehci_hcd and address 73
+[37662.391960] usb 2-1.3: no configurations
+[37662.391966] usb 2-1.3: can't read configurations, error -22
+[37662.465104] usb 2-1.3: new high speed USB device using ehci_hcd and address 74
+[37662.554750] usb 2-1.3: no configurations
+[37662.554755] usb 2-1.3: can't read configurations, error -22
+[37662.628642] usb 2-1.3: new high speed USB device using ehci_hcd and address 75
+[37662.653931] usb 2-1.3: no configurations
+[37662.653937] usb 2-1.3: can't read configurations, error -22
+[37662.727373] usb 2-1.3: new high speed USB device using ehci_hcd and address 76
+[37662.777107] usb 2-1.3: no configurations
+[37662.777112] usb 2-1.3: can't read configurations, error -22
+[37662.778142] hub 2-1:1.0: unable to enumerate USB device on port 3
+[37665.111026] usb 2-1.3: new high speed USB device using ehci_hcd and address 77
+[37665.212748] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[37665.212752] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[37665.212755] usb 2-1.3: Product: VertexF_PRM
+[37665.212758] usb 2-1.3: Manufacturer: htc
+[37665.212759] usb 2-1.3: SerialNumber: 123456789012
+[40499.394294] npviewer.bin[23303]: segfault at 0 ip 01279131 sp bfecb7d0 error 4 in libflashplayer.so[dfa000+fc8000]
+[85145.865944] usb 2-1.3: USB disconnect, address 77
+[85145.992209] hub 2-1:1.0: unable to enumerate USB device on port 3
+[85148.084592] usb 2-1.3: new high speed USB device using ehci_hcd and address 79
+[85148.210618] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[85148.210623] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[85148.210626] usb 2-1.3: Product: VertexF_PRM
+[85148.210628] usb 2-1.3: Manufacturer: htc
+[85148.210630] usb 2-1.3: SerialNumber: 123456789012
+[85150.707291] usb 2-1.3: usbfs: USBDEVFS_CONTROL failed cmd adb rqt 128 rq 6 len 256 ret -71
+[85150.716057] usb 2-1.3: USB disconnect, address 79
+[85158.295578] usb 2-1.3: new high speed USB device using ehci_hcd and address 80
+[85160.201981] hub 2-1:1.0: unable to enumerate USB device on port 3
+[85174.376627] usb 2-1.3: new high speed USB device using ehci_hcd and address 81
+[85174.466334] usb 2-1.3: no configurations
+[85174.466337] usb 2-1.3: can't read configurations, error -22
+[85174.541138] usb 2-1.3: new high speed USB device using ehci_hcd and address 82
+[85174.634838] usb 2-1.3: no configurations
+[85174.634842] usb 2-1.3: can't read configurations, error -22
+[85174.709779] usb 2-1.3: new high speed USB device using ehci_hcd and address 83
+[85174.734697] usb 2-1.3: no configurations
+[85174.734703] usb 2-1.3: can't read configurations, error -22
+[85174.809395] usb 2-1.3: new high speed USB device using ehci_hcd and address 84
+[85174.824302] usb 2-1.3: no configurations
+[85174.824305] usb 2-1.3: can't read configurations, error -22
+[85174.825215] hub 2-1:1.0: unable to enumerate USB device on port 3
+[85179.226817] usb 2-1.3: new high speed USB device using ehci_hcd and address 85
+[85179.341730] usb 2-1.3: New USB device found, idVendor=0bb4, idProduct=0ceb
+[85179.341733] usb 2-1.3: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[85179.341734] usb 2-1.3: Product: VertexF_PRM
+[85179.341735] usb 2-1.3: Manufacturer: htc
+[85179.341736] usb 2-1.3: SerialNumber: 123456789012
+[85179.353125] scsi14 : usb-storage 2-1.3:1.0
+[85180.352908] scsi 14:0:0:0: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[85180.354863] scsi 14:0:0:1: Direct-Access     HTC      Android Phone    0000 PQ: 0 ANSI: 2
+[85180.355789] sd 14:0:0:0: Attached scsi generic sg2 type 0
+[85180.356016] sd 14:0:0:1: Attached scsi generic sg3 type 0
+[85180.375901] sd 14:0:0:0: [sdb] Attached SCSI removable disk
+[85180.378018] sd 14:0:0:1: [sdc] Attached SCSI removable disk
+[85291.422863] npviewer.bin[26753]: segfault at 0 ip 01279131 sp bfdd7a20 error 4 in libflashplayer.so[dfa000+fc8000]
+[85454.555878] npviewer.bin[27018]: segfault at 218 ip 01293af6 sp bfeb0c68 error 6 in libflashplayer.so[f67000+fc8000]
+[85549.445010] usb 2-1.3: USB disconnect, address 85
+[85702.715284] npviewer.bin[27170]: segfault at 0 ip 01279131 sp bfda6470 error 4 in libflashplayer.so[dfa000+fc8000]
+[85902.956337] npviewer.bin[27332]: segfault at 218 ip 01126af6 sp bfc7f798 error 6 in libflashplayer.so[dfa000+fc8000]
+[85911.897970] npviewer.bin[27505]: segfault at b4dd10a4 ip 01279123 sp bf8cdd50 error 4 in libflashplayer.so[dfa000+fc8000]
+[86129.336572] npviewer.bin[27624]: segfault at 4e8 ip 011dba3a sp bfeebbc0 error 4 in libflashplayer.so[dfa000+fc8000]
+[86311.087123] usb 2-1.4: new high speed USB device using ehci_hcd and address 86
+[86311.176236] usb 2-1.4: New USB device found, idVendor=0951, idProduct=1642
+[86311.176240] usb 2-1.4: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[86311.176243] usb 2-1.4: Product: DT 101 G2
+[86311.176245] usb 2-1.4: Manufacturer: Kingston
+[86311.176248] usb 2-1.4: SerialNumber: 001CC0EC32C7FC30F7112961
+[86311.176838] scsi15 : usb-storage 2-1.4:1.0
+[86312.258685] scsi 15:0:0:0: Direct-Access     Kingston DT 101 G2        1.00 PQ: 0 ANSI: 4
+[86312.259748] sd 15:0:0:0: Attached scsi generic sg2 type 0
+[86312.260348] sd 15:0:0:0: [sdb] 15131636 512-byte logical blocks: (7.74 GB/7.21 GiB)
+[86312.260874] sd 15:0:0:0: [sdb] Write Protect is off
+[86312.260879] sd 15:0:0:0: [sdb] Mode Sense: 45 00 00 00
+[86312.260881] sd 15:0:0:0: [sdb] Assuming drive cache: write through
+[86312.263708] sd 15:0:0:0: [sdb] Assuming drive cache: write through
+[86312.263712]  sdb: sdb1
+[86312.265958] sd 15:0:0:0: [sdb] Assuming drive cache: write through
+[86312.265964] sd 15:0:0:0: [sdb] Attached SCSI removable disk
+[86312.987702] SELinux: initialized (dev sdb1, type vfat), uses genfs_contexts
+[86341.797925] usb 2-1.4: USB disconnect, address 86
+[87660.333935] npviewer.bin[30536]: segfault at 218 ip 01126af6 sp bfd8bac8 error 6 in libflashplayer.so[dfa000+fc8000]
+[87700.165563] npviewer.bin[30772]: segfault at 0 ip 01279131 sp bfa08230 error 4 in libflashplayer.so[dfa000+fc8000]
+[87917.850011] npviewer.bin[30822]: segfault at 0 ip 01314131 sp bff9b910 error 4 in libflashplayer.so[e95000+fc8000]
+[88128.227113] npviewer.bin[31060]: segfault at b09570a4 ip 01279123 sp bfddf2e0 error 4 in libflashplayer.so[dfa000+fc8000]
+[89589.338383] npviewer.bin[31176]: segfault at 218 ip 01126af6 sp bfa28338 error 6 in libflashplayer.so[dfa000+fc8000]
+[91411.903890] npviewer.bin[31888]: segfault at 218 ip 01126af6 sp bffdffe8 error 6 in libflashplayer.so[dfa000+fc8000]
+[106587.050384] usb 2-1.4: new high speed USB device using ehci_hcd and address 87
+[106587.136373] usb 2-1.4: New USB device found, idVendor=1f75, idProduct=0916
+[106587.136378] usb 2-1.4: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[106587.136381] usb 2-1.4: Product: SSK SFD201 USB Device
+[106587.136383] usb 2-1.4: Manufacturer: SSK
+[106587.136385] usb 2-1.4: SerialNumber: 000000000000001194
+[106587.137149] scsi16 : usb-storage 2-1.4:1.0
+[106588.134904] scsi 16:0:0:0: Direct-Access     SSK      SFD201           1.00 PQ: 0 ANSI: 6
+[106588.136092] sd 16:0:0:0: Attached scsi generic sg2 type 0
+[106588.136733] sd 16:0:0:0: [sdb] 60620800 512-byte logical blocks: (31.0 GB/28.9 GiB)
+[106588.137140] sd 16:0:0:0: [sdb] Write Protect is off
+[106588.137144] sd 16:0:0:0: [sdb] Mode Sense: 23 00 00 00
+[106588.137146] sd 16:0:0:0: [sdb] Assuming drive cache: write through
+[106588.140609] sd 16:0:0:0: [sdb] Assuming drive cache: write through
+[106588.140613]  sdb: sdb1
+[106588.142836] sd 16:0:0:0: [sdb] Assuming drive cache: write through
+[106588.142842] sd 16:0:0:0: [sdb] Attached SCSI removable disk
+[106588.306288] SELinux: initialized (dev sdb1, type vfat), uses genfs_contexts
+[106794.152266] usb 2-1.4: USB disconnect, address 87
+[115718.462975] npviewer.bin[3526]: segfault at 218 ip 01126af6 sp bfdaf188 error 6 in libflashplayer.so[dfa000+fc8000]
+[115788.658023] npviewer.bin[3632]: segfault at 218 ip 01178af6 sp bfb0c308 error 6 in libflashplayer.so[e4c000+fc8000]
+[115880.150713] npviewer.bin[3751]: segfault at 0 ip 013c4131 sp bfdd34b0 error 4 in libflashplayer.so[f45000+fc8000]
+[116193.875155] npviewer.bin[3907]: segfault at 218 ip 01126af6 sp bfb251b8 error 6 in libflashplayer.so[dfa000+fc8000]
+[116243.207246] npviewer.bin[4293]: segfault at 218 ip 01126af6 sp bfe8fa68 error 6 in libflashplayer.so[dfa000+fc8000]
+[116342.094615] npviewer.bin[4381]: segfault at 218 ip 01126af6 sp bfda0ec8 error 6 in libflashplayer.so[dfa000+fc8000]
+[116507.635116] npviewer.bin[4597]: segfault at acdfd09c ip 01279147 sp bf9ba2b0 error 4 in libflashplayer.so[dfa000+fc8000]
+[117942.856379] npviewer.bin[4711]: segfault at 0 ip 01279131 sp bf9208e0 error 4 in libflashplayer.so[dfa000+fc8000]
+[123477.014564] npviewer.bin[6127]: segfault at 218 ip 01321af6 sp bfcfd198 error 6 in libflashplayer.so[ff5000+fc8000]

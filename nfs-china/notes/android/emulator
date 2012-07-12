@@ -1,0 +1,6 @@
+ 1 在emulator中模拟打电话发短信
+
+ 先通过命令行telnet localhost 5554，进入Android Console.
+ 在Android Console中运行命令
+ gsm call 13908888888
+ sms send 13908888888 "this is a test sms!"
