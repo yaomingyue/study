@@ -1,0 +1,6 @@
+关于android的线程
+启动Android线程需要提供两个接口，一是readyToRun()，该函数定义了线程循环前需要初始化的内容；二是threadLoop()，每个线程都必须实现，该函数定义了线程执行的内容，如果该函数返回true，线程会继续调用threadLoop()，如果返回false，线程将退出。
+
+2
+SurfaceFlinger继承了Thread类，自然也继承了Thread类的threadLoop方法，SurfaceFlinger工作线程的主代码都在threadLoop()方法中。工作线程启动后，基类Thread会循环地调用threadLoop方法，SurfaceFlinger的
+threadLoop()主要是要完成系统中各个Layer(Surface)进行混合（compose），然后不停地把一帧帧混合好的图像数据传送到显示设备中。

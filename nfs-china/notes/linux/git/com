@@ -1,0 +1,37 @@
+git banch 查看当前本地所有分支
+
+2 git branch moon 新建moon分支 
+
+3 git push origin moon 添加moon到远程服务器
+
+4 git remote 显示远程服务器
+
+5 git remote show origin 显示远程服务器origin上所有分支
+
+6 git fetch origin 同步本地分支 
+
+7
+    git checkout --track origin/moon  切换到远程的moon分支
+
+
+
+
+二新建分支管理
+1 新建分支并且push到远端过程
+
+  git branch moon
+  git push origin moon
+
+2 别的的用户
+
+    git remote 显示远程服务器名称，我的是origin
+    git remote show origin  显示origin上所有分支
+
+    git fetch origin  
+    git checkout --track origin/moon
+
+三 提交代码
+   git add -A   将所有内容都提交
+   git commit -a -m "modify"
+   git push
+

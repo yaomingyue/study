@@ -1,0 +1,5 @@
+Pixelflinger是Android系统中为 OpenGL ES引擎提供的一套软件渲染器（renderer
+
+Pixelflinger 作为软件渲染器，为OpenGL
+ES引擎提供了一系列基础绘图功能。这些功能包括定义各种颜色格式像素位置、画点画线、绘制矩形及三角形、填充纹理等等。由于OpenGL
+ES相当于一个状态机，配置OpenGL ES状态的函数也均由Pixelflinger提供。

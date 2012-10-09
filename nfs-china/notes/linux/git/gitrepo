@@ -82,15 +82,15 @@
     这是yyl用户下的一个普通项目目录，我想为他创建远程git仓库，并且分多个git来逐个管理，这时就需要用repo来管理这些git：
     $ cd aa
     $ git init-db
-    $ git add *
+    $ git add -A
     $ git commit -a -m "first init"
     $ cd bb
     $ git init-db
-    $ git add *
+    $ git add -A
     $ git commit -a -m "first init"
     $ cd cc/dd
     $ git init-db
-    $ git add *
+    $ git add -A
     $ git commit -a -m "first init"
     $ cd ../ee
     $ git init-db

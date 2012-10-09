@@ -8,6 +8,9 @@
 #include <sys/mman.h>
 //#include "common.h"
 #include <fcntl.h>
+
+#define WIDTH  1728
+#define HEIGHT 1050
 extern unsigned char kkkk[172808];
 extern unsigned char k2[172808];
 #define fb_dev "/dev/fb0"
@@ -36,7 +39,7 @@ void dis_px(int x, int y, char *p, unsigned char *k)
     int i;
     for (i = 0; i < 4; i++) 
     {
-        p[y*1024*4+x*4+i] = k[y*1024*4+x*4+i];
+        p[y*WIDTH*4+x*4+i] = k[y*1024*4+x*4+i];
     }
 }
 
@@ -47,22 +50,24 @@ int main(int argc, const char *argv[])
    int i = 0,j = 0,k = 0, m = 0;
    fd = open(fb_dev,O_RDWR);
    fb_info *fb_inf;
-   p = mmap(NULL,1024*768*4,PROT_WRITE,MAP_SHARED,fd,0);
+   p = mmap(NULL,WIDTH*HEIGHT*4,PROT_WRITE,MAP_SHARED,fd,0);
 
 
    
+
    for (j = 0; j < 768; j++) 
-       for (i = 0; i < 1024; i++) 
+        for (i = 0; i < 1024; i++) 
             dis_px(i,j,p,k2);
 
-   for (j = 0; j < 384; j++) 
-       for (i = 0; i < 512; i++) 
-       for (k = 0; k < 4; k++) 
-       {
-        p[j*1024*4+i*4+k] = k2[j*1024*4*2+i*4*2+k];
-       }
+   //for (j = 0; j < 384; j++) 
+   //for (i = 0; i < 512; i++) 
+   //for (k = 0; k < 4; k++) 
+   //{
+   //p[j*1024*4+i*4+k] = k2[j*1024*4*2+i*4*2+k];
+   //}
        sleep(5);
 
+/*
     k = 0;
    //show as circle
     while(k<640)
@@ -151,6 +156,7 @@ int main(int argc, const char *argv[])
        }
 
 
+*/
 
    sleep(10);
    memset(p,0,1024*768*4);

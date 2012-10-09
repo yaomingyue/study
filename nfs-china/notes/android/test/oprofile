@@ -1,0 +1,16 @@
+oprofile 使用
+
+首先要加载oprofile的驱动，
+
+opcontrol --start
+
+执行要测的程序
+
+opcontrol --stop
+opcontrol --dump
+
+opreport -l
+查看结果
+
+再次测试需要
+opcontrol --reset

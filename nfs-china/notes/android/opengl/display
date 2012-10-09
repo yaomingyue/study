@@ -1,0 +1,57 @@
+1 display系统openGL 的关系
+openGL 是一个图像处理引擎，当需要一些复杂的显示（2D/3D）操作时会用到它。它分为SW
+方案和HW方案，软件方案就是图中的libagl.so,对应到目前项目中是libGLES_android.so，
+它可以完成简单的2D（文字，icon等）处理，通过trace看目前大部分显示操作都是它来完成的。
+Note：它是软件方案，处理好的数据是通过copybit送到framebuffer的，而不是GPU。
+其接口部分参考：android\frameworks\base\opengl\libagl
+HW方案就是图中的Graphics
+driver，它通过使用GPU硬件来完成图像处理，处理后的数据直接送到framebuffer中。其接口部分参考：android\frameworks\base\opengl\libs（有几个版本）
+
+2
+android的普通显示就直接用libui库的接口实现，需要2D，3D加速的时候在调用openGL
+，libui库通过一个hal层和frambuffer联系，openGL则有软件（通过copybit和frambuffer联系），硬件（通过GPU和frambuffer联系）
+
+3 surfaceflinger担任是一个管理的职责，对于效果处理及合成它是通过OpenGL来做的
+，但前提是surfaceflinger需要把相关参数计算好，如重叠的位置等,
+Surfaceflinger 使用 OpenGL 来合成 surface ，所以 surfaceflinger 会直接调用到
+OpenGL 的接口。 
+在android中有两三大模块会调用到egl接口
+    1、开机动画
+frameworks\base\cmds\bootanimation\BootAnimation.cpp
+--> BootAnimation::readyToRun()
+    2、应用程序，通过 com_google_android_gles_jni_EGLImpl.cpp
+   中的JNI接口直接调用
+    3、SurfaceFlinger 图形合成进程调用，这一块是最复杂也是移植的核心部分所在
+    这块没有直接调用eglxx接口，而是经过了一层封装：
+    DisplayHardware.cpp --> DisplayHardware::init
+    frameworks/base/opengl/libs/egl/egl.cpp 中封装实现，这里最终都是调用
+    cnx->egl.eglxx()接口
+
+
+4 
+Android图形系统中一个重要的概念和线索是surface。View及其子类（如 TextView,
+Button）要画在surface上。每个surface创建一个Canvas对象
+（但属性时常改变），用来管理view在surface上的绘图操作，如画点画线。每个
+canvas对象对应一个bitmap，存储画在surface上的内容。
+
+5 surfaceflinger
+中管理着大量的layer，它把这些layer提供给上层应用来绘制UI，然后
+surfaceflinger会通过一系列的操作吧这些layer合成一屏图像数据，提供给framebuffer
+显示出来。
+
+6 libpixelflinger
+pixelflinger 是android中一个下层的工具类型库，负责像素级别的基本处理，例如：
+提供像素格式定义，画点，画线，画多边形纹理颜色填充以及多层处理等操作。
+
+
+7 surfaceflinger利用openGL 进行layer的合并，之后再把这一屏的内容通过openGL
+显示出来，当然openGL也是通过libui来送到frambuffer来显示的。
+openGL 的显示过程，不管是硬件还是软件，都是在eglswapBuffer中通过libui的frambufferNativeWindow
+的queuebuffer函数来操作framebuffer的。
+
+8 surfaceflinger 通过openGL来合成图层过程
+surfaceflinger中  handleRrpaint--》composesurface等-->onDraw-->一系列openGL 
+api。之后就调openGL的接口了。
+此后工作就交给openGL了，软件实现中openGL 还会用到libpixeflinger库来进行像素
+合成的一些工作，和硬件实现的openGL 是完全自己实现的（我接触的vivante是这样的）
+
