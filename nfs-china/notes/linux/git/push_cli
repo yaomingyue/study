@@ -1,0 +1,2074 @@
+#!/bin/bash
+echo yaomoon
+read kk
+
+cd ./packages/apps/Phone/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Phone/
+git push master --all
+cd -
+
+cd ./packages/apps/SoundRecorder/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/SoundRecorder/
+git push master --all
+cd -
+
+cd ./packages/apps/Gallery2/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Gallery2/
+git push master --all
+cd -
+
+cd ./packages/apps/Nfc/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Nfc/
+git push master --all
+cd -
+
+cd ./packages/apps/SpeechRecorder/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/SpeechRecorder/
+git push master --all
+cd -
+
+cd ./packages/apps/Provision/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Provision/
+git push master --all
+cd -
+
+cd ./packages/apps/PackageInstaller/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/PackageInstaller/
+git push master --all
+cd -
+
+cd ./packages/apps/CellBroadcastReceiver/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/CellBroadcastReceiver/
+git push master --all
+cd -
+
+cd ./packages/apps/HTMLViewer/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/HTMLViewer/
+git push master --all
+cd -
+
+cd ./packages/apps/Launcher2/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Launcher2/
+git push master --all
+cd -
+
+cd ./packages/apps/VoiceDialer/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/VoiceDialer/
+git push master --all
+cd -
+
+cd ./packages/apps/DeskClock/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/DeskClock/
+git push master --all
+cd -
+
+cd ./packages/apps/Calculator/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Calculator/
+git push master --all
+cd -
+
+cd ./packages/apps/Gallery/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Gallery/
+git push master --all
+cd -
+
+cd ./packages/apps/Protips/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Protips/
+git push master --all
+cd -
+
+cd ./packages/apps/QuickSearchBox/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/QuickSearchBox/
+git push master --all
+cd -
+
+cd ./packages/apps/CertInstaller/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/CertInstaller/
+git push master --all
+cd -
+
+cd ./packages/apps/SpareParts/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/SpareParts/
+git push master --all
+cd -
+
+cd ./packages/apps/Email/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Email/
+git push master --all
+cd -
+
+cd ./packages/apps/Stk/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Stk/
+git push master --all
+cd -
+
+cd ./packages/apps/Music/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Music/
+git push master --all
+cd -
+
+cd ./packages/apps/Bluetooth/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Bluetooth/
+git push master --all
+cd -
+
+cd ./packages/apps/VideoEditor/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/VideoEditor/
+git push master --all
+cd -
+
+cd ./packages/apps/BasicSmsReceiver/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/BasicSmsReceiver/
+git push master --all
+cd -
+
+cd ./packages/apps/MusicFX/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/MusicFX/
+git push master --all
+cd -
+
+cd ./packages/apps/Calendar/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Calendar/
+git push master --all
+cd -
+
+cd ./packages/apps/Tag/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Tag/
+git push master --all
+cd -
+
+cd ./packages/apps/Camera/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Camera/
+git push master --all
+cd -
+
+cd ./packages/apps/Browser/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Browser/
+git push master --all
+cd -
+
+cd ./packages/apps/Contacts/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Contacts/
+git push master --all
+cd -
+
+cd ./packages/apps/Mms/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Mms/
+git push master --all
+cd -
+
+cd ./packages/apps/Exchange/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Exchange/
+git push master --all
+cd -
+
+cd ./packages/apps/Settings/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/Settings/
+git push master --all
+cd -
+
+cd ./packages/apps/KeyChain/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/apps/KeyChain/
+git push master --all
+cd -
+
+cd ./packages/inputmethods/OpenWnn/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/inputmethods/OpenWnn/
+git push master --all
+cd -
+
+cd ./packages/inputmethods/LatinIME/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/inputmethods/LatinIME/
+git push master --all
+cd -
+
+cd ./packages/inputmethods/PinyinIME/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/inputmethods/PinyinIME/
+git push master --all
+cd -
+
+cd ./packages/experimental/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/experimental/
+git push master --all
+cd -
+
+cd ./packages/providers/DrmProvider/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/providers/DrmProvider/
+git push master --all
+cd -
+
+cd ./packages/providers/TelephonyProvider/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/providers/TelephonyProvider/
+git push master --all
+cd -
+
+cd ./packages/providers/CalendarProvider/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/providers/CalendarProvider/
+git push master --all
+cd -
+
+cd ./packages/providers/DownloadProvider/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/providers/DownloadProvider/
+git push master --all
+cd -
+
+cd ./packages/providers/ContactsProvider/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/providers/ContactsProvider/
+git push master --all
+cd -
+
+cd ./packages/providers/GoogleContactsProvider/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/providers/GoogleContactsProvider/
+git push master --all
+cd -
+
+cd ./packages/providers/UserDictionaryProvider/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/providers/UserDictionaryProvider/
+git push master --all
+cd -
+
+cd ./packages/providers/ApplicationsProvider/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/providers/ApplicationsProvider/
+git push master --all
+cd -
+
+cd ./packages/providers/MediaProvider/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/providers/MediaProvider/
+git push master --all
+cd -
+
+cd ./packages/wallpapers/MagicSmoke/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/wallpapers/MagicSmoke/
+git push master --all
+cd -
+
+cd ./packages/wallpapers/HoloSpiral/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/wallpapers/HoloSpiral/
+git push master --all
+cd -
+
+cd ./packages/wallpapers/MusicVisualization/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/wallpapers/MusicVisualization/
+git push master --all
+cd -
+
+cd ./packages/wallpapers/LivePicker/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/wallpapers/LivePicker/
+git push master --all
+cd -
+
+cd ./packages/wallpapers/Galaxy4/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/wallpapers/Galaxy4/
+git push master --all
+cd -
+
+cd ./packages/wallpapers/PhaseBeam/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/wallpapers/PhaseBeam/
+git push master --all
+cd -
+
+cd ./packages/wallpapers/Basic/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/wallpapers/Basic/
+git push master --all
+cd -
+
+cd ./packages/wallpapers/NoiseField/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./packages/wallpapers/NoiseField/
+git push master --all
+cd -
+
+cd ./docs/source.android.com/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./docs/source.android.com/
+git push master --all
+cd -
+
+cd ./build/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./build/
+git push master --all
+cd -
+
+cd ./hardware/libhardware_legacy/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./hardware/libhardware_legacy/
+git push master --all
+cd -
+
+cd ./hardware/ti/omap3/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./hardware/ti/omap3/
+git push master --all
+cd -
+
+cd ./hardware/ti/omap4xxx/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./hardware/ti/omap4xxx/
+git push master --all
+cd -
+
+cd ./hardware/qcom/media/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./hardware/qcom/media/
+git push master --all
+cd -
+
+cd ./hardware/qcom/gps/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./hardware/qcom/gps/
+git push master --all
+cd -
+
+cd ./hardware/ril/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./hardware/ril/
+git push master --all
+cd -
+
+cd ./hardware/broadcom/wlan/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./hardware/broadcom/wlan/
+git push master --all
+cd -
+
+cd ./hardware/msm7k/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./hardware/msm7k/
+git push master --all
+cd -
+
+cd ./hardware/invensense/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./hardware/invensense/
+git push master --all
+cd -
+
+cd ./hardware/libhardware/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./hardware/libhardware/
+git push master --all
+cd -
+
+cd ./sdk/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./sdk/
+git push master --all
+cd -
+
+cd ./abi/cpp/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./abi/cpp/
+git push master --all
+cd -
+
+cd ./prebuilt/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./prebuilt/
+git push master --all
+cd -
+
+cd ./external/apache-xml/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/apache-xml/
+git push master --all
+cd -
+
+cd ./external/libvpx/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libvpx/
+git push master --all
+cd -
+
+cd ./external/protobuf/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/protobuf/
+git push master --all
+cd -
+
+cd ./external/neven/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/neven/
+git push master --all
+cd -
+
+cd ./external/libnl-headers/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libnl-headers/
+git push master --all
+cd -
+
+cd ./external/oprofile/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/oprofile/
+git push master --all
+cd -
+
+cd ./external/bsdiff/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/bsdiff/
+git push master --all
+cd -
+
+cd ./external/tremolo/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/tremolo/
+git push master --all
+cd -
+
+cd ./external/libxslt/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libxslt/
+git push master --all
+cd -
+
+cd ./external/blktrace/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/blktrace/
+git push master --all
+cd -
+
+cd ./external/webkit/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/webkit/
+git push master --all
+cd -
+
+cd ./external/easymock/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/easymock/
+git push master --all
+cd -
+
+cd ./external/android-mock/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/android-mock/
+git push master --all
+cd -
+
+cd ./external/guava/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/guava/
+git push master --all
+cd -
+
+cd ./external/tagsoup/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/tagsoup/
+git push master --all
+cd -
+
+cd ./external/wpa_supplicant/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/wpa_supplicant/
+git push master --all
+cd -
+
+cd ./external/liblzf/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/liblzf/
+git push master --all
+cd -
+
+cd ./external/bluetooth/bluez/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/bluetooth/bluez/
+git push master --all
+cd -
+
+cd ./external/bluetooth/hcidump/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/bluetooth/hcidump/
+git push master --all
+cd -
+
+cd ./external/bluetooth/glib/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/bluetooth/glib/
+git push master --all
+cd -
+
+cd ./external/libffi/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libffi/
+git push master --all
+cd -
+
+cd ./external/sqlite/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/sqlite/
+git push master --all
+cd -
+
+cd ./external/tinyalsa/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/tinyalsa/
+git push master --all
+cd -
+
+cd ./external/esd/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/esd/
+git push master --all
+cd -
+
+cd ./external/srec/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/srec/
+git push master --all
+cd -
+
+cd ./external/qemu/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/qemu/
+git push master --all
+cd -
+
+cd ./external/webp/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/webp/
+git push master --all
+cd -
+
+cd ./external/replicaisland/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/replicaisland/
+git push master --all
+cd -
+
+cd ./external/bouncycastle/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/bouncycastle/
+git push master --all
+cd -
+
+cd ./external/ping/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/ping/
+git push master --all
+cd -
+
+cd ./external/safe-iop/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/safe-iop/
+git push master --all
+cd -
+
+cd ./external/ping6/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/ping6/
+git push master --all
+cd -
+
+cd ./external/dropbear/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/dropbear/
+git push master --all
+cd -
+
+cd ./external/jhead/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/jhead/
+git push master --all
+cd -
+
+cd ./external/webrtc/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/webrtc/
+git push master --all
+cd -
+
+cd ./external/netcat/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/netcat/
+git push master --all
+cd -
+
+cd ./external/kernel-headers/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/kernel-headers/
+git push master --all
+cd -
+
+cd ./external/giflib/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/giflib/
+git push master --all
+cd -
+
+cd ./external/ipsec-tools/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/ipsec-tools/
+git push master --all
+cd -
+
+cd ./external/freetype/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/freetype/
+git push master --all
+cd -
+
+cd ./external/dhcpcd/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/dhcpcd/
+git push master --all
+cd -
+
+cd ./external/javasqlite/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/javasqlite/
+git push master --all
+cd -
+
+cd ./external/icu4c/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/icu4c/
+git push master --all
+cd -
+
+cd ./external/collada/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/collada/
+git push master --all
+cd -
+
+cd ./external/antlr/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/antlr/
+git push master --all
+cd -
+
+cd ./external/libpng/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libpng/
+git push master --all
+cd -
+
+cd ./external/wpa_supplicant_6/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/wpa_supplicant_6/
+git push master --all
+cd -
+
+cd ./external/libphonenumber/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libphonenumber/
+git push master --all
+cd -
+
+cd ./external/llvm/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/llvm/
+git push master --all
+cd -
+
+cd ./external/speex/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/speex/
+git push master --all
+cd -
+
+cd ./external/apache-harmony/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/apache-harmony/
+git push master --all
+cd -
+
+cd ./external/nist-sip/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/nist-sip/
+git push master --all
+cd -
+
+cd ./external/libpcap/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libpcap/
+git push master --all
+cd -
+
+cd ./external/google-diff-match-patch/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/google-diff-match-patch/
+git push master --all
+cd -
+
+cd ./external/harfbuzz/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/harfbuzz/
+git push master --all
+cd -
+
+cd ./external/libnfc-nxp/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libnfc-nxp/
+git push master --all
+cd -
+
+cd ./external/xmlwriter/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/xmlwriter/
+git push master --all
+cd -
+
+cd ./external/libgsm/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libgsm/
+git push master --all
+cd -
+
+cd ./external/fsck_msdos/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/fsck_msdos/
+git push master --all
+cd -
+
+cd ./external/mockwebserver/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/mockwebserver/
+git push master --all
+cd -
+
+cd ./external/jpeg/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/jpeg/
+git push master --all
+cd -
+
+cd ./external/wpa_supplicant_8/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/wpa_supplicant_8/
+git push master --all
+cd -
+
+cd ./external/quake/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/quake/
+git push master --all
+cd -
+
+cd ./external/qemu-pc-bios/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/qemu-pc-bios/
+git push master --all
+cd -
+
+cd ./external/pcre/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/pcre/
+git push master --all
+cd -
+
+cd ./external/svox/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/svox/
+git push master --all
+cd -
+
+cd ./external/iproute2/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/iproute2/
+git push master --all
+cd -
+
+cd ./external/tcpdump/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/tcpdump/
+git push master --all
+cd -
+
+cd ./external/yaffs2/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/yaffs2/
+git push master --all
+cd -
+
+cd ./external/eyes-free/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/eyes-free/
+git push master --all
+cd -
+
+cd ./external/libxml2/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libxml2/
+git push master --all
+cd -
+
+cd ./external/bzip2/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/bzip2/
+git push master --all
+cd -
+
+cd ./external/astl/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/astl/
+git push master --all
+cd -
+
+cd ./external/javassist/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/javassist/
+git push master --all
+cd -
+
+cd ./external/gtest/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/gtest/
+git push master --all
+cd -
+
+cd ./external/genext2fs/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/genext2fs/
+git push master --all
+cd -
+
+cd ./external/openssl/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/openssl/
+git push master --all
+cd -
+
+cd ./external/doclava/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/doclava/
+git push master --all
+cd -
+
+cd ./external/netperf/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/netperf/
+git push master --all
+cd -
+
+cd ./external/strace/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/strace/
+git push master --all
+cd -
+
+cd ./external/clang/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/clang/
+git push master --all
+cd -
+
+cd ./external/skia/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/skia/
+git push master --all
+cd -
+
+cd ./external/emma/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/emma/
+git push master --all
+cd -
+
+cd ./external/proguard/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/proguard/
+git push master --all
+cd -
+
+cd ./external/tinyxml/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/tinyxml/
+git push master --all
+cd -
+
+cd ./external/mksh/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/mksh/
+git push master --all
+cd -
+
+cd ./external/jdiff/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/jdiff/
+git push master --all
+cd -
+
+cd ./external/ppp/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/ppp/
+git push master --all
+cd -
+
+cd ./external/chromium/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/chromium/
+git push master --all
+cd -
+
+cd ./external/dbus/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/dbus/
+git push master --all
+cd -
+
+cd ./external/apache-http/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/apache-http/
+git push master --all
+cd -
+
+cd ./external/zlib/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/zlib/
+git push master --all
+cd -
+
+cd ./external/hyphenation/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/hyphenation/
+git push master --all
+cd -
+
+cd ./external/dnsmasq/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/dnsmasq/
+git push master --all
+cd -
+
+cd ./external/oauth/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/oauth/
+git push master --all
+cd -
+
+cd ./external/libyuv/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/libyuv/
+git push master --all
+cd -
+
+cd ./external/embunit/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/embunit/
+git push master --all
+cd -
+
+cd ./external/junit/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/junit/
+git push master --all
+cd -
+
+cd ./external/grub/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/grub/
+git push master --all
+cd -
+
+cd ./external/elfutils/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/elfutils/
+git push master --all
+cd -
+
+cd ./external/flac/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/flac/
+git push master --all
+cd -
+
+cd ./external/stlport/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/stlport/
+git push master --all
+cd -
+
+cd ./external/fdlibm/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/fdlibm/
+git push master --all
+cd -
+
+cd ./external/jsr305/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/jsr305/
+git push master --all
+cd -
+
+cd ./external/iptables/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/iptables/
+git push master --all
+cd -
+
+cd ./external/valgrind/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/valgrind/
+git push master --all
+cd -
+
+cd ./external/mtpd/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/mtpd/
+git push master --all
+cd -
+
+cd ./external/opencv/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/opencv/
+git push master --all
+cd -
+
+cd ./external/sonivox/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/sonivox/
+git push master --all
+cd -
+
+cd ./external/e2fsprogs/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/e2fsprogs/
+git push master --all
+cd -
+
+cd ./external/srtp/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/srtp/
+git push master --all
+cd -
+
+cd ./external/bison/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/bison/
+git push master --all
+cd -
+
+cd ./external/mesa3d/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/mesa3d/
+git push master --all
+cd -
+
+cd ./external/markdown/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/markdown/
+git push master --all
+cd -
+
+cd ./external/lohit-fonts/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/lohit-fonts/
+git push master --all
+cd -
+
+cd ./external/expat/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/expat/
+git push master --all
+cd -
+
+cd ./external/jsilver/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/jsilver/
+git push master --all
+cd -
+
+cd ./external/v8/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./external/v8/
+git push master --all
+cd -
+
+cd ./bootable/recovery/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./bootable/recovery/
+git push master --all
+cd -
+
+cd ./bootable/diskinstaller/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./bootable/diskinstaller/
+git push master --all
+cd -
+
+cd ./bootable/bootloader/legacy/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./bootable/bootloader/legacy/
+git push master --all
+cd -
+
+cd ./libcore/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./libcore/
+git push master --all
+cd -
+
+cd ./cts/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./cts/
+git push master --all
+cd -
+
+cd ./system/bluetooth/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./system/bluetooth/
+git push master --all
+cd -
+
+cd ./system/media/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./system/media/
+git push master --all
+cd -
+
+cd ./system/core/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./system/core/
+git push master --all
+cd -
+
+cd ./system/vold/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./system/vold/
+git push master --all
+cd -
+
+cd ./system/extras/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./system/extras/
+git push master --all
+cd -
+
+cd ./system/netd/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./system/netd/
+git push master --all
+cd -
+
+cd ./dalvik/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./dalvik/
+git push master --all
+cd -
+
+cd ./frameworks/support/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/support/
+git push master --all
+cd -
+
+cd ./frameworks/media/libvideoeditor/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/media/libvideoeditor/
+git push master --all
+cd -
+
+cd ./frameworks/ex/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/ex/
+git push master --all
+cd -
+
+cd ./frameworks/base/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/base/
+git push master --all
+cd -
+
+cd ./frameworks/opt/calendar/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/opt/calendar/
+git push master --all
+cd -
+
+cd ./frameworks/opt/emoji/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/opt/emoji/
+git push master --all
+cd -
+
+cd ./frameworks/opt/vcard/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/opt/vcard/
+git push master --all
+cd -
+
+cd ./frameworks/opt/mailcommon/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/opt/mailcommon/
+git push master --all
+cd -
+
+cd ./frameworks/opt/inputmethodcommon/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/opt/inputmethodcommon/
+git push master --all
+cd -
+
+cd ./frameworks/compile/slang/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/compile/slang/
+git push master --all
+cd -
+
+cd ./frameworks/compile/linkloader/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/compile/linkloader/
+git push master --all
+cd -
+
+cd ./frameworks/compile/libbcc/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./frameworks/compile/libbcc/
+git push master --all
+cd -
+
+cd ./device/samsung/crespo4g/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/samsung/crespo4g/
+git push master --all
+cd -
+
+cd ./device/samsung/maguro/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/samsung/maguro/
+git push master --all
+cd -
+
+cd ./device/samsung/torospr/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/samsung/torospr/
+git push master --all
+cd -
+
+cd ./device/samsung/tuna/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/samsung/tuna/
+git push master --all
+cd -
+
+cd ./device/samsung/crespo/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/samsung/crespo/
+git push master --all
+cd -
+
+cd ./device/samsung/toro/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/samsung/toro/
+git push master --all
+cd -
+
+cd ./device/moto/common/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/moto/common/
+git push master --all
+cd -
+
+cd ./device/moto/wingray/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/moto/wingray/
+git push master --all
+cd -
+
+cd ./device/moto/stingray/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/moto/stingray/
+git push master --all
+cd -
+
+cd ./device/generic/goldfish/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/generic/goldfish/
+git push master --all
+cd -
+
+cd ./device/common/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/common/
+git push master --all
+cd -
+
+cd ./device/ti/panda/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/ti/panda/
+git push master --all
+cd -
+
+cd ./device/sample/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/sample/
+git push master --all
+cd -
+
+cd ./device/google/accessory/arduino/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/google/accessory/arduino/
+git push master --all
+cd -
+
+cd ./device/google/accessory/demokit/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./device/google/accessory/demokit/
+git push master --all
+cd -
+
+cd ./bionic/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./bionic/
+git push master --all
+cd -
+
+cd ./ndk/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./ndk/
+git push master --all
+cd -
+
+cd ./development/
+rm -rf .git 
+git init-db
+git add -A
+git commit -a -m "first init"
+git remote add master git@192.168.161.36:/pub/android/android-4.0.4/./development/
+git push master --all
+cd -
+

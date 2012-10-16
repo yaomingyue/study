@@ -1,0 +1,1154 @@
+#! /bin/bash
+echo yaomoon
+read kk
+
+mkdir -p ./packages/apps/Phone/
+cd ./packages/apps/Phone/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/SoundRecorder/
+cd ./packages/apps/SoundRecorder/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Gallery2/
+cd ./packages/apps/Gallery2/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Nfc/
+cd ./packages/apps/Nfc/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/SpeechRecorder/
+cd ./packages/apps/SpeechRecorder/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Provision/
+cd ./packages/apps/Provision/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/PackageInstaller/
+cd ./packages/apps/PackageInstaller/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/CellBroadcastReceiver/
+cd ./packages/apps/CellBroadcastReceiver/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/HTMLViewer/
+cd ./packages/apps/HTMLViewer/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Launcher2/
+cd ./packages/apps/Launcher2/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/VoiceDialer/
+cd ./packages/apps/VoiceDialer/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/DeskClock/
+cd ./packages/apps/DeskClock/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Calculator/
+cd ./packages/apps/Calculator/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Gallery/
+cd ./packages/apps/Gallery/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Protips/
+cd ./packages/apps/Protips/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/QuickSearchBox/
+cd ./packages/apps/QuickSearchBox/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/CertInstaller/
+cd ./packages/apps/CertInstaller/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/SpareParts/
+cd ./packages/apps/SpareParts/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Email/
+cd ./packages/apps/Email/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Stk/
+cd ./packages/apps/Stk/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Music/
+cd ./packages/apps/Music/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Bluetooth/
+cd ./packages/apps/Bluetooth/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/VideoEditor/
+cd ./packages/apps/VideoEditor/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/BasicSmsReceiver/
+cd ./packages/apps/BasicSmsReceiver/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/MusicFX/
+cd ./packages/apps/MusicFX/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Calendar/
+cd ./packages/apps/Calendar/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Tag/
+cd ./packages/apps/Tag/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Camera/
+cd ./packages/apps/Camera/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Browser/
+cd ./packages/apps/Browser/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Contacts/
+cd ./packages/apps/Contacts/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Mms/
+cd ./packages/apps/Mms/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Exchange/
+cd ./packages/apps/Exchange/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/Settings/
+cd ./packages/apps/Settings/
+git init --bare
+cd -
+
+mkdir -p ./packages/apps/KeyChain/
+cd ./packages/apps/KeyChain/
+git init --bare
+cd -
+
+mkdir -p ./packages/inputmethods/OpenWnn/
+cd ./packages/inputmethods/OpenWnn/
+git init --bare
+cd -
+
+mkdir -p ./packages/inputmethods/LatinIME/
+cd ./packages/inputmethods/LatinIME/
+git init --bare
+cd -
+
+mkdir -p ./packages/inputmethods/PinyinIME/
+cd ./packages/inputmethods/PinyinIME/
+git init --bare
+cd -
+
+mkdir -p ./packages/experimental/
+cd ./packages/experimental/
+git init --bare
+cd -
+
+mkdir -p ./packages/providers/DrmProvider/
+cd ./packages/providers/DrmProvider/
+git init --bare
+cd -
+
+mkdir -p ./packages/providers/TelephonyProvider/
+cd ./packages/providers/TelephonyProvider/
+git init --bare
+cd -
+
+mkdir -p ./packages/providers/CalendarProvider/
+cd ./packages/providers/CalendarProvider/
+git init --bare
+cd -
+
+mkdir -p ./packages/providers/DownloadProvider/
+cd ./packages/providers/DownloadProvider/
+git init --bare
+cd -
+
+mkdir -p ./packages/providers/ContactsProvider/
+cd ./packages/providers/ContactsProvider/
+git init --bare
+cd -
+
+mkdir -p ./packages/providers/GoogleContactsProvider/
+cd ./packages/providers/GoogleContactsProvider/
+git init --bare
+cd -
+
+mkdir -p ./packages/providers/UserDictionaryProvider/
+cd ./packages/providers/UserDictionaryProvider/
+git init --bare
+cd -
+
+mkdir -p ./packages/providers/ApplicationsProvider/
+cd ./packages/providers/ApplicationsProvider/
+git init --bare
+cd -
+
+mkdir -p ./packages/providers/MediaProvider/
+cd ./packages/providers/MediaProvider/
+git init --bare
+cd -
+
+mkdir -p ./packages/wallpapers/MagicSmoke/
+cd ./packages/wallpapers/MagicSmoke/
+git init --bare
+cd -
+
+mkdir -p ./packages/wallpapers/HoloSpiral/
+cd ./packages/wallpapers/HoloSpiral/
+git init --bare
+cd -
+
+mkdir -p ./packages/wallpapers/MusicVisualization/
+cd ./packages/wallpapers/MusicVisualization/
+git init --bare
+cd -
+
+mkdir -p ./packages/wallpapers/LivePicker/
+cd ./packages/wallpapers/LivePicker/
+git init --bare
+cd -
+
+mkdir -p ./packages/wallpapers/Galaxy4/
+cd ./packages/wallpapers/Galaxy4/
+git init --bare
+cd -
+
+mkdir -p ./packages/wallpapers/PhaseBeam/
+cd ./packages/wallpapers/PhaseBeam/
+git init --bare
+cd -
+
+mkdir -p ./packages/wallpapers/Basic/
+cd ./packages/wallpapers/Basic/
+git init --bare
+cd -
+
+mkdir -p ./packages/wallpapers/NoiseField/
+cd ./packages/wallpapers/NoiseField/
+git init --bare
+cd -
+
+mkdir -p ./docs/source.android.com
+cd ./docs/source.android.com
+git init --bare
+cd -
+
+mkdir -p ./build/
+cd ./build/
+git init --bare
+cd -
+
+mkdir -p ./hardware/libhardware_legacy/
+cd ./hardware/libhardware_legacy/
+git init --bare
+cd -
+
+mkdir -p ./hardware/ti/omap3/
+cd ./hardware/ti/omap3/
+git init --bare
+cd -
+
+mkdir -p ./hardware/ti/omap4xxx/
+cd ./hardware/ti/omap4xxx/
+git init --bare
+cd -
+
+mkdir -p ./hardware/qcom/media/
+cd ./hardware/qcom/media/
+git init --bare
+cd -
+
+mkdir -p ./hardware/qcom/gps/
+cd ./hardware/qcom/gps/
+git init --bare
+cd -
+
+mkdir -p ./hardware/ril/
+cd ./hardware/ril/
+git init --bare
+cd -
+
+mkdir -p ./hardware/broadcom/wlan/
+cd ./hardware/broadcom/wlan/
+git init --bare
+cd -
+
+mkdir -p ./hardware/msm7k/
+cd ./hardware/msm7k/
+git init --bare
+cd -
+
+mkdir -p ./hardware/invensense/
+cd ./hardware/invensense/
+git init --bare
+cd -
+
+mkdir -p ./hardware/libhardware/
+cd ./hardware/libhardware/
+git init --bare
+cd -
+
+mkdir -p ./sdk/
+cd ./sdk/
+git init --bare
+cd -
+
+mkdir -p ./abi/cpp/
+cd ./abi/cpp/
+git init --bare
+cd -
+
+mkdir -p ./prebuilt/
+cd ./prebuilt/
+git init --bare
+cd -
+
+mkdir -p ./external/apache-xml/
+cd ./external/apache-xml/
+git init --bare
+cd -
+
+mkdir -p ./external/libvpx/
+cd ./external/libvpx/
+git init --bare
+cd -
+
+mkdir -p ./external/protobuf/
+cd ./external/protobuf/
+git init --bare
+cd -
+
+mkdir -p ./external/neven/
+cd ./external/neven/
+git init --bare
+cd -
+
+mkdir -p ./external/libnl-headers/
+cd ./external/libnl-headers/
+git init --bare
+cd -
+
+mkdir -p ./external/oprofile/
+cd ./external/oprofile/
+git init --bare
+cd -
+
+mkdir -p ./external/bsdiff/
+cd ./external/bsdiff/
+git init --bare
+cd -
+
+mkdir -p ./external/tremolo/
+cd ./external/tremolo/
+git init --bare
+cd -
+
+mkdir -p ./external/libxslt/
+cd ./external/libxslt/
+git init --bare
+cd -
+
+mkdir -p ./external/blktrace/
+cd ./external/blktrace/
+git init --bare
+cd -
+
+mkdir -p ./external/webkit/
+cd ./external/webkit/
+git init --bare
+cd -
+
+mkdir -p ./external/easymock/
+cd ./external/easymock/
+git init --bare
+cd -
+
+mkdir -p ./external/android-mock/
+cd ./external/android-mock/
+git init --bare
+cd -
+
+mkdir -p ./external/guava/
+cd ./external/guava/
+git init --bare
+cd -
+
+mkdir -p ./external/tagsoup/
+cd ./external/tagsoup/
+git init --bare
+cd -
+
+mkdir -p ./external/wpa_supplicant/
+cd ./external/wpa_supplicant/
+git init --bare
+cd -
+
+mkdir -p ./external/liblzf/
+cd ./external/liblzf/
+git init --bare
+cd -
+
+mkdir -p ./external/bluetooth/bluez/
+cd ./external/bluetooth/bluez/
+git init --bare
+cd -
+
+mkdir -p ./external/bluetooth/hcidump/
+cd ./external/bluetooth/hcidump/
+git init --bare
+cd -
+
+mkdir -p ./external/bluetooth/glib/
+cd ./external/bluetooth/glib/
+git init --bare
+cd -
+
+mkdir -p ./external/libffi/
+cd ./external/libffi/
+git init --bare
+cd -
+
+mkdir -p ./external/sqlite/
+cd ./external/sqlite/
+git init --bare
+cd -
+
+mkdir -p ./external/tinyalsa/
+cd ./external/tinyalsa/
+git init --bare
+cd -
+
+mkdir -p ./external/esd/
+cd ./external/esd/
+git init --bare
+cd -
+
+mkdir -p ./external/srec/
+cd ./external/srec/
+git init --bare
+cd -
+
+mkdir -p ./external/qemu/
+cd ./external/qemu/
+git init --bare
+cd -
+
+mkdir -p ./external/webp/
+cd ./external/webp/
+git init --bare
+cd -
+
+mkdir -p ./external/replicaisland/
+cd ./external/replicaisland/
+git init --bare
+cd -
+
+mkdir -p ./external/bouncycastle/
+cd ./external/bouncycastle/
+git init --bare
+cd -
+
+mkdir -p ./external/ping/
+cd ./external/ping/
+git init --bare
+cd -
+
+mkdir -p ./external/safe-iop/
+cd ./external/safe-iop/
+git init --bare
+cd -
+
+mkdir -p ./external/ping6/
+cd ./external/ping6/
+git init --bare
+cd -
+
+mkdir -p ./external/dropbear/
+cd ./external/dropbear/
+git init --bare
+cd -
+
+mkdir -p ./external/jhead/
+cd ./external/jhead/
+git init --bare
+cd -
+
+mkdir -p ./external/webrtc/
+cd ./external/webrtc/
+git init --bare
+cd -
+
+mkdir -p ./external/netcat/
+cd ./external/netcat/
+git init --bare
+cd -
+
+mkdir -p ./external/kernel-headers/
+cd ./external/kernel-headers/
+git init --bare
+cd -
+
+mkdir -p ./external/giflib/
+cd ./external/giflib/
+git init --bare
+cd -
+
+mkdir -p ./external/ipsec-tools/
+cd ./external/ipsec-tools/
+git init --bare
+cd -
+
+mkdir -p ./external/freetype/
+cd ./external/freetype/
+git init --bare
+cd -
+
+mkdir -p ./external/dhcpcd/
+cd ./external/dhcpcd/
+git init --bare
+cd -
+
+mkdir -p ./external/javasqlite/
+cd ./external/javasqlite/
+git init --bare
+cd -
+
+mkdir -p ./external/icu4c/
+cd ./external/icu4c/
+git init --bare
+cd -
+
+mkdir -p ./external/collada/
+cd ./external/collada/
+git init --bare
+cd -
+
+mkdir -p ./external/antlr/
+cd ./external/antlr/
+git init --bare
+cd -
+
+mkdir -p ./external/libpng/
+cd ./external/libpng/
+git init --bare
+cd -
+
+mkdir -p ./external/wpa_supplicant_6/
+cd ./external/wpa_supplicant_6/
+git init --bare
+cd -
+
+mkdir -p ./external/libphonenumber/
+cd ./external/libphonenumber/
+git init --bare
+cd -
+
+mkdir -p ./external/llvm/
+cd ./external/llvm/
+git init --bare
+cd -
+
+mkdir -p ./external/speex/
+cd ./external/speex/
+git init --bare
+cd -
+
+mkdir -p ./external/apache-harmony/
+cd ./external/apache-harmony/
+git init --bare
+cd -
+
+mkdir -p ./external/nist-sip/
+cd ./external/nist-sip/
+git init --bare
+cd -
+
+mkdir -p ./external/libpcap/
+cd ./external/libpcap/
+git init --bare
+cd -
+
+mkdir -p ./external/google-diff-match-patch/
+cd ./external/google-diff-match-patch/
+git init --bare
+cd -
+
+mkdir -p ./external/harfbuzz/
+cd ./external/harfbuzz/
+git init --bare
+cd -
+
+mkdir -p ./external/libnfc-nxp/
+cd ./external/libnfc-nxp/
+git init --bare
+cd -
+
+mkdir -p ./external/xmlwriter/
+cd ./external/xmlwriter/
+git init --bare
+cd -
+
+mkdir -p ./external/libgsm/
+cd ./external/libgsm/
+git init --bare
+cd -
+
+mkdir -p ./external/fsck_msdos/
+cd ./external/fsck_msdos/
+git init --bare
+cd -
+
+mkdir -p ./external/mockwebserver/
+cd ./external/mockwebserver/
+git init --bare
+cd -
+
+mkdir -p ./external/jpeg/
+cd ./external/jpeg/
+git init --bare
+cd -
+
+mkdir -p ./external/wpa_supplicant_8/
+cd ./external/wpa_supplicant_8/
+git init --bare
+cd -
+
+mkdir -p ./external/quake/
+cd ./external/quake/
+git init --bare
+cd -
+
+mkdir -p ./external/qemu-pc-bios/
+cd ./external/qemu-pc-bios/
+git init --bare
+cd -
+
+mkdir -p ./external/pcre/
+cd ./external/pcre/
+git init --bare
+cd -
+
+mkdir -p ./external/svox/
+cd ./external/svox/
+git init --bare
+cd -
+
+mkdir -p ./external/iproute2/
+cd ./external/iproute2/
+git init --bare
+cd -
+
+mkdir -p ./external/tcpdump/
+cd ./external/tcpdump/
+git init --bare
+cd -
+
+mkdir -p ./external/yaffs2/
+cd ./external/yaffs2/
+git init --bare
+cd -
+
+mkdir -p ./external/eyes-free/
+cd ./external/eyes-free/
+git init --bare
+cd -
+
+mkdir -p ./external/libxml2/
+cd ./external/libxml2/
+git init --bare
+cd -
+
+mkdir -p ./external/bzip2/
+cd ./external/bzip2/
+git init --bare
+cd -
+
+mkdir -p ./external/astl/
+cd ./external/astl/
+git init --bare
+cd -
+
+mkdir -p ./external/javassist/
+cd ./external/javassist/
+git init --bare
+cd -
+
+mkdir -p ./external/gtest/
+cd ./external/gtest/
+git init --bare
+cd -
+
+mkdir -p ./external/genext2fs/
+cd ./external/genext2fs/
+git init --bare
+cd -
+
+mkdir -p ./external/openssl/
+cd ./external/openssl/
+git init --bare
+cd -
+
+mkdir -p ./external/doclava/
+cd ./external/doclava/
+git init --bare
+cd -
+
+mkdir -p ./external/netperf/
+cd ./external/netperf/
+git init --bare
+cd -
+
+mkdir -p ./external/strace/
+cd ./external/strace/
+git init --bare
+cd -
+
+mkdir -p ./external/clang/
+cd ./external/clang/
+git init --bare
+cd -
+
+mkdir -p ./external/skia/
+cd ./external/skia/
+git init --bare
+cd -
+
+mkdir -p ./external/emma/
+cd ./external/emma/
+git init --bare
+cd -
+
+mkdir -p ./external/proguard/
+cd ./external/proguard/
+git init --bare
+cd -
+
+mkdir -p ./external/tinyxml/
+cd ./external/tinyxml/
+git init --bare
+cd -
+
+mkdir -p ./external/mksh/
+cd ./external/mksh/
+git init --bare
+cd -
+
+mkdir -p ./external/jdiff/
+cd ./external/jdiff/
+git init --bare
+cd -
+
+mkdir -p ./external/ppp/
+cd ./external/ppp/
+git init --bare
+cd -
+
+mkdir -p ./external/chromium/
+cd ./external/chromium/
+git init --bare
+cd -
+
+mkdir -p ./external/dbus/
+cd ./external/dbus/
+git init --bare
+cd -
+
+mkdir -p ./external/apache-http/
+cd ./external/apache-http/
+git init --bare
+cd -
+
+mkdir -p ./external/zlib/
+cd ./external/zlib/
+git init --bare
+cd -
+
+mkdir -p ./external/hyphenation/
+cd ./external/hyphenation/
+git init --bare
+cd -
+
+mkdir -p ./external/dnsmasq/
+cd ./external/dnsmasq/
+git init --bare
+cd -
+
+mkdir -p ./external/oauth/
+cd ./external/oauth/
+git init --bare
+cd -
+
+mkdir -p ./external/libyuv/
+cd ./external/libyuv/
+git init --bare
+cd -
+
+mkdir -p ./external/embunit/
+cd ./external/embunit/
+git init --bare
+cd -
+
+mkdir -p ./external/junit/
+cd ./external/junit/
+git init --bare
+cd -
+
+mkdir -p ./external/grub/
+cd ./external/grub/
+git init --bare
+cd -
+
+mkdir -p ./external/elfutils/
+cd ./external/elfutils/
+git init --bare
+cd -
+
+mkdir -p ./external/flac/
+cd ./external/flac/
+git init --bare
+cd -
+
+mkdir -p ./external/stlport/
+cd ./external/stlport/
+git init --bare
+cd -
+
+mkdir -p ./external/fdlibm/
+cd ./external/fdlibm/
+git init --bare
+cd -
+
+mkdir -p ./external/jsr305/
+cd ./external/jsr305/
+git init --bare
+cd -
+
+mkdir -p ./external/iptables/
+cd ./external/iptables/
+git init --bare
+cd -
+
+mkdir -p ./external/valgrind/
+cd ./external/valgrind/
+git init --bare
+cd -
+
+mkdir -p ./external/mtpd/
+cd ./external/mtpd/
+git init --bare
+cd -
+
+mkdir -p ./external/opencv/
+cd ./external/opencv/
+git init --bare
+cd -
+
+mkdir -p ./external/sonivox/
+cd ./external/sonivox/
+git init --bare
+cd -
+
+mkdir -p ./external/e2fsprogs/
+cd ./external/e2fsprogs/
+git init --bare
+cd -
+
+mkdir -p ./external/srtp/
+cd ./external/srtp/
+git init --bare
+cd -
+
+mkdir -p ./external/bison/
+cd ./external/bison/
+git init --bare
+cd -
+
+mkdir -p ./external/mesa3d/
+cd ./external/mesa3d/
+git init --bare
+cd -
+
+mkdir -p ./external/markdown/
+cd ./external/markdown/
+git init --bare
+cd -
+
+mkdir -p ./external/lohit-fonts/
+cd ./external/lohit-fonts/
+git init --bare
+cd -
+
+mkdir -p ./external/expat/
+cd ./external/expat/
+git init --bare
+cd -
+
+mkdir -p ./external/jsilver/
+cd ./external/jsilver/
+git init --bare
+cd -
+
+mkdir -p ./external/v8/
+cd ./external/v8/
+git init --bare
+cd -
+
+mkdir -p ./bootable/recovery/
+cd ./bootable/recovery/
+git init --bare
+cd -
+
+mkdir -p ./bootable/diskinstaller/
+cd ./bootable/diskinstaller/
+git init --bare
+cd -
+
+mkdir -p ./bootable/bootloader/legacy/
+cd ./bootable/bootloader/legacy/
+git init --bare
+cd -
+
+mkdir -p ./libcore/
+cd ./libcore/
+git init --bare
+cd -
+
+mkdir -p ./cts/
+cd ./cts/
+git init --bare
+cd -
+
+mkdir -p ./system/bluetooth/
+cd ./system/bluetooth/
+git init --bare
+cd -
+
+mkdir -p ./system/media/
+cd ./system/media/
+git init --bare
+cd -
+
+mkdir -p ./system/core/
+cd ./system/core/
+git init --bare
+cd -
+
+mkdir -p ./system/vold/
+cd ./system/vold/
+git init --bare
+cd -
+
+mkdir -p ./system/extras/
+cd ./system/extras/
+git init --bare
+cd -
+
+mkdir -p ./system/netd/
+cd ./system/netd/
+git init --bare
+cd -
+
+mkdir -p ./dalvik/
+cd ./dalvik/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/support/
+cd ./frameworks/support/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/media/libvideoeditor/
+cd ./frameworks/media/libvideoeditor/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/ex/
+cd ./frameworks/ex/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/base/
+cd ./frameworks/base/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/opt/calendar/
+cd ./frameworks/opt/calendar/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/opt/emoji/
+cd ./frameworks/opt/emoji/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/opt/vcard/
+cd ./frameworks/opt/vcard/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/opt/mailcommon/
+cd ./frameworks/opt/mailcommon/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/opt/inputmethodcommon/
+cd ./frameworks/opt/inputmethodcommon/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/compile/slang/
+cd ./frameworks/compile/slang/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/compile/linkloader/
+cd ./frameworks/compile/linkloader/
+git init --bare
+cd -
+
+mkdir -p ./frameworks/compile/libbcc/
+cd ./frameworks/compile/libbcc/
+git init --bare
+cd -
+
+mkdir -p ./device/samsung/crespo4g/
+cd ./device/samsung/crespo4g/
+git init --bare
+cd -
+
+mkdir -p ./device/samsung/maguro/
+cd ./device/samsung/maguro/
+git init --bare
+cd -
+
+mkdir -p ./device/samsung/torospr/
+cd ./device/samsung/torospr/
+git init --bare
+cd -
+
+mkdir -p ./device/samsung/tuna/
+cd ./device/samsung/tuna/
+git init --bare
+cd -
+
+mkdir -p ./device/samsung/crespo/
+cd ./device/samsung/crespo/
+git init --bare
+cd -
+
+mkdir -p ./device/samsung/toro/
+cd ./device/samsung/toro/
+git init --bare
+cd -
+
+mkdir -p ./device/moto/common/
+cd ./device/moto/common/
+git init --bare
+cd -
+
+mkdir -p ./device/moto/wingray/
+cd ./device/moto/wingray/
+git init --bare
+cd -
+
+mkdir -p ./device/moto/stingray/
+cd ./device/moto/stingray/
+git init --bare
+cd -
+
+mkdir -p ./device/generic/goldfish/
+cd ./device/generic/goldfish/
+git init --bare
+cd -
+
+mkdir -p ./device/common/
+cd ./device/common/
+git init --bare
+cd -
+
+mkdir -p ./device/ti/panda/
+cd ./device/ti/panda/
+git init --bare
+cd -
+
+mkdir -p ./device/sample/
+cd ./device/sample/
+git init --bare
+cd -
+
+mkdir -p ./device/google/accessory/arduino/
+cd ./device/google/accessory/arduino/
+git init --bare
+cd -
+
+mkdir -p ./device/google/accessory/demokit/
+cd ./device/google/accessory/demokit/
+git init --bare
+cd -
+
+mkdir -p ./bionic/
+cd ./bionic/
+git init --bare
+cd -
+
+mkdir -p ./ndk/
+cd ./ndk/
+git init --bare
+cd -
+
+mkdir -p ./development/
+cd ./development/
+git init --bare
+cd -
+
