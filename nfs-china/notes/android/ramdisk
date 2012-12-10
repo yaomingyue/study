@@ -1,0 +1,37 @@
+修改ramdisk 内容
+
+ramdisk 镜像有ramdisk.img和uramdisk.img 两种。
+
+1 解压ramdisk.img 
+   mv ramdisk.img ramdisk.img.gz
+   gunzip ramdisk.img.gz
+   mkdir tmp 
+   cd tmp
+   cpio -i -F ../ramdisk.img
+
+2 压缩ramdisk.img
+
+    cd tmp
+    find . |cpio -ov -H newc |gzip > ../ramdisk.img
+    cd ..
+    ls
+    可以看到生成的ramdisk.img文件
+ 
+ 3  
+ 解压uramdisk.img   (我的板子上名字叫 uInitrd)
+ dd if=uramdisk.img  of=ramdisk bs=64 skip=1 //转换成ramdisk.img
+ mv ramdisk ramdisk.gz
+ gunzip -v ramdisk.gz     //请注意，这里添加了参数v才可以。
+ mkdir tmp
+ cd tmp
+ cpio -idv <../ramdisk  
+
+    
+4压缩uramdisk.img 
+可以先将tmp目录压缩成ramdisk.img 之后在用mkimage做成uramdisk.img
+
+cd /temp
+find . |cpio -ov -H newc |gzip > ../ramdisk.img
+cd ..
+mkimage -A arm -O linux -T ramdisk -C none -a 0x90C00000 -n "Android Root
+Filesystem" -d ./ramdisk.img ./uramdisk.img

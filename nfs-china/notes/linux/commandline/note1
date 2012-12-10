@@ -1,0 +1,3 @@
+  1将搜索到的文件复制到指定目录kkk
+
+  find . -name *.ko -exec cp {} kkk \;
