@@ -1,0 +1,8 @@
+1 利用proc虚拟文件系统来进行内核与用户空间通信。
+    
+    例子： 在 proc.c中建立proc节点button_code，在button_code的read函数
+    中调用
+    gpio_keys_yaomoon_test函数，而该函数是gpio_key.c中通过EXPORT_SYMBOL抛出的
+    ，它的工作就是读取最近一次按键的键值.
+
+    

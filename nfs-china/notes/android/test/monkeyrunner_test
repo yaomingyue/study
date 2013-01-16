@@ -1,0 +1,53 @@
+import time
+from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice, MonkeyImage
+
+device = MonkeyRunner.waitForConnection()
+print 'device is ok'
+
+print 'test is starting'
+
+device.startActivity('com.android.browser')
+print "open browser" 
+MonkeyRunner.sleep(2)
+device.touch(211,106,"downAndUp")
+MonkeyRunner.sleep(1)
+device.type("www.163.com")
+MonkeyRunner.sleep(1)
+device.press('KEYCODE_ENTER')
+MonkeyRunner.sleep(5)
+
+
+print "browse twenty mins" 
+t = time.time()
+while True:
+    t_1 = time.time()
+    if t_1-t > 60*1:
+        print "browsing timeout" 
+        break
+    MonkeyRunner.sleep(2)
+    device.drag((371,960),(351,162),1,10)
+    MonkeyRunner.sleep(2)
+    device.drag((371,162),(351,960),1,10)
+
+print "going to sleep twenty mins" 
+device.press('KEYCODE_POWER','DOWN_AND_UP')
+t = time.time()
+while True:
+    t_1 = time.time()
+    if t_1-t > 60*1:
+        print "sleeping timeout" 
+        break
+    MonkeyRunner.sleep(2)
+
+device.wake()
+MonkeyRunner.sleep(2)
+device.drag((371,816),(351,1114),1,10)
+MonkeyRunner.sleep(2)
+
+print 'test is finished'
+
+result = device.takeSnapshot()
+result.writeToFile('./shot1.png','png')
+
+
+

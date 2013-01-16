@@ -1,0 +1,26 @@
+1 fastboot使用方法
+
+fastboot devices  当手机进入fastboot模式，连上usb，运行后显示设备
+
+./fastboot flash recovery recovery.img  刷入  recovery.img
+
+fastboot flash boot boot.img
+
+
+fastboot oem unlock   解锁bootloader (samsung nexus)
+
+fastboot boot recovery.img    不用将recovery.img刷入手机，就可以启动提供的
+                    recovery.img 
+
+
+fastboot boot kernel          同上，不用替换kernel，启动它。
+
+
+2 知识 root 和 解锁bootloader
+    bootloader是手机制造商为了防止用户刷机（保护手机硬件）
+        root是手机制造商（或发行商）阻止用户更改手机系统文件（保护手机系统）
+            而用户要获得root权限是为了更改系统文件的权限以获得更加体验（比如某些程序需要root权限才可以安装和使用）
+                安卓系统诞生时，刚开始时不知道在不解锁BL的情况下如何获得root权限，因此想通过刷机获得root权限。但是只有解锁BL才能刷机，所以那时要获得root就要先解锁。
+                    但后来高手们找到了不用解锁BL就可以获得root的权限的方法。
+                        （下面回答“要是想解锁bootloader，是不是要先root？”）
+                            解锁BL只是为了获得root权限，能不能解锁BL与有没有root权限无关，所以要解锁BL，不用先root

@@ -4,3 +4,5 @@ EXPORT_SYMBOL标签内定义的函数或者符号对全部内核代码公开，�
 module1中export_symbol(func1).
 在module2中使用函数func1。
 在module2中对func1进行了声明：extern void func1（void).
+
+

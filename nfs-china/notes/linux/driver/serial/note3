@@ -1,0 +1,6 @@
+编写串口驱动
+  1定义uart_driver ,uart_port, uart_ops结构体
+
+  2初始化并注册他们，uart_register_driver, uart_add_one_port
+
+  3 实现uart_ops上的函数
