@@ -1,0 +1,1 @@
+cmd_/home/yaomoon/work/proc_test/proc.ko := ld -r -m elf_i386 -T /usr/src/kernels/2.6.35.6-45.fc14.i686/scripts/module-common.lds --build-id -o /home/yaomoon/work/proc_test/proc.ko /home/yaomoon/work/proc_test/proc.o /home/yaomoon/work/proc_test/proc.mod.o

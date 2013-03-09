@@ -1,0 +1,55 @@
+1 关于内核中驱动的加载顺序
+
+当我们把驱动编进内核的时候，有事候我们需要优先加载某个驱动，比如
+led_init()需要在button_init 之前，我们平时加载驱动模块的方法是
+module_init（led_init）;
+module_init（button_init）;
+但这样并没有让led_init优先加载
+
+其实Linux内核为不同驱动的加载顺序对应不同的优先级，定义了一些宏：
+includelinuxinit.h
+
+#define pure_initcall(fn)   __define_initcall(“0″,fn,1)
+
+#define core_initcall(fn)   __define_initcall(“1″,fn,1)
+#define core_initcall_sync(fn)   __define_initcall(“1s”,fn,1s)
+#define postcore_initcall(fn)   __define_initcall(“2″,fn,2)
+#define postcore_initcall_sync(fn) __define_initcall(“2s”,fn,2s)
+#define arch_initcall(fn)   __define_initcall(“3″,fn,3)
+#define arch_initcall_sync(fn)   __define_initcall(“3s”,fn,3s)
+#define subsys_initcall(fn)   __define_initcall(“4″,fn,4)
+#define subsys_initcall_sync(fn) __define_initcall(“4s”,fn,4s)
+#define fs_initcall(fn)    __define_initcall(“5″,fn,5)
+#define fs_initcall_sync(fn)   __define_initcall(“5s”,fn,5s)
+#define rootfs_initcall(fn)   __define_initcall(“rootfs”,fn,rootfs)
+#define device_initcall(fn)   __define_initcall(“6″,fn,6)
+#define device_initcall_sync(fn) __define_initcall(“6s”,fn,6s)
+#define late_initcall(fn)   __define_initcall(“7″,fn,7)
+#define late_initcall_sync(fn)   __define_initcall(“7s”,fn,7s)
+
+#define __initcall(fn) device_initcall(fn)
+
+其中，我们写驱动中所用到的module_init对应的是
+#define module_init(x) __initcall(x);
+而
+#define __initcall(fn) device_initcall(fn)
+所以，驱动对应的加载的优先级为6
+
+所以我们想让led_init优先加载的话，就用优先级为5的fs_initcall();函数加载
+即  
+fs_initcall(led_init);  优先级5
+module_init（button_init）;优先级6
+
+2 别的做法
+    参考了楼主的做法。不过下面的做更简单：
+    1. 如果要使用自己的驱动后于系统驱动加载：将 module_init(your_init_func) 改为
+    late_initcall(your_init_func)
+     2. 如果自己有多个驱动driver1, driver2, …,
+     要按顺序加载：把所有驱动文件（已作为.ko已事先调好，不必再修改）拷到同一目录（如
+     drivers/char )，修改Makefile, 按顺序加入:
+
+     obj-y += driver1.o
+
+     obj-y += driver2.o
+
+     驱动在目标文件中的顺序与.o文件在目录项中的顺序一致。先生成的文件其目录项一般应在前面，在目标文件中也靠前。只要不在生成之后调整Make顺序，这样做就是有效的

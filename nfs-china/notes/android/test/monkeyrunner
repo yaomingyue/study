@@ -1,0 +1,19 @@
+monkeyrunner工具提供了一个API，使用此API写出的程序可以在Android代码之外控制Android设备和模拟器。通过
+monkeyrunner，您可以写出一个Python程序去安装一个Android应用程序或测试包，运行它，向它发送模拟击键，截取它的用户界面图片，并将截图存储于工作站上。monkeyrunner工具的主要设计目的是用于测试功能/框架水平上的应用程序和设备，或用于运行单元测试套件，但您当然也可以将其用于其它目的。
+
+
+2 monkeyrunner 用法
+
+一般android源码中编译了monkeyrunner 在
+/out/host/linux-x86/bin目录中
+
+monkeyrunner主要运行编写好的python脚本，有一个简单的方法，可以想录制宏一样
+录制你的操作，他会生成一个录制好的python脚本，之后执行这个脚本就行了，达到自动化测试用户操作的目的。
+
+下载monkey_recorder.py和monkey_playback.py ，   地址 http://115.com/file/e6r0sln9#
+在 /out/host/linux-x86/bin 中运行
+ $./monkeyrunner monkey_recorder.py
+      之后会出现一个界面，里边就是你的设备，可以用鼠标操作这个设备，同时右边的框中会出现你每次的操作生成的代码，之后导出你的代码到一个py文件中，
+ 
+ ./monkeyrunner monkey_playback.py yaomoon.py   yaomoon.py
+ 就是我的python文件。运行后就是刚才录制的一系列操作

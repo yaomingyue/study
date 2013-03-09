@@ -1,0 +1,37 @@
+1 misc 设备
+    gt2440中的led和button都是用misc设备写的驱动
+    misc设备结构
+    struct miscdevice  {
+        int minor;   只有次设备号，主设备号给定 10
+        const char *name;
+        const struct file_operations *fops;
+        struct list_head list;  内核自己会维护一个misc_list链表，所有注册
+                                为misc的设备都必须挂在这个链表上，list_head
+                                是该链表的头
+        struct device *parent;  两个device结构，misc设备注册是会指定父设备，
+                                这样在device_create后就在sys下其父设备下就有
+                                该设备了。
+        struct device *this_device;
+     };
+
+ 2 misc_register  
+    编写misc驱动时，定义了miscdevice结构，用misc_register注册后就可以使用了。
+    misc_register作用： 
+    1 获取次设备号，
+    2 想内核注册设备
+    3 将新设备编入链表。
+    其中注册设备用  devices_create函数
+ 
+ 3 devices_create
+我们刚开始写linux驱动时，很多的时候都是利用mknod命令手动创建节点。
+实际上linux内核为我们提供了一组函数，可以用来在模块加载的时候自动在
+/dev目录下创建设备节点。并在我们卸载模块的是删除节点。这一切都需要
+udev的帮忙。
+内核中定义了struct class结构体，一个结构体对应一个类，同时提供了
+class_create 函数用来创建一个类， misc 设备在misc_init 中就创建了
+misc_class类。这个类存放在sysfs下面。一旦创建好了这个类，再调用
+ device_create函数在sys目录下创建相应节点。创建规则如下:
+ 对于没有指定dev->parent的dev都将被添加到/sys/devices/virtual/tty/目录下,如果指定了dev->parent,那么同时该dev->class存在,同时parent->class存在,那么该dev->name目录将被添加到parent->class所在目录下
+ 这样，加载模块的时候，用过空间的udev会自动响应，去sysfs下寻找对应的类，
+ 之后在dev下创建相应设备节点。
+  devices_create 中会调用 device_register想系统注册该设备

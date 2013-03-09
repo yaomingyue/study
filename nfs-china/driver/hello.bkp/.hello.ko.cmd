@@ -1,0 +1,1 @@
+cmd_/home/yaomoon/study/nfs-china/driver/hello/hello.ko := ld -r -m elf_i386 -T /usr/src/kernels/2.6.35.6-45.fc14.i686/scripts/module-common.lds --build-id -o /home/yaomoon/study/nfs-china/driver/hello/hello.ko /home/yaomoon/study/nfs-china/driver/hello/hello.o /home/yaomoon/study/nfs-china/driver/hello/hello.mod.o

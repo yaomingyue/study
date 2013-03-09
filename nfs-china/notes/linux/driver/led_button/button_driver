@@ -1,0 +1,53 @@
+linux button驱动
+1 字符设备驱动注册及编写过程
+	老的模式
+	register_chrdev  只用到设备号和file_operation结构体，系统会自己设置cdev结构体，所以相对简单，我们要做的就少，只是写驱动函数就行了。
+	
+	新的模式
+	register_chrddev_region 只是申请了设备号，cdev机构需要自己设置。
+	注册过程
+	1 MKDEV 通过主次设备号生成一个dev_t的结构体， 该结构表示要向系统申请的主次设备号。
+	2 register_chrdev_region 想系统申请设备号
+	3 Kalloc 申请结构数据内存
+	4 完成cdev结构，里边有name和file_operation  
+	5   完成file_operation结构
+	6 cdev_init 初始化cdev成员，并建立cdev和file_operation的链接
+	7 cdev_add 向系统添加一个cdev设备， 参数是cdev结构和申请的设备号。
+
+2linux 字符设备（buttong） 为设备实现一个中断包含的步骤
+	1 向系统注册，（申请中断) register_irq ，参数包括中断号，中断处理函数，触发方式等。
+	
+	2实现中断处理函数
+3 linux 内核中对arm中断处理机制
+	1 kernel在start_kernel函数时会调用init_IRO   来初始化中断。设置各种默认中断处理函数。
+	
+	2 中断结构体 irq_desc结构。 每个结构体对应一个中断
+	其成员主要有
+	中断名称
+	中断状态
+	中断标记
+	中断底层访问函数  chip  （包括 清除，屏蔽，使能中断) 掉request_irq 时系统会使用这些函数
+	用户中断处理函数链表 action  request_irq是会将用户中断处理函数编入该链表
+   
+	3 调用request_irq的成果
+	（1） 将用户注册的中断处理函数连入irq_desc中的action链表
+	（2） 设置好触发方式，用request_irq中的相关函数设置
+	（3） 中断已经被初始化
+
+       调用request_irq之后就可以发生并处理中断了。
+4 gt2440中的buttong驱动
+	在 driver/char/的 gt_buttong.c中，使用标准字符设备来写的。
+5 android （panda板子)中的buttong驱动
+	用platform设备总线写的
+	1 platform设备注册方式
+		定义platform_device结构，
+		用platform_device_register注册为platform设备
+		定义platform_driver结构
+		将probe，remove等驱动函数放入该结构
+		用platform_driver_register注册为platform驱动
+		platform_device 和 platform_driver 通过platform_match 来匹配，主要是看两个结构的name字段是否一致
+	2  panda中button驱动的platform_device 在 arch/arm/match_omap2/board_omap4.c中定义
+	而其platform驱动在  driver/input/keyboard/gpio_key.c中定义
+	gpio_key.c中基于input架构实现了一个通用的GPIO按键驱动，它将相关硬件信息（使用的GPIO号，按下和抬起时的电平等）屏蔽在板文件 platform_device的platform_data中。该驱动适用于各个处理器。所以panda适用了该驱动，只需在板文件中定义platfomr_device 和platform_data,然后添加注册设备。
+
+	3 platform_device 和platform_driver没定义在一个模块里，所以应该是两个模块加载后，系统在匹配设备和驱动。
