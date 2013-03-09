@@ -1,0 +1,9 @@
+
+1 通过环境变量给成寻传值
+
+char *name;
+name = getenv("MOON");
+printf("MOON:%s",name);
+
+这样通过  
+export MOON=yao 就可以给环境变量赋值，之后程序就可以读了
