@@ -35,3 +35,10 @@ git banch 查看当前本地所有分支
    git commit -a -m "modify"
    git push
 
+
+四版本控制
+  git tag n1 给当前的版本器个别名，
+  git tag n2 5eef456f4e20562e6e32dd6d49ee262818e050af
+  给某个版本起个别名
+
+  git checkout n1 回到n1版本

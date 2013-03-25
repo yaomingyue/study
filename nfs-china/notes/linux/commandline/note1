@@ -1,3 +1,6 @@
   1将搜索到的文件复制到指定目录kkk
 
   find . -name *.ko -exec cp {} kkk \;
+
+  2 查看目录中c文件总行数
+  find . -name  "*.c"  | xargs wc -l

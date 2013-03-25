@@ -11,6 +11,7 @@ shoplist.append('rice')
 
 print shoplist 
 
+del shoplist[2]
 shoplist.sort()
 print shoplist 
 

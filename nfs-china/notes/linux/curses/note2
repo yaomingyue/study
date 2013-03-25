@@ -1,0 +1,9 @@
+111输入字符串
+
+ 41     mvaddstr(2,3,"   ");
+ 42     mvscanw(2,3,"%s",name);
+ 43 
+ 44     mvprintw(2,19,"%s",name);
+ 45 
+ 46     refresh();
+

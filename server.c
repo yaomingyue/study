@@ -29,7 +29,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-#define SERVER_PORT		20000
+#define SERVER_PORT		20001
 #define BUFFER_SIZE		256
 
 char buffer[BUFFER_SIZE];
@@ -121,10 +121,13 @@ int main(void)
 			printf("client port: %d\n", ntohs(client.sin_port));
 		}
 
+    int k = 0;
 		// receive from client
 		while((len = recv(client_sock, buffer, BUFFER_SIZE, 0)) > 0)
 //		while((len = read(client_sock, buffer, BUFFER_SIZE)) > 0)
 		{
+            printf("receive wake_lock state%d:%s\n",k,buffer);
+            k++;
 			// Quit flag
 			if(buffer[0] == '.') break;	
 		
@@ -138,6 +141,7 @@ int main(void)
 			// send back to client
 			n = send(client_sock, buffer, len, 0);
 //			n = write(client_sock, buffer, len);
+            memset(buffer,0,sizeof(buffer));
 		}
 	
 		close(client_sock);

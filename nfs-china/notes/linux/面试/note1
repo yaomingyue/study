@@ -1,0 +1,74 @@
+1 在C++环境下使用C函数的时候,要加extern "C" 修饰
+
+C++语言在编译的时候为了解决函数的多态问题，会将函数名和参数联合起来生成一个中间的函数名称，而C语言则不会，因此会造成链接时找不到对应函数的情况，此时C函数就需要用extern
+“C”进行链接指定，这告诉编译器，请保持我的名称，不要给我生成用于链接的中间函数名。
+
+二 getmemory 问题
+    
+1    getmemory(char *p) 
+    {
+        p = (char *)malloc(100);
+        strcpy(p, "hello");
+    }
+    char *str = NULL;
+    getmemory(str);
+
+    printf("%s\n",str);
+    getmemory传进去的是str的值，不是地址，所有str还是NULL，printf是会报断错误
+    
+    2 getmemory2(char **p)
+    {
+        *p = (char *)malloc(100);
+        strcpy(*p, "hello");
+    }
+    char *str = NULL;
+    getmemory2(&str);
+
+    printf("%s",str);
+
+    getmemory2传进去的是str的地址，这样str就能正常获取分配内存.注意，malloc
+    分配的内存中不一定都是0，但strcpy 拷贝完后会在str结尾加上一个‘\0'
+
+    3char *getmemory3(void)
+    {
+        char *p = "helloworld";
+        return p;
+    }
+    char *str = NULL;
+    str = getmemory3();
+
+    printf("%s",str);
+    能正常输出helloworld，但这样获得地址不被鼓励，因为该地中在静态存储区，
+    该能存生存周期是整个程序运行周期，但该内存是只读的。
+
+    4char *getmemory4(void)
+    {
+        char p[] = "hello";
+        return p;
+    }
+    char *str = NULL;
+    str = getmemory4();
+
+    printf("%s",str);
+
+    输出不确定，乱码， 因为p指向的地址在函数调用完后已经释放掉了。
+
+
+ 
+三  关于 自加
+    
+    a = 4； 分别执行下边四个表达式后，a的结果
+
+    a += (a++)  a 等于9 ，
+    a += (++a)  a = 10
+
+   （a++) += a; 报错 赋值运算的左操作数必须是左值
+    (++a) += (a++);报错 赋值运算的左操作数必须是左值
+    
+
+
+
+
+
+
+

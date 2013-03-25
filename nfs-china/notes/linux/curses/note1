@@ -1,0 +1,72 @@
+1 百科 。Ncurses 提供字符终端处理库，包括面板和菜单
+
+2 如何使用和编译
+使用前需要将cureses.h引用进来。
+编译时
+gcc [file.c] -lcurses
+
+3 用curses编程，使用他的一切命令前，需要利用initscr()这个函式来开启 curses
+模式.
+相对的，在结束 curses 模式前 ( 通常在您结束程序前 ) 也必须以endwin()来关
+闭curses 模式.
+
+void init(void)
+{
+    initscr(); //启动curses
+    cbreak();
+    keypad(stdscr,TRUE);
+    noecho();
+}
+int main(int argc, const char *argv[])
+{
+    int i;
+
+    int x_max,y_max;
+    init(); //初始化
+    getmaxyx(stdscr,y_max,x_max); //获得边界值
+    mvprintw(y_max-10,1,"Press F2 toexit.");// 在一个位置打印字符串
+    mvprintw(10,1,"hello everyone");
+    refresh();// 每刷新一次，之前写入的才能显示在屏幕上
+
+    for (i = 0; i < 10
+            ; i++) 
+    {
+        mvaddch(7,40+i-1,' ');// 将某个位置上的字符用空格替换
+        mvaddch(7,40+i,'*');
+        refresh();
+        sleep(1);
+    }
+    while(1);
+
+
+    endwin();//关闭curses
+
+    return
+        0;
+}
+
+333 curses 窗口操作
+比如标准屏幕刷新用 refresh()  函数，而窗口刷新却是通过 wrefresh()
+进行，wrefresh()
+有一个指针用来指向需要刷新的窗口。当它调用的时候，屏幕上只有代表窗口的部分才会进行刷新，标准屏幕的其余部分并不会刷新
+
+
+4 新建窗口并且设置背景
+
+    WINDOW *state;
+    WINDOW *error;
+
+    init_curses(); 
+    getmaxyx(stdscr, y_max,x_max);
+    init_pair(1,COLOR_WHITE,COLOR_BLUE);
+    init_pair(2,COLOR_BLUE,COLOR_WHITE);
+    state = subwin(stdscr,y_max/3*2,x_max/3,0,x_max/3*2);//建立stdscr的字窗口
+    error = newwin(y_max/3-1,0,y_max/3*2-1,0);//建立新的独立窗口
+
+     wbkgd(state,COLOR_PAIR(1));
+     //给新建的窗口设置背景，init_pair相当于调色，wbkgd相当于设置 
+     wbkgd(error,COLOR_PAIR(2));
+
+         refresh(); 刷新stdscr，连其子窗口都刷新，可以显示出来
+         wrefresh(error);   刷新error窗口
+

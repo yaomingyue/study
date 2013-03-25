@@ -1,0 +1,18 @@
+1编译
+gcc -g main.c
+
+2 设断点
+b 行号或者函数名
+info b   查看所有断点
+d 断点号  删除断点
+
+3 运行 
+    r 全速运行
+    n 单步运行，不跟人函数
+    s 跟入函数
+
+
+4 查看变量
+
+display b  查看变量b的值
+display queue.b 
