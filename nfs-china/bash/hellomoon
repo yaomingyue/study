@@ -1,1 +1,33 @@
-moon
+#!/bin/sh
+#!/system/bin/sh
+
+#echo -n input :
+#read -e MOON
+#echo $MOON
+#sudo minicom -D /dev/ttyS0
+#sudo echo "pu port             /dev/ttyS5" > zz
+
+#[ -f "$scenfile" ] || scenfile="$LTPROOT/runtest/$scenfile"
+
+hello()
+{
+echo "this script will exit"
+exit 0
+}
+trap 'hello' SIGINT
+
+while [ 0 ]
+do
+    echo -n "plz input a num :"
+    read -e NUM
+
+    if [ $NUM -gt 0 -a $NUM -lt 10 ]
+    then
+    echo "this is a test"
+    else
+    echo "not a "
+    fi
+done
+
+
+echo $(($nu+$kk))

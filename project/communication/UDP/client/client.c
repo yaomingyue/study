@@ -27,7 +27,15 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
+<<<<<<< HEAD
 #define SERVER_PORT		9100
+=======
+<<<<<<< HEAD
+#define SERVER_PORT		8100
+=======
+#define SERVER_PORT		7100
+>>>>>>> d0cc73cff2742688337122f34cb71af6eacfbacb
+>>>>>>> 1063dc4d3afeb3ba7d351d876629ae175b3e58fe
 #define BUFFER_SIZE		256
 
 char buffer[BUFFER_SIZE];
