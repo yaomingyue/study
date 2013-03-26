@@ -1,0 +1,7 @@
+hal 层的power.c
+
+当powermanagerservice 识别到 PARTIAL_WAKE_LOCK时，只是调用power的
+acquirewakelock，
+
+acquire_wake_lock()  中会打开 /sys/power下的wake_lock 写入 powermanagerservice
+就是获得了PARTIAL_WAKE_LOCK锁，系统不能就让睡眠

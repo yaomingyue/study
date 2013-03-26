@@ -28,7 +28,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-#define SERVER_PORT		20002
+#define SERVER_PORT		20001
 #define BUFFER_SIZE		256
 
 char buffer[BUFFER_SIZE];
@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
 	int client_sock;
 	socklen_t server_len;
 	struct sockaddr_in server;
+    FILE *fp;
 
 	if(argc < 2)
 	{
@@ -86,30 +87,27 @@ int main(int argc, char *argv[])
 	// communication with server
 	while(1)
 	{
+        sleep(1);
 		// write to screen
 		n = write(STDOUT_FILENO, ">  ", 3);
 //		n = write(fileno(stdout), ">  ", 3);
 	
-		// read from keyboard	
-		if((len = read(STDIN_FILENO, buffer, BUFFER_SIZE)) > 0)
-//		if((len = read(fileno(stdin), buffer, BUFFER_SIZE)) > 0)
-		{
-			// send to server
-			n = send(client_sock, buffer, len, 0);
-//			n = write(client_sock, buf, len);
-		}
+        fp = fopen("/sys/power/wake_lock","r");
+        if(!fp)
+        {
+            printf("error:%d\n",errno);
+        }
 
-		// Quit flag	
-	 	if(buffer[0] == '.') break;
+        memset(buffer,0,sizeof(buffer)); 
+        len = fread(buffer,100,1,fp);
+        len = strlen(buffer);
+	    n = send(client_sock, buffer, len, 0);
+        printf("%d  %s\n",len,buffer);
+        fclose(fp);
+
+
 
 		// receive message from server	
-		if((len = recv(client_sock, buffer, len, 0)) > 0)
-//		if((len = read(client_sock, buffer, len)) > 0)
-		{
-			// write to screen
-			n =	write(STDOUT_FILENO, buffer, len);
-//			n =	write(fileno(stdout), buffer, len);
-		}
 	} 
 
 	close(client_sock);

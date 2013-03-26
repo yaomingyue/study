@@ -16,7 +16,7 @@ exit 0
 }
 trap 'hello' SIGINT
 
-while [ 0 ]
+while [ 1 ]
 do
     echo -n "plz input a num :"
     read -e NUM

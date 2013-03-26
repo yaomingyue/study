@@ -1,0 +1,22 @@
+
+1 RIL.java中的Message
+RIL.java
+中的dial（）中用RILRequest.obtain获取了一个RILRequest对象（就是相当new出来的）
+如下：
+RILRequest rr = RILRequest.obtain(RIL_REQUEST_DIAL, result);
+………………
+ send(rr);
+
+send（）中调用了如下
+msg = mSender.obtainMessage(EVENT_SEND, rr);
+其中mSender继承了Handler类，也就继承了Handler的obtainMessage方法。其中Handler的obtainMessage方法其实是调用了Message.obtain来完成一个Message对象的获取。
+如下：
+Message.obtain(this, what, obj);
+其中mSender中的RILRequest rr就是 其中的obj参数。
+obj是Object类型的任意对象
+这里的RILRequest是RIL请求消息
+
+2 其他线程给主线程发消息时
+首先
+postRunnable设为false，表示不通过Runnable方式进行消息相关的操作。然后启动线程noLooerThread，
+然后以主线程的Looper对象为参数建立EventHandler的对象mNoLooperThreadHandler，然后获取一个Message并把一个字符串赋值给它的一个成员obj，然后通过mNoLooperThreadHandler把消息发送到主线程的MessageQueue中。 

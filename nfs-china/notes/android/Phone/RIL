@@ -1,0 +1,27 @@
+1
+在 PhoneFactory.java 中
+static private CommandsInterface sCommandsInterface = null;
+……………………
+sCommandsInterface = new RIL(context, networkMode, cdmaSubscription);
+
+其中CommandsInterface是个interface（接口），这样好像就是将RIL中实现的方法
+(如dial等）给了sCommandsInterface。 而RIL类implements了CommandsInterface
+如下：
+public final class RIL extends BaseCommands implements CommandsInterface
+
+之后
+  sProxyPhone = new PhoneProxy(new GSMPhone(context,
+  sCommandsInterface, sPhoneNotifier));
+
+将sCommandsInterface对象传到了GSMPhone对象中
+
+这样gsm/GsmCallTracker.java中的dial（）方法中调用cm.dial()
+cm.dial(pendingMO.address, clirMode, uusInfo, obtainCompleteMessage());
+
+而cm是个public CommandsInterface cm;
+并且在GsmCallTracker的构造函数中有
+    GsmCallTracker (GSMPhone phone) {
+         this.phone = phone;
+         cm = phone.mCM;
+而GSMPhone继承的PhoneBase类中有public CommandsInterface mCM;
+         ………………

@@ -1,0 +1,8 @@
+
+/sys/power 下接口
+echo mem /sys/power/state，可以使系统进入休眠 
+echo on /sys/power/state，唤醒
+
+cat /sys/power/wake_lock   看都有什么样的锁
+
+echo lock_name > wake_unlock  解相应的锁
