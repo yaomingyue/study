@@ -1,0 +1,50 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADDR	client.c	14;"	d	file:
+BAR	curses.c	13;"	d	file:
+BUFFER_SIZE	client.c	16;"	d	file:
+Create_win	curses.c	/^void Create_win(struct window *win, int size_y, int size_x, int y, int x)$/;"	f
+PANEL	curses.c	12;"	d	file:
+SERVER_PORT	client.c	15;"	d	file:
+bar	curses.c	/^struct window bar[3];$/;"	v	typeref:struct:window
+buffer	client.c	/^char buffer[BUFFER_SIZE];$/;"	v
+chat_info	curses.c	/^struct chat_info{$/;"	s	file:
+contact	curses.c	/^struct window contact;$/;"	v	typeref:struct:window
+content	curses.c	/^    void **content;$/;"	m	struct:window	file:
+debug	curses.c	16;"	d	file:
+debug	curses.h	2;"	d
+displayString	client.c	/^void displayString(char *str)$/;"	f
+display_win	curses.c	/^void display_win(struct window *win)$/;"	f
+draw_bottom	curses.c	/^void draw_bottom(void)$/;"	f
+element	curses.c	/^    struct element *element;$/;"	m	struct:window	typeref:struct:window::element	file:
+element	curses.c	/^struct element{$/;"	s	file:
+error_exit	client.c	/^void error_exit(void)$/;"	f
+fill_contact	curses.c	/^void fill_contact(char *name, char *value)$/;"	f
+fill_element	curses.c	/^struct element *fill_element(struct element *pre, char *key, char *value )$/;"	f
+fill_input	curses.c	/^void fill_input(char *name, char *value)$/;"	f
+fill_scene	curses.c	/^void fill_scene(char *line)$/;"	f
+getString	client.c	/^int getString(char *str)$/;"	f
+info	curses.c	/^char info[255];$/;"	m	struct:chat_info	file:
+init_curses	curses.c	/^void init_curses(void)$/;"	f
+input	curses.c	/^struct window input;$/;"	v	typeref:struct:window
+key	curses.c	/^    char key[50];$/;"	m	struct:element	file:
+main	client.c	/^int main(int argc, char *argv[])$/;"	f
+moon_log	curses.c	/^FILE *moon_log;$/;"	v
+moon_str	curses.c	/^void moon_str(char *line)$/;"	f
+name	curses.c	/^    char name[10];$/;"	m	struct:window	file:
+name	curses.c	/^char name[50];$/;"	m	struct:chat_info	file:
+next	curses.c	/^    struct element *next;$/;"	m	struct:element	typeref:struct:element::element	file:
+refresh_contact	curses.c	/^void refresh_contact(void)$/;"	f
+scene	curses.c	/^struct window scene;$/;"	v	typeref:struct:window
+size_x	curses.c	/^    int size_x;$/;"	m	struct:window	file:
+size_y	curses.c	/^    int size_y;$/;"	m	struct:window	file:
+tablet_str	curses.c	/^void tablet_str(char *str)$/;"	f
+value	curses.c	/^    char value[100];$/;"	m	struct:element	file:
+win	curses.c	/^    WINDOW *win;$/;"	m	struct:window	file:
+window	curses.c	/^struct window{$/;"	s	file:
+x	curses.c	/^    int x;$/;"	m	struct:window	file:
+y	curses.c	/^    int y;$/;"	m	struct:window	file:

@@ -1,0 +1,9 @@
+
+linux 下访问windows文件
+ 在windows下建立共享文件夹，设置权限可以让网络用户修改文件。
+ 再linux安装
+ Installing  : samba-common 
+ Installing  : samba-client 
+ 之后mount
+ mount //192.168.0.3/fedora /mnt/share 
+ 之后输入密码后就可以访问windows上的fedora目录了，
