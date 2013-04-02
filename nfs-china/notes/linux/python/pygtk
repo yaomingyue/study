@@ -1,0 +1,10 @@
+学习pygtk
+
+    try:
+        self.set_icon_from_file("web.png")
+    except Exception, e:
+        print e.message
+        sys.exit(1)
+
+    python中的异常处理。
+

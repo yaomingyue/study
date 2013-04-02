@@ -1,0 +1,5 @@
+1 /dev下找不到 dsp 
+手动创建一下
+mknod /dev/dsp c 14 3
+然后赋予普通用户权限就可以了。
+chmod 666 /dev/dsp 
